@@ -55,12 +55,20 @@ function loadNavbar() {
         <style>
             /* SchoolBlocks Navbar Styles */
             .header-top {
+                background: white;
                 border-bottom: 1px solid #e0e0e0;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                position: sticky;
+                position: fixed;
                 top: 0;
+                left: 0;
+                right: 0;
                 z-index: 1000;
                 width: 100%;
+            }
+            
+            /* Add padding to body to account for fixed navbar */
+            body {
+                padding-top: 80px;
             }
             
             .navbar-container {
@@ -177,6 +185,7 @@ function loadNavbar() {
                 height: 3px;
                 background: #333;
                 transition: all 0.3s ease;
+                transform-origin: center;
             }
             
             .get-started-btn {
@@ -316,7 +325,7 @@ function loadNavbar() {
                 }
                 
                 .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
-                    transform: rotate(45deg) translate(6px, 6px);
+                    transform: translateY(7px) rotate(45deg);
                 }
                 
                 .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
@@ -324,7 +333,7 @@ function loadNavbar() {
                 }
                 
                 .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
-                    transform: rotate(-45deg) translate(6px, -6px);
+                    transform: translateY(-7px) rotate(-45deg);
                 }
             }
         </style>
