@@ -9,6 +9,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="Photos/Logo/Logo.png">
     
+    <!-- Three.js for premium particle effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
     <!-- Main Styles -->
     <style>
         * {
@@ -30,7 +33,7 @@
         
         /* Hero Section */
         .hero {
-            background: #90CAF9;
+            background: linear-gradient(135deg, #90CAF9 0%, #64B5F6 50%, #42A5F5 100%);
             color: white;
             padding: 0;
             position: relative;
@@ -38,6 +41,108 @@
             height: 75vh;
             max-height: 75vh;
             box-sizing: border-box;
+        }
+        
+        /* Particle Canvas */
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* Animated Drips */
+        .drip-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .drip {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: drip-fall linear infinite;
+            opacity: 0;
+        }
+        
+        .drip:nth-child(1) { left: 10%; animation-duration: 3s; animation-delay: 0s; width: 8px; height: 12px; }
+        .drip:nth-child(2) { left: 25%; animation-duration: 4s; animation-delay: 1s; width: 6px; height: 10px; }
+        .drip:nth-child(3) { left: 40%; animation-duration: 3.5s; animation-delay: 2s; width: 10px; height: 15px; }
+        .drip:nth-child(4) { left: 60%; animation-duration: 4.5s; animation-delay: 0.5s; width: 7px; height: 11px; }
+        .drip:nth-child(5) { left: 75%; animation-duration: 3.8s; animation-delay: 1.5s; width: 9px; height: 13px; }
+        .drip:nth-child(6) { left: 90%; animation-duration: 4.2s; animation-delay: 2.5s; width: 5px; height: 8px; }
+        
+        @keyframes drip-fall {
+            0% {
+                top: -20px;
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            10% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            90% {
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+            100% {
+                top: 100vh;
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+        
+        /* Floating Particles */
+        .floating-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+        
+        .particle:nth-child(1) { left: 15%; width: 4px; height: 4px; animation-duration: 8s; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 35%; width: 3px; height: 3px; animation-duration: 10s; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 55%; width: 5px; height: 5px; animation-duration: 7s; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 75%; width: 2px; height: 2px; animation-duration: 9s; animation-delay: 1s; }
+        .particle:nth-child(5) { left: 85%; width: 4px; height: 4px; animation-duration: 11s; animation-delay: 3s; }
+        
+        @keyframes float {
+            0% {
+                bottom: -10px;
+                opacity: 0;
+                transform: translateX(0) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+                transform: translateX(20px) rotate(360deg);
+            }
         }
         
         .hero-container {
@@ -364,6 +469,28 @@
     <main class="main-content">
         <!-- Hero Section -->
         <section class="hero">
+            <!-- Particle Canvas for Three.js effects -->
+            <canvas id="particle-canvas"></canvas>
+            
+            <!-- Animated Drips -->
+            <div class="drip-container">
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+            </div>
+            
+            <!-- Floating Particles -->
+            <div class="floating-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            
             <div class="hero-container">
                 <div class="hero-content">
                     <h1>Transform Engagement.<br>Amplify Impact.</h1>
@@ -509,5 +636,168 @@
     
     <!-- Load Navbar -->
     <script src="navbarloader.js"></script>
+    
+    <!-- Premium Particle Effects -->
+    <script>
+        // Premium Three.js Particle System
+        class PremiumParticleSystem {
+            constructor() {
+                this.canvas = document.getElementById('particle-canvas');
+                this.scene = new THREE.Scene();
+                this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, alpha: true });
+                this.particles = [];
+                this.particleCount = 50;
+                
+                this.init();
+                this.createParticles();
+                this.animate();
+                this.handleResize();
+            }
+            
+            init() {
+                this.renderer.setSize(window.innerWidth, window.innerHeight * 0.75);
+                this.renderer.setClearColor(0x000000, 0);
+                this.camera.position.z = 5;
+            }
+            
+            createParticles() {
+                const geometry = new THREE.SphereGeometry(0.02, 8, 8);
+                
+                for (let i = 0; i < this.particleCount; i++) {
+                    const material = new THREE.MeshBasicMaterial({
+                        color: new THREE.Color().setHSL(0.6 + Math.random() * 0.1, 0.3, 0.8),
+                        transparent: true,
+                        opacity: 0.6 + Math.random() * 0.4
+                    });
+                    
+                    const particle = new THREE.Mesh(geometry, material);
+                    
+                    // Random positioning
+                    particle.position.x = (Math.random() - 0.5) * 10;
+                    particle.position.y = (Math.random() - 0.5) * 6;
+                    particle.position.z = (Math.random() - 0.5) * 5;
+                    
+                    // Random velocity
+                    particle.velocity = {
+                        x: (Math.random() - 0.5) * 0.02,
+                        y: -Math.random() * 0.03 - 0.01,
+                        z: (Math.random() - 0.5) * 0.02
+                    };
+                    
+                    // Random rotation speed
+                    particle.rotationSpeed = {
+                        x: (Math.random() - 0.5) * 0.02,
+                        y: (Math.random() - 0.5) * 0.02,
+                        z: (Math.random() - 0.5) * 0.02
+                    };
+                    
+                    this.particles.push(particle);
+                    this.scene.add(particle);
+                }
+            }
+            
+            animate() {
+                requestAnimationFrame(() => this.animate());
+                
+                // Update particles
+                this.particles.forEach(particle => {
+                    // Move particles
+                    particle.position.x += particle.velocity.x;
+                    particle.position.y += particle.velocity.y;
+                    particle.position.z += particle.velocity.z;
+                    
+                    // Rotate particles
+                    particle.rotation.x += particle.rotationSpeed.x;
+                    particle.rotation.y += particle.rotationSpeed.y;
+                    particle.rotation.z += particle.rotationSpeed.z;
+                    
+                    // Reset particles that fall off screen
+                    if (particle.position.y < -4) {
+                        particle.position.y = 4;
+                        particle.position.x = (Math.random() - 0.5) * 10;
+                    }
+                    
+                    // Wrap particles horizontally
+                    if (particle.position.x > 6) particle.position.x = -6;
+                    if (particle.position.x < -6) particle.position.x = 6;
+                    
+                    // Pulse opacity
+                    const time = Date.now() * 0.001;
+                    particle.material.opacity = 0.3 + Math.sin(time + particle.position.x) * 0.3;
+                });
+                
+                this.renderer.render(this.scene, this.camera);
+            }
+            
+            handleResize() {
+                window.addEventListener('resize', () => {
+                    const heroHeight = window.innerHeight * 0.75;
+                    this.camera.aspect = window.innerWidth / heroHeight;
+                    this.camera.updateProjectionMatrix();
+                    this.renderer.setSize(window.innerWidth, heroHeight);
+                });
+            }
+        }
+        
+        // Initialize particle system when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if Three.js is loaded
+            if (typeof THREE !== 'undefined') {
+                new PremiumParticleSystem();
+            }
+        });
+        
+        // Add interactive mouse effects
+        document.addEventListener('mousemove', (e) => {
+            const hero = document.querySelector('.hero');
+            if (!hero) return;
+            
+            const rect = hero.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Create ripple effect on mouse move
+            if (Math.random() > 0.95) {
+                createRipple(x, y);
+            }
+        });
+        
+        function createRipple(x, y) {
+            const ripple = document.createElement('div');
+            ripple.style.position = 'absolute';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.style.width = '4px';
+            ripple.style.height = '4px';
+            ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+            ripple.style.borderRadius = '50%';
+            ripple.style.pointerEvents = 'none';
+            ripple.style.zIndex = '3';
+            ripple.style.animation = 'ripple-expand 1s ease-out forwards';
+            
+            document.querySelector('.hero').appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 1000);
+        }
+        
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple-expand {
+                0% {
+                    transform: scale(1);
+                    opacity: 0.8;
+                }
+                100% {
+                    transform: scale(20);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>

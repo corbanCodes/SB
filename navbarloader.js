@@ -198,29 +198,69 @@ function loadNavbar() {
                 color: white !important;
             }
             
-            /* Reduce spacing when getting tight */
-            @media (max-width: 1200px) {
+            /* Progressive responsive adjustments to prevent text wrapping */
+            @media (max-width: 1300px) {
                 .nav-menu {
-                    gap: 30px;
+                    gap: 35px;
                 }
                 
                 .navbar-container {
                     padding: 15px 30px;
                 }
+                
+                .button-section {
+                    gap: 15px;
+                }
             }
             
-            @media (max-width: 1100px) {
+            @media (max-width: 1250px) {
                 .nav-menu {
-                    gap: 25px;
+                    gap: 30px;
                 }
                 
                 .nav-menu li a {
                     font-size: 13px;
+                    letter-spacing: 0.5px;
+                }
+                
+                .logo-text {
+                    font-size: 1.3rem;
+                    letter-spacing: 1.5px;
                 }
             }
             
-            /* Switch to hamburger before text wraps to two lines */
-            @media (max-width: 1150px) {
+            @media (max-width: 1200px) {
+                .nav-menu {
+                    gap: 25px;
+                }
+                
+                .navbar-container {
+                    padding: 15px 25px;
+                }
+                
+                .button-section {
+                    gap: 12px;
+                }
+            }
+            
+            @media (max-width: 1180px) {
+                .nav-menu {
+                    gap: 20px;
+                }
+                
+                .nav-menu li a {
+                    font-size: 12px;
+                    letter-spacing: 0.3px;
+                }
+                
+                .get-started-btn {
+                    padding: 10px 20px;
+                    font-size: 13px;
+                }
+            }
+            
+            /* Switch to hamburger menu to prevent any text wrapping */
+            @media (max-width: 1160px) {
                 .navbar-container {
                     padding: 15px 20px;
                 }
