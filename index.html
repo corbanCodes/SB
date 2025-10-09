@@ -30,16 +30,47 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
+            background: #E3F2FD;
+            color: #333;
+            padding: 200px 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
         }
         
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            text-align: left;
+        }
+        
+        .slide-media {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 75%;
+            max-width: 900px;
+            z-index: 1;
+        }
+        
+        .slide-media img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .image-desktop {
+            display: block;
+        }
+        
+        .image-mobile {
+            display: none;
         }
         
         .hero h1 {
@@ -61,7 +92,7 @@
         .cta-buttons {
             display: flex;
             gap: 20px;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
         }
         
@@ -76,25 +107,29 @@
         }
         
         .btn-primary {
-            background: #fff;
-            color: #667eea;
+            background: white;
+            color: #E91E63;
+            border: 2px solid transparent;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
         
         .btn-primary:hover {
-            background: #f8f9fa;
+            background: #E91E63;
+            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
         }
         
         .btn-secondary {
             background: transparent;
-            color: white;
-            border: 2px solid white;
+            color: #4A90E2;
+            border: 2px solid #4A90E2;
         }
         
         .btn-secondary:hover {
-            background: white;
-            color: #667eea;
+            background: #4A90E2;
+            color: white;
             transform: translateY(-2px);
         }
         
@@ -256,12 +291,39 @@
         
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0;
+                text-align: center;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
             
             .hero p {
                 font-size: 1.1rem;
+            }
+            
+            .slide-media {
+                position: relative;
+                width: 80%;
+                max-width: 400px;
+                margin: 40px auto 0;
+                right: auto;
+                bottom: auto;
+            }
+            
+            .image-desktop {
+                display: none;
+            }
+            
+            .image-mobile {
+                display: block;
             }
             
             .cta-buttons {
@@ -293,12 +355,23 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-container">
-                <h1>Building Better Educational Experiences</h1>
-                <p>Empower educators with innovative block-based tools to create engaging, interactive learning experiences that inspire students and drive results.</p>
-                <div class="cta-buttons">
-                    <a href="/get-started" class="btn btn-primary">Get Started Free</a>
-                    <a href="/demo" class="btn btn-secondary">Watch Demo</a>
+                <div class="hero-content">
+                    <h1>Better tools.<br>Stronger schools.</h1>
+                    <p>Everything you need to attract students, engage families, and build community.</p>
+                    <div class="cta-buttons">
+                        <a href="/get-started" class="btn btn-primary">GET STARTED</a>
+                    </div>
                 </div>
+            </div>
+            <div class="slide-media">
+                <img alt="SchoolBlocks educational platform interface" 
+                     class="image-desktop" 
+                     loading="lazy" 
+                     src="Photos/Images/HomePage/hero-lines2.png">
+                <img class="image-mobile" 
+                     alt="SchoolBlocks educational platform interface" 
+                     loading="lazy" 
+                     src="Photos/Images/HomePage/hero.png">
             </div>
         </section>
         
