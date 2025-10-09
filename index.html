@@ -30,12 +30,14 @@
         
         /* Hero Section */
         .hero {
-            background: #E3F2FD;
-            color: #333;
-            padding: 200px 0;
+            background: #90CAF9;
+            color: white;
+            padding: 0;
             position: relative;
             overflow: hidden;
-            min-height: 600px;
+            height: 75vh;
+            max-height: 75vh;
+            box-sizing: border-box;
         }
         
         .hero-container {
@@ -48,15 +50,18 @@
         
         .hero-content {
             max-width: 600px;
-            text-align: left;
+            text-align: center;
+            margin: 0 auto;
+            padding-top: 50px;
         }
         
         .slide-media {
             position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 75%;
-            max-width: 900px;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            max-width: 600px;
             z-index: 1;
         }
         
@@ -92,33 +97,33 @@
         .cta-buttons {
             display: flex;
             gap: 20px;
-            justify-content: flex-start;
+            justify-content: center;
             flex-wrap: wrap;
         }
         
         .btn {
-            padding: 15px 30px;
-            border-radius: 8px;
+            padding: 18px 40px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1rem;
             transition: all 0.3s ease;
             display: inline-block;
+            letter-spacing: 1px;
         }
         
         .btn-primary {
             background: white;
-            color: #E91E63;
+            color: #4A90E2;
             border: 2px solid transparent;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .btn-primary:hover {
-            background: #E91E63;
+            background: #4A90E2;
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
         }
         
         .btn-secondary {
@@ -292,13 +297,18 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero {
-                padding: 120px 0;
+                padding: 0;
                 text-align: center;
+                height: 75vh;
+                max-height: 75vh;
+                box-sizing: border-box;
             }
             
             .hero-content {
                 max-width: 100%;
                 text-align: center;
+                margin: 0 auto;
+                padding-top: 40px;
             }
             
             .hero h1 {
@@ -310,12 +320,12 @@
             }
             
             .slide-media {
-                position: relative;
-                width: 80%;
-                max-width: 400px;
-                margin: 40px auto 0;
-                right: auto;
-                bottom: auto;
+                position: absolute;
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60%;
+                max-width: 350px;
             }
             
             .image-desktop {
@@ -356,30 +366,30 @@
         <section class="hero">
             <div class="hero-container">
                 <div class="hero-content">
-                    <h1>Better tools.<br>Stronger schools.</h1>
-                    <p>Everything you need to attract students, engage families, and build community.</p>
+                    <h1>Transform Engagement.<br>Amplify Impact.</h1>
+                    <p>SchoolBlocks empowers your school communities to collaborate and engage with ease.</p>
                     <div class="cta-buttons">
                         <a href="/get-started" class="btn btn-primary">GET STARTED</a>
                     </div>
                 </div>
             </div>
-            <div class="slide-media">
+            <!-- <div class="slide-media">
                 <img alt="SchoolBlocks educational platform interface" 
                      class="image-desktop" 
                      loading="lazy" 
-                     src="Photos/Images/HomePage/hero-lines2.png">
+                     src="Photos/Images/HomePage/hero3.png">
                 <img class="image-mobile" 
                      alt="SchoolBlocks educational platform interface" 
                      loading="lazy" 
-                     src="Photos/Images/HomePage/hero.png">
-            </div>
+                     src="Photos/Images/HomePage/hero3.png">
+            </div> -->
         </section>
         
         <!-- Features Section -->
         <section class="features">
             <div class="features-container">
                 <h2>Why Choose SchoolBlocks?</h2>
-                <p class="features-subtitle">Our platform provides everything educators need to create, manage, and deliver exceptional learning experiences.</p>
+                <!-- <p class="features-subtitle">Our platform provides everything educators need to create, manage, and deliver exceptional learning experiences.</p>
                 
                 <div class="features-grid">
                     <div class="feature-card">
@@ -417,12 +427,12 @@
                         <h3>Secure & Compliant</h3>
                         <p>Enterprise-grade security with FERPA compliance ensures your data and student privacy are always protected.</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
         
         <!-- Stats Section -->
-        <section class="stats">
+        <!-- <section class="stats">
             <div class="stats-container">
                 <div class="stats-grid">
                     <div class="stat-item">
@@ -443,11 +453,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
     
     <!-- Footer -->
-    <footer class="footer">
+    <!-- <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-section">
@@ -495,7 +505,7 @@
                 <p>&copy; 2024 SchoolBlocks. All rights reserved. Building the future of education, one block at a time.</p>
             </div>
         </div>
-    </footer>
+    </footer> -->
     
     <!-- Load Navbar -->
     <script src="navbarloader.js"></script>
