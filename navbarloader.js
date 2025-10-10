@@ -66,9 +66,9 @@ function loadNavbar() {
                 width: 100%;
             }
             
-            /* Add padding to body to account for fixed navbar */
-            body {
-                padding-top: 80px;
+            /* Remove padding - we'll handle this with JavaScript */
+            .main-content {
+                padding-top: 0;
             }
             
             .navbar-container {
@@ -358,6 +358,21 @@ function loadNavbar() {
             mobileToggle.classList.toggle('active');
         });
     }
+    
+    // Dynamically adjust main content padding based on navbar height
+    function adjustMainContentPadding() {
+        const navbar = document.querySelector('.header-top');
+        const mainContent = document.querySelector('.main-content');
+        
+        if (navbar && mainContent) {
+            const navbarHeight = navbar.offsetHeight;
+            mainContent.style.paddingTop = navbarHeight + 'px';
+        }
+    }
+    
+    // Adjust padding on load and resize
+    adjustMainContentPadding();
+    window.addEventListener('resize', adjustMainContentPadding);
 }
 
 // Auto-load navbar when DOM is ready
