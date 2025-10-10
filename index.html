@@ -15,6 +15,9 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
+    <!-- Testimonials Styles -->
+    <link rel="stylesheet" href="testimonials.css">
+    
     <!-- Main Styles -->
     <style>
         * {
@@ -167,7 +170,8 @@
         .slide-media {
             position: absolute;
             bottom: 0;
-            right: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 40%;
             max-width: 500px;
             z-index: 1;
@@ -187,15 +191,15 @@
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             line-height: 1.2;
         }
         
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
             opacity: 0.9;
             max-width: 600px;
             margin-left: auto;
@@ -246,6 +250,230 @@
             transform: translateY(-2px);
         }
         
+        /* Video Solution Section */
+        .video-solution {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-solution::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 60px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e0e0e0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        /* Top Feathering - Section Level */
+        .video-solution::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom, #fff 0%, transparent 100%);
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        /* Bottom Feathering - Section Level */
+        .video-solution-container::after {
+            content: '';
+            position: absolute;
+            bottom: -120px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, #fff 0%, transparent 100%);
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        .video-solution-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .video-solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .video-text-content h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #000;
+            margin-bottom: 60px;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
+        }
+        
+        .video-text-content p {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        
+        .video-features {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .video-feature {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .video-feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .video-feature-icon.websites {
+            background: linear-gradient(135deg, #FF6B6B, #FF5252);
+        }
+        
+        .video-feature-icon.communication {
+            background: linear-gradient(135deg, #FECA57, #FF9800);
+        }
+        
+        .video-feature-icon.budget {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+        }
+        
+        .video-feature-text {
+            flex: 1;
+        }
+        
+        .video-feature-text h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        
+        .video-feature-text p {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        .video-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #4A90E2;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+        
+        .video-cta:hover {
+            background: #357ABD;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Mobile CTA Button (hidden by default) */
+        .video-mobile-cta {
+            display: none;
+            text-align: center;
+        }
+        
+        .video-mobile-cta .video-cta {
+            display: inline-flex;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+            background: #000;
+        }
+        
+        .video-container::before {
+            content: '';
+            display: block;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4A90E2;
+            font-size: 32px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .video-play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
         /* Trusted Schools Section */
         .trusted-schools {
             padding: 60px 0;
@@ -266,7 +494,7 @@
         .fs_style_96 {
             font-size: 1.8rem;
             font-weight: 400;
-            color: #333;
+            color: #000;
             letter-spacing: 0.5px;
             line-height: 1.2;
         }
@@ -367,6 +595,7 @@
             }
         }
         
+        
         /* Features Section - Circular Ecosystem */
         .features {
             padding: 100px 0;
@@ -385,12 +614,13 @@
             text-align: center;
             font-size: 1.8rem;
             margin-bottom: 120px;
-            color: #666;
+            color: #000;
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.3;
-            font-weight: 300;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
         
         /* Circular Ecosystem Layout */
@@ -862,6 +1092,322 @@
             box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
         }
         
+        /* Why Choose Us Section */
+        .why-choose-us {
+            padding: 120px 0;
+            background: #fff;
+            position: relative;
+        }
+        
+        .why-choose-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .why-choose-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 
+                "title title"
+                "text visual";
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .why-choose-title {
+            grid-area: title;
+            text-align: center;
+        }
+        
+        .why-choose-title h2 {
+            font-size: 3.6rem;
+            font-weight: 400;
+            color: #000;
+            margin-bottom: 60px;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
+        }
+        
+        .why-choose-text {
+            grid-area: text;
+        }
+        
+        .why-choose-visual {
+            grid-area: visual;
+        }
+        
+        .why-choose-features {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .why-choose-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .schools-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .innovation-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .feature-content h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+        
+        .feature-content p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .modern-testimonial {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafb 100%);
+            border: none;
+            border-radius: 24px;
+            padding: 40px;
+            margin: 0;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .modern-testimonial p {
+            font-size: 1.15rem;
+            color: #2d3748;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-style: normal;
+            font-weight: 500;
+        }
+        
+        .modern-testimonial cite {
+            font-size: 1rem;
+            color: #667eea;
+            font-weight: 600;
+            font-style: normal;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            padding-left: 24px;
+        }
+        
+        .modern-testimonial cite::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: #cbd5e0;
+            font-weight: 300;
+        }
+        
+        .why-choose-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .student-profile-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gradient-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #90CAF9 0%, #64B5F6 50%, #42A5F5 100%);
+            border-radius: 50%;
+            opacity: 1;
+        }
+        
+        .student-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .student-particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: studentFloat linear infinite;
+        }
+        
+        .student-particle:nth-child(1) { left: 20%; width: 6px; height: 6px; animation-duration: 8s; animation-delay: 0s; }
+        .student-particle:nth-child(2) { left: 40%; width: 5px; height: 5px; animation-duration: 10s; animation-delay: 2s; }
+        .student-particle:nth-child(3) { left: 60%; width: 7px; height: 7px; animation-duration: 7s; animation-delay: 4s; }
+        .student-particle:nth-child(4) { left: 80%; width: 5px; height: 5px; animation-duration: 9s; animation-delay: 1s; }
+        .student-particle:nth-child(5) { left: 30%; width: 6px; height: 6px; animation-duration: 11s; animation-delay: 3s; }
+        .student-particle:nth-child(6) { left: 70%; width: 5px; height: 5px; animation-duration: 6s; animation-delay: 5s; }
+        
+        @keyframes studentFloat {
+            0% {
+                bottom: -10px;
+                opacity: 0;
+                transform: translateX(0) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                bottom: 100%;
+                opacity: 0;
+                transform: translateX(15px) rotate(360deg);
+            }
+        }
+        
+        .profile-circle {
+            position: relative;
+            z-index: 5;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .student-profile {
+            width: 340px;
+            height: auto;
+            object-fit: cover;
+            object-position: center center;
+            filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+        }
+        
+        
+        /* Mobile Responsive */
+        @media (max-width: 1160px) {
+            .why-choose-content {
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                    "title"
+                    "visual"
+                    "text";
+                gap: 60px;
+                text-align: left;
+            }
+            
+            .why-choose-title h2 {
+                font-size: 3.2rem;
+                margin-bottom: 30px;
+            }
+            
+            .profile-circle {
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            
+            .student-profile-container {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .profile-circle {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .student-profile {
+                width: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .why-choose-us {
+                padding: 60px 0;
+            }
+            
+            .why-choose-title h2 {
+                font-size: 2.8rem;
+                margin-bottom: 20px;
+            }
+            
+            .why-choose-features {
+                gap: 24px;
+                margin-bottom: 40px;
+            }
+            
+            .feature-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+            
+            .feature-content h4 {
+                font-size: 1rem;
+            }
+            
+            .feature-content p {
+                font-size: 0.95rem;
+            }
+            
+            .modern-testimonial {
+                padding: 24px;
+            }
+            
+            .modern-testimonial p {
+                font-size: 1rem;
+                margin-bottom: 16px;
+            }
+            
+            .student-profile-container {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .profile-circle {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .student-profile {
+                width: 250px;
+            }
+            
+        }
+        
         /* Stats Section */
         .stats {
             padding: 80px 0;
@@ -945,6 +1491,27 @@
             color: #999;
         }
         
+        /* Mid-range Desktop - Smaller text for better spacing */
+        @media (max-width: 1400px) {
+            .hero h1 {
+                font-size: 2.5rem;
+                margin-bottom: 12px;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+        }
+        
+        /* Tablet/Small Desktop - Bigger kids image */
+        @media (max-width: 1200px) {
+            .slide-media {
+                width: 50%;
+                max-width: 400px;
+            }
+        }
+        
         /* Mobile Layout - Show hamburger menu layout when hamburger is present */
         @media (max-width: 1160px) {
             /* Switch to mobile layout when hamburger menu appears */
@@ -955,6 +1522,55 @@
             .mobile-only {
                 display: block !important;
             }
+            
+            /* Video Solution - Switch to mobile layout when hamburger appears */
+            .video-solution {
+                padding: 80px 0;
+            }
+            
+            .video-solution-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+            
+            .video-text-content h2 {
+                font-size: 1.6rem;
+                margin-bottom: 40px;
+            }
+            
+            .video-text-content p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+            
+            .video-features {
+                margin-bottom: 35px;
+            }
+            
+            .video-feature {
+                justify-content: center;
+                text-align: left;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .video-container {
+                border-radius: 15px;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            }
+            
+            /* Hide desktop CTA button on mobile */
+            .video-text-content .video-cta {
+                display: none;
+            }
+            
+            /* Show mobile CTA button under video */
+            .video-mobile-cta {
+                display: block;
+                margin-top: 30px;
+            }
+            
         }
         
         /* Responsive Design */
@@ -996,8 +1612,8 @@
                 bottom: 0;
                 left: 50%;
                 transform: translateX(-50%);
-                width: 60%;
-                max-width: 350px;
+                width: 80%;
+                max-width: 450px;
             }
             
             .image-desktop {
@@ -1021,6 +1637,7 @@
             .features h2 {
                 font-size: 2rem;
             }
+            
             
             /* Responsive Circular Ecosystem */
             .circular-ecosystem {
@@ -1140,18 +1757,18 @@
                 <img alt="SchoolBlocks educational platform interface" 
                      class="image-desktop" 
                      loading="lazy" 
-                     src="Photos/Images/HomePage/hero3.png">
+                     src="Photos/Images/HomePage/hero-kids.png">
                 <img class="image-mobile" 
                      alt="SchoolBlocks educational platform interface" 
                      loading="lazy" 
-                     src="Photos/Images/HomePage/hero3.png">
+                     src="Photos/Images/HomePage/hero-kids.png">
             </div>
         </section>
         
         <!-- Trusted Schools Section -->
         <section class="trusted-schools">
             <div class="trusted-container">
-                <p><span class="fs_style_96">Trusted by schools for more than 10 years</span></p>
+                <p><span class="fs_style_96">Trusted by Over 3,000 Schools for Over Ten Years</span></p>
                 <div class="logo-carousel">
                     <div class="logo-track">
                         <div class="logo-item">
@@ -1245,6 +1862,231 @@
                         </div>
                         <div class="logo-item">
                             <img src="Photos/Client Logos/Philipsburg.png" alt="Philipsburg School District">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Video Solution Section -->
+         <section class="video-solution">
+            <div class="video-solution-container">
+                <div class="video-solution-content">
+                    <div class="video-text-content">
+                        <h2>The all-in-one school website solution that fits your budget.</h2>
+                        
+                        <div class="video-features">
+                            <div class="video-feature">
+                                <div class="video-feature-icon websites">
+                                    <i class="bi bi-globe"></i>
+                                </div>
+                                <div class="video-feature-text">
+                                    <h4>Professional Websites</h4>
+                                    <p>Beautiful, responsive school websites that work on every device</p>
+                                </div>
+                            </div>
+                            <div class="video-feature">
+                                <div class="video-feature-icon communication">
+                                    <i class="bi bi-lightbulb"></i>
+                                </div>
+                                <div class="video-feature-text">
+                                    <h4>Smart Communication</h4>
+                                    <p>Keep your community connected with integrated messaging tools</p>
+                                </div>
+                            </div>
+                            <div class="video-feature">
+                                <div class="video-feature-icon budget">
+                                    <i class="bi bi-cash-coin"></i>
+                                </div>
+                                <div class="video-feature-text">
+                                    <h4>Budget-Friendly</h4>
+                                    <p>Enterprise features at prices that work for every school budget</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="/get-started" class="video-cta">
+                            Get Started Today
+                        </a>
+                    </div>
+                    
+                    <div class="video-container" id="video-container">
+                        <img 
+                            src="Photos/Images/HomePage/video-thumbnail.png" 
+                            alt="SchoolBlocks platform demonstration" 
+                            class="video-thumbnail"
+                            id="video-thumbnail">
+                        <div class="video-play-button" id="play-button">
+                            <i class="bi bi-play-fill"></i>
+                        </div>
+                        <iframe 
+                            src="https://customer-394md8sxxno51fu2.cloudflarestream.com/023420146717080eff31f5f27ce23d8e/iframe"
+                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                            allowfullscreen="true"
+                            aria-label="SchoolBlocks platform demonstration video"
+                            id="video-iframe"
+                            style="display: none;">
+                        </iframe>
+                    </div>
+                    
+                    <!-- Mobile CTA Button (shown only on mobile/hamburger menu) -->
+                    <div class="video-mobile-cta">
+                        <a href="/get-started" class="video-cta">
+                            Get Started Today
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="testimonials-container">
+                <div class="testimonials-header">
+                    <h2 class="testimonials-title">See What Our Schools Have to Say About Us</h2>
+                    <p class="testimonials-subtitle">Join thousands of school districts who are already building the future of education.</p>
+                </div>
+                
+                <div class="testimonials-marquee">
+                    <div class="testimonials-track">
+                        <!-- Testimonial 1 - Ramona -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/romona.png" alt="Ramona Unified School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Ramona Unified School District</div>
+                                    <div class="testimonial-name">Keith Wright, Director of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">SchoolBlocks is awesome. I personally love it.</p>
+                        </div>
+                        
+                        <!-- Testimonial 2 - Candler County -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/candlercounty.png" alt="Candler County Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Candler County Schools</div>
+                                    <div class="testimonial-name">Tony Lescak, Technology Specialist</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">I really like the block format because it moves you away from the desktop format. The blocks move around and it doesn't matter what you are on, it looks great.</p>
+                        </div>
+                        
+                        <!-- Testimonial 3 - Moffat -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/moffat.png" alt="Moffat School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Moffat School District</div>
+                                    <div class="testimonial-name">Vicki Hadden, Asst. to the Superintendent</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">We were looking for a new host whenever we discovered SchoolBlocks and we were very happy with it. SchoolBlocks has terrific support.</p>
+                        </div>
+                        
+                        <!-- Testimonial 4 - Troy -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/troy.png" alt="Troy Community Consolidated School District 30-C" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Troy Community Consolidated School District 30-C</div>
+                                    <div class="testimonial-name">Ron Sarver, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">SchoolBlocks has terrific support.</p>
+                        </div>
+                        
+                        <!-- Testimonial 5 - Lewiston -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/lewiston.png" alt="Lewiston Public Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Lewiston Public Schools</div>
+                                    <div class="testimonial-name">Dave Theriault, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">The Google integration and the file sharing is one of the greatest assets of SchoolBlocks.</p>
+                        </div>
+                        
+                        <!-- Testimonial 6 - Hearne ISD -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/hearneisd.png" alt="Hearne ISD" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Hearne ISD</div>
+                                    <div class="testimonial-name">Jeremy Gaston, Directory of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">The transition over to SchoolBlocks has been so great and so smooth.</p>
+                        </div>
+                        
+                        <!-- Duplicate set for seamless loop -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/romona.png" alt="Ramona Unified School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Ramona Unified School District</div>
+                                    <div class="testimonial-name">Keith Wright, Director of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">SchoolBlocks is awesome. I personally love it.</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/candlercounty.png" alt="Candler County Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Candler County Schools</div>
+                                    <div class="testimonial-name">Tony Lescak, Technology Specialist</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">I really like the block format because it moves you away from the desktop format. The blocks move around and it doesn't matter what you are on, it looks great.</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/moffat.png" alt="Moffat School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Moffat School District</div>
+                                    <div class="testimonial-name">Vicki Hadden, Asst. to the Superintendent</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">We were looking for a new host whenever we discovered SchoolBlocks and we were very happy with it. SchoolBlocks has terrific support.</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/troy.png" alt="Troy Community Consolidated School District 30-C" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Troy Community Consolidated School District 30-C</div>
+                                    <div class="testimonial-name">Ron Sarver, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">SchoolBlocks has terrific support.</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/lewiston.png" alt="Lewiston Public Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Lewiston Public Schools</div>
+                                    <div class="testimonial-name">Dave Theriault, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">The Google integration and the file sharing is one of the greatest assets of SchoolBlocks.</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/hearneisd.png" alt="Hearne ISD" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Hearne ISD</div>
+                                    <div class="testimonial-name">Jeremy Gaston, Directory of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">The transition over to SchoolBlocks has been so great and so smooth.</p>
                         </div>
                     </div>
                 </div>
@@ -1467,6 +2309,63 @@
             </div>
         </section>
         
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+            <div class="why-choose-container">
+                <div class="why-choose-content">
+                    <div class="why-choose-title">
+                        <h2>Why Choose Us?</h2>
+                    </div>
+                    
+                    <div class="why-choose-visual">
+                        <div class="student-profile-container">
+                            <div class="gradient-bg"></div>
+                            <div class="student-particles">
+                                <div class="student-particle"></div>
+                                <div class="student-particle"></div>
+                                <div class="student-particle"></div>
+                                <div class="student-particle"></div>
+                                <div class="student-particle"></div>
+                                <div class="student-particle"></div>
+                            </div>
+                            <div class="profile-circle">
+                                <img src="Photos/Images/HomePage/schoolblocks-childmodel4.png" alt="Happy SchoolBlocks student" class="student-profile">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="why-choose-text">
+                        <div class="why-choose-features">
+                            <div class="why-choose-feature">
+                                <div class="feature-icon schools-icon">
+                                    <i class="bi bi-building"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Over 3,000+ schools</h4>
+                                    <p>Trusted by districts nationwide for reliable, scalable solutions</p>
+                                </div>
+                            </div>
+                            
+                            <div class="why-choose-feature">
+                                <div class="feature-icon innovation-icon">
+                                    <i class="bi bi-calendar-check"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>25 Years of Innovation</h4>
+                                    <p>A quarter century of K-12 Ed Tech innovation has resulted in a uniquely dynamic platform that inspires lively and positive community relationships</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <blockquote class="modern-testimonial">
+                            <p>"Our current Website is a source of pride over here. I didn't think I could find a website solution that could make me think we could do better. That was, until I saw SchoolBlocks."</p>
+                            <cite>Marshall County School District, MS</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
         <!-- Stats Section -->
         <!-- <section class="stats">
             <div class="stats-container">
@@ -1545,6 +2444,9 @@
     
     <!-- Load Navbar -->
     <script src="navbarloader.js"></script>
+    
+    <!-- Testimonials Carousel -->
+    <script src="testimonials.js"></script>
     
     <!-- Premium Particle Effects -->
     <script>
@@ -1861,5 +2763,39 @@
             });
         });
     </script>
+    
+    <!-- Video Thumbnail Click Handler -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const playButton = document.getElementById('play-button');
+            const videoThumbnail = document.getElementById('video-thumbnail');
+            const videoIframe = document.getElementById('video-iframe');
+            
+            function playVideo() {
+                // Hide thumbnail and play button
+                videoThumbnail.style.display = 'none';
+                playButton.style.display = 'none';
+                
+                // Show and play iframe
+                videoIframe.style.display = 'block';
+                
+                // Add autoplay to iframe src
+                const currentSrc = videoIframe.src;
+                if (!currentSrc.includes('autoplay')) {
+                    videoIframe.src = currentSrc + '?autoplay=true';
+                }
+            }
+            
+            // Add click handlers
+            if (playButton) {
+                playButton.addEventListener('click', playVideo);
+            }
+            
+            if (videoThumbnail) {
+                videoThumbnail.addEventListener('click', playVideo);
+            }
+        });
+    </script>
+    
 </body>
 </html>
