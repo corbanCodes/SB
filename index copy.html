@@ -50,85 +50,19 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, 
-                #667eea 0%, 
-                #764ba2 25%, 
-                #f093fb 50%, 
-                #f5576c 75%, 
-                #4facfe 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            background: linear-gradient(135deg, #4f8ff7 0%, #6ba3f8 30%, #7db4fa 60%, #93c5fd 85%, #bfdbfe 100%);
             color: white;
-            padding: 80px 0;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 80px 0 0 0;
             position: relative;
             overflow: hidden;
-        }
-        
-        /* .hero-bg-image1,
-        .hero-bg-image2 {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 1500px;
-            height: 1500px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: bottom right;
-            z-index: 1;
-        }
-        
-        .hero-bg-image1 {
-            background-image: url('Photos/Images/HomePage/newhero1.png');
-            animation: heroImageFade1 12s ease-in-out infinite;
-        }
-        
-        .hero-bg-image2 {
-            background-image: url('Photos/Images/HomePage/newhero2.png');
-            animation: heroImageFade2 12s ease-in-out infinite;
-        }
-        
-        @keyframes heroImageFade1 {
-            0%, 35% {
-                opacity: 1;
-            }
-            45%, 100% {
-                opacity: 0;
-            }
-        }
-        
-        @keyframes heroImageFade2 {
-            0%, 45% {
-                opacity: 0;
-            }
-            55%, 85% {
-                opacity: 1;
-            }
-            95%, 100% {
-                opacity: 0;
-            }
-        } */
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        /* Modern glassmorphism overlay */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            z-index: 1;
+            height: 90vh;
+            min-height: 700px;
+            max-height: 90vh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Particle Canvas */
@@ -234,154 +168,64 @@
         }
         
         .hero-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
             position: relative;
-            z-index: 10;
-            text-align: center;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
         }
         
         .hero-content {
-            max-width: 1200px;
+            max-width: 900px;
+            text-align: center;
+            margin: 0 auto 30px auto;
+            z-index: 3;
+        }
+        
+        .slide-media {
+            position: relative;
+            width: 70%;
+            max-width: 800px;
+            z-index: 2;
+            margin: 0 auto;
+        }
+        
+        .slide-media img {
             width: 100%;
-            position: relative;
-            z-index: 10;
+            height: auto;
         }
         
-        .hero-top {
-            margin-bottom: clamp(60px, 15vh, 120px);
+        .image-desktop {
+            display: block;
         }
         
-        .hero-bottom {
-            margin-top: auto;
+        .image-mobile {
+            display: none;
         }
-        
-        /* Modern Section Headings */
-        .modern-heading {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem) !important;
-            font-weight: 600 !important;
-            color: #1a1a1a !important;
-            text-align: center !important;
-            line-height: 1.3 !important;
-            margin: 0 auto !important;
-            max-width: 1400px !important;
-            padding: 0 60px !important;
-        }
-        
-        /* Override removed - specific section rules handle gradient text */
-        
-        /* Specific override for features section gradient text */
-        .features h2.modern-heading .highlight-word {
-            color: transparent !important;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-            background-clip: text !important;
-            font-weight: 700 !important;
-            box-decoration-break: clone !important;
-            -webkit-box-decoration-break: clone !important;
-        }
-        
-        /* Fallback for browsers that don't support background-clip: text */
-        @supports not (-webkit-background-clip: text) {
-            .features h2.modern-heading .highlight-word {
-                background: none !important;
-                color: #667eea !important;
-                -webkit-text-fill-color: #667eea !important;
-            }
-        }
-        
-        /* Responsive sizing for modern headings */
-        @media (max-width: 768px) {
-            .modern-heading {
-                font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
-                max-width: 95% !important;
-                padding: 0 15px !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .modern-heading {
-                font-size: clamp(1.6rem, 6vw, 2rem) !important;
-                max-width: 100% !important;
-                padding: 0 10px !important;
-            }
-        }
-        
-        /* Special colorful highlight for specific words */
-        .highlight-word {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-        }
-        
-        /* Highlighter Effect for "Amplify Impact" */
-        /* .highlight-text {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .highlight-text::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 0%;
-            height: 60%;
-            background: linear-gradient(90deg, 
-                rgba(255, 215, 0, 0.3) 0%,
-                rgba(255, 215, 0, 0.5) 50%,
-                rgba(255, 215, 0, 0.3) 100%);
-            transform: translateY(-50%) skewX(-12deg);
-            z-index: 1;
-            mix-blend-mode: multiply;
-            animation: highlighter 2s ease-out 1.5s forwards;
-        }
-        
-        @keyframes highlighter {
-            0% {
-                width: 0%;
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            100% {
-                width: 105%;
-                opacity: 0.6;
-            }
-        } */
-        
         
         .hero h1 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: clamp(4rem, 8vw, 8rem);
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0;
-            line-height: 1.1;
+            font-family: 'brandon-grotesque', sans-serif;
+            font-size: 80px;
+            font-weight: normal;
+            color: rgb(255, 255, 255);
+            margin-bottom: 25px;
+            line-height: 80px;
             text-align: center;
-            letter-spacing: -0.02em;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         
         .hero p {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            font-weight: 400;
-            margin-bottom: 2rem;
+            font-family: brandon-grotesque, sans-serif;
+            font-size: 2.0rem;
+            margin-bottom: 40px;
             opacity: 0.95;
-            max-width: 900px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            text-align: center;
-            color: white;
-            line-height: 1.4;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         
         .cta-buttons {
@@ -403,21 +247,17 @@
         }
         
         .btn-primary {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            background: white;
+            color: #4A90E2;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .btn-primary:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: #000000;
             color: white;
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
         }
         
         .btn-secondary {
@@ -434,22 +274,22 @@
         
         /* Video Solution Section */
         .video-solution {
-            padding: 80px 0;
-            background: 
-                linear-gradient(45deg, transparent 20%, rgba(102, 126, 234, 0.15) 50%, transparent 80%),
-                linear-gradient(-45deg, transparent 25%, rgba(240, 147, 251, 0.12) 50%, transparent 75%),
-                linear-gradient(135deg, transparent 30%, rgba(79, 172, 254, 0.10) 50%, transparent 70%),
-                radial-gradient(ellipse at center, rgba(255, 255, 255, 0.9) 0%, rgba(248, 251, 252, 0.95) 100%),
-                #f8fafc;
-            background-size: 200% 200%, 180% 180%, 220% 220%, 100% 100%, auto;
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
             position: relative;
             overflow: hidden;
-            border-top: 1px solid rgba(226, 232, 240, 0.5);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
         }
         
         .video-solution::before {
-            display: none;
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 60px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e0e0e0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            z-index: 1;
         }
         
         /* Top Feathering - Section Level */
@@ -479,26 +319,11 @@
         }
         
         .video-solution-container {
-            max-width: 1600px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
             position: relative;
             z-index: 2;
-        }
-        
-        .video-solution-header {
-            text-align: center;
-            margin-bottom: 60px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .video-solution-header h2 {
-            text-align: center !important;
-            max-width: 1400px !important;
-            margin: 0 auto !important;
-            padding: 0 60px !important;
         }
         
         .video-solution-content {
@@ -509,15 +334,12 @@
         }
         
         .video-text-content h2 {
-            font-size: 2.2rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            font-weight: 400;
             color: #000;
-            margin-bottom: 40px;
-            line-height: 1.4;
-            letter-spacing: -0.01em;
-            text-align: left;
-            max-width: none;
-            padding: 0;
+            margin-bottom: 60px;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
         }
         
         .video-text-content p {
@@ -681,7 +503,7 @@
         }
         
         .trusted-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -692,7 +514,7 @@
         }
         
         .fs_style_96 {
-            font-size: 2.8rem;
+            font-size: 1.8rem;
             font-weight: 400;
             color: #000;
             letter-spacing: 0.5px;
@@ -775,31 +597,13 @@
         }
         
         /* Responsive adjustments */
-        @media (max-width: 1200px) {
-            .fs_style_96 {
-                font-size: 2.6rem;
-            }
-        }
-        
-        @media (max-width: 1024px) {
-            .fs_style_96 {
-                font-size: 2.4rem;
-            }
-        }
-        
-        @media (max-width: 900px) {
-            .fs_style_96 {
-                font-size: 2.3rem;
-            }
-        }
-        
         @media (max-width: 768px) {
             .trusted-schools {
                 padding: 30px 0 15px 0;
             }
             
             .fs_style_96 {
-                font-size: 2.2rem;
+                font-size: 1.4rem;
             }
             
             .logo-item {
@@ -813,46 +617,32 @@
             }
         }
         
-        @media (max-width: 480px) {
-            .fs_style_96 {
-                font-size: 1.8rem;
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .fs_style_96 {
-                font-size: 1.6rem;
-            }
-        }
         
         /* Features Section - Circular Ecosystem */
         .features {
-            padding: 60px 0 10px 0;
+            padding: 0;
             background: #fff;
             position: relative;
+            overflow: hidden;
         }
-        
         
         .features-container {
-            max-width: 1600px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
-            position: relative;
-            z-index: 2;
+            padding: 0 20px;
         }
         
-        .features h2.modern-heading {
+        .features h3 {
             text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 40px;
-            max-width: 800px;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #000;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.3;
             font-weight: 400;
             letter-spacing: 0.5px;
-            position: relative;
-            z-index: 3;
         }
         
         /* Circular Ecosystem Layout */
@@ -861,7 +651,6 @@
             width: 1000px;
             height: 800px;
             margin: 0 auto;
-            z-index: 3;
         }
         
         .ecosystem-center {
@@ -901,53 +690,6 @@
             height: 100%;
         }
         
-        /* Background circles to hide dotted line when icons are dimmed */
-        .service-bg-circle {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            z-index: 2; /* Above dotted line (z-index: 1), below service icons (z-index: 3) */
-        }
-        
-        .websites-bg-circle {
-            background: #FF6B6B;
-            top: 230px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .mobile-apps-bg-circle {
-            background: #4ECDC4;
-            top: 290px;
-            left: 350px;
-        }
-        
-        .google-integration-bg-circle {
-            background: #45B7D1;
-            top: 290px;
-            right: 350px;
-        }
-        
-        .docmersion-bg-circle {
-            background: #96CEB4;
-            bottom: 290px;
-            left: 350px;
-        }
-        
-        .welcomechat-bg-circle {
-            background: #FECA57;
-            bottom: 290px;
-            right: 350px;
-        }
-        
-        .schoolfeed-bg-circle {
-            background: #A55EEA;
-            bottom: 230px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
         /* Service Icons Around Circle */
         .service-icon {
             position: absolute;
@@ -958,13 +700,9 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 32px;
-            cursor: pointer;
-            transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
-            z-index: 3; /* Above background circles (z-index: 2) */
-        }
-        
-        .service-icon {
+            font-size: 28px;
+            z-index: 5;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             opacity: 0;
             transition: opacity 0.5s ease, transform 0.3s ease, filter 0.3s ease;
         }
@@ -1141,36 +879,26 @@
             max-width: 100%;
             margin: 0;
             padding: 0;
-            background: transparent;
         }
 
         .accordion-item {
             border: none;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            overflow: hidden;
-            border-radius: 16px;
-            margin-bottom: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-        
-        .accordion-item:last-child {
             margin-bottom: 0;
+            background: white;
+            overflow: hidden;
         }
 
         .accordion-header {
             display: flex;
             align-items: center;
-            padding: 20px;
+            padding: 20px 0;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .accordion-header:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: #f8f9fa;
         }
 
         .service-icon-large {
@@ -1232,16 +960,16 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
-            background: rgba(255, 255, 255, 0.1);
+            background: #f8f9fa;
         }
 
         .accordion-item.active .accordion-content {
             max-height: 300px;
-            padding: 20px;
+            padding: 20px 0;
         }
 
         .content-inner {
-            padding: 0 80px 0 0;
+            padding: 0 100px 0 0;
         }
 
         .content-inner h5 {
@@ -1388,33 +1116,15 @@
         
         /* Why Choose Us Section */
         .why-choose-us {
-            padding: 60px 0;
+            padding: 120px 0;
             background: #fff;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .why-choose-us::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(240, 147, 251, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(79, 172, 254, 0.04) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 1;
         }
         
         .why-choose-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            position: relative;
-            z-index: 2;
         }
         
         .why-choose-content {
@@ -1499,31 +1209,14 @@
         }
         
         .modern-testimonial {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafb 100%);
+            border: none;
             border-radius: 24px;
             padding: 40px;
             margin: 0;
             position: relative;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.08),
-                0 8px 32px rgba(102, 126, 234, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
             overflow: hidden;
-        }
-        
-        .modern-testimonial::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            pointer-events: none;
-            z-index: 1;
         }
         
         .modern-testimonial p {
@@ -1533,8 +1226,6 @@
             margin-bottom: 24px;
             font-style: normal;
             font-weight: 500;
-            position: relative;
-            z-index: 2;
         }
         
         .modern-testimonial cite {
@@ -1546,7 +1237,6 @@
             text-transform: uppercase;
             position: relative;
             padding-left: 24px;
-            z-index: 2;
         }
         
         .modern-testimonial cite::before {
@@ -1686,21 +1376,9 @@
             }
         }
         
-        @media (max-width: 1200px) {
-            .why-choose-us {
-                padding: 50px 0;
-            }
-        }
-        
-        @media (max-width: 1024px) {
-            .why-choose-us {
-                padding: 45px 0;
-            }
-        }
-        
         @media (max-width: 768px) {
             .why-choose-us {
-                padding: 40px 0;
+                padding: 60px 0;
             }
             
             .why-choose-title h2 {
@@ -1750,424 +1428,6 @@
                 width: 250px;
             }
             
-        }
-        
-        /* Expect the Unexpected Section */
-        .expect-unexpected {
-            padding: 100px 0;
-            background: linear-gradient(45deg, 
-                #1e3a8a 0%, 
-                #3730a3 20%, 
-                #7c3aed 40%, 
-                #c026d3 60%, 
-                #e11d48 80%, 
-                #dc2626 100%);
-            background-size: 300% 300%;
-            animation: gradientShift 20s ease infinite;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .expect-unexpected::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 1;
-        }
-        
-        .expect-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .expect-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        
-        .expect-text {
-            color: white;
-        }
-        
-        .expect-text h2 {
-            font-size: clamp(2.5rem, 4vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
-        
-        .expect-text .subtitle {
-            font-size: clamp(1.2rem, 2vw, 1.8rem);
-            font-weight: 400;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        
-        .expect-features {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-        
-        .expect-feature {
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        .expect-feature-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: #4ade80;
-            font-size: 16px;
-            font-weight: bold;
-            flex-shrink: 0;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            margin-right: 16px;
-        }
-        
-        .expect-pricing {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
-        }
-        
-        .expect-pricing h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: white;
-        }
-        
-        .expect-pricing h4 {
-            font-size: 1.4rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .expect-pricing p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 20px;
-        }
-        
-        .expect-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .expect-stat {
-            text-align: center;
-        }
-        
-        .expect-stat .number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            display: block;
-        }
-        
-        .expect-stat .label {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 4px;
-        }
-        
-        /* Mobile Responsive for Expect Unexpected */
-        @media (max-width: 1160px) {
-            .expect-content {
-                grid-template-columns: 1fr;
-                gap: 60px;
-                text-align: center;
-            }
-            
-            .expect-unexpected {
-                padding: 80px 0;
-            }
-            
-            .expect-features {
-                text-align: left;
-                max-width: 600px;
-                margin: 0 auto 40px;
-            }
-            
-            .expect-feature {
-                align-items: flex-start;
-                line-height: 1.4;
-            }
-            
-            .expect-feature span {
-                flex: 1;
-                word-wrap: break-word;
-                hyphens: auto;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .expect-unexpected {
-                padding: 60px 0;
-            }
-            
-            .expect-container {
-                padding: 0 20px;
-            }
-            
-            .expect-features {
-                max-width: 100%;
-                padding: 0 10px;
-            }
-            
-            .expect-feature {
-                font-size: 1rem;
-                margin-bottom: 4px;
-            }
-            
-            .expect-feature-icon {
-                width: 28px;
-                height: 28px;
-                font-size: 14px;
-                margin-right: 12px;
-                margin-top: 2px;
-                flex-shrink: 0;
-            }
-            
-            .expect-feature span {
-                line-height: 1.3;
-                word-break: break-word;
-            }
-            
-            .expect-pricing {
-                padding: 30px 20px;
-            }
-            
-            .expect-stats {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-        
-        /* Success Features Section */
-        .success-features {
-            padding: 100px 0;
-            background: 
-                linear-gradient(135deg, transparent 0%, rgba(79, 172, 254, 0.08) 25%, transparent 50%),
-                linear-gradient(-45deg, transparent 25%, rgba(102, 126, 234, 0.06) 50%, transparent 75%),
-                linear-gradient(45deg, transparent 50%, rgba(240, 147, 251, 0.04) 75%, transparent 100%),
-                #f8fafc;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .success-features::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.05) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .success-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .success-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .success-card {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 24px;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            overflow: hidden;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.08),
-                0 8px 32px rgba(102, 126, 234, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
-        }
-        
-        .success-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .success-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 
-                0 30px 80px rgba(0, 0, 0, 0.12),
-                0 12px 40px rgba(102, 126, 234, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        }
-        
-        .success-card:hover::before {
-            opacity: 1;
-        }
-        
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 24px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: #667eea;
-            position: relative;
-            z-index: 2;
-            transition: all 0.4s ease;
-        }
-        
-        .success-card:hover .success-icon {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: scale(1.1);
-        }
-        
-        .success-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .success-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1a202c;
-            margin-bottom: 16px;
-            transition: all 0.4s ease;
-        }
-        
-        .success-description {
-            font-size: 1rem;
-            color: #4a5568;
-            line-height: 1.6;
-            transition: all 0.4s ease;
-        }
-        
-        .success-hover-text {
-            font-size: 1rem;
-            color: #4a5568;
-            line-height: 1.6;
-            opacity: 0;
-            transition: all 0.4s ease;
-            z-index: 3;
-            pointer-events: none;
-        }
-        
-        .success-card:hover .success-hover-text {
-            opacity: 1;
-        }
-        
-        .success-card:hover .success-description {
-            opacity: 0;
-        }
-        
-        .success-hover-text p {
-            margin: 0;
-        }
-        
-        /* Mobile Responsive for Success Features */
-        @media (max-width: 1160px) {
-            .success-features {
-                padding: 80px 0;
-            }
-            
-            .success-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                margin-top: 50px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .success-features {
-                padding: 60px 0;
-            }
-            
-            .success-container {
-                padding: 0 20px;
-            }
-            
-            .success-card {
-                padding: 30px 20px;
-            }
-            
-            .success-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 24px;
-            }
-            
-            .success-title {
-                font-size: 1.3rem;
-            }
-            
-            .success-description {
-                font-size: 0.95rem;
-            }
         }
         
         /* Stats Section */
@@ -2255,107 +1515,92 @@
         
         /* Large Desktop */
         @media (max-width: 1600px) {
-            .hero-container {
-                padding: 0 30px;
+            .hero {
+                padding: 70px 0 0 0;
             }
             
             .hero h1 {
-                font-size: clamp(3.5rem, 7vw, 7rem);
+                font-size: 5.0rem;
+                margin-bottom: 22px;
             }
             
             .hero p {
-                font-size: clamp(1.3rem, 2.5vw, 2.2rem);
-                margin-bottom: 2.5rem;
+                font-size: 1.5rem;
+                margin-bottom: 35px;
             }
             
+            .slide-media {
+                width: 65%;
+                max-width: 750px;
+            }
         }
         
         /* Mid-range Desktop */
         @media (max-width: 1400px) {
-            .hero-container {
-                padding: 0 25px;
+            .hero {
+                padding: 60px 0 0 0;
             }
             
             .hero h1 {
-                font-size: clamp(3rem, 6vw, 6rem);
+                font-size: 4.5rem;
+                margin-bottom: 20px;
             }
             
             .hero p {
-                font-size: clamp(1.2rem, 2.3vw, 2rem);
-                margin-bottom: 2.5rem;
+                font-size: 1.4rem;
+                margin-bottom: 32px;
             }
             
+            .slide-media {
+                width: 68%;
+                max-width: 680px;
+            }
         }
         
         /* Small Desktop/Large Tablet */
         @media (max-width: 1200px) {
-            .hero-container {
-                padding: 0 20px;
-            }
-            
-            .hero h1 {
-                font-size: clamp(2.5rem, 5vw, 5rem);
-            }
-            
-            .hero p {
-                font-size: clamp(1.1rem, 2vw, 1.8rem);
-                margin-bottom: 2rem;
-            }
-            
-        }
-        
-        /* Large Tablet */
-        @media (max-width: 1024px) and (min-width: 769px) {
             .hero {
-                padding: 60px 0 80px 0;
-                min-height: 90vh;
-            }
-            
-            .hero-container {
-                padding: 0 30px;
-            }
-            
-            .hero-top {
-                margin-bottom: 40px;
+                height: 85vh;
+                min-height: 650px;
             }
             
             .hero h1 {
-                font-size: clamp(3rem, 6vw, 4.5rem);
-                line-height: 1.1;
-                margin-bottom: 0;
+                font-size: 4.0rem;
+                margin-bottom: 18px;
             }
             
             .hero p {
-                font-size: clamp(1.2rem, 3vw, 1.6rem);
-                margin-bottom: 1.8rem;
+                font-size: 1.3rem;
+                margin-bottom: 30px;
+            }
+            
+            .slide-media {
+                width: 72%;
+                max-width: 620px;
             }
         }
         
         /* Tablet Portrait */
         @media (max-width: 1024px) {
             .hero {
-                padding: 70px 0;
-            }
-            
-            .hero-container {
-                padding: 0 30px;
-            }
-            
-            .hero-top {
-                margin-bottom: 50px;
+                height: 80vh;
+                min-height: 600px;
             }
             
             .hero h1 {
-                font-size: clamp(3rem, 7vw, 5rem);
-                line-height: 1.1;
-                margin-bottom: 0;
+                font-size: 3.5rem;
+                margin-bottom: 16px;
             }
             
             .hero p {
-                font-size: clamp(1.2rem, 3vw, 1.8rem);
-                margin-bottom: 2rem;
+                font-size: 1.25rem;
+                margin-bottom: 28px;
             }
             
+            .slide-media {
+                width: 75%;
+                max-width: 550px;
+            }
         }
         
         /* Mobile Layout - Show hamburger menu layout when hamburger is present */
@@ -2450,147 +1695,127 @@
                 margin-bottom: 22px;
             }
             
+            .slide-media {
+                width: 90%;
+                max-width: 520px;
+                flex-shrink: 0;
+            }
         }
         
         /* Mobile Portrait */
         @media (max-width: 768px) {
             .hero {
-                min-height: 70vh;
-                padding: 80px 0;
-            }
-            
-            .hero-bg-image1,
-            .hero-bg-image2 {
-                width: 525px;
-                height: 525px;
+                height: auto;
+                min-height: auto;
+                padding: 40px 0 0 0;
+                justify-content: center;
             }
             
             .hero-container {
-                padding: 0 20px;
+                height: auto;
+                justify-content: center;
+                padding-top: 30px;
+                padding-bottom: 0;
             }
             
-            .hero-top {
-                margin-bottom: 50px;
+            .hero-content {
+                max-width: 100%;
+                margin: 0 auto 20px auto;
+                padding: 0 20px;
+                flex-shrink: 0;
             }
             
             .hero h1 {
-                font-size: clamp(2.5rem, 8vw, 4rem);
-                margin-bottom: 0;
+                font-size: 3.2rem;
+                margin-bottom: 12px;
                 line-height: 1.1;
             }
             
             .hero p {
-                font-size: clamp(1.1rem, 4vw, 1.4rem);
-                margin-bottom: 2rem;
-                max-width: 100%;
-            }
-            
-            
-            
-        }
-        
-        /* Additional responsive breakpoints for features h2 */
-        @media (max-width: 1160px) {
-            .features {
-                padding: 50px 0;
-            }
-            
-            .features h2.modern-heading {
-                font-size: 2.4rem;
-                margin-bottom: 30px;
-            }
-        }
-        
-        @media (max-width: 1024px) {
-            .features {
-                padding: 45px 0;
-            }
-            
-            .features h2.modern-heading {
-                font-size: 2.6rem;
+                font-size: 1.4rem;
                 margin-bottom: 25px;
             }
-        }
-        
-        @media (max-width: 768px) {
-            .features {
-                padding: 40px 0;
+            
+            .slide-media {
+                width: 95%;
+                max-width: 500px;
+                flex-shrink: 0;
             }
             
-            .features h2.modern-heading {
-                font-size: 2.2rem;
-                margin-bottom: 20px;
+            .features h3 {
+                font-size: 1.6rem;
+                margin-bottom: 40px;
+            }
+            
+            .image-desktop {
+                display: none;
+            }
+            
+            .image-mobile {
+                display: block;
             }
         }
         
         /* Small Mobile */
         @media (max-width: 480px) {
             .hero {
-                padding: 60px 0;
-                min-height: 60vh;
-            }
-            
-            .hero-bg-image1,
-            .hero-bg-image2 {
-                width: 420px;
-                height: 420px;
+                min-height: auto;
+                padding: 30px 0 0 0;
             }
             
             .hero-container {
-                padding: 0 15px;
+                padding-top: 25px;
+                padding-bottom: 0;
             }
             
-            .hero-top {
-                margin-bottom: 40px;
+            .hero-content {
+                padding: 0 15px;
+                margin-bottom: 20px;
             }
             
             .hero h1 {
-                font-size: clamp(2rem, 9vw, 3rem);
-                margin-bottom: 0;
-                line-height: 1.1;
+                font-size: 2.8rem;
+                margin-bottom: 10px;
             }
             
             .hero p {
-                font-size: clamp(1rem, 4vw, 1.2rem);
-                margin-bottom: 1.5rem;
+                font-size: 1.3rem;
+                margin-bottom: 20px;
             }
             
-            .btn {
-                padding: 14px 28px;
-                font-size: 0.9rem;
+            .slide-media {
+                width: 100%;
+                max-width: 420px;
             }
-            
         }
         
         /* Extra Small Mobile */
         @media (max-width: 360px) {
             .hero {
-                padding: 30px 0;
-            }
-            
-            .hero-bg-image1,
-            .hero-bg-image2 {
-                width: 330px;
-                height: 330px;
+                min-height: auto;
+                padding: 25px 0 0 0;
             }
             
             .hero-container {
-                padding: 0 15px;
+                padding-top: 20px;
+                padding-bottom: 0;
             }
             
-            .hero-top {
-                margin-bottom: 25px;
+            .hero-content {
+                margin-bottom: 15px;
             }
             
             .hero h1 {
-                font-size: clamp(1.8rem, 9vw, 2.5rem);
-                margin-bottom: 0;
-                line-height: 1.1;
+                font-size: 2.4rem;
             }
             
             .hero p {
-                font-size: clamp(0.9rem, 4vw, 1.1rem);
-                margin-bottom: 1.2rem;
+                font-size: 1.2rem;
+            }
+            
+            .slide-media {
+                width: 100%;
+                max-width: 350px;
             }
             
             .cta-buttons {
@@ -2600,9 +1825,7 @@
             
             .btn {
                 width: 100%;
-                max-width: 280px;
-                padding: 12px 24px;
-                font-size: 0.85rem;
+                max-width: 300px;
             }
             
             .features h2 {
@@ -2617,11 +1840,6 @@
             }
             
             .service-icon {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .service-bg-circle {
                 width: 60px;
                 height: 60px;
             }
@@ -2664,10 +1882,6 @@
                 display: block;
             }
             
-            .service-bg-circle {
-                display: none; /* Hide background circles on mobile since layout is different */
-            }
-            
             .service-label {
                 position: static;
                 text-align: center;
@@ -2680,19 +1894,8 @@
                 display: none;
             }
             
-            .features h2.modern-heading {
+            .features h2 {
                 font-size: 1.8rem;
-                margin-bottom: 15px;
-                padding: 0 20px;
-            }
-            
-            .features-container {
-                padding: 0 20px;
-            }
-            
-            .mobile-accordion {
-                margin-top: 30px;
-                padding: 0 10px;
             }
             
             .features-subtitle {
@@ -2704,9 +1907,6 @@
             }
         }
     </style>
-    
-    <!-- HLS.js for video streaming support -->
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
     <!-- Navbar Container -->
@@ -2716,27 +1916,54 @@
     <main class="main-content">
         <!-- Hero Section -->
         <section class="hero">
-            <!-- <div class="hero-bg-image1"></div>
-            <div class="hero-bg-image2"></div> -->
+            <!-- Particle Canvas for Three.js effects -->
+            <!-- <canvas id="particle-canvas"></canvas> -->
+            
+            <!-- Animated Drips -->
+            <!-- <div class="drip-container">
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+            </div> -->
+            
+            <!-- Floating Particles -->
+            <!-- <div class="floating-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div> -->
+            
             <div class="hero-container">
-                <div class="hero-top">
-                    <h1>Transform Engagement.<br><span class="highlight-text">Amplify Impact.</span></h1>
-                </div>
-                <div class="hero-bottom">
+                <div class="hero-content">
+                    <h1>Transform Engagement.<br>Amplify Impact.</h1>
                     <p>SchoolBlocks empowers your school communities to collaborate and engage with ease.</p>
                     <div class="cta-buttons">
                         <a href="/get-started" class="btn btn-primary">GET STARTED</a>
                     </div>
                 </div>
             </div>
+            <div class="slide-media">
+                <img alt="SchoolBlocks educational platform interface" 
+                     class="image-desktop" 
+                     loading="lazy" 
+                     src="Photos/Images/HomePage/hero-kids-cropped.png">
+                <img class="image-mobile" 
+                     alt="SchoolBlocks educational platform interface" 
+                     loading="lazy" 
+                     src="Photos/Images/HomePage/hero-kids-cropped.png">
+            </div>
         </section>
         
         <!-- Trusted Schools Section -->
         <section class="trusted-schools">
             <div class="trusted-container">
-                <h2 class="modern-heading">Trusted by Schools for <span class="highlight-word">Over Ten Years</span></h2>
-            </div>
-            <div class="logo-carousel">
+                <p><span class="fs_style_96">Trusted by Schools for Over Ten Years</span></p>
+                <div class="logo-carousel">
                     <div class="logo-track">
                         <div class="logo-item">
                             <img src="Photos/Client Logos/aspen.png" alt="Aspen School District">
@@ -2831,13 +2058,14 @@
                             <img src="Photos/Client Logos/Philipsburg.png" alt="Philipsburg School District">
                         </div>
                     </div>
+                </div>
             </div>
         </section>
 
                 <!-- Features Section -->
         <section class="features">
             <div class="features-container">
-                <h2 class="modern-heading">A digital communications ecosystem that helps build a <span class="highlight-word">stronger, deeper and safer</span> school experience.</h2>
+                <h3 aria-level="2" role="heading">A digital communications ecosystem that helps build a stronger, deeper and safer school experience.</h3>
                 
                 <!-- Desktop Circular Ecosystem -->
                 <div class="circular-ecosystem desktop-only">
@@ -2852,14 +2080,6 @@
                             <circle cx="160" cy="160" r="130" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="2,3" opacity="1"/>
                         </svg>
                     </div>
-                    
-                    <!-- Background circles (behind service icons, above dotted line) -->
-                    <div class="service-bg-circle websites-bg-circle"></div>
-                    <div class="service-bg-circle mobile-apps-bg-circle"></div>
-                    <div class="service-bg-circle google-integration-bg-circle"></div>
-                    <div class="service-bg-circle docmersion-bg-circle"></div>
-                    <div class="service-bg-circle welcomechat-bg-circle"></div>
-                    <div class="service-bg-circle schoolfeed-bg-circle"></div>
                     
                     <!-- Service Icons -->
                     <div class="service-icon websites-icon">
@@ -3063,11 +2283,11 @@
         <section class="testimonials">
             <div class="testimonials-container">
                 <div class="testimonials-header">
-                    <h2 class="testimonials-title modern-heading">See What <span class="highlight-word">Our Schools</span> Have to Say About Us</h2>
+                    <h2 class="testimonials-title">See What Our Schools Have to Say About Us</h2>
                     <p class="testimonials-subtitle">Join thousands of school districts who are already building the future of education.</p>
                 </div>
-            </div>
-            <div class="testimonials-marquee">
+                
+                <div class="testimonials-marquee">
                     <div class="testimonials-track">
                         <!-- Testimonial 1 - Ramona -->
                         <div class="testimonial-card">
@@ -3208,6 +2428,7 @@
                             <p class="testimonial-quote">The transition over to SchoolBlocks has been so great and so smooth.</p>
                         </div>
                     </div>
+                </div>
             </div>
         </section>
         
@@ -3216,13 +2437,10 @@
          <!-- Video Solution Section -->
          <section class="video-solution">
             <div class="video-solution-container">
-                <!-- Section Header -->
-                <div class="video-solution-header">
-                    <h2 class="modern-heading">The <span class="highlight-word">all-in-one</span> school website solution that fits your budget.</h2>
-                </div>
-                
                 <div class="video-solution-content">
                     <div class="video-text-content">
+                        <h2>The all-in-one school website solution that fits your budget.</h2>
+                        
                         <div class="video-features">
                             <div class="video-feature">
                                 <div class="video-feature-icon websites">
@@ -3295,7 +2513,7 @@
             <div class="why-choose-container">
                 <div class="why-choose-content">
                     <div class="why-choose-title">
-                        <h2 class="modern-heading">Why <span class="highlight-word">Choose</span> Us?</h2>
+                        <h2>Why Choose Us?</h2>
                     </div>
                     
                     <div class="why-choose-visual">
@@ -3342,125 +2560,6 @@
                             <p>"Our current Website is a source of pride over here. I didn't think I could find a website solution that could make me think we could do better. That was, until I saw SchoolBlocks."</p>
                             <cite>Marshall County School District, MS</cite>
                         </blockquote>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Expect the Unexpected Section -->
-        <section class="expect-unexpected">
-            <div class="expect-container">
-                <div class="expect-content">
-                    <div class="expect-text">
-                        <h2>Expect the Unexpected</h2>
-                        <p class="subtitle">Unique approach. Unique Results</p>
-                        
-                        <div class="expect-features">
-                            <div class="expect-feature">
-                                <div class="expect-feature-icon"><i class="bi bi-palette"></i></div>
-                                <span>Easily customizable website</span>
-                            </div>
-                            <div class="expect-feature">
-                                <div class="expect-feature-icon"><i class="bi bi-building"></i></div>
-                                <span>Full featured 'Microsites' for departments and faculty</span>
-                            </div>
-                            <div class="expect-feature">
-                                <div class="expect-feature-icon"><i class="bi bi-shield-check"></i></div>
-                                <span>Kid Safe Closed-Loop Social Networking</span>
-                            </div>
-                            <div class="expect-feature">
-                                <div class="expect-feature-icon"><i class="bi bi-phone"></i></div>
-                                <span>Revolutionary app with individual school branding</span>
-                            </div>
-                            <div class="expect-feature">
-                                <div class="expect-feature-icon"><i class="bi bi-google"></i></div>
-                                <span>Industry-leading Google & O365 integrations</span>
-                            </div>
-                            <div class="expect-feature">
-                                <div class="expect-feature-icon"><i class="bi bi-headset"></i></div>
-                                <span>All-inclusive 365 training & Support</span>
-                            </div>
-                            <div class="expect-feature">
-                                <div class="expect-feature-icon"><i class="bi bi-cash-coin"></i></div>
-                                <span>No add-on or hidden fees</span>
-                            </div>
-                        </div>
-                        
-                        <div class="expect-stats">
-                            <div class="expect-stat">
-                                <span class="number">300+</span>
-                                <span class="label">Districts</span>
-                            </div>
-                            <div class="expect-stat">
-                                <span class="number">99%</span>
-                                <span class="label">Support Satisfaction</span>
-                            </div>
-                            <div class="expect-stat">
-                                <span class="number">3000+</span>
-                                <span class="label">Schools</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="expect-pricing">
-                        <h3>Pricing</h3>
-                        <h4>Yearly Subscription</h4>
-                        <p>SchoolBlocks pricing is simple, transparent, all-inclusive, and highly competitive. Our yearly subscription includes unlimited users, training, and support.</p>
-                        
-                        <div style="text-align: center; margin-top: 30px;">
-                            <strong style="color: white; font-size: 1.2rem;">Trusted K-12 Partner</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Success Features Section -->
-        <section class="success-features">
-            <div class="success-container">
-                <h2 class="modern-heading">Why Schools <span class="highlight-word">Trust</span> SchoolBlocks</h2>
-                
-                <div class="success-grid">
-                    <!-- Webmaster Success Card -->
-                    <div class="success-card">
-                        <div class="success-icon">
-                            <i class="bi bi-gear-fill"></i>
-                        </div>
-                        <div class="success-content">
-                            <h3 class="success-title">Webmaster Success</h3>
-                            <p class="success-description">Simple yet powerful content authoring and time saving Google, Microsoft, SIS and LMS integrations.</p>
-                        </div>
-                        <div class="success-hover-text">
-                            <p>Our content management solution is the coolest thing you'll use this year.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- ADA Compliant Card -->
-                    <div class="success-card">
-                        <div class="success-icon">
-                            <i class="bi bi-universal-access"></i>
-                        </div>
-                        <div class="success-content">
-                            <h3 class="success-title">ADA Compliant</h3>
-                            <p class="success-description">SchoolBlocks is ADA, WCAG 2.2 and CIPA compliant (to name a few).</p>
-                        </div>
-                        <div class="success-hover-text">
-                            <p>We go beyond the code requirements to ensure a meaningful connection to all.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Trusted & Secure Card -->
-                    <div class="success-card">
-                        <div class="success-icon">
-                            <i class="bi bi-shield-fill-check"></i>
-                        </div>
-                        <div class="success-content">
-                            <h3 class="success-title">Trusted & Secure</h3>
-                            <p class="success-description">Designed by a U.S. Marine Commander with similar specifications. Our hosting solution auto-scales and protects.</p>
-                        </div>
-                        <div class="success-hover-text">
-                            <p>Learn more about why SchoolBlocks is more secure than the competition.</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -3895,29 +2994,6 @@
             
             if (videoThumbnail) {
                 videoThumbnail.addEventListener('click', playVideo);
-            }
-        });
-    </script>
-    
-    <!-- Initialize HLS Video -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.querySelector('.hero-video');
-            const videoSrc = 'https://customer-394md8sxxno51fu2.cloudflarestream.com/d7d7c0a6cf811892755eaea60420fbe2/manifest/video.m3u8';
-            
-            if (Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(videoSrc);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                    video.play();
-                });
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                // Native HLS support (Safari)
-                video.src = videoSrc;
-                video.addEventListener('loadedmetadata', function() {
-                    video.play();
-                });
             }
         });
     </script>
