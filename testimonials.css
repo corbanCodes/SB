@@ -1,9 +1,9 @@
 /* Modern Scrolling Testimonials Section */
 .testimonials {
-    padding: 10px 0 60px 0;
-    background: #fff;
+    padding: 40px 0 60px 0;
+    background: #f8f9fa;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .testimonials-container {
@@ -15,7 +15,15 @@
 }
 
 .testimonials-header {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.testimonials-header.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .testimonials-title {
@@ -42,8 +50,10 @@
 
 .testimonials-marquee {
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
     width: 100%;
+    padding-top: 30px;
 }
 
 .testimonials-track {
@@ -77,11 +87,14 @@
     flex-shrink: 0;
     text-align: left;
     transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
 }
 
 .testimonial-card:hover {
     background: linear-gradient(to bottom, rgba(248, 249, 250, 0.6), rgba(248, 249, 250, 0.2));
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
+    z-index: 10;
 }
 
 .testimonial-header {
@@ -92,14 +105,43 @@
 }
 
 .testimonial-avatar {
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     object-fit: contain;
     background: #f8f9fa;
-    padding: 4px;
+    padding: 6px;
     border: 2px solid #e2e8f0;
     flex-shrink: 0;
+}
+
+/* Special styling for Hearne ISD logo visibility */
+.testimonial-card[data-school="hearne"] .testimonial-avatar {
+    background: #ffffff;
+    border: 2px solid #ddd;
+}
+
+/* Play icon for video testimonials */
+.testimonial-play-icon {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(74, 144, 226, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .testimonial-play-icon {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .testimonial-info {
@@ -135,7 +177,7 @@
     left: 0;
     bottom: 0;
     width: 200px;
-    background: linear-gradient(to right, #fff, transparent);
+    background: linear-gradient(to right, #f8f9fa, transparent);
     z-index: 10;
     pointer-events: none;
 }
@@ -147,7 +189,7 @@
     right: 0;
     bottom: 0;
     width: 200px;
-    background: linear-gradient(to left, #fff, transparent);
+    background: linear-gradient(to left, #f8f9fa, transparent);
     z-index: 10;
     pointer-events: none;
 }
@@ -197,10 +239,16 @@
     }
     
     .testimonial-avatar {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
     }
+    .testimonials-marquee::before {
+        background: linear-gradient(to right, #f8f9fa, transparent);
+        width: 100px;
+    }
+    
     .testimonials-marquee::after {
+        background: linear-gradient(to left, #f8f9fa, transparent);
         width: 100px;
     }
 }

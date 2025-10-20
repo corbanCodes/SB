@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who We Are - SchoolBlocks</title>
+    <meta name="description" content="SchoolBlocks is dedicated to helping K–12 institutions build stronger, deeper, and safer community connections through innovative digital solutions.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Photos/Logo/Logo.png">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- HLS.js for video streaming -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    
+    <!-- Local Brandon Grotesque Font -->
+    <style>
+        @font-face {
+            font-family: 'brandon-grotesque';
+            src: url('fonts/brandon-grotesque-medium.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    
+    <!-- Main Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .main-content {
+            padding-top: 0; /* Will be set by navbar loader */
+        }
+        
+        /* Hero Section - Exactly viewport height minus navbar */
+        .hero-section {
+            background: linear-gradient(135deg, #4ECDC4 0%, #4A90E2 100%);
+            height: calc(100vh - var(--navbar-height, 87px));
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 60px;
+            position: relative;
+            transition: filter 0.1s ease-out, opacity 0.1s ease-out;
+        }
+        
+        .hero-content {
+            max-width: min(50%, 800px);
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+        
+        /* Hero Image Positioning */
+        .hero-image {
+            position: absolute;
+            bottom: 0;
+            right: -200px;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .hero-image img {
+            height: 100%;
+            width: auto;
+            object-fit: cover;
+            object-position: bottom right;
+            display: block;
+        }
+        
+        /* Adjust width and positioning for smaller screens */
+        @media (max-width: 1176px) {
+            .hero-section {
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: clamp(20px, 5vh, 60px);
+            }
+            
+            .hero-content {
+                max-width: 85%;
+                text-align: center;
+            }
+            
+            /* Center image at bottom */
+            .hero-image {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            .hero-image img {
+                height: 50vh;
+            }
+        }
+        
+        /* Move content to top and center on smaller screens */
+        @media (max-width: 1158px) {
+            .hero-section {
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: clamp(20px, 5vh, 60px);
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+            
+            
+            /* Center image at bottom for smaller screens */
+            .hero-image {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            .hero-image img {
+                height: 60vh;
+            }
+        }
+        
+        /* Reset to normal text size for very small screens */
+        @media (max-width: 880px) {
+            .hero-title {
+                font-size: clamp(1.5rem, 4vw, 4rem) !important;
+            }
+            
+            .hero-subtitle {
+                font-size: clamp(0.875rem, 1.2vw, 1.25rem) !important;
+            }
+        }
+        
+        .hero-title {
+            font-size: clamp(1.5rem, 4vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: clamp(15px, 3vh, 30px);
+            font-family: 'brandon-grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(0.875rem, 1.2vw, 1.25rem);
+            line-height: 1.5;
+            opacity: 0.95;
+            font-weight: 400;
+            margin-bottom: clamp(20px, 4vh, 40px);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Get Started button styled exactly like navbar button */
+        .hero-section .get-started-btn {
+            background: white !important;
+            color: #4A90E2 !important;
+            padding: 12px 24px !important;
+            border: 2px solid #4A90E2 !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+            letter-spacing: 0.5px !important;
+            min-width: auto !important;
+            text-align: center !important;
+            width: auto !important;
+        }
+        
+        .hero-section .get-started-btn:hover {
+            background: #4A90E2 !important;
+            color: white !important;
+        }
+        
+        
+        
+        /* Decorative elements */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 60%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="lines" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0,20 Q20,0 40,20" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/></pattern></defs><rect width="200" height="200" fill="url(%23lines)"/></svg>');
+            opacity: 0.4;
+            z-index: 0;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 300px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        /* Scroll Animation Styles */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Our Roots Section */
+        .our-roots-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .our-roots-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Decorative Side Elements */
+        .our-roots-section::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -100px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(74, 144, 226, 0.1));
+            border-radius: 50%;
+            transform: translateY(-50%);
+            filter: blur(40px);
+            z-index: 0;
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .decorative-elements::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: -80px;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, rgba(255, 119, 198, 0.08), rgba(120, 119, 198, 0.08));
+            border-radius: 50%;
+            filter: blur(30px);
+        }
+        
+        .decorative-elements::after {
+            content: '';
+            position: absolute;
+            bottom: 30%;
+            left: -60px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(225deg, rgba(78, 205, 196, 0.06), rgba(74, 144, 226, 0.06));
+            border-radius: 50%;
+            filter: blur(25px);
+        }
+        
+        /* Geometric patterns for high-res screens */
+        @media (min-width: 1600px) {
+            .our-roots-section {
+                position: relative;
+            }
+            
+            .our-roots-section .geometric-left,
+            .our-roots-section .geometric-right {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 300px;
+                height: 400px;
+                opacity: 0.03;
+                z-index: 0;
+            }
+            
+            .our-roots-section .geometric-left {
+                left: 50px;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%234A90E2" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            }
+            
+            .our-roots-section .geometric-right {
+                right: 50px;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" cx="10" cy="10" r="2" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="2" fill="%234ECDC4"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #1e293b, #475569);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'brandon-grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .roots-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: stretch;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+        
+        .founder-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .founder-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            flex-shrink: 0;
+        }
+        
+        .founder-name {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .founder-story {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.6;
+            color: #475569;
+            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .glass-video-wrapper {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .glass-video-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+        
+        .founder-video {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .our-roots-section {
+                padding: 80px 0;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .section-title {
+                margin-bottom: 60px;
+            }
+            
+            .roots-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .glass-card {
+                padding: 30px;
+            }
+            
+            .glass-video-wrapper {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .our-roots-section {
+                padding: 60px 0;
+            }
+            
+            .glass-card {
+                padding: 25px;
+                border-radius: 20px;
+            }
+            
+            .glass-video-wrapper {
+                padding: 12px;
+                border-radius: 20px;
+            }
+            
+            .founder-video {
+                border-radius: 12px;
+            }
+        }
+        
+        /* Mission Layout */
+        .mission-layout {
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .mission-content-area {
+            width: 100%;
+        }
+        
+        /* Side Navigation */
+        .side-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(74, 144, 226, 0.1);
+            border-radius: 16px;
+            padding: 20px 0;
+            box-shadow: 0 8px 32px rgba(74, 144, 226, 0.12);
+            position: sticky;
+            top: 200px;
+            margin-top: 120px;
+        }
+        
+        /* About Us Layout */
+        .about-us-layout {
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+        }
+        
+        .about-content-area {
+            width: 100%;
+        }
+        
+        .nav-spacer {
+            width: 260px;
+        }
+        
+        .about-header {
+            margin-bottom: 40px;
+        }
+        
+        .about-avatar {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #E6F3FF;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            position: absolute;
+            right: -50px;
+            top: 60%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+        
+        .about-title-wrapper {
+            flex: 1;
+        }
+        
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-list li {
+            margin: 0;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 16px 24px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            border-radius: 8px;
+            margin: 4px 12px;
+            letter-spacing: 0.3px;
+        }
+        
+        .nav-link:hover {
+            color: #4A90E2;
+            background: rgba(74, 144, 226, 0.08);
+            transform: translateX(2px);
+        }
+        
+        .nav-link.active {
+            color: #4A90E2;
+            border-left-color: #4A90E2;
+            background: rgba(74, 144, 226, 0.12);
+            font-weight: 600;
+            transform: translateX(2px);
+        }
+        
+        /* Content Sections */
+        .content-wrapper {
+            background: #ffffff;
+            padding: 40px 0;
+        }
+        
+        .content-section {
+            padding: 60px 0;
+        }
+        
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Wider content for testimonials section */
+        .testimonials-section .section-content {
+            max-width: 1200px;
+        }
+        
+        .testimonials-section .content-card {
+            max-width: none;
+            width: 100%;
+        }
+        
+        /* Even wider on large desktops */
+        @media (min-width: 1400px) {
+            .testimonials-section .section-content {
+                max-width: 1400px;
+            }
+        }
+        
+        @media (min-width: 1600px) {
+            .testimonials-section .section-content {
+                max-width: 1600px;
+            }
+        }
+        
+        @media (min-width: 1920px) {
+            .testimonials-section .section-content {
+                max-width: 1800px;
+            }
+        }
+        
+        .content-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+        
+        .content-card p {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            line-height: 1.7;
+            color: #475569;
+            font-weight: 400;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        /* Tablet/Medium Screen Responsive - Avatar repositioning */
+        @media (max-width: 1200px) {
+            .about-us-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .about-content-area {
+                order: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .about-header {
+                order: 1;
+                margin-bottom: 20px;
+            }
+            
+            .about-avatar {
+                position: relative;
+                right: 0;
+                top: 0;
+                transform: none;
+                order: 2;
+                align-self: center;
+                margin: 20px 0;
+                width: 200px;
+                height: 200px;
+            }
+            
+            .section-content {
+                order: 3;
+            }
+            
+            .nav-spacer {
+                order: 4;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .mission-layout,
+            .about-us-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .side-nav,
+            .nav-spacer {
+                display: none;
+            }
+            
+            .about-content-area {
+                order: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .about-header {
+                text-align: center;
+                order: 1;
+                margin-bottom: 15px;
+            }
+            
+            .about-avatar {
+                width: 180px;
+                height: 180px;
+                align-self: center;
+                order: 2;
+                position: relative;
+                top: 0;
+                right: 0;
+                transform: none;
+                margin: 15px 0;
+            }
+            
+            .section-content {
+                order: 3;
+            }
+            
+            .content-section {
+                padding: 40px 0;
+            }
+            
+            .content-card {
+                padding: 35px 25px;
+                border-radius: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content-section {
+                padding: 30px 0;
+            }
+            
+            .content-card {
+                padding: 30px 20px;
+                border-radius: 18px;
+            }
+        }
+        
+        /* Leadership Team Layout */
+        .leadership-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .leadership-content {
+            order: 1;
+        }
+        
+        .leadership-image {
+            order: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .leadership-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .leadership-image img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Leadership Responsive */
+        @media (max-width: 768px) {
+            .leadership-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .leadership-content {
+                order: 1;
+                text-align: center;
+            }
+            
+            .leadership-image {
+                order: 3;
+                margin-top: 20px;
+            }
+            
+            .leadership-image img {
+                max-width: 400px;
+                border-radius: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .leadership-layout {
+                gap: 30px;
+            }
+            
+            .leadership-image img {
+                border-radius: 12px;
+            }
+        }
+        
+        /* Careers Layout - Image Left, Content Right */
+        .careers-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .careers-image {
+            order: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .careers-content {
+            order: 2;
+        }
+        
+        .careers-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .careers-image img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Careers Responsive - Same mobile layout as Leadership */
+        @media (max-width: 768px) {
+            .careers-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .careers-content {
+                order: 1;
+                text-align: center;
+            }
+            
+            .careers-image {
+                order: 3;
+                margin-top: 20px;
+            }
+            
+            .careers-image img {
+                max-width: 400px;
+                border-radius: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .careers-layout {
+                gap: 30px;
+            }
+            
+            .careers-image img {
+                border-radius: 12px;
+            }
+        }
+        
+        /* Team Testimonials Styling */
+        .team-quote {
+            margin: 30px 0;
+            padding: 25px 30px;
+            background: rgba(74, 144, 226, 0.05);
+            border-left: 4px solid #4A90E2;
+            border-radius: 12px;
+            font-style: italic;
+        }
+        
+        .team-quote p {
+            margin: 0 0 15px 0;
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            line-height: 1.6;
+            color: #475569;
+        }
+        
+        .team-quote cite {
+            display: block;
+            font-style: normal;
+            font-weight: 600;
+            color: #4A90E2;
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .team-quote {
+                padding: 20px 25px;
+                margin: 25px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .team-quote {
+                padding: 18px 20px;
+                margin: 20px 0;
+            }
+        }
+        
+        /* Send Resume Button */
+        .send-resume-btn {
+            background: #4A90E2;
+            color: white;
+            padding: 16px 32px;
+            border: 2px solid #4A90E2;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .send-resume-btn:hover {
+            background: transparent;
+            color: #4A90E2;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+        
+        /* Demo CTA Section */
+        .demo-cta {
+            padding: 120px 0;
+            background: 
+                linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(102, 126, 234, 0.05) 50%, rgba(240, 147, 251, 0.08) 100%),
+                linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .demo-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(240, 147, 251, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .demo-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .demo-content {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 32px;
+            padding: 60px;
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.1),
+                0 8px 32px rgba(102, 126, 234, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .demo-content.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .demo-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .demo-text {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .demo-text h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .demo-text p {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        
+        .demo-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #1a202c;
+            border: 2px solid rgba(66, 153, 225, 0.3);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(66, 153, 225, 0.2);
+            margin-bottom: 50px;
+        }
+        
+        .demo-button:hover {
+            transform: translateY(-3px);
+            background: rgba(66, 153, 225, 0.15);
+            border-color: rgba(66, 153, 225, 0.5);
+            box-shadow: 0 8px 30px rgba(66, 153, 225, 0.3);
+            color: #1a202c;
+            text-decoration: none;
+        }
+        
+        .demo-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        
+        .phone-container {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        
+        .demo-phone {
+            width: 600px;
+            height: auto;
+            transition: transform 0.15s ease-out;
+            transform-origin: center center;
+            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.2));
+            will-change: transform;
+        }
+        
+        /* Mobile Responsive for Demo CTA */
+        @media (max-width: 1160px) {
+            .demo-cta {
+                padding: 80px 0;
+            }
+            
+            .demo-content {
+                padding: 40px;
+            }
+            
+            .demo-phone {
+                width: 525px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .demo-cta {
+                padding: 60px 0;
+            }
+            
+            .demo-container {
+                padding: 0 20px;
+            }
+            
+            .demo-content {
+                padding: 30px 20px;
+            }
+            
+            .demo-text p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+            
+            .demo-button {
+                padding: 16px 32px;
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+            
+            .demo-phone {
+                width: 420px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">We help schools strengthen pride, connection, and success across their communities.</h1>
+                <p class="hero-subtitle">SchoolBlocks is dedicated to helping K–12 institutions build stronger, deeper, and safer community connections. We bring this to life through the harmony of design, technology, and usability—crafted to reflect the real human capacity of school systems. The result is a digital communications ecosystem that feels vibrant, relevant, and inviting—encouraging exploration and meaningful engagement.</p>
+                <a href="/get-started" class="get-started-btn">GET STARTED</a>
+            </div>
+            <div class="hero-image">
+                <img src="Photos/Images/HomePage/newhero2.png" alt="SchoolBlocks Team Member" loading="lazy">
+            </div>
+        </section>
+        
+        <!-- Our Roots Section -->
+        <section class="our-roots-section fade-in-section">
+            <div class="decorative-elements"></div>
+            <div class="geometric-left"></div>
+            <div class="geometric-right"></div>
+            <div class="container">
+                <h2 class="section-title">Our Roots</h2>
+                <div class="roots-content">
+                    <div class="founder-info">
+                        <div class="glass-card">
+                            <div class="founder-header">
+                                <img src="Photos/Images/Who We Are/stephenavatar.jpeg" alt="Stephen Shapiro" class="founder-avatar">
+                                <h3 class="founder-name">Stephen Shapiro, Founder</h3>
+                            </div>
+                            <p class="founder-story">Stephen's graduate school thesis was titled, "What I wish I had as a student." 25 years later, Stephen is still creating communication solutions for schools.</p>
+                        </div>
+                    </div>
+                    <div class="video-container">
+                        <div class="glass-video-wrapper">
+                            <video 
+                                controls 
+                                preload="metadata"
+                                poster="Photos/Images/Who We Are/who we are video thumbmnail.png"
+                                class="founder-video">
+                                <source src="https://customer-394md8sxxno51fu2.cloudflarestream.com/f8402347f34a1025f848cde4a5ce8839/manifest/video.m3u8" type="application/x-mpegURL">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Content Sections -->
+        <div class="content-wrapper">
+            <!-- Our Mission & About Us Section -->
+            <section id="our-mission" class="content-section fade-in-section">
+                <div class="container">
+                    <div class="mission-layout">
+                        <div class="mission-content-area">
+                            <h2 class="section-title">Our Mission: Setting New Standards</h2>
+                            <div class="section-content">
+                                <div class="content-card">
+                                    <p>Our mission is simple: empower K–12 institutions to create meaningful digital experiences through innovation, design excellence, and unwavering support.</p>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 80px;">
+                                <h2 id="about-us" class="section-title">About Us: Anything but Ordinary</h2>
+                                <div class="section-content">
+                                    <div class="content-card">
+                                        <p>Founded in 2014, SchoolBlocks is a privately owned company headquartered in Carbondale, Colorado. Its Founder and President, Stephen Shapiro, has been a pioneer in educational technology since 2000. His journey began with his graduate thesis at the University of Colorado, "What I Wish I Had as a Student." SchoolBlocks stands today as the realization of that vision. Before founding SchoolBlocks, Stephen launched the groundbreaking K–12 communication platform SchoolFusion, a first-of-its-kind solution later acquired by Blackboard (now Anthology).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="side-nav" id="sideNav">
+                            <ul class="nav-list">
+                                <li><a href="#our-mission" class="nav-link active">Our Mission</a></li>
+                                <li><a href="#about-us" class="nav-link">About Us</a></li>
+                                <li><a href="#leadership" class="nav-link">Leadership</a></li>
+                                <li><a href="#careers" class="nav-link">Careers</a></li>
+                                <li><a href="#join-team" class="nav-link">Join Team</a></li>
+                                <li><a href="#learn-more" class="nav-link">Learn More</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Leadership Team Section -->
+            <section id="leadership" class="content-section fade-in-section">
+                <div class="container">
+                    <div class="leadership-layout">
+                        <div class="leadership-content">
+                            <h2 class="section-title">Leadership Team: Dedication and Passion</h2>
+                            <div class="section-content">
+                                <div class="content-card">
+                                    <p>The SchoolBlocks team shares the same passion and dedication that drives the educators we serve. As "school people" ourselves, we are committed to meeting the unique needs of K–12 institutions and take pride in fostering meaningful connections with the communities we support.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leadership-image">
+                            <img src="Photos/Images/Who We Are/leadershipteam.png" alt="SchoolBlocks Leadership Team" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Careers Section -->
+            <section id="careers" class="content-section fade-in-section">
+                <div class="container">
+                    <div class="careers-layout">
+                        <div class="careers-image">
+                            <img src="Photos/Images/Who We Are/careers.png" alt="SchoolBlocks Careers" loading="lazy">
+                        </div>
+                        <div class="careers-content">
+                            <h2 class="section-title">Careers – Why Work at SchoolBlocks</h2>
+                            <div class="section-content">
+                                <div class="content-card">
+                                    <p>SchoolBlocks represents the culmination of 25 years of innovation in the K–12 education sector. Our team is passionate about our work and deeply committed to helping schools, students, and parents collaborate more effectively and elevate the overall school experience. We believe our work matters—and we're not done raising the bar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Team Testimonials Section -->
+            <section class="content-section fade-in-section testimonials-section">
+                <div class="container">
+                    <div class="section-content">
+                        <div class="content-card">
+                            <blockquote class="team-quote">
+                                <p>"I love that my work has real social impact. Not just in some vague way, but very directly—helping to make the daily lives of teachers and families less stressful and improving kids' school experience."</p>
+                                <cite>— Vanessa Vega, Product Manager</cite>
+                            </blockquote>
+                            
+                            <p>We also know how to have fun. We enjoy what we do and value work/life balance more than any other opportunity you'll find.</p>
+                            
+                            <blockquote class="team-quote">
+                                <p>"The work/life balance at SchoolBlocks is ideal. I wouldn't work anywhere else. There's no tug-of-war between work and personal life—here, you can manage and enjoy both."</p>
+                                <cite>— Claudia Baschant, Customer Support</cite>
+                            </blockquote>
+                            
+                            <p>We're looking for experts who are as passionate and committed as we are. Are you ready to help bring our vision to life as we launch our next generation of best-in-class capabilities?</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Join Team Section -->
+            <section id="join-team" class="content-section fade-in-section">
+                <div class="container">
+                    <h2 class="section-title">Want to Be a Part of Our Talented Team?</h2>
+                    <div class="section-content">
+                        <div class="content-card" style="text-align: center;">
+                            <p style="margin-bottom: 30px;">Join our mission to transform K–12 education. We're looking for passionate individuals who share our commitment to helping schools, students, and families thrive.</p>
+                            <a href="mailto:jobs@schoolblocks.com" class="send-resume-btn">Send Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Learn More Section -->
+            <section id="learn-more" class="demo-cta fade-in-section">
+                <div class="demo-container">
+                    <div class="demo-content">
+                        <div class="demo-text">
+                            <h2>Want to know more about our product?</h2>
+                            <p>Schedule a demo today!</p>
+                            <a href="#" class="demo-button">Request a Demo</a>
+                            <div class="demo-visual">
+                                <div class="phone-container" id="phoneContainer">
+                                    <img src="Photos/Images/HomePage/editmephone.webp" alt="SchoolBlocks Mobile App Demo" class="demo-phone" id="demoPhone">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    
+    <!-- Hero Section Height Fix -->
+    <script>
+        // Set hero section height to account for dynamic navbar height
+        function adjustHeroHeight() {
+            const navbar = document.querySelector('.header-top');
+            
+            if (navbar) {
+                const navbarHeight = navbar.offsetHeight;
+                document.documentElement.style.setProperty('--navbar-height', navbarHeight + 'px');
+            }
+        }
+        
+        // Watch for navbar height changes
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial adjustment
+            setTimeout(adjustHeroHeight, 100);
+            
+            // Watch for navbar changes
+            const navbar = document.querySelector('.header-top');
+            if (navbar) {
+                const observer = new MutationObserver(adjustHeroHeight);
+                observer.observe(navbar, { 
+                    attributes: true, 
+                    childList: true, 
+                    subtree: true 
+                });
+            }
+        });
+        
+        // Adjust on window load and resize
+        window.addEventListener('load', adjustHeroHeight);
+        window.addEventListener('resize', adjustHeroHeight);
+    </script>
+    
+    <!-- Load Navbar -->
+    <script src="navbarloader.js"></script>
+    
+    <!-- Load Footer -->
+    <script src="footerloader.js"></script>
+    
+    <!-- Scroll Animation & Navigation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hero Blur Parallax Effect
+            const heroSection = document.querySelector('.hero-section');
+            
+            function updateHeroBlur() {
+                const scrollY = window.scrollY;
+                const heroHeight = heroSection.offsetHeight;
+                
+                // Calculate blur amount based on scroll position
+                // Max blur of 8px when scrolled past hero section
+                const blurAmount = Math.min((scrollY / heroHeight) * 8, 8);
+                
+                // Apply blur filter
+                heroSection.style.filter = `blur(${blurAmount}px)`;
+                
+                // Optional: Add slight opacity fade as well
+                const opacity = Math.max(1 - (scrollY / heroHeight) * 0.3, 0.7);
+                heroSection.style.opacity = opacity;
+            }
+            
+            // Update blur on scroll
+            window.addEventListener('scroll', updateHeroBlur);
+            
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.2, // Trigger when 20% of element is visible
+                rootMargin: '0px 0px -50px 0px' // Trigger slightly before element comes into view
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Stop observing once animated to prevent re-triggering
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all fade-in sections
+            const fadeInSections = document.querySelectorAll('.fade-in-section');
+            fadeInSections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Special handling for demo content fade-in
+            const demoContent = document.querySelector('.demo-content');
+            if (demoContent) {
+                const demoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('fade-in');
+                            demoObserver.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+                
+                demoObserver.observe(demoContent);
+            }
+            
+            // Side Navigation Functionality
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+            
+            // Smooth scrolling for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        // Get the navbar height for offset
+                        const navbar = document.querySelector('.header-top');
+                        const navbarHeight = navbar ? navbar.offsetHeight : 87;
+                        
+                        // Calculate position with offset
+                        const elementPosition = targetSection.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Update active navigation link based on scroll position
+            function updateActiveNavigation() {
+                const scrollPosition = window.scrollY + 150; // Offset for navbar
+                
+                // Get all navigation targets (including nested ones)
+                const navTargets = [
+                    { id: 'our-mission', element: document.getElementById('our-mission') },
+                    { id: 'about-us', element: document.getElementById('about-us') },
+                    { id: 'leadership', element: document.getElementById('leadership') },
+                    { id: 'careers', element: document.getElementById('careers') },
+                    { id: 'join-team', element: document.getElementById('join-team') },
+                    { id: 'learn-more', element: document.getElementById('learn-more') }
+                ].filter(target => target.element); // Only include existing elements
+                
+                let activeId = 'our-mission'; // Default
+                
+                // Find which section we're currently in
+                navTargets.forEach(target => {
+                    const elementTop = target.element.getBoundingClientRect().top + window.pageYOffset;
+                    if (scrollPosition >= elementTop) {
+                        activeId = target.id;
+                    }
+                });
+                
+                // Update active navigation link
+                navLinks.forEach(link => link.classList.remove('active'));
+                const activeLink = document.querySelector(`a[href="#${activeId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+            
+            // Update on scroll
+            window.addEventListener('scroll', updateActiveNavigation);
+            
+            // Initial update
+            updateActiveNavigation();
+        });
+        
+        // 3D Phone Mouse Effect
+        const phoneContainer = document.getElementById('phoneContainer');
+        const demoPhone = document.getElementById('demoPhone');
+        
+        if (phoneContainer && demoPhone) {
+            phoneContainer.addEventListener('mousemove', function(e) {
+                const rect = phoneContainer.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                const mouseX = e.clientX - centerX;
+                const mouseY = e.clientY - centerY;
+                
+                // Calculate rotation based on mouse position (subtle effect)
+                const rotateY = (mouseX / rect.width) * 20; // Max 20 degrees
+                const rotateX = -(mouseY / rect.height) * 15; // Max 15 degrees
+                
+                // Apply transform
+                demoPhone.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.02)`;
+            });
+            
+            phoneContainer.addEventListener('mouseleave', function() {
+                // Reset to neutral position
+                demoPhone.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
+            });
+            
+            phoneContainer.addEventListener('mouseenter', function() {
+                // Slight scale on enter
+                demoPhone.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1.02)';
+            });
+        }
+    </script>
+    
+    <!-- HLS Video Setup -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.founder-video');
+            const videoSrc = 'https://customer-394md8sxxno51fu2.cloudflarestream.com/f8402347f34a1025f848cde4a5ce8839/manifest/video.m3u8';
+            
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    // Video is ready to play
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                // Native HLS support (Safari)
+                video.src = videoSrc;
+            } else {
+                console.error('HLS is not supported in this browser');
+                // Fallback: show thumbnail only
+            }
+        });
+    </script>
+</body>
+</html>

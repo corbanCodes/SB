@@ -15,6 +15,9 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
+    <!-- HLS.js for video streaming -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    
     <!-- Local Brandon Grotesque Font -->
     <style>
         @font-face {
@@ -51,21 +54,24 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, 
-                #667eea 0%, 
-                #764ba2 25%, 
-                #f093fb 50%, 
-                #f5576c 75%, 
-                #4facfe 100%);
+                #4ECDC4 0%, 
+                #66D9EF 20%, 
+                #4299E1 40%, 
+                #38B2AC 60%, 
+                #5DADE2 80%, 
+                #7FDBFF 100%);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
-            color: white;
-            padding: 80px 0;
-            min-height: 85vh;
+            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            filter: blur(0px);
+            transition: filter 0.1s ease-out;
+            will-change: filter;
         }
         
         /* .hero-bg-image1,
@@ -236,10 +242,15 @@
         .hero-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 40px 40px;
             position: relative;
             z-index: 10;
             text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
         .hero-content {
@@ -250,11 +261,11 @@
         }
         
         .hero-top {
-            margin-bottom: clamp(60px, 15vh, 120px);
+            margin-bottom: 0;
         }
         
         .hero-bottom {
-            margin-top: auto;
+            margin-top: 0;
         }
         
         /* Modern Section Headings */
@@ -273,25 +284,25 @@
         /* Override removed - specific section rules handle gradient text */
         
         /* Specific override for features section gradient text */
-        .features h2.modern-heading .highlight-word {
+        /* .features h2.modern-heading .highlight-word {
             color: transparent !important;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+            background: linear-gradient(135deg, #4ECDC4 0%, #2E86AB 50%, #1B4F72 100%) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
             font-weight: 700 !important;
             box-decoration-break: clone !important;
             -webkit-box-decoration-break: clone !important;
-        }
+        } */
         
         /* Fallback for browsers that don't support background-clip: text */
-        @supports not (-webkit-background-clip: text) {
+        /* @supports not (-webkit-background-clip: text) {
             .features h2.modern-heading .highlight-word {
                 background: none !important;
-                color: #667eea !important;
-                -webkit-text-fill-color: #667eea !important;
+                color: #2E86AB !important;
+                -webkit-text-fill-color: #2E86AB !important;
             }
-        }
+        } */
         
         /* Responsive sizing for modern headings */
         @media (max-width: 768px) {
@@ -311,13 +322,13 @@
         }
         
         /* Special colorful highlight for specific words */
-        .highlight-word {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        /* .highlight-word {
+            background: linear-gradient(135deg, #4ECDC4 0%, #2E86AB 50%, #1B4F72 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 700;
-        }
+        } */
         
         /* Highlighter Effect for "Amplify Impact" */
         /* .highlight-text {
@@ -359,10 +370,10 @@
         
         .hero h1 {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: clamp(4rem, 8vw, 8rem);
+            font-size: clamp(3.2rem, 6.5vw, 6.5rem);
             font-weight: 700;
             color: white;
-            margin-bottom: 0;
+            margin-bottom: 1.5rem;
             line-height: 1.1;
             text-align: center;
             letter-spacing: -0.02em;
@@ -371,9 +382,9 @@
         
         .hero p {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
             font-weight: 400;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             opacity: 0.95;
             max-width: 900px;
             margin-left: auto;
@@ -430,6 +441,234 @@
             background: #4A90E2;
             color: white;
             transform: translateY(-2px);
+        }
+        
+        /* Notification Bell */
+        .notification-bell {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .notification-bell:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .notification-bell svg {
+            width: 24px;
+            height: 24px;
+            color: #ffffff;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+        
+        .notification-dot {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #4ECDC4 0%, #4A90E2 100%);
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: notificationPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes notificationPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* Notification Panel */
+        .notification-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: -10px 0 50px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .notification-panel.active {
+            right: 0;
+        }
+        
+        .notification-header {
+            padding: 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+        
+        .notification-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4A90E2 0%, #4ECDC4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .notification-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+        
+        .notification-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        
+        .close-notification {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #7f8c8d;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+        
+        .close-notification:hover {
+            background: rgba(0, 0, 0, 0.1);
+            color: #2c3e50;
+        }
+        
+        .notification-content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .notification-content h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .notification-content p {
+            font-size: 1rem;
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .notification-content strong {
+            color: #2c3e50;
+            font-style: italic;
+        }
+        
+        .notification-cta {
+            text-align: center;
+        }
+        
+        .all-access-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #4A90E2 0%, #4ECDC4 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+        
+        .all-access-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(74, 144, 226, 0.4);
+            background: linear-gradient(135deg, #357ABD 0%, #3BB3A6 100%);
+        }
+        
+        /* Responsive Notification Styles */
+        @media (max-width: 768px) {
+            .notification-bell {
+                top: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .notification-bell svg {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .notification-panel {
+                width: 100vw;
+                right: -100vw;
+            }
+            
+            .notification-header {
+                padding: 25px 20px;
+            }
+            
+            .notification-content {
+                padding: 25px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .notification-bell {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .notification-bell svg {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .notification-dot {
+                width: 10px;
+                height: 10px;
+                top: 6px;
+                right: 6px;
+            }
         }
         
         /* Video Solution Section */
@@ -492,6 +731,14 @@
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .video-solution-header.fade-in {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .video-solution-header h2 {
@@ -677,7 +924,15 @@
         /* Trusted Schools Section */
         .trusted-schools {
             padding: 40px 0 20px 0;
-            background: #fff;
+            background: #f8f9fa;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .trusted-schools.fade-in {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .trusted-container {
@@ -738,7 +993,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 80px;
+            height: 120px;
             transition: transform 0.3s ease;
         }
         
@@ -746,18 +1001,25 @@
             transform: scale(1.1);
         }
         
+        .logo-item a {
+            display: block;
+            cursor: pointer;
+        }
+        
         .logo-item img {
-            max-height: 60px;
-            max-width: 120px;
+            max-height: 90px;
+            max-width: 180px;
             width: auto;
             height: auto;
             object-fit: contain;
             filter: grayscale(100%) opacity(0.7);
-            transition: filter 0.3s ease;
+            transition: filter 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
         }
         
         .logo-item:hover img {
             filter: grayscale(0%) opacity(1);
+            transform: scale(1.1);
         }
         
         @keyframes scroll-logos {
@@ -804,12 +1066,12 @@
             
             .logo-item {
                 margin-right: 30px;
-                height: 60px;
+                height: 90px;
             }
             
             .logo-item img {
-                max-height: 45px;
-                max-width: 100px;
+                max-height: 68px;
+                max-width: 150px;
             }
         }
         
@@ -827,7 +1089,7 @@
         
         /* Features Section - Circular Ecosystem */
         .features {
-            padding: 60px 0 10px 0;
+            padding: 0px 0 0px 0;
             background: #fff;
             position: relative;
         }
@@ -844,7 +1106,8 @@
         .features h2.modern-heading {
             text-align: center;
             font-size: 2.8rem;
-            margin-bottom: 40px;
+            margin-top: -30px;
+            margin-bottom: 0px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -853,6 +1116,14 @@
             letter-spacing: 0.5px;
             position: relative;
             z-index: 3;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .features h2.modern-heading.fade-in {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* Circular Ecosystem Layout */
@@ -860,7 +1131,7 @@
             position: relative;
             width: 1000px;
             height: 800px;
-            margin: 0 auto;
+            margin: -80px auto -120px auto;
             z-index: 3;
         }
         
@@ -965,7 +1236,7 @@
         }
         
         .service-icon {
-            opacity: 0;
+            opacity: 1;
             transition: opacity 0.5s ease, transform 0.3s ease, filter 0.3s ease;
         }
         
@@ -1021,7 +1292,7 @@
             transform: translateX(-50%) scale(1.1);
         }
         
-        /* Positioning icons to intersect with the smaller dotted circle (radius ~130px from center) */
+        /* Positioning icons to match background circle positions exactly */
         .websites-icon {
             background: #FF6B6B;
             top: 230px;
@@ -1320,7 +1591,7 @@
         
         /* Label Positioning - Positioned around the circle */
         .websites-label {
-            top: 80px;
+            top: 150px;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -1328,21 +1599,21 @@
         }
         
         .google-label {
-            top: 250px;
-            right: 50px;
+            top: 290px;
+            right: 125px;
             text-align: left;
             max-width: 220px;
         }
         
         .welcomechat-label {
-            bottom: 250px;
-            right: 50px;
+            bottom: 290px;
+            right: 120px;
             text-align: left;
             max-width: 220px;
         }
         
         .schoolfeed-label {
-            bottom: 80px;
+            bottom: 150px;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -1350,15 +1621,15 @@
         }
         
         .docmersion-label {
-            bottom: 250px;
-            left: 50px;
+            bottom: 265px;
+            left: 80px;
             text-align: right;
             max-width: 220px;
         }
         
         .mobile-label {
-            top: 250px;
-            left: 50px;
+            top: 295px;
+            left: 185px;
             text-align: right;
             max-width: 220px;
         }
@@ -1388,8 +1659,10 @@
         
         /* Why Choose Us Section */
         .why-choose-us {
-            padding: 60px 0;
-            background: #fff;
+            padding: 120px 0;
+            background: 
+                linear-gradient(135deg, rgba(79, 172, 254, 0.08) 0%, rgba(102, 126, 234, 0.04) 50%, rgba(240, 147, 251, 0.06) 100%),
+                linear-gradient(180deg, #fafbfc 0%, #ffffff 100%);
             position: relative;
             overflow: hidden;
         }
@@ -1402,17 +1675,16 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(240, 147, 251, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(79, 172, 254, 0.04) 0%, transparent 50%);
+                radial-gradient(circle at 25% 25%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(240, 147, 251, 0.06) 0%, transparent 50%);
             pointer-events: none;
             z-index: 1;
         }
         
         .why-choose-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
             position: relative;
             z-index: 2;
         }
@@ -1422,23 +1694,32 @@
             grid-template-columns: 1fr 1fr;
             grid-template-areas: 
                 "title title"
-                "text visual";
-            gap: 80px;
-            align-items: center;
+                "text visual"
+                "testimonial testimonial";
+            gap: 80px 100px;
+            align-items: start;
         }
         
         .why-choose-title {
             grid-area: title;
             text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .why-choose-title.fade-in {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .why-choose-title h2 {
-            font-size: 3.6rem;
-            font-weight: 400;
-            color: #000;
-            margin-bottom: 60px;
-            line-height: 1.3;
-            letter-spacing: 0.5px;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 80px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
         }
         
         .why-choose-text {
@@ -1447,53 +1728,133 @@
         
         .why-choose-visual {
             grid-area: visual;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .why-choose-visual.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .why-choose-testimonial {
+            grid-area: testimonial;
+            margin-top: 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .why-choose-testimonial.fade-in {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .why-choose-features {
             display: flex;
             flex-direction: column;
-            gap: 32px;
-            margin-bottom: 48px;
+            gap: 40px;
+            margin-bottom: 0;
         }
         
         .why-choose-feature {
             display: flex;
             align-items: flex-start;
-            gap: 20px;
+            gap: 24px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.06),
+                0 4px 16px rgba(102, 126, 234, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .why-choose-feature.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .why-choose-feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .why-choose-feature > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .why-choose-feature:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.1),
+                0 6px 20px rgba(102, 126, 234, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
         
         .feature-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 24px;
+            font-size: 20px;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 
+                0 4px 16px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
         }
         
         .schools-icon {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #4299e1;
         }
         
         .innovation-icon {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: #38b2ac;
+        }
+        
+        .why-choose-feature:hover .feature-icon {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
         }
         
         .feature-content h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #333;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a202c;
             margin-bottom: 8px;
-            letter-spacing: 0.3px;
+            letter-spacing: -0.01em;
         }
         
         .feature-content p {
             font-size: 1rem;
-            color: #666;
+            color: #4a5568;
             line-height: 1.6;
             margin: 0;
         }
@@ -1511,10 +1872,31 @@
                 0 20px 60px rgba(0, 0, 0, 0.08),
                 0 8px 32px rgba(102, 126, 234, 0.1),
                 inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
             overflow: hidden;
         }
         
+        .modern-testimonial:hover {
+            transform: translateY(-6px);
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.12),
+                0 12px 40px rgba(102, 126, 234, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+        
         .modern-testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 4rem;
+            color: rgba(102, 126, 234, 0.2);
+            font-weight: 700;
+            line-height: 1;
+            z-index: 1;
+        }
+        
+        .modern-testimonial::after {
             content: '';
             position: absolute;
             top: 0;
@@ -1527,34 +1909,28 @@
         }
         
         .modern-testimonial p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: #2d3748;
-            line-height: 1.8;
-            margin-bottom: 24px;
-            font-style: normal;
-            font-weight: 500;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+            font-weight: 400;
+            padding-left: 50px;
             position: relative;
             z-index: 2;
         }
         
         .modern-testimonial cite {
-            font-size: 1rem;
-            color: #667eea;
+            font-size: 0.9rem;
+            color: #4299e1;
             font-weight: 600;
             font-style: normal;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            padding-left: 50px;
+            display: block;
             position: relative;
-            padding-left: 24px;
             z-index: 2;
-        }
-        
-        .modern-testimonial cite::before {
-            content: '—';
-            position: absolute;
-            left: 0;
-            color: #cbd5e0;
-            font-weight: 300;
         }
         
         .why-choose-visual {
@@ -1641,34 +2017,39 @@
         }
         
         .student-profile {
-            width: 340px;
+            width: 408px; /* 340px * 1.2 = 408px */
             height: auto;
             object-fit: cover;
             object-position: center center;
             filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+            transition: transform 0.1s ease-out;
+            will-change: transform;
         }
         
         
         /* Mobile Responsive */
         @media (max-width: 1160px) {
+            .why-choose-us {
+                padding: 80px 0;
+            }
+            
             .why-choose-content {
                 grid-template-columns: 1fr;
                 grid-template-areas: 
                     "title"
                     "visual"
-                    "text";
+                    "text"
+                    "testimonial";
                 gap: 60px;
                 text-align: left;
             }
             
-            .why-choose-title h2 {
-                font-size: 3.2rem;
-                margin-bottom: 30px;
+            .why-choose-title {
+                text-align: center;
             }
             
-            .profile-circle {
-                border-radius: 50%;
-                overflow: hidden;
+            .why-choose-title h2 {
+                margin-bottom: 40px;
             }
             
             .student-profile-container {
@@ -1682,45 +2063,46 @@
             }
             
             .student-profile {
-                width: 300px;
-            }
-        }
-        
-        @media (max-width: 1200px) {
-            .why-choose-us {
-                padding: 50px 0;
+                width: 360px; /* 300px * 1.2 = 360px */
             }
         }
         
         @media (max-width: 1024px) {
             .why-choose-us {
-                padding: 45px 0;
+                padding: 60px 0;
+            }
+            
+            .why-choose-container {
+                padding: 0 20px;
             }
         }
         
         @media (max-width: 768px) {
             .why-choose-us {
-                padding: 40px 0;
+                padding: 60px 0;
+            }
+            
+            .why-choose-content {
+                gap: 40px;
             }
             
             .why-choose-title h2 {
-                font-size: 2.8rem;
-                margin-bottom: 20px;
+                margin-bottom: 30px;
             }
             
             .why-choose-features {
-                gap: 24px;
+                gap: 32px;
                 margin-bottom: 40px;
             }
             
             .feature-icon {
-                width: 48px;
-                height: 48px;
-                font-size: 20px;
+                width: 44px;
+                height: 44px;
+                font-size: 18px;
             }
             
             .feature-content h4 {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .feature-content p {
@@ -1734,6 +2116,16 @@
             .modern-testimonial p {
                 font-size: 1rem;
                 margin-bottom: 16px;
+                padding-left: 32px;
+            }
+            
+            .modern-testimonial cite {
+                padding-left: 32px;
+            }
+            
+            .modern-testimonial::before {
+                left: 16px;
+                font-size: 2.5rem;
             }
             
             .student-profile-container {
@@ -1747,21 +2139,20 @@
             }
             
             .student-profile {
-                width: 250px;
+                width: 300px; /* 250px * 1.2 = 300px */
             }
-            
         }
         
         /* Expect the Unexpected Section */
         .expect-unexpected {
             padding: 100px 0;
             background: linear-gradient(45deg, 
-                #1e3a8a 0%, 
-                #3730a3 20%, 
-                #7c3aed 40%, 
-                #c026d3 60%, 
-                #e11d48 80%, 
-                #dc2626 100%);
+                #2196F3 0%, 
+                #03A9F4 20%, 
+                #00BCD4 40%, 
+                #009688 60%, 
+                #4CAF50 80%, 
+                #2196F3 100%);
             background-size: 300% 300%;
             animation: gradientShift 20s ease infinite;
             position: relative;
@@ -1798,6 +2189,14 @@
         
         .expect-text {
             color: white;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .expect-text.fade-in {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .expect-text h2 {
@@ -1838,7 +2237,7 @@
             height: 32px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 8px;
-            color: #4ade80;
+            color: white;
             font-size: 16px;
             font-weight: bold;
             flex-shrink: 0;
@@ -2016,6 +2415,14 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
             margin-top: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out 0.3s;
+        }
+        
+        .success-grid.fade-in {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .success-card {
@@ -2066,10 +2473,7 @@
             width: 80px;
             height: 80px;
             margin: 0 auto 24px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -2082,9 +2486,8 @@
         }
         
         .success-card:hover .success-icon {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.4);
             transform: scale(1.1);
+            color: #5a67d8;
         }
         
         .success-content {
@@ -2105,16 +2508,25 @@
             color: #4a5568;
             line-height: 1.6;
             transition: all 0.4s ease;
+            position: relative;
         }
         
         .success-hover-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1rem;
             color: #4a5568;
             line-height: 1.6;
             opacity: 0;
-            transition: all 0.4s ease;
-            z-index: 3;
+            transition: opacity 0.3s ease;
             pointer-events: none;
+            padding: 0;
         }
         
         .success-card:hover .success-hover-text {
@@ -2122,13 +2534,431 @@
         }
         
         .success-card:hover .success-description {
-            opacity: 0;
+            color: transparent;
         }
         
-        .success-hover-text p {
+        .success-hover-text span {
+            margin: 0;
+            text-align: center;
+        }
+        
+        /* Alternative Services Section - Futuristic Ecosystem */
+        .alternative-services {
+            padding: 150px 0;
+            background: radial-gradient(ellipse at center, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+        
+        .alternative-services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(78, 205, 196, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+        
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .alternative-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .alternative-services h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 4rem;
+            font-weight: 200;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            text-shadow: 0 0 30px rgba(74, 144, 226, 0.5);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 80px;
+            font-weight: 300;
+        }
+        
+        /* Ecosystem Diagram */
+        .ecosystem-diagram {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Central Hub */
+        .central-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        
+        .hub-core {
+            text-align: center;
+            position: relative;
+            z-index: 15;
+        }
+        
+        .hub-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        
+        .logo-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 20px rgba(74, 144, 226, 0.5));
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .hub-core h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .hub-core p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
             margin: 0;
         }
         
+        /* Orbital Rings */
+        .orbital-ring {
+            position: absolute;
+            border: 1px solid rgba(74, 144, 226, 0.2);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .ring-1 {
+            width: 300px;
+            height: 300px;
+            animation: rotate 30s linear infinite;
+        }
+        
+        .ring-2 {
+            width: 500px;
+            height: 500px;
+            animation: rotate 45s linear infinite reverse;
+            border-color: rgba(78, 205, 196, 0.15);
+        }
+        
+        .ring-3 {
+            width: 700px;
+            height: 700px;
+            animation: rotate 60s linear infinite;
+            border-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        /* Service Nodes */
+        .service-node {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 5;
+        }
+        
+        .service-node::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-node:hover::before {
+            opacity: 1;
+        }
+        
+        .node-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(74, 144, 226, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: #4A90E2;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-node:hover .node-icon {
+            transform: scale(1.1);
+            border-color: #4A90E2;
+            box-shadow: 0 0 30px rgba(74, 144, 226, 0.5);
+            background: rgba(74, 144, 226, 0.2);
+        }
+        
+        .node-content {
+            text-align: center;
+        }
+        
+        .node-content h4 {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .node-content p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+            margin: 0;
+        }
+        
+        /* New Node Styling */
+        .new-node .node-icon {
+            border-color: rgba(255, 107, 107, 0.5);
+            color: #ff6b6b;
+        }
+        
+        .new-node:hover .node-icon {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+            background: rgba(255, 107, 107, 0.2);
+        }
+        
+        .new-badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            animation: newBadgePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes newBadgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* Node Positioning */
+        .node-1 { top: 10%; left: 50%; transform: translateX(-50%); }
+        .node-2 { top: 25%; right: 15%; }
+        .node-3 { top: 50%; right: 5%; transform: translateY(-50%); }
+        .node-4 { bottom: 25%; right: 15%; }
+        .node-5 { bottom: 10%; left: 50%; transform: translateX(-50%); }
+        .node-6 { bottom: 25%; left: 15%; }
+        .node-7 { top: 50%; left: 5%; transform: translateY(-50%); }
+        .node-8 { top: 25%; left: 15%; }
+        
+        /* Connection Lines */
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent 0%, rgba(74, 144, 226, 0.3) 50%, transparent 100%);
+            height: 2px;
+            z-index: 1;
+            animation: dataFlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes dataFlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+        
+        .line-1 { width: 200px; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-90deg); }
+        .line-2 { width: 180px; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); }
+        .line-3 { width: 200px; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg); }
+        .line-4 { width: 180px; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); }
+        .line-5 { width: 200px; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(90deg); }
+        .line-6 { width: 180px; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(135deg); }
+        .line-7 { width: 200px; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(180deg); }
+        .line-8 { width: 180px; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-135deg); }
+        
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(74, 144, 226, 0.6);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .particle-1 { top: 20%; left: 20%; animation-delay: 0s; }
+        .particle-2 { top: 30%; right: 25%; animation-delay: 1.5s; }
+        .particle-3 { bottom: 20%; left: 30%; animation-delay: 3s; }
+        .particle-4 { bottom: 30%; right: 20%; animation-delay: 4.5s; }
+        .particle-5 { top: 60%; left: 60%; animation-delay: 6s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+        }
+        
+        /* Service Details Panel */
+        .service-details {
+            margin-top: 80px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .details-content h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .details-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .ecosystem-diagram {
+                height: 600px;
+            }
+            
+            .ring-2 { width: 400px; height: 400px; }
+            .ring-3 { width: 550px; height: 550px; }
+            
+            .alternative-services h2 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .alternative-services {
+                padding: 100px 0;
+            }
+            
+            .alternative-container {
+                padding: 0 20px;
+            }
+            
+            .alternative-services h2 {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .ecosystem-diagram {
+                height: 500px;
+            }
+            
+            .service-node {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .node-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .node-content h4 {
+                font-size: 0.8rem;
+            }
+            
+            .node-content p {
+                font-size: 0.7rem;
+            }
+            
+            .ring-1 { width: 200px; height: 200px; }
+            .ring-2 { width: 300px; height: 300px; }
+            .ring-3 { width: 400px; height: 400px; }
+        }
+        
+        @media (max-width: 480px) {
+            .alternative-services h2 {
+                font-size: 2rem;
+            }
+            
+            .ecosystem-diagram {
+                height: 400px;
+            }
+            
+            .service-details {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Tablet Responsive for Success Features - Center third card */
+        @media (max-width: 1200px) and (min-width: 1161px) {
+            .success-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+                justify-items: center;
+            }
+            
+            .success-card:nth-child(3) {
+                grid-column: 1 / -1;
+                max-width: 400px;
+                justify-self: center;
+            }
+        }
+
         /* Mobile Responsive for Success Features */
         @media (max-width: 1160px) {
             .success-features {
@@ -2167,6 +2997,187 @@
             
             .success-description {
                 font-size: 0.95rem;
+            }
+        }
+        
+        /* Demo CTA Section */
+        .demo-cta {
+            padding: 120px 0;
+            background: 
+                linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(102, 126, 234, 0.05) 50%, rgba(240, 147, 251, 0.08) 100%),
+                linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .demo-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(240, 147, 251, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .demo-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .demo-content {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 32px;
+            padding: 60px;
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.1),
+                0 8px 32px rgba(102, 126, 234, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .demo-content.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .demo-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .demo-text {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .demo-text h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .demo-text p {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        
+        .demo-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #1a202c;
+            border: 2px solid rgba(66, 153, 225, 0.3);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(66, 153, 225, 0.2);
+            margin-bottom: 50px;
+        }
+        
+        .demo-button:hover {
+            transform: translateY(-3px);
+            background: rgba(66, 153, 225, 0.15);
+            border-color: rgba(66, 153, 225, 0.5);
+            box-shadow: 0 8px 30px rgba(66, 153, 225, 0.3);
+            color: #1a202c;
+            text-decoration: none;
+        }
+        
+        .demo-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        
+        .phone-container {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        
+        .demo-phone {
+            width: 600px; /* 400px * 1.5 = 600px */
+            height: auto;
+            transition: transform 0.15s ease-out;
+            transform-origin: center center;
+            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.2));
+            will-change: transform;
+        }
+        
+        /* Mobile Responsive for Demo CTA */
+        @media (max-width: 1160px) {
+            .demo-cta {
+                padding: 80px 0;
+            }
+            
+            .demo-content {
+                padding: 40px;
+            }
+            
+            .demo-phone {
+                width: 525px; /* 350px * 1.5 = 525px */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .demo-cta {
+                padding: 60px 0;
+            }
+            
+            .demo-container {
+                padding: 0 20px;
+            }
+            
+            .demo-content {
+                padding: 30px 20px;
+            }
+            
+            .demo-text p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+            
+            .demo-button {
+                padding: 16px 32px;
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+            
+            .demo-phone {
+                width: 420px; /* 280px * 1.5 = 420px */
             }
         }
         
@@ -2256,16 +3267,16 @@
         /* Large Desktop */
         @media (max-width: 1600px) {
             .hero-container {
-                padding: 0 30px;
+                padding: 30px 30px;
             }
             
             .hero h1 {
-                font-size: clamp(3.5rem, 7vw, 7rem);
+                font-size: clamp(2.8rem, 5.8vw, 5.8rem);
             }
             
             .hero p {
-                font-size: clamp(1.3rem, 2.5vw, 2.2rem);
-                margin-bottom: 2.5rem;
+                font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+                margin-bottom: 1.5rem;
             }
             
         }
@@ -2273,33 +3284,51 @@
         /* Mid-range Desktop */
         @media (max-width: 1400px) {
             .hero-container {
-                padding: 0 25px;
+                padding: 40px 25px;
             }
             
             .hero h1 {
-                font-size: clamp(3rem, 6vw, 6rem);
+                font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+                margin-bottom: 1.8rem;
             }
             
             .hero p {
-                font-size: clamp(1.2rem, 2.3vw, 2rem);
-                margin-bottom: 2.5rem;
+                font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+                margin-bottom: 1.8rem;
             }
             
+        }
+        
+        /* Fix for specific squashing range */
+        @media (max-width: 1350px) and (min-width: 1201px) {
+            .hero-container {
+                padding: 50px 25px;
+            }
+            
+            .hero h1 {
+                font-size: clamp(2.9rem, 5.8vw, 5.8rem);
+                margin-bottom: 2rem;
+            }
+            
+            .hero p {
+                font-size: clamp(1.2rem, 2.3vw, 1.9rem);
+                margin-bottom: 2rem;
+            }
         }
         
         /* Small Desktop/Large Tablet */
         @media (max-width: 1200px) {
             .hero-container {
-                padding: 0 20px;
+                padding: 30px 20px;
             }
             
             .hero h1 {
-                font-size: clamp(2.5rem, 5vw, 5rem);
+                font-size: clamp(2.4rem, 4.8vw, 4.8rem);
             }
             
             .hero p {
-                font-size: clamp(1.1rem, 2vw, 1.8rem);
-                margin-bottom: 2rem;
+                font-size: clamp(0.95rem, 1.8vw, 1.5rem);
+                margin-bottom: 1.5rem;
             }
             
         }
@@ -2307,53 +3336,56 @@
         /* Large Tablet */
         @media (max-width: 1024px) and (min-width: 769px) {
             .hero {
-                padding: 60px 0 80px 0;
-                min-height: 90vh;
+                padding: 0;
+                min-height: 100vh;
+                height: 100vh;
             }
             
             .hero-container {
-                padding: 0 30px;
+                padding: 30px 30px;
             }
             
             .hero-top {
-                margin-bottom: 40px;
-            }
-            
-            .hero h1 {
-                font-size: clamp(3rem, 6vw, 4.5rem);
-                line-height: 1.1;
                 margin-bottom: 0;
             }
             
+            .hero h1 {
+                font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+                line-height: 1.1;
+                margin-bottom: 1.2rem;
+            }
+            
             .hero p {
-                font-size: clamp(1.2rem, 3vw, 1.6rem);
-                margin-bottom: 1.8rem;
+                font-size: clamp(1rem, 2.5vw, 1.3rem);
+                margin-bottom: 1.2rem;
             }
         }
         
         /* Tablet Portrait */
         @media (max-width: 1024px) {
             .hero {
-                padding: 70px 0;
+                padding: 0;
+                min-height: 100vh;
+                height: 100vh;
             }
             
             .hero-container {
-                padding: 0 30px;
+                padding: 30px 30px;
             }
             
             .hero-top {
-                margin-bottom: 50px;
-            }
-            
-            .hero h1 {
-                font-size: clamp(3rem, 7vw, 5rem);
-                line-height: 1.1;
                 margin-bottom: 0;
             }
             
+            .hero h1 {
+                font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+                line-height: 1.1;
+                margin-bottom: 1.2rem;
+            }
+            
             .hero p {
-                font-size: clamp(1.2rem, 3vw, 1.8rem);
-                margin-bottom: 2rem;
+                font-size: clamp(1rem, 2.5vw, 1.4rem);
+                margin-bottom: 1.2rem;
             }
             
         }
@@ -2419,8 +3451,8 @@
             
         }
         
-        /* Large Mobile/Small Tablet */
-        @media (max-width: 900px) {
+        /* Large Mobile/Small Tablet - Only apply compressed layout to very small screens */
+        @media (max-width: 768px) and (min-height: 600px) {
             .hero {
                 height: auto;
                 min-height: auto;
@@ -2441,12 +3473,12 @@
             }
             
             .hero h1 {
-                font-size: 3.5rem;
+                font-size: 3rem;
                 margin-bottom: 14px;
             }
             
             .hero p {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
                 margin-bottom: 22px;
             }
             
@@ -2455,8 +3487,9 @@
         /* Mobile Portrait */
         @media (max-width: 768px) {
             .hero {
-                min-height: 70vh;
-                padding: 80px 0;
+                min-height: 100vh;
+                height: 100vh;
+                padding: 0;
             }
             
             .hero-bg-image1,
@@ -2466,22 +3499,22 @@
             }
             
             .hero-container {
-                padding: 0 20px;
+                padding: 25px 20px;
             }
             
             .hero-top {
-                margin-bottom: 50px;
+                margin-bottom: 0;
             }
             
             .hero h1 {
-                font-size: clamp(2.5rem, 8vw, 4rem);
-                margin-bottom: 0;
+                font-size: clamp(2rem, 6.5vw, 3.2rem);
+                margin-bottom: 1.5rem;
                 line-height: 1.1;
             }
             
             .hero p {
-                font-size: clamp(1.1rem, 4vw, 1.4rem);
-                margin-bottom: 2rem;
+                font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+                margin-bottom: 1.2rem;
                 max-width: 100%;
             }
             
@@ -2492,12 +3525,12 @@
         /* Additional responsive breakpoints for features h2 */
         @media (max-width: 1160px) {
             .features {
-                padding: 50px 0;
+                padding: 60px 0 80px 0;
             }
             
             .features h2.modern-heading {
-                font-size: 2.4rem;
-                margin-bottom: 30px;
+                margin-top: 0px;
+                margin-bottom: 40px;
             }
         }
         
@@ -2526,8 +3559,9 @@
         /* Small Mobile */
         @media (max-width: 480px) {
             .hero {
-                padding: 60px 0;
-                min-height: 60vh;
+                padding: 0;
+                min-height: 100vh;
+                height: 100vh;
             }
             
             .hero-bg-image1,
@@ -2537,22 +3571,22 @@
             }
             
             .hero-container {
-                padding: 0 15px;
+                padding: 25px 15px;
             }
             
             .hero-top {
-                margin-bottom: 40px;
+                margin-bottom: 0;
             }
             
             .hero h1 {
-                font-size: clamp(2rem, 9vw, 3rem);
-                margin-bottom: 0;
+                font-size: clamp(1.7rem, 7.5vw, 2.4rem);
+                margin-bottom: 1.2rem;
                 line-height: 1.1;
             }
             
             .hero p {
-                font-size: clamp(1rem, 4vw, 1.2rem);
-                margin-bottom: 1.5rem;
+                font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+                margin-bottom: 1.2rem;
             }
             
             .btn {
@@ -2565,7 +3599,9 @@
         /* Extra Small Mobile */
         @media (max-width: 360px) {
             .hero {
-                padding: 30px 0;
+                padding: 0;
+                min-height: 100vh;
+                height: 100vh;
             }
             
             .hero-bg-image1,
@@ -2575,21 +3611,21 @@
             }
             
             .hero-container {
-                padding: 0 15px;
+                padding: 20px 15px;
             }
             
             .hero-top {
-                margin-bottom: 25px;
+                margin-bottom: 0;
             }
             
             .hero h1 {
-                font-size: clamp(1.8rem, 9vw, 2.5rem);
-                margin-bottom: 0;
+                font-size: clamp(1.6rem, 8vw, 2.2rem);
+                margin-bottom: 1rem;
                 line-height: 1.1;
             }
             
             .hero p {
-                font-size: clamp(0.9rem, 4vw, 1.1rem);
+                font-size: clamp(0.85rem, 3.5vw, 1rem);
                 margin-bottom: 1.2rem;
             }
             
@@ -2718,18 +3754,51 @@
         <section class="hero">
             <!-- <div class="hero-bg-image1"></div>
             <div class="hero-bg-image2"></div> -->
+            
+            <!-- Notification Bell -->
+            <div class="notification-bell" id="notificationBell">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+                    <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+                </svg>
+                <div class="notification-dot"></div>
+            </div>
+            
             <div class="hero-container">
                 <div class="hero-top">
-                    <h1>Transform Engagement.<br><span class="highlight-text">Amplify Impact.</span></h1>
+                    <h1>A Smarter School Website.<br>A Stronger School Community.</h1>
                 </div>
                 <div class="hero-bottom">
-                    <p>SchoolBlocks empowers your school communities to collaborate and engage with ease.</p>
+                    <p>At SchoolBlocks, we empower K-12 schools to engage parents, inspire students, and simplify administration through thoughtful design, intuitive technology, and a deep understanding of real human connection—creating digital ecosystems that strengthen school communities.</p>
                     <div class="cta-buttons">
                         <a href="/get-started" class="btn btn-primary">GET STARTED</a>
                     </div>
                 </div>
             </div>
         </section>
+        
+        <!-- Notification Panel -->
+        <div class="notification-panel" id="notificationPanel">
+            <div class="notification-header">
+                <div class="notification-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+                        <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+                    </svg>
+                </div>
+                <h3>SCHOOL MARKETING DAY</h3>
+                <button class="close-notification" id="closeNotification">×</button>
+            </div>
+            
+            <div class="notification-content">
+                <h4>You just missed the biggest virtual event for schools, but don't worry...</h4>
+                <p>You can <strong>still</strong> register for free and access the recordings!</p>
+                
+                <div class="notification-cta">
+                    <a href="#" class="all-access-btn">ALL-ACCESS PASS</a>
+                </div>
+            </div>
+        </div>
         
         <!-- Trusted Schools Section -->
         <section class="trusted-schools">
@@ -2739,96 +3808,156 @@
             <div class="logo-carousel">
                     <div class="logo-track">
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/aspen.png" alt="Aspen School District">
+                            <a href="https://www.aspenk12.net/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/aspen.png" alt="Aspen School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/covington.png" alt="Covington School District">
+                            <a href="https://covingtoncountyschools.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/covington.png" alt="Covington School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/ketchikan.png" alt="Ketchikan School District">
+                            <a href="https://kgbsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/ketchikan.png" alt="Ketchikan School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/westgrand.png" alt="West Grand School District">
+                            <a href="https://www.wgsd.us/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/westgrand.png" alt="West Grand School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/carthage.png" alt="Carthage School District">
+                            <a href="https://www.carthagecsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/carthage.png" alt="Carthage School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/donegal.png" alt="Donegal School District">
+                            <a href="https://www.donegalsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/donegal.png" alt="Donegal School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/kingcity.jpg" alt="King City School District">
+                            <a href="https://www.kcusd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/kingcity.jpg" alt="King City School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/northslope.png" alt="North Slope School District">
+                            <a href="https://www.nsbsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/northslope.png" alt="North Slope School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/winnisquam.png" alt="Winnisquam School District">
+                            <a href="https://www.wrms.wrsdsau59.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/winnisquam.png" alt="Winnisquam School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/contcook.png" alt="ConVal School District">
+                            <a href="https://www.conval.edu/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/contcook.png" alt="ConVal School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/jonescounty.png" alt="Jones County School District">
+                            <a href="https://jonesk12.org/en-US/schools" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/jonescounty.png" alt="Jones County School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/oldforge.png" alt="Old Forge School District">
+                            <a href="https://www.ofsd.cc/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/oldforge.png" alt="Old Forge School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/conval.png" alt="ConVal School District">
+                            <a href="https://www.cvhs.conval.edu/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/conval.png" alt="ConVal School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/mayer.png" alt="Mayer School District">
+                            <a href="https://mayerschools.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/mayer.png" alt="Mayer School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/Philipsburg.png" alt="Philipsburg School District">
+                            <a href="https://pomounties.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/Philipsburg.png" alt="Philipsburg School District">
+                            </a>
                         </div>
                         
                         <!-- Duplicate set for seamless loop -->
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/aspen.png" alt="Aspen School District">
+                            <a href="https://www.aspenk12.net/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/aspen.png" alt="Aspen School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/covington.png" alt="Covington School District">
+                            <a href="https://covingtoncountyschools.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/covington.png" alt="Covington School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/ketchikan.png" alt="Ketchikan School District">
+                            <a href="https://kgbsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/ketchikan.png" alt="Ketchikan School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/westgrand.png" alt="West Grand School District">
+                            <a href="https://www.wgsd.us/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/westgrand.png" alt="West Grand School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/carthage.png" alt="Carthage School District">
+                            <a href="https://www.carthagecsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/carthage.png" alt="Carthage School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/donegal.png" alt="Donegal School District">
+                            <a href="https://www.donegalsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/donegal.png" alt="Donegal School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/kingcity.jpg" alt="King City School District">
+                            <a href="https://www.kcusd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/kingcity.jpg" alt="King City School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/northslope.png" alt="North Slope School District">
+                            <a href="https://www.nsbsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/northslope.png" alt="North Slope School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/winnisquam.png" alt="Winnisquam School District">
+                            <a href="https://www.wrms.wrsdsau59.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/winnisquam.png" alt="Winnisquam School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/contcook.png" alt="ConVal School District">
+                            <a href="https://www.conval.edu/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/contcook.png" alt="ConVal School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/jonescounty.png" alt="Jones County School District">
+                            <a href="https://jonesk12.org/en-US/schools" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/jonescounty.png" alt="Jones County School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/oldforge.png" alt="Old Forge School District">
+                            <a href="https://www.ofsd.cc/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/oldforge.png" alt="Old Forge School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/conval.png" alt="ConVal School District">
+                            <a href="https://www.cvhs.conval.edu/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/conval.png" alt="ConVal School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/mayer.png" alt="Mayer School District">
+                            <a href="https://mayerschools.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/mayer.png" alt="Mayer School District">
+                            </a>
                         </div>
                         <div class="logo-item">
-                            <img src="Photos/Client Logos/Philipsburg.png" alt="Philipsburg School District">
+                            <a href="https://pomounties.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/Philipsburg.png" alt="Philipsburg School District">
+                            </a>
                         </div>
                     </div>
             </div>
@@ -2837,13 +3966,13 @@
                 <!-- Features Section -->
         <section class="features">
             <div class="features-container">
-                <h2 class="modern-heading">A digital communications ecosystem that helps build a <span class="highlight-word">stronger, deeper and safer</span> school experience.</h2>
+                <h2 class="modern-heading">Everything your district needs for a <span class="highlight-word">modern online presence</span>.</h2>
                 
                 <!-- Desktop Circular Ecosystem -->
                 <div class="circular-ecosystem desktop-only">
                     <!-- Center Logo -->
                     <div class="ecosystem-center">
-                        <img src="Photos/Logo/Logo.png" alt="SchoolBlocks" class="center-logo">
+                        <img src="Photos/Logo/schoolblocks-official-verticalview.png" alt="SchoolBlocks" class="center-logo">
                     </div>
                     
                     <!-- Dotted Circle Connection -->
@@ -2889,38 +4018,32 @@
                     <!-- Service Labels -->
                     <div class="service-label websites-label">
                         <h4>WEBSITES</h4>
-                        <p>Award-winning website design, content management, and AI chat</p>
-                        <a href="/school-websites" class="service-link">Get Inspired</a>
+                        <a href="/school-websites" class="service-link">Learn More</a>
                     </div>
                     
                     <div class="service-label google-label">
                         <h4>GOOGLE INTEGRATION</h4>
-                        <p>Seamless integration with Google Workspace and services</p>
                         <a href="/google-integration" class="service-link">Learn More</a>
                     </div>
                     
                     <div class="service-label welcomechat-label">
                         <h4>AI-POWERED ANSWERS</h4>
-                        <p>Intelligent chatbot for instant school information and support</p>
                         <a href="/welcomechat" class="service-link">Learn More</a>
                     </div>
                     
                     <div class="service-label schoolfeed-label">
                         <h4>SAFE SOCIAL PLATFORM</h4>
-                        <p>Secure social networking for school communities</p>
                         <a href="/schoolfeed" class="service-link">Learn More</a>
                     </div>
                     
                     <div class="service-label docmersion-label">
                         <h4>DOCUMENT ENGAGEMENT</h4>
-                        <p>Interactive document sharing and collaboration tools</p>
                         <a href="/docmersion" class="service-link">Learn More</a>
                     </div>
                     
                     <div class="service-label mobile-label">
                         <h4>MOBILE APPS</h4>
-                        <p>School branded mobile apps with integrated website content</p>
-                        <a href="/mobile-apps" class="service-link">Take a Look</a>
+                        <a href="/mobile-apps" class="service-link">Learn More</a>
                     </div>
                 </div>
                 
@@ -3058,6 +4181,185 @@
             </div>
         </section>
 
+        <!-- Alternative Services Section -->
+        <!-- <section class="alternative-services">
+            <div class="alternative-container">
+                <h2 class="modern-heading">The Complete <span class="highlight-word">Digital Ecosystem</span></h2>
+                <p class="section-subtitle">QUICK RANDOM PROMPT - MIGHT NOT USE DON'T WANT TO POUR TOO MUCH TIME HERE RIGHT NOW BUT SOMETHING TO THINK ABOUT. ALMOST LIKE IT.Everything your district needs, beautifully integrated</p>
+                
+            Central Hub Diagram 
+                <div class="ecosystem-diagram">
+              Central Hub 
+                    <div class="central-hub">
+                        <div class="hub-core">
+                            <div class="hub-logo">
+                                <svg viewBox="0 0 100 100" class="logo-svg">
+                                    <defs>
+                                        <linearGradient id="hubGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#4A90E2"/>
+                                            <stop offset="100%" style="stop-color:#4ECDC4"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="50" cy="50" r="45" fill="url(#hubGradient)"/>
+                                    <text x="50" y="58" text-anchor="middle" fill="white" font-size="12" font-weight="bold">SB</text>
+                                </svg>
+                            </div>
+                            <h3>SchoolBlocks</h3>
+                            <p>Central Platform</p>
+                        </div>
+                        
+                      Orbital Rings 
+                        <div class="orbital-ring ring-1"></div>
+                        <div class="orbital-ring ring-2"></div>
+                        <div class="orbital-ring ring-3"></div>
+                    </div>
+                    
+                 Service Nodes 
+                    <div class="service-node node-1" data-service="websites">
+                        <div class="node-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="m12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <div class="node-content">
+                            <h4>Websites</h4>
+                            <p>Modern school sites</p>
+                        </div>
+                        <div class="connection-line line-1"></div>
+                    </div>
+                    
+                    <div class="service-node node-2" data-service="microsites">
+                        <div class="node-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                        </div>
+                        <div class="node-content">
+                            <h4>Microsites</h4>
+                            <p>Specialized pages</p>
+                        </div>
+                        <div class="connection-line line-2"></div>
+                    </div>
+                    
+                    <div class="service-node node-3" data-service="mobile">
+                        <div class="node-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                                <line x1="12" y1="18" x2="12.01" y2="18"/>
+                            </svg>
+                        </div>
+                        <div class="node-content">
+                            <h4>Mobile Apps</h4>
+                            <p>Native applications</p>
+                        </div>
+                        <div class="connection-line line-3"></div>
+                    </div>
+                    
+                    <div class="service-node node-4" data-service="google">
+                        <div class="node-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="m2 17 10 5 10-5"/>
+                                <path d="m2 12 10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="node-content">
+                            <h4>Google Tools</h4>
+                            <p>Workspace integration</p>
+                        </div>
+                        <div class="connection-line line-4"></div>
+                    </div>
+                    
+                    <div class="service-node node-5 new-node" data-service="docmersion">
+                        <div class="node-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                        </div>
+                        <div class="node-content">
+                            <h4>DocMersion</h4>
+                            <p>Interactive docs</p>
+                        </div>
+                        <div class="new-badge">New</div>
+                        <div class="connection-line line-5"></div>
+                    </div>
+                    
+                    <div class="service-node node-6 new-node" data-service="welcomechat">
+                        <div class="node-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                <circle cx="9" cy="10" r="1"/>
+                                <circle cx="15" cy="10" r="1"/>
+                                <path d="M9 14s1 1 3 1 3-1 3-1"/>
+                            </svg>
+                        </div>
+                        <div class="node-content">
+                            <h4>WelcomeChat</h4>
+                            <p>AI assistance</p>
+                        </div>
+                        <div class="new-badge">New</div>
+                        <div class="connection-line line-6"></div>
+                    </div>
+                    
+                    <div class="service-node node-7 new-node" data-service="store">
+                        <div class="node-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                                <line x1="3" y1="6" x2="21" y2="6"/>
+                                <path d="m16 10a4 4 0 0 1-8 0"/>
+                            </svg>
+                        </div>
+                        <div class="node-content">
+                            <h4>Spirit Store</h4>
+                            <p>Merchandise platform</p>
+                        </div>
+                        <div class="new-badge">New</div>
+                        <div class="connection-line line-7"></div>
+                    </div>
+                    
+                    <div class="service-node node-8 new-node" data-service="schoolfeed">
+                        <div class="node-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="m23 21-3.5-3.5"/>
+                                <circle cx="20" cy="17" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="node-content">
+                            <h4>SchoolFeed</h4>
+                            <p>Social platform</p>
+                        </div>
+                        <div class="new-badge">New</div>
+                        <div class="connection-line line-8"></div>
+                    </div>
+                    
+                Floating Particles 
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                    <div class="particle particle-3"></div>
+                    <div class="particle particle-4"></div>
+                    <div class="particle particle-5"></div>
+                </div>
+                
+               Service Details Panel
+                <div class="service-details" id="serviceDetails">
+                    <div class="details-content">
+                        <h3 id="detailsTitle">Select a service to learn more</h3>
+                        <p id="detailsDescription">Click on any service node to see detailed information about how it integrates with your school's digital ecosystem.</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
 
             <!-- Testimonials Section -->
         <section class="testimonials">
@@ -3070,7 +4372,7 @@
             <div class="testimonials-marquee">
                     <div class="testimonials-track">
                         <!-- Testimonial 1 - Ramona -->
-                        <div class="testimonial-card">
+                        <div class="testimonial-card" data-school="ramona" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/6360fcf808fd7c88d96fd2e8a6fb8fce/manifest/video.m3u8', 'https://www.ramonausd.net/en-US')">
                             <div class="testimonial-header">
                                 <img src="Photos/testimonial logos/romona.png" alt="Ramona Unified School District" class="testimonial-avatar">
                                 <div class="testimonial-info">
@@ -3078,11 +4380,12 @@
                                     <div class="testimonial-name">Keith Wright, Director of Technology</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">SchoolBlocks is awesome. I personally love it.</p>
+                            <p class="testimonial-quote">"SchoolBlocks is awesome. I personally love it."</p>
+                            <div class="testimonial-play-icon">▶</div>
                         </div>
                         
                         <!-- Testimonial 2 - Candler County -->
-                        <div class="testimonial-card">
+                        <div class="testimonial-card" data-school="candler" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/2e4404d3f49ddb13568507d338385750/manifest/video.m3u8', 'https://www.metter.org/')">
                             <div class="testimonial-header">
                                 <img src="Photos/testimonial logos/candlercounty.png" alt="Candler County Schools" class="testimonial-avatar">
                                 <div class="testimonial-info">
@@ -3090,11 +4393,12 @@
                                     <div class="testimonial-name">Tony Lescak, Technology Specialist</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">I really like the block format because it moves you away from the desktop format. The blocks move around and it doesn't matter what you are on, it looks great.</p>
+                            <p class="testimonial-quote">"I really like the block format because it moves you away from the desktop format. The blocks move around and it doesn't matter what you are on, it looks great."</p>
+                            <div class="testimonial-play-icon">▶</div>
                         </div>
                         
                         <!-- Testimonial 3 - Moffat -->
-                        <div class="testimonial-card">
+                        <div class="testimonial-card" data-school="moffat" onclick="window.open('https://www.moffatsd.org/', '_blank')">
                             <div class="testimonial-header">
                                 <img src="Photos/testimonial logos/moffat.png" alt="Moffat School District" class="testimonial-avatar">
                                 <div class="testimonial-info">
@@ -3102,11 +4406,11 @@
                                     <div class="testimonial-name">Vicki Hadden, Asst. to the Superintendent</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">We were looking for a new host whenever we discovered SchoolBlocks and we were very happy with it. SchoolBlocks has terrific support.</p>
+                            <p class="testimonial-quote">"We were looking for a new host whenever we discovered SchoolBlocks and we were very happy with it. SchoolBlocks has terrific support."</p>
                         </div>
                         
                         <!-- Testimonial 4 - Troy -->
-                        <div class="testimonial-card">
+                        <div class="testimonial-card" data-school="troy" onclick="window.open('https://www.troy30c.org/', '_blank')">
                             <div class="testimonial-header">
                                 <img src="Photos/testimonial logos/troy.png" alt="Troy Community Consolidated School District 30-C" class="testimonial-avatar">
                                 <div class="testimonial-info">
@@ -3114,11 +4418,11 @@
                                     <div class="testimonial-name">Ron Sarver, Technology Director</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">SchoolBlocks has terrific support.</p>
+                            <p class="testimonial-quote">"SchoolBlocks has terrific support."</p>
                         </div>
                         
                         <!-- Testimonial 5 - Lewiston -->
-                        <div class="testimonial-card">
+                        <div class="testimonial-card" data-school="lewiston" onclick="window.open('https://www.lewistonpublicschools.org/en-US', '_blank')">
                             <div class="testimonial-header">
                                 <img src="Photos/testimonial logos/lewiston.png" alt="Lewiston Public Schools" class="testimonial-avatar">
                                 <div class="testimonial-info">
@@ -3126,11 +4430,11 @@
                                     <div class="testimonial-name">Dave Theriault, Technology Director</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">The Google integration and the file sharing is one of the greatest assets of SchoolBlocks.</p>
+                            <p class="testimonial-quote">"The Google integration and the file sharing is one of the greatest assets of SchoolBlocks."</p>
                         </div>
                         
                         <!-- Testimonial 6 - Hearne ISD -->
-                        <div class="testimonial-card">
+                        <div class="testimonial-card" data-school="hearne" onclick="window.open('https://www.hearneisd.com/en-US', '_blank')">
                             <div class="testimonial-header">
                                 <img src="Photos/testimonial logos/hearneisd.png" alt="Hearne ISD" class="testimonial-avatar">
                                 <div class="testimonial-info">
@@ -3138,7 +4442,7 @@
                                     <div class="testimonial-name">Jeremy Gaston, Directory of Technology</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">The transition over to SchoolBlocks has been so great and so smooth.</p>
+                            <p class="testimonial-quote">"The transition over to SchoolBlocks has been so great and so smooth."</p>
                         </div>
                         
                         <!-- Duplicate set for seamless loop -->
@@ -3150,7 +4454,7 @@
                                     <div class="testimonial-name">Keith Wright, Director of Technology</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">SchoolBlocks is awesome. I personally love it.</p>
+                            <p class="testimonial-quote">"SchoolBlocks is awesome. I personally love it."</p>
                         </div>
                         
                         <div class="testimonial-card">
@@ -3161,7 +4465,7 @@
                                     <div class="testimonial-name">Tony Lescak, Technology Specialist</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">I really like the block format because it moves you away from the desktop format. The blocks move around and it doesn't matter what you are on, it looks great.</p>
+                            <p class="testimonial-quote">"I really like the block format because it moves you away from the desktop format. The blocks move around and it doesn't matter what you are on, it looks great."</p>
                         </div>
                         
                         <div class="testimonial-card">
@@ -3172,7 +4476,7 @@
                                     <div class="testimonial-name">Vicki Hadden, Asst. to the Superintendent</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">We were looking for a new host whenever we discovered SchoolBlocks and we were very happy with it. SchoolBlocks has terrific support.</p>
+                            <p class="testimonial-quote">"We were looking for a new host whenever we discovered SchoolBlocks and we were very happy with it. SchoolBlocks has terrific support."</p>
                         </div>
                         
                         <div class="testimonial-card">
@@ -3183,7 +4487,7 @@
                                     <div class="testimonial-name">Ron Sarver, Technology Director</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">SchoolBlocks has terrific support.</p>
+                            <p class="testimonial-quote">"SchoolBlocks has terrific support."</p>
                         </div>
                         
                         <div class="testimonial-card">
@@ -3194,7 +4498,7 @@
                                     <div class="testimonial-name">Dave Theriault, Technology Director</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">The Google integration and the file sharing is one of the greatest assets of SchoolBlocks.</p>
+                            <p class="testimonial-quote">"The Google integration and the file sharing is one of the greatest assets of SchoolBlocks."</p>
                         </div>
                         
                         <div class="testimonial-card">
@@ -3205,7 +4509,7 @@
                                     <div class="testimonial-name">Jeremy Gaston, Directory of Technology</div>
                                 </div>
                             </div>
-                            <p class="testimonial-quote">The transition over to SchoolBlocks has been so great and so smooth.</p>
+                            <p class="testimonial-quote">"The transition over to SchoolBlocks has been so great and so smooth."</p>
                         </div>
                     </div>
             </div>
@@ -3337,7 +4641,9 @@
                                 </div>
                             </div>
                         </div>
-                        
+                    </div>
+                    
+                    <div class="why-choose-testimonial">
                         <blockquote class="modern-testimonial">
                             <p>"Our current Website is a source of pride over here. I didn't think I could find a website solution that could make me think we could do better. That was, until I saw SchoolBlocks."</p>
                             <cite>Marshall County School District, MS</cite>
@@ -3428,10 +4734,11 @@
                         </div>
                         <div class="success-content">
                             <h3 class="success-title">Webmaster Success</h3>
-                            <p class="success-description">Simple yet powerful content authoring and time saving Google, Microsoft, SIS and LMS integrations.</p>
-                        </div>
-                        <div class="success-hover-text">
-                            <p>Our content management solution is the coolest thing you'll use this year.</p>
+                            <p class="success-description">Simple yet powerful content authoring and time saving Google, Microsoft, SIS and LMS integrations.
+                                <span class="success-hover-text">
+                                    <span>Our content management solution is the coolest thing you'll use this year.</span>
+                                </span>
+                            </p>
                         </div>
                     </div>
                     
@@ -3442,10 +4749,11 @@
                         </div>
                         <div class="success-content">
                             <h3 class="success-title">ADA Compliant</h3>
-                            <p class="success-description">SchoolBlocks is ADA, WCAG 2.2 and CIPA compliant (to name a few).</p>
-                        </div>
-                        <div class="success-hover-text">
-                            <p>We go beyond the code requirements to ensure a meaningful connection to all.</p>
+                            <p class="success-description">SchoolBlocks is ADA, WCAG 2.2 and CIPA compliant (to name a few).
+                                <span class="success-hover-text">
+                                    <span>We go beyond the code requirements to ensure a meaningful connection to all.</span>
+                                </span>
+                            </p>
                         </div>
                     </div>
                     
@@ -3456,10 +4764,29 @@
                         </div>
                         <div class="success-content">
                             <h3 class="success-title">Trusted & Secure</h3>
-                            <p class="success-description">Designed by a U.S. Marine Commander with similar specifications. Our hosting solution auto-scales and protects.</p>
+                            <p class="success-description">Designed by a U.S. Marine Commander with similar specifications. Our hosting solution auto-scales and protects.
+                                <span class="success-hover-text">
+                                    <span>Learn more about why SchoolBlocks is more secure than the competition.</span>
+                                </span>
+                            </p>
                         </div>
-                        <div class="success-hover-text">
-                            <p>Learn more about why SchoolBlocks is more secure than the competition.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo CTA Section -->
+        <section class="demo-cta">
+            <div class="demo-container">
+                <div class="demo-content">
+                    <div class="demo-text">
+                        <h2>Want to know more about our product?</h2>
+                        <p>Schedule a demo today!</p>
+                        <a href="#" class="demo-button">Request a Demo</a>
+                        <div class="demo-visual">
+                            <div class="phone-container" id="phoneContainer">
+                                <img src="Photos/Images/HomePage/editmephone.webp" alt="SchoolBlocks Mobile App Demo" class="demo-phone" id="demoPhone">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3769,6 +5096,262 @@
         window.addEventListener('load', animateServiceIcons);
     </script>
 
+    <!-- Trusted Schools Scroll Animation -->
+    <script>
+        function animateTrustedSchools() {
+            const trustedSection = document.querySelector('.trusted-schools');
+            if (!trustedSection) return;
+            
+            const rect = trustedSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // Trigger animation when section is 20% visible from bottom
+            if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                trustedSection.classList.add('fade-in');
+            }
+        }
+        
+        // Run on scroll and load
+        window.addEventListener('scroll', animateTrustedSchools);
+        window.addEventListener('load', animateTrustedSchools);
+    </script>
+
+    <!-- Features Heading Scroll Animation -->
+    <script>
+        function animateFeaturesHeading() {
+            const featuresHeading = document.querySelector('.features h2.modern-heading');
+            if (!featuresHeading) return;
+            
+            const rect = featuresHeading.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // Trigger animation when heading is 30% visible from bottom
+            if (rect.top <= windowHeight * 0.7 && rect.bottom >= 0) {
+                featuresHeading.classList.add('fade-in');
+                // Remove scroll listener after animation starts
+                window.removeEventListener('scroll', animateFeaturesHeading);
+            }
+        }
+        
+        // Run on scroll and load
+        window.addEventListener('scroll', animateFeaturesHeading);
+        window.addEventListener('load', animateFeaturesHeading);
+    </script>
+
+    <!-- Testimonials Header Scroll Animation -->
+    <script>
+        function animateTestimonialsHeader() {
+            const testimonialsHeader = document.querySelector('.testimonials-header');
+            if (!testimonialsHeader) return;
+            
+            const rect = testimonialsHeader.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // Trigger animation when header is 30% visible from bottom
+            if (rect.top <= windowHeight * 0.7 && rect.bottom >= 0) {
+                testimonialsHeader.classList.add('fade-in');
+                // Remove scroll listener after animation starts
+                window.removeEventListener('scroll', animateTestimonialsHeader);
+            }
+        }
+        
+        // Run on scroll and load
+        window.addEventListener('scroll', animateTestimonialsHeader);
+        window.addEventListener('load', animateTestimonialsHeader);
+    </script>
+
+    <!-- All Sections Scroll Animations -->
+    <script>
+        // Animation functions for all sections
+        function animateVideoSolutionHeader() {
+            const element = document.querySelector('.video-solution-header');
+            if (!element) return;
+            
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (rect.top <= windowHeight * 0.7 && rect.bottom >= 0) {
+                element.classList.add('fade-in');
+            }
+        }
+        
+        function animateWhyChooseTitle() {
+            const element = document.querySelector('.why-choose-title');
+            if (!element) return;
+            
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (rect.top <= windowHeight * 0.7 && rect.bottom >= 0) {
+                element.classList.add('fade-in');
+            }
+        }
+        
+        function animateWhyChooseElements() {
+            const visual = document.querySelector('.why-choose-visual');
+            const features = document.querySelectorAll('.why-choose-feature');
+            const testimonial = document.querySelector('.why-choose-testimonial');
+            
+            // Check if visual is in viewport
+            if (visual) {
+                const rect = visual.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                    // Animate visual first
+                    setTimeout(() => visual.classList.add('fade-in'), 100);
+                    
+                    // Then animate features with stagger
+                    features.forEach((feature, index) => {
+                        setTimeout(() => feature.classList.add('fade-in'), 300 + (index * 200));
+                    });
+                    
+                    // Finally animate testimonial
+                    if (testimonial) {
+                        setTimeout(() => testimonial.classList.add('fade-in'), 700 + (features.length * 200));
+                    }
+                }
+            }
+        }
+        
+        function parallaxStudentProfile() {
+            const element = document.querySelector('.student-profile');
+            if (!element) return;
+            
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const elementCenter = rect.top + rect.height / 2;
+            const windowCenter = windowHeight / 2;
+            
+            // Only apply parallax when element is visible
+            if (rect.bottom >= 0 && rect.top <= windowHeight) {
+                // Calculate parallax offset based on distance from center
+                const offset = (elementCenter - windowCenter) * -0.1; // Adjust multiplier for intensity
+                element.style.transform = `translateY(${offset}px)`;
+            }
+        }
+        
+        function animateExpectText() {
+            const element = document.querySelector('.expect-text');
+            if (!element) return;
+            
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (rect.top <= windowHeight * 0.7 && rect.bottom >= 0) {
+                element.classList.add('fade-in');
+            }
+        }
+        
+        function animateSuccessGrid() {
+            const element = document.querySelector('.success-grid');
+            if (!element) return;
+            
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (rect.top <= windowHeight * 0.7 && rect.bottom >= 0) {
+                element.classList.add('fade-in');
+            }
+        }
+        
+        function animateDemoContent() {
+            const element = document.querySelector('.demo-content');
+            if (!element) return;
+            
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (rect.top <= windowHeight * 0.7 && rect.bottom >= 0) {
+                element.classList.add('fade-in');
+            }
+        }
+        
+        // Combined scroll handler
+        function handleAllAnimations() {
+            animateVideoSolutionHeader();
+            animateWhyChooseTitle();
+            animateWhyChooseElements();
+            parallaxStudentProfile();
+            animateExpectText();
+            animateSuccessGrid();
+            animateDemoContent();
+        }
+        
+        // Run on scroll and load
+        window.addEventListener('scroll', handleAllAnimations);
+        window.addEventListener('load', handleAllAnimations);
+    </script>
+
+    <!-- Dynamic Phone 3D Effect -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneContainer = document.getElementById('phoneContainer');
+            const demoPhone = document.getElementById('demoPhone');
+            
+            if (!phoneContainer || !demoPhone) return;
+            
+            phoneContainer.addEventListener('mousemove', function(e) {
+                const rect = phoneContainer.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                const mouseX = e.clientX - centerX;
+                const mouseY = e.clientY - centerY;
+                
+                // Calculate rotation based on mouse position (subtle effect)
+                const rotateY = (mouseX / rect.width) * 20; // Max 20 degrees
+                const rotateX = -(mouseY / rect.height) * 15; // Max 15 degrees
+                
+                // Apply transform
+                demoPhone.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.02)`;
+            });
+            
+            phoneContainer.addEventListener('mouseleave', function() {
+                // Reset to neutral position
+                demoPhone.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
+            });
+            
+            phoneContainer.addEventListener('mouseenter', function() {
+                // Slight scale on enter
+                demoPhone.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1.02)';
+            });
+        });
+    </script>
+
+    <!-- Hero Blur Effect -->
+    <script>
+        function handleHeroBlur() {
+            const hero = document.querySelector('.hero');
+            if (!hero) return;
+            
+            const scrolled = window.pageYOffset;
+            const heroHeight = hero.offsetHeight;
+            
+            // Calculate blur amount based on scroll progress through hero
+            const scrollProgress = Math.min(scrolled / heroHeight, 1);
+            const maxBlur = 8; // Maximum blur in pixels
+            const blurAmount = scrollProgress * maxBlur;
+            
+            // Apply blur filter
+            hero.style.filter = `blur(${blurAmount}px)`;
+        }
+        
+        // Throttle blur for better performance
+        let blurTicking = false;
+        function requestHeroBlur() {
+            if (!blurTicking) {
+                requestAnimationFrame(handleHeroBlur);
+                blurTicking = true;
+                setTimeout(() => { blurTicking = false; }, 16);
+            }
+        }
+        
+        window.addEventListener('scroll', requestHeroBlur);
+    </script>
+
+
+
     <!-- Mobile Accordion Functionality -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -3921,6 +5504,178 @@
             }
         });
     </script>
+
+    <!-- Video Modal for Testimonials -->
+    <div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center;">
+        <div style="position: relative; width: 90%; max-width: 800px; background: white; border-radius: 12px; padding: 20px;">
+            <button onclick="closeVideoModal()" style="position: absolute; top: -15px; right: -15px; background: #333; color: white; border: none; font-size: 20px; cursor: pointer; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">&times;</button>
+            <video id="modalVideo" controls style="width: 100%; height: 400px; border-radius: 8px; margin-bottom: 20px;"></video>
+            <div style="text-align: center;">
+                <button id="visitSiteBtn" onclick="visitSchoolSite()" style="background: #4A90E2; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px;">Visit School Site</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSchoolUrl = '';
+        
+        function showVideoModal(videoUrl, schoolUrl) {
+            currentSchoolUrl = schoolUrl;
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            
+            modal.style.display = 'flex';
+            
+            // Handle HLS streams
+            if (videoUrl.includes('.m3u8')) {
+                if (Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(videoUrl);
+                    hls.attachMedia(video);
+                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        // Video is ready to play
+                    });
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    // Native HLS support (Safari)
+                    video.src = videoUrl;
+                }
+            } else {
+                // Regular video file
+                video.src = videoUrl;
+            }
+            
+            video.load();
+        }
+        
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            
+            modal.style.display = 'none';
+            video.pause();
+            video.src = '';
+        }
+        
+        function visitSchoolSite() {
+            if (currentSchoolUrl) {
+                window.open(currentSchoolUrl, '_blank');
+            }
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+        
+        // Notification Bell Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const notificationBell = document.getElementById('notificationBell');
+            const notificationPanel = document.getElementById('notificationPanel');
+            const closeNotification = document.getElementById('closeNotification');
+            
+            // Open notification panel
+            notificationBell.addEventListener('click', function() {
+                notificationPanel.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when panel is open
+            });
+            
+            // Close notification panel
+            closeNotification.addEventListener('click', function() {
+                notificationPanel.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            });
+            
+            // Close panel when clicking outside (optional)
+            notificationPanel.addEventListener('click', function(e) {
+                if (e.target === notificationPanel) {
+                    notificationPanel.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Close panel with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && notificationPanel.classList.contains('active')) {
+                    notificationPanel.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Interactive Ecosystem Diagram
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceNodes = document.querySelectorAll('.service-node');
+            const detailsTitle = document.getElementById('detailsTitle');
+            const detailsDescription = document.getElementById('detailsDescription');
+            
+            const serviceData = {
+                websites: {
+                    title: 'School & District Websites',
+                    description: 'Modern, responsive websites that showcase your school\'s unique identity and engage your community with intuitive design, powerful content management, and seamless integration across all platforms.'
+                },
+                microsites: {
+                    title: 'Microsites',
+                    description: 'Specialized mini-websites for specific programs, events, or departments that integrate seamlessly with your main site while maintaining brand consistency and providing focused content experiences.'
+                },
+                mobile: {
+                    title: 'Mobile School Apps',
+                    description: 'Native mobile applications that keep your school community connected with push notifications, calendars, directories, emergency alerts, and essential school information accessible anywhere.'
+                },
+                google: {
+                    title: 'Google Integration Tools',
+                    description: 'Seamless integration with Google Workspace, Classroom, and Drive to streamline workflows, enhance digital learning experiences, and improve productivity across your entire district.'
+                },
+                docmersion: {
+                    title: 'Document Engagement Platform (DocMersion)',
+                    description: 'Transform static documents into interactive experiences with embedded videos, quizzes, analytics, and engagement tracking to boost comprehension and measure effectiveness.'
+                },
+                welcomechat: {
+                    title: 'AI-powered Answers (WelcomeChat)',
+                    description: 'Intelligent chatbot that provides instant, accurate answers to common questions, reducing administrative burden while improving user experience and providing 24/7 support.'
+                },
+                store: {
+                    title: 'Spirit Gear Store',
+                    description: 'Integrated e-commerce platform for school merchandise and spirit wear, with automated inventory management, seamless payment processing, and branded customization options.'
+                },
+                schoolfeed: {
+                    title: 'SchoolFeed Social Platform',
+                    description: 'Safe, moderated social networking platform designed specifically for schools to foster community engagement while maintaining security, privacy, and appropriate content standards.'
+                }
+            };
+            
+            serviceNodes.forEach(node => {
+                node.addEventListener('click', function() {
+                    const service = this.getAttribute('data-service');
+                    const data = serviceData[service];
+                    
+                    if (data) {
+                        detailsTitle.textContent = data.title;
+                        detailsDescription.textContent = data.description;
+                        
+                        // Add visual feedback
+                        serviceNodes.forEach(n => n.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+                
+                node.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                node.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+    
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    
+    <!-- Footer Loader Script -->
+    <script src="footerloader.js"></script>
     
 </body>
 </html>
