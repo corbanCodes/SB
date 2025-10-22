@@ -1,7 +1,24 @@
 // SchoolBlocks Navbar Loader
 // This script dynamically loads the navbar HTML and CSS for reuse across pages
 
+function loadFavicon() {
+    // Remove any existing favicon links
+    const existingFavicons = document.querySelectorAll('link[rel*="icon"]');
+    existingFavicons.forEach(favicon => favicon.remove());
+    
+    // Create and add new favicon
+    const favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    favicon.type = 'image/png';
+    favicon.href = 'Photos/Logo/small sB only official.png';
+    
+    // Add to document head
+    document.head.appendChild(favicon);
+}
+
 function loadNavbar() {
+    // Load favicon first
+    loadFavicon();
     const navbarHTML = `
         <div class="header-top">
             <div class="navbar-container">

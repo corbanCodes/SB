@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Component Usage Example</title>
+    
+    <!-- Hero Component -->
+    <script src="hero.js"></script>
+</head>
+<body>
+    <!-- Example 1: Default Configuration -->
+    <div id="hero-default"></div>
+    
+    <!-- Example 2: Custom Configuration -->
+    <div id="hero-custom"></div>
+    
+    <!-- Example 3: Without Partners -->
+    <div id="hero-no-partners"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example 1: Default hero component
+            HeroComponent.create({}, 'hero-default');
+            
+            // Example 2: Custom configuration
+            HeroComponent.create({
+                title: "Custom Hero Title",
+                subtitle: "Custom Subtitle Here",
+                description: "This is a custom description for the hero component. You can customize all text content, colors, and images.",
+                ctaText: "LEARN MORE",
+                ctaUrl: "/learn-more",
+                backgroundColor: "#F0F8FF",
+                showPartners: true
+            }, 'hero-custom');
+            
+            // Example 3: Without partner buttons
+            HeroComponent.create({
+                title: "Simple Hero",
+                subtitle: "No Partner Buttons",
+                description: "This hero component doesn't show partner buttons at the bottom.",
+                showPartners: false
+            }, 'hero-no-partners');
+        });
+    </script>
+</body>
+</html>

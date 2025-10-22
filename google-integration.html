@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; object-src 'none';">
+    <title>Google Integration - SchoolBlocks</title>
+    <meta name="description" content="The #1 Google Integration Tool for Schools. SchoolBlocks offers seamless G-Suite integration with fantastic support and competitive pricing.">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Local Brandon Grotesque Font -->
+    <style>
+        @font-face {
+            font-family: 'brandon-grotesque';
+            src: url('fonts/brandon-grotesque-medium.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: #ffffff;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(120, 119, 198, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 45, 85, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(30, 215, 96, 0.03) 0%, transparent 50%);
+            min-height: 100vh;
+        }
+        
+        .main-content {
+            margin-top: 0;
+            padding: 160px 0 80px 0;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        /* Header Styles */
+        .page-header {
+            text-align: center;
+            margin-bottom: 100px;
+            position: relative;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #007AFF, #5856D6, #AF52DE, #FF2D92, #FF3B30, #FF9500, #FFCC02, #34C759, #00C7BE, #007AFF);
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+        
+        .page-header h1 {
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #1d1d1f 0%, #007AFF 50%, #5856D6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        .page-header h2 {
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            font-weight: 500;
+            color: #86868b;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Integration Tabs */
+        .integration-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.04),
+                0 1px 0 rgba(255, 255, 255, 0.5) inset;
+        }
+        
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 24px 20px;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 160px;
+            flex-shrink: 0;
+            position: relative;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .tab-item:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 0 rgba(255, 255, 255, 0.8) inset;
+        }
+        
+        .tab-item.active {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.12),
+                0 1px 0 rgba(255, 255, 255, 0.9) inset;
+        }
+        
+        .tab-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: visible;
+        }
+        
+        .tab-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .tab-item:hover .tab-icon::before,
+        .tab-item.active .tab-icon::before {
+            opacity: 1;
+        }
+        
+        .tab-item.active .tab-icon {
+            transform: scale(1.05);
+        }
+        
+        .users-icon {
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
+        }
+        
+        .calendars-icon {
+            background: linear-gradient(135deg, #5856D6 0%, #AF52DE 100%);
+            box-shadow: 0 8px 24px rgba(88, 86, 214, 0.3);
+        }
+        
+        .files-icon {
+            background: linear-gradient(135deg, #34C759 0%, #00C7BE 100%);
+            box-shadow: 0 8px 24px rgba(52, 199, 89, 0.3);
+        }
+        
+        .classroom-icon {
+            background: linear-gradient(135deg, #FF9500 0%, #FFCC02 100%);
+            box-shadow: 0 8px 24px rgba(255, 149, 0, 0.3);
+        }
+        
+        
+        .tab-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            text-align: center;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        /* Computer Screen */
+        .computer-display {
+            max-width: 1000px;
+            margin: 0 auto 60px auto;
+            position: relative;
+        }
+        
+        .computer-frame {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(40px);
+            border-radius: 24px 24px 12px 12px;
+            padding: 24px 24px 48px 24px;
+            box-shadow: 
+                0 40px 120px rgba(0, 0, 0, 0.15),
+                0 16px 64px rgba(0, 0, 0, 0.08),
+                0 1px 0 rgba(255, 255, 255, 0.8) inset;
+            position: relative;
+            border: 2px solid rgba(74, 144, 226, 0.15);
+        }
+        
+        .computer-stand {
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 240px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 0 0 12px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: none;
+            z-index: 1;
+        }
+        
+        .computer-notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            z-index: 10;
+        }
+        
+        .screen-content {
+            background: linear-gradient(135deg, #1d1d1f 0%, #2d2d30 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            position: relative;
+            box-shadow: 
+                0 16px 48px rgba(0, 0, 0, 0.2) inset,
+                0 1px 0 rgba(255, 255, 255, 0.1) inset;
+        }
+        
+        .screen-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 16px;
+        }
+        
+        .screen-image:not(.active) {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scale(1.05);
+        }
+        
+        .screen-image.active {
+            opacity: 1;
+            position: relative;
+            transform: scale(1);
+        }
+        
+        /* Content Description */
+        .content-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 32px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 16px 48px rgba(0, 0, 0, 0.06),
+                0 1px 0 rgba(255, 255, 255, 0.7) inset;
+        }
+        
+        .description-text {
+            font-size: 1.25rem;
+            color: #1d1d1f;
+            line-height: 1.6;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        
+        .description-text:not(.active) {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .description-text.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Google Drive Section */
+        .google-drive-section {
+            margin-top: 120px;
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.08),
+                0 1px 0 rgba(255, 255, 255, 0.6) inset;
+        }
+        
+        .drive-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            width: 100%;
+            padding: 0 clamp(20px, 4vw, 120px);
+        }
+        
+        .drive-text h3 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 32px;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+        
+        .drive-text p {
+            font-size: 1.25rem;
+            color: #5a6c7d;
+            line-height: 1.6;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        
+        .drive-image {
+            position: relative;
+        }
+        
+        .drive-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.15),
+                0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .drive-image img:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 35px 100px rgba(0, 0, 0, 0.2),
+                0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Demo CTA Section */
+        .demo-cta {
+            padding: 120px 0;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .demo-cta::before {
+            display: none;
+        }
+        
+        .demo-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .demo-content {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 32px;
+            padding: 60px;
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.1),
+                0 8px 32px rgba(102, 126, 234, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .demo-content.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .demo-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .demo-text {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .demo-text h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .demo-text p {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        
+        .demo-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #1a202c;
+            border: 2px solid rgba(66, 153, 225, 0.3);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(66, 153, 225, 0.2);
+            margin-bottom: 50px;
+        }
+        
+        .demo-button:hover {
+            transform: translateY(-3px);
+            background: rgba(66, 153, 225, 0.15);
+            border-color: rgba(66, 153, 225, 0.5);
+            box-shadow: 0 8px 30px rgba(66, 153, 225, 0.3);
+            color: #1a202c;
+            text-decoration: none;
+        }
+        
+        .demo-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        
+        .phone-container {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        
+        .demo-phone {
+            width: 600px; /* 400px * 1.5 = 600px */
+            height: auto;
+            transition: transform 0.15s ease-out;
+            transform-origin: center center;
+            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.2));
+            will-change: transform;
+        }
+        
+        /* Mobile Responsive for Demo CTA */
+        @media (max-width: 1160px) {
+            .demo-cta {
+                padding: 80px 0;
+            }
+            
+            .demo-content {
+                padding: 40px;
+            }
+            
+            .demo-phone {
+                width: 525px; /* 350px * 1.5 = 525px */
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 140px 0 60px 0;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .page-header {
+                margin-bottom: 60px;
+            }
+            
+            .page-header::before {
+                width: 80px;
+                height: 3px;
+                top: -30px;
+            }
+            
+            .integration-tabs {
+                gap: 16px;
+                padding: 16px;
+                margin-bottom: 60px;
+            }
+            
+            .tab-item {
+                min-width: 120px;
+                padding: 20px 16px;
+            }
+            
+            .tab-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 26px;
+                border-radius: 16px;
+            }
+            
+            .tab-label {
+                font-size: 1rem;
+            }
+            
+            .computer-display {
+                margin-bottom: 40px;
+            }
+            
+            .computer-frame {
+                padding: 20px 20px 36px 20px;
+            }
+            
+            .computer-frame::after {
+                width: 180px;
+                height: 10px;
+                bottom: -10px;
+            }
+            
+            .content-description {
+                padding: 32px 24px;
+                margin: 0 16px;
+            }
+            
+            .description-text {
+                font-size: 1.1rem;
+            }
+            
+            .google-drive-section {
+                margin-top: 80px;
+                padding: 60px 0;
+            }
+            
+            .drive-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                padding: 0 20px;
+            }
+            
+            .drive-text {
+                text-align: center;
+            }
+            
+            .drive-text h3 {
+                font-size: clamp(1.8rem, 4vw, 2.4rem);
+                margin-bottom: 24px;
+            }
+            
+            .drive-text p {
+                font-size: 1.1rem;
+            }
+            
+            .demo-cta {
+                padding: 60px 0;
+            }
+            
+            .demo-container {
+                padding: 0 20px;
+            }
+            
+            .demo-content {
+                padding: 30px 20px;
+            }
+            
+            .demo-text p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+            
+            .demo-button {
+                padding: 16px 32px;
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+            
+            .demo-phone {
+                width: 420px; /* 280px * 1.5 = 420px */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 120px 0 40px 0;
+            }
+            
+            .integration-tabs {
+                gap: 12px;
+                padding: 12px;
+            }
+            
+            .tab-item {
+                min-width: 100px;
+                padding: 16px 12px;
+            }
+            
+            .tab-icon {
+                width: 52px;
+                height: 52px;
+                font-size: 22px;
+                border-radius: 14px;
+            }
+            
+            .tab-label {
+                font-size: 0.9rem;
+            }
+            
+            .computer-frame {
+                padding: 16px 16px 28px 16px;
+            }
+            
+            .computer-frame::after {
+                width: 140px;
+                height: 8px;
+                bottom: -8px;
+            }
+            
+            .content-description {
+                padding: 24px 20px;
+                margin: 0 12px;
+            }
+            
+            .description-text {
+                font-size: 1rem;
+            }
+            
+            .google-drive-section {
+                margin-top: 60px;
+                padding: 40px 0;
+            }
+            
+            .drive-content {
+                gap: 40px;
+                padding: 0 15px;
+            }
+            
+            .drive-text h3 {
+                font-size: clamp(1.6rem, 5vw, 2rem);
+                margin-bottom: 20px;
+            }
+            
+            .drive-text p {
+                font-size: 1rem;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-container"></div>
+    
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>#1 Google Integration Tool for Schools</h1>
+                <h2>All bias aside, SchoolBlocks is the best because of its winning combination of G-Suite integration, price and fantastic support.</h2>
+            </div>
+            
+            <!-- Integration Tabs -->
+            <div class="integration-tabs">
+                <div class="tab-item active" data-tab="users">
+                    <div class="tab-icon users-icon">
+                        <img src="Photos/Images/google-integration/google integration 1.svg" alt="Users" style="width: 48px; height: 48px;">
+                    </div>
+                    <div class="tab-label">Users</div>
+                </div>
+                
+                <div class="tab-item" data-tab="calendars">
+                    <div class="tab-icon calendars-icon">
+                        <img src="Photos/Images/google-integration/google integration 2.svg" alt="Calendars" style="width: 48px; height: 48px;">
+                    </div>
+                    <div class="tab-label">Calendars</div>
+                </div>
+                
+                <div class="tab-item" data-tab="files">
+                    <div class="tab-icon files-icon">
+                        <img src="Photos/Images/google-integration/google integration 3.svg" alt="Files" style="width: 48px; height: 48px;">
+                    </div>
+                    <div class="tab-label">Files</div>
+                </div>
+                
+                <div class="tab-item" data-tab="classroom">
+                    <div class="tab-icon classroom-icon">
+                        <img src="Photos/Images/google-integration/google integration 4.svg" alt="Google Classroom" style="width: 48px; height: 48px;">
+                    </div>
+                    <div class="tab-label">Google Classroom</div>
+                </div>
+            </div>
+            
+            <!-- Computer Display -->
+            <div class="computer-display">
+                <div class="computer-frame">
+                    <div class="computer-notch"></div>
+                    <div class="computer-stand"></div>
+                    <div class="screen-content">
+                        <!-- Placeholder images - you'll need to add actual screenshots -->
+                        <img src="Photos/Images/google-integration/1 - users photo.webp" alt="Users Integration Demo" class="screen-image active" data-content="users">
+                        <img src="Photos/Images/google-integration/2 - calendars photo.webp" alt="Calendars Integration Demo" class="screen-image" data-content="calendars">
+                        <img src="Photos/Images/google-integration/3 - files photo.webp" alt="Files Integration Demo" class="screen-image" data-content="files">
+                        <img src="Photos/Images/google-integration/4 - classroom photo.webp" alt="Google Classroom Integration Demo" class="screen-image" data-content="classroom">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content Description -->
+            <div class="content-description">
+                <div class="description-text active" data-content="users">
+                    <p>Seamlessly sync your Google Workspace users with SchoolBlocks. Automatically import staff directories, student rosters, and organizational units. Keep your website's user management in perfect sync with your Google domain, ensuring accurate contact information and proper access permissions across your entire school website.</p>
+                </div>
+                
+                <div class="description-text" data-content="calendars">
+                    <p>Display Google Calendar events directly on your school website. Show district-wide events, school-specific calendars, athletic schedules, and important dates. Your community stays informed with real-time calendar integration that automatically updates when changes are made in Google Calendar.</p>
+                </div>
+                
+                <div class="description-text" data-content="files">
+                    <p>Embed Google Drive files and folders directly into your web pages. Share documents, presentations, forms, and resources without leaving your website. Students, parents, and staff can access important files with proper permissions, all managed through your existing Google Workspace structure.</p>
+                </div>
+                
+                <div class="description-text" data-content="classroom">
+                    <p>Connect Google Classroom with your school website to showcase assignments, announcements, and class resources. Teachers can easily share classroom content with parents and the broader school community, creating transparency and engagement in the learning process.</p>
+                </div>
+            </div>
+            
+            <!-- Google Drive Section -->
+            <div class="google-drive-section">
+                <div class="drive-content">
+                    <div class="drive-text">
+                        <h3>Google Drive + Calendar and more on a single page.</h3>
+                        <p>Through proper integration with files, folders and events on a per-page basis, your pages are robust yet simple to digest. Don't make the mistake of linking out to resources since those clicks cause users to leave your content and begin consuming someone elses!</p>
+                    </div>
+                    <div class="drive-image">
+                        <img src="Photos/Images/google-integration/google-drivessection.webp" alt="Google Drive Integration" />
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Demo CTA Section -->
+            <section class="demo-cta">
+                <div class="demo-container">
+                    <div class="demo-content fade-in">
+                        <div class="demo-text">
+                            <h2>Want to know more about our product?</h2>
+                            <p>Schedule a demo today!</p>
+                            <a href="#" class="demo-button">Request a Demo</a>
+                            <div class="demo-visual">
+                                <div class="phone-container" id="phoneContainer">
+                                    <img src="Photos/Images/HomePage/editmephone.webp" alt="SchoolBlocks Mobile App Demo" class="demo-phone" id="demoPhone">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+    
+    <!-- Load Navigation and Footer -->
+    <script src="navbarloader.js"></script>
+    <script src="footerloader.js"></script>
+    
+    <!-- Initialize Navigation and Footer -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar and footer
+            loadNavbar();
+            loadFooter();
+            
+            // Add proper padding to main content to account for fixed navbar
+            const mainContent = document.querySelector('.main-content');
+            if (mainContent) {
+                mainContent.style.paddingTop = '100px';
+            }
+            
+            // Tab switching functionality
+            const tabItems = document.querySelectorAll('.tab-item');
+            const screenImages = document.querySelectorAll('.screen-image');
+            const descriptionTexts = document.querySelectorAll('.description-text');
+            
+            tabItems.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.dataset.tab;
+                    
+                    // Remove active class from all tabs
+                    tabItems.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all screen images
+                    screenImages.forEach(img => img.classList.remove('active'));
+                    
+                    // Show target screen image
+                    const targetImage = document.querySelector(`[data-content="${targetTab}"].screen-image`);
+                    if (targetImage) {
+                        targetImage.classList.add('active');
+                    }
+                    
+                    // Hide all description texts
+                    descriptionTexts.forEach(text => text.classList.remove('active'));
+                    
+                    // Show target description text
+                    const targetDescription = document.querySelector(`[data-content="${targetTab}"].description-text`);
+                    if (targetDescription) {
+                        targetDescription.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Dynamic Phone 3D Effect -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneContainer = document.getElementById('phoneContainer');
+            const demoPhone = document.getElementById('demoPhone');
+            
+            if (!phoneContainer || !demoPhone) return;
+            
+            phoneContainer.addEventListener('mousemove', function(e) {
+                const rect = phoneContainer.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                const mouseX = e.clientX - centerX;
+                const mouseY = e.clientY - centerY;
+                
+                // Calculate rotation based on mouse position (subtle effect)
+                const rotateY = (mouseX / rect.width) * 20; // Max 20 degrees
+                const rotateX = -(mouseY / rect.height) * 15; // Max 15 degrees
+                
+                // Apply transform
+                demoPhone.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.02)`;
+            });
+            
+            phoneContainer.addEventListener('mouseleave', function() {
+                // Reset to neutral position
+                demoPhone.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
+            });
+            
+            phoneContainer.addEventListener('mouseenter', function() {
+                // Slight scale on enter
+                demoPhone.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1.02)';
+            });
+        });
+    </script>
+</body>
+</html>
