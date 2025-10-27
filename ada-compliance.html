@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADA Compliance - SchoolBlocks</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 50%, #E8F4FD 100%);
+            min-height: 100vh;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            box-shadow: 
+                0 8px 25px rgba(74, 144, 226, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-icon i {
+            font-size: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                rgba(255, 255, 255, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 12px 35px rgba(74, 144, 226, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .feature-card:hover .feature-icon::before {
+            opacity: 1;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(44, 62, 80, 0.1);
+        }
+
+        .section-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Checklist Styling */
+        .checklist-section {
+            padding: 60px 0;
+        }
+
+        .checklist-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .checklist-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .checklist-column {
+            padding: 0 20px;
+        }
+
+        .checklist-column ol {
+            list-style: none;
+            counter-reset: checklist-counter;
+            padding-left: 0;
+        }
+
+        .checklist-column ol[start="10"] {
+            counter-reset: checklist-counter 9;
+        }
+
+        .checklist-column li {
+            counter-increment: checklist-counter;
+            position: relative;
+            padding: 15px 0 15px 60px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .checklist-column li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .checklist-column li::before {
+            content: counter(checklist-counter);
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+
+        .checklist-column li:hover {
+            color: var(--text-primary);
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+
+        .checklist-column li:hover::before {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .checklist-container {
+                padding: 30px 20px;
+            }
+
+            .checklist-column {
+                padding: 0 10px;
+                margin-bottom: 30px;
+            }
+
+            .checklist-column li {
+                padding: 12px 0 12px 50px;
+                font-size: 1rem;
+            }
+
+            .checklist-column li::before {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+                top: 12px;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+
+            .features-section {
+                padding: 40px 0;
+            }
+
+            .feature-card {
+                margin-bottom: 30px;
+                padding: 30px 20px;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-card {
+                padding: 40px 20px;
+                margin: 0 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Demo CTA will be loaded here -->
+    <div id="demo-cta-container"></div>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <div id="hero-section"></div>
+
+        <!-- ADA Background Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-content">
+                <p>The Americans with Disabilities Act was instituted in 1990 in an effort to end discrimination based on differing abilities. Public school websites are required to be ADA compliant through Section 504 of the Rehabilitation Act of 1973 and Title II of the Americans with Disabilities Act. Trying to figure out what constitutes an ADA-compliant website can be difficult. That is where SchoolBlocks comes in! Accessibility issues are categorized in four distinct groups under WCAG guidelines.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- WCAG Guidelines Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-title">WCAG Guidelines</div>
+            <div class="section-content">
+                <p>Accessibility issues are categorized in four distinct groups under WCAG guidelines. They are as follows:</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WCAG Categories Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-eye-fill"></i></div>
+                        <div class="feature-title">Perceivable</div>
+                        <div class="feature-description">These are issues that affect a user's ability to find and process information on a website (for example, providing audio descriptions for video content).</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-hand-index-fill"></i></div>
+                        <div class="feature-title">Operable</div>
+                        <div class="feature-description">These are issues that impact a visitor's ability to navigate and use a website (such as ensuring that all site functions and navigation can be operated via keyboard-only commands).</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-lightbulb-fill"></i></div>
+                        <div class="feature-title">Understandable</div>
+                        <div class="feature-description">These issues concern a user's ability to discern and comprehend all information and navigation on a website (such as composing error messages that include a clear explanation of the error and direction for correcting it).</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-shield-fill-check"></i></div>
+                        <div class="feature-title">Robust</div>
+                        <div class="feature-description">These issues involve a website's ability to adapt and evolve to meet the changing needs of users with disabilities (such as testing compatibility with all leading screen readers and ensuring that those capabilities can be upgraded in the future).</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-title">Integration</div>
+            <div class="section-content">
+                <p><strong>ADA compliant checklist:</strong></p>
+                <p>SchoolBlocks works seamlessly to implement main components of ADA compliance including A) Keyboard Navigation, B) Screen Reader Friendly and C) Readable Content. Here are some rules and checklists suggested by Siteimprove:</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist Section -->
+    <section class="checklist-section">
+        <div class="container">
+            <div class="checklist-container">
+                <h3 class="checklist-title">ADA Compliance Checklist</h3>
+                <div class="row">
+                    <div class="col-md-6 checklist-column">
+                        <ol>
+                            <li>Read the law documentation.</li>
+                            <li>All media files and maps should have an "alt" tag.</li>
+                            <li>All your online forms should have descriptive html tags.</li>
+                            <li>All hyperlinks should have a descriptive anchor text.</li>
+                            <li>All pages on your website have "skip navigation" links.</li>
+                            <li>All the text content should be structured using proper heading tags.</li>
+                            <li>All PDF files should be accessible.</li>
+                            <li>All videos should have subtitles, transcripts and audio description.</li>
+                            <li>The color contrast of your web pages should be sufficient according to WCAG.</li>
+                        </ol>
+                    </div>
+                    <div class="col-md-6 checklist-column">
+                        <ol start="10">
+                            <li>All fonts should be accessible.</li>
+                            <li>All HTML tables should be populated with column headers, row identifiers and cell information.</li>
+                            <li>All audio files on your website should have a written caption.</li>
+                            <li>All call to action buttons on your website should have an accessible name and an ARIA label.</li>
+                            <li>All your website should be accessible with keyboard navigation.</li>
+                            <li>Have a website accessibility policy page.</li>
+                            <li>Have easily locatable contact information to allow users to request accessibility information.</li>
+                            <li>Test your website accessibility according to the Website Content Accessibility Guidelines.</li>
+                            <li>Automate your website accessibility check to prevent missing critical accessibility issue ADA compliance guidelines a website according to WCAG.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Demo CTA Section will be loaded here -->
+        <div id="demo-cta-bottom"></div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Load Scripts -->
+    <script src="demo-cta.js"></script>
+    <script src="navbarloader.js"></script>
+    <script src="ada-hero.js"></script>
+    <script src="footerloader.js"></script>
+
+    <!-- Initialize Components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug: Check if navbar was loaded
+            console.log('Navbar container:', document.getElementById('navbar-container'));
+            console.log('Navbar content:', document.getElementById('navbar-container')?.innerHTML.length);
+            
+            // Check for dropdown functionality after a short delay
+            setTimeout(() => {
+                const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
+                console.log('Dropdown items found:', dropdownItems.length);
+                
+                dropdownItems.forEach((item, index) => {
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    console.log(`Dropdown ${index}:`, dropdown ? 'found' : 'missing');
+                });
+            }, 100);
+            
+            // Initialize hero component
+            if (typeof HeroComponent !== 'undefined') {
+                HeroComponent.create({}, 'hero-section');
+            } else {
+                console.log('HeroComponent not found');
+            }
+
+            // Initialize demo CTA component
+            if (typeof DemoCTAComponent !== 'undefined') {
+                DemoCTAComponent.create({
+                    title: "Want to know more about our product?",
+                    subtitle: "Get a demo trial today!",
+                    buttonText: "Request a Demo",
+                    buttonUrl: "#"
+                }, 'demo-cta-bottom');
+            }
+        });
+    </script>
+</body>
+</html>

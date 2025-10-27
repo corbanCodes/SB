@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webmaster Success - SchoolBlocks</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 50%, #E8F4FD 100%);
+            min-height: 100vh;
+        }
+
+        /* Computer Mockup Styles */
+        .computer-mockup {
+            margin: 80px 0;
+            padding: 0 20px;
+        }
+
+        .computer-frame {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #2c3e50, #34495e);
+            border-radius: 20px 20px 0 0;
+            padding: 20px 20px 0 20px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .computer-frame::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            width: 12px;
+            height: 12px;
+            background: #ff5f57;
+            border-radius: 50%;
+            box-shadow: 
+                20px 0 0 #ffbd2e,
+                40px 0 0 #28ca42;
+        }
+
+        .computer-screen {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .computer-screen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .computer-base {
+            max-width: 1000px;
+            margin: 0 auto;
+            height: 30px;
+            background: linear-gradient(145deg, #bdc3c7, #95a5a6);
+            border-radius: 0 0 50px 50px;
+            position: relative;
+        }
+
+        .computer-base::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 20px;
+            background: linear-gradient(145deg, #7f8c8d, #95a5a6);
+            border-radius: 10px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 60px auto;
+            border-radius: 40px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+            max-width: 1200px;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            z-index: 1;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            display: block;
+            text-shadow: 0 2px 10px rgba(74, 144, 226, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            box-shadow: 
+                0 8px 25px rgba(74, 144, 226, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-icon i {
+            font-size: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                rgba(255, 255, 255, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 12px 35px rgba(74, 144, 226, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .feature-card:hover .feature-icon::before {
+            opacity: 1;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(44, 62, 80, 0.1);
+        }
+
+        .section-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .computer-mockup {
+                margin: 40px 0;
+                padding: 0 15px;
+            }
+
+            .computer-frame {
+                padding: 15px 15px 0 15px;
+            }
+
+            .stats-section {
+                margin: 40px 15px;
+                padding: 40px 0;
+                max-width: calc(100% - 30px);
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .stat-label {
+                font-size: 1rem;
+            }
+
+            .features-section {
+                padding: 40px 0;
+            }
+
+            .feature-card {
+                margin-bottom: 30px;
+                padding: 30px 20px;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-card {
+                padding: 40px 20px;
+                margin: 0 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Demo CTA will be loaded here -->
+    <div id="demo-cta-container"></div>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <div id="hero-section"></div>
+
+        <!-- Computer Mockup Section -->
+    <section class="computer-mockup">
+        <div class="computer-frame">
+            <div class="computer-screen">
+                <img src="Photos/Images/webmastersuccess/school-screen.webp" alt="SchoolBlocks Website Example" />
+            </div>
+        </div>
+        <div class="computer-base"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <span class="stat-number">0</span>
+                        <div class="stat-label">Happy Schools</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <span class="stat-number">0</span>
+                        <div class="stat-label">Blocks Created</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <span class="stat-number">0</span>
+                        <div class="stat-label">Successful Webmasters</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-title">Best Designed Websites for Schools</div>
+            <div class="section-content">
+                <p>SchoolBlocks creates a home for the vast amount of information on education websites, while establishing a stronger sense of organization in the process. The information schools provide to parents, students, and other educators is vital. If no one can find it, it's useless. SchoolBlocks makes it easier for people to find what they need, quickly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Blocks Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-content">
+                <p><strong>Our blocks are interactive and customized to the user visiting the site.</strong></p>
+                <p>SchoolBlocks uses the proper ratio between Navigation & Browsing. Accommodating both "Navigating" & "Browsing" behaviors while establishing a sense of organization and professionalism is why SchoolBlocks looks different than the rest. The navigation system serves quite a different user experience than our browsing behaviour. Our navigation items offer both efficient drill-down methodology while leveraging larger text formats, icons and descriptions. Our browsing experience offers content that is interesting, engaging and efficient to consume.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-cursor-fill"></i></div>
+                        <div class="feature-title">Drag & Drop</div>
+                        <div class="feature-description">The intuitive and flexible drag & drop editor saves time and is just plain fun.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+                        <div class="feature-title">Resizability</div>
+                        <div class="feature-description">When you combine the ability to resize blocks with drag-n-drop, you get total flexibility while looking sharp.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-phone-landscape"></i></div>
+                        <div class="feature-title">Responsive Design</div>
+                        <div class="feature-description">Drag-n-drop on desktop translates into great looking tablet and mobile screen sizes.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-puzzle-fill"></i></div>
+                        <div class="feature-title">3rd Party Integrations</div>
+                        <div class="feature-description">Your technology landscape was carefully curated. Let the 'blocks' in SchoolBlocks bring them together.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-palette-fill"></i></div>
+                        <div class="feature-title">Designers on Call</div>
+                        <div class="feature-description">Need a logo? A banner? Or just a pretty winter scene? Our designers are ready to help achieve your vision.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <div class="feature-title">Flux Capacitor</div>
+                        <div class="feature-description">That's right! SchoolBlocks has a feature called the "Flux Capacitor." Can you guess what it does?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Demo CTA Section will be loaded here -->
+        <div id="demo-cta-bottom"></div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Load Scripts -->
+    <script src="demo-cta.js"></script>
+    <script src="navbarloader.js"></script>
+    <script src="webmastersuccess-hero.js.js"></script>
+    <script src="footerloader.js"></script>
+
+    <!-- Initialize Components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug: Check if navbar was loaded
+            console.log('Navbar container:', document.getElementById('navbar-container'));
+            console.log('Navbar content:', document.getElementById('navbar-container')?.innerHTML.length);
+            
+            // Check for dropdown functionality after a short delay
+            setTimeout(() => {
+                const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
+                console.log('Dropdown items found:', dropdownItems.length);
+                
+                dropdownItems.forEach((item, index) => {
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    console.log(`Dropdown ${index}:`, dropdown ? 'found' : 'missing');
+                });
+            }, 100);
+            
+            // Initialize hero component (uses webmaster success defaults)
+            if (typeof HeroComponent !== 'undefined') {
+                HeroComponent.create({}, 'hero-section');
+            } else {
+                console.log('HeroComponent not found');
+            }
+
+            // Initialize demo CTA component
+            if (typeof DemoCTAComponent !== 'undefined') {
+                DemoCTAComponent.create({
+                    title: "Want to know more about our product?",
+                    subtitle: "Get a demo trial today!",
+                    buttonText: "Request a Demo",
+                    buttonUrl: "#"
+                }, 'demo-cta-bottom');
+            }
+
+            // Animate numbers when they come into view
+            function animateNumber(element, target, duration = 2000) {
+                const start = 0;
+                const startTime = performance.now();
+                
+                function updateNumber(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Use easing function for smooth animation
+                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                    const current = Math.floor(start + (target - start) * easeOutQuart);
+                    
+                    // Format number with commas if needed
+                    if (target >= 1000) {
+                        element.textContent = current.toLocaleString();
+                    } else {
+                        element.textContent = current + (target === 3000 ? '+' : '');
+                    }
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateNumber);
+                    } else {
+                        // Ensure final value is correct
+                        if (target >= 1000) {
+                            element.textContent = target.toLocaleString();
+                        } else {
+                            element.textContent = target + (target === 3000 ? '+' : '');
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(updateNumber);
+            }
+
+            // Intersection Observer for triggering animations
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('animated');
+                        
+                        // Get all stat numbers and animate them
+                        const statNumbers = entry.target.querySelectorAll('.stat-number');
+                        
+                        statNumbers.forEach((statNumber, index) => {
+                            let targetValue;
+                            switch(index) {
+                                case 0: targetValue = 1750; break;
+                                case 1: targetValue = 100000; break;
+                                case 2: targetValue = 3000; break;
+                                default: targetValue = 0;
+                            }
+                            
+                            // Add slight delay between animations
+                            setTimeout(() => {
+                                animateNumber(statNumber, targetValue, 2500);
+                            }, index * 200);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Observe the stats section
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+</html>

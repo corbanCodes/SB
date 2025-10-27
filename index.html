@@ -462,19 +462,20 @@
         }
         
         .video-solution-container {
-            max-width: 95%;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
         }
         
         .video-solution-header {
             text-align: center;
-            margin-bottom: 60px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease-out;
@@ -485,24 +486,22 @@
             transform: translateY(0);
         }
         
-        .video-solution-header h2 {
+        .video-solution-header h1 {
             text-align: center !important;
-            max-width: 1400px !important;
+            max-width: 1000px !important;
             margin: 0 auto !important;
-            padding: 0 60px !important;
+            padding: 0 20px !important;
         }
         
-        .video-solution-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
+        .video-cta-container {
+            text-align: center;
+            width: 100%;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease-out;
         }
         
-        .video-solution-content.fade-in {
+        .video-cta-container.fade-in {
             opacity: 1;
             transform: translateY(0);
         }
@@ -626,10 +625,62 @@
         .video-container {
             position: relative;
             width: 100%;
+            max-width: 1200px;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
             background: #000;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .video-container.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Premium shimmer animation overlay */
+        .video-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.05) 20%,
+                rgba(255, 255, 255, 0.15) 50%,
+                rgba(255, 255, 255, 0.05) 80%,
+                transparent 100%
+            );
+            animation: shimmer 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        /* Hide shimmer when video is playing */
+        .video-container.playing::after {
+            display: none;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
         }
         
         .video-container::before {
@@ -1910,7 +1961,7 @@
         
         /* Expect the Unexpected Section */
         .expect-unexpected {
-            padding: 120px 0 160px 0;
+            padding: 60px 0 160px 0;
             background: #ffffff;
             position: relative;
             overflow: hidden;
@@ -2269,7 +2320,7 @@
         
         /* Product Features Section */
         .product-features {
-            padding: 100px 0;
+            padding: 100px 0 60px 0;
             background: #fff;
         }
         
@@ -2299,8 +2350,8 @@
         }
         
         .feature-logo {
-            width: 32px;
-            height: 32px;
+            width: 48px;
+            height: 48px;
             object-fit: contain;
         }
         
@@ -2312,7 +2363,7 @@
         }
         
         .feature-title {
-            font-size: 0.9rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: #4A90E2;
             letter-spacing: 1px;
@@ -2327,11 +2378,27 @@
         }
         
         
+        .feature-text h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: #333;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+        
         .feature-text p {
             font-size: clamp(1.3rem, 2.5vw, 1.8rem);
             color: #666;
             line-height: 1.6;
-            margin: 0;
+            margin: 0 0 20px 0;
+        }
+        
+        .feature-text .learn-more-btn {
+            margin-top: 0;
+            font-size: 1.2rem;
+            text-align: center;
+            display: block;
         }
         
         .feature-image {
@@ -2430,8 +2497,8 @@
         @media (max-width: 480px) {
             
             .feature-logo {
-                width: 28px;
-                height: 28px;
+                width: 42px;
+                height: 42px;
             }
             
             .feature-line {
@@ -2440,7 +2507,7 @@
             }
             
             .feature-title {
-                font-size: 0.8rem;
+                font-size: 1.2rem;
             }
         }
         
@@ -3345,10 +3412,9 @@
                 padding: 80px 0;
             }
             
-            .video-solution-content {
-                grid-template-columns: 1fr;
-                gap: 50px;
-                text-align: center;
+            .video-solution-container {
+                padding: 0 20px;
+                gap: 40px;
             }
             
             .video-text-content h2 {
@@ -3438,25 +3504,32 @@
                 margin-top: 0px;
                 margin-bottom: 20px;
             }
+            
         }
         
-        /* Small Mobile */
+        /* Small Mobile - Video Solution Responsive */
         @media (max-width: 480px) {
+            .video-solution {
+                padding: 60px 0;
+            }
+            
+            .video-solution-container {
+                padding: 0 15px;
+                gap: 30px;
+            }
+            
             .video-solution-description {
                 font-size: 1.5rem !important;
                 margin-bottom: 30px !important;
                 padding: 0 5px !important;
             }
             
-            /* Old small mobile hero styles removed - using hero.js component */
-            
-            .btn {
-                padding: 14px 28px;
-                font-size: 0.9rem;
+            .video-container {
+                max-width: 100%;
+                border-radius: 15px;
             }
-            
         }
-        
+
         /* Extra Small Mobile */
         @media (max-width: 360px) {
             /* Old extra small mobile hero styles removed - using hero.js component */
@@ -4176,40 +4249,36 @@
          <!-- Video Solution Section -->
          <section class="video-solution">
             <div class="video-solution-container">
-                <div class="video-solution-content">
-                    <div class="video-text-content">
-                        <h1 class="video-solution-description">The all-in-one school website solution that fits your budget.</h1>
-                        
-                        <a href="/get-started" class="video-cta">
-                            Get Started Today
-                        </a>
+                <!-- Centered heading above video -->
+                <div class="video-solution-header">
+                    <h1 class="video-solution-description">The all-in-one school website solution that fits your budget.</h1>
+                </div>
+                
+                <!-- Large centered video with minimal margins -->
+                <div class="video-container" id="video-container">
+                    <img 
+                        src="Photos/Images/HomePage/betterthumbnail2.png" 
+                        alt="SchoolBlocks platform demonstration" 
+                        class="video-thumbnail"
+                        id="video-thumbnail">
+                    <div class="video-play-button" id="play-button">
+                        <i class="bi bi-play-fill"></i>
                     </div>
-                    
-                    <div class="video-container" id="video-container">
-                        <img 
-                            src="Photos/Images/HomePage/video-thumbnail.png" 
-                            alt="SchoolBlocks platform demonstration" 
-                            class="video-thumbnail"
-                            id="video-thumbnail">
-                        <div class="video-play-button" id="play-button">
-                            <i class="bi bi-play-fill"></i>
-                        </div>
-                        <iframe 
-                            src="https://customer-394md8sxxno51fu2.cloudflarestream.com/023420146717080eff31f5f27ce23d8e/iframe"
-                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                            allowfullscreen="true"
-                            aria-label="SchoolBlocks platform demonstration video"
-                            id="video-iframe"
-                            style="display: none;">
-                        </iframe>
-                    </div>
-                    
-                    <!-- Mobile CTA Button (shown only on mobile/hamburger menu) -->
-                    <div class="video-mobile-cta">
-                        <a href="/get-started" class="video-cta">
-                            Get Started Today
-                        </a>
-                    </div>
+                    <iframe 
+                        src="https://customer-394md8sxxno51fu2.cloudflarestream.com/023420146717080eff31f5f27ce23d8e/iframe"
+                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                        allowfullscreen="true"
+                        aria-label="SchoolBlocks platform demonstration video"
+                        id="video-iframe"
+                        style="display: none;">
+                    </iframe>
+                </div>
+                
+                <!-- Get Started button below video -->
+                <div class="video-cta-container">
+                    <a href="/get-started" class="video-cta">
+                        Get Started Today
+                    </a>
                 </div>
             </div>
         </section>
@@ -4282,7 +4351,7 @@
         <section class="product-features">
             <div class="features-grid">
                 <!-- Feature 1: AI Chatbot (Text Left, Image Right) -->
-                <div class="feature-item">
+                <div class="feature-item" id="websites-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
                         <div class="feature-line"></div>
@@ -4290,7 +4359,9 @@
                     </div>
                     <div class="feature-content">
                         <div class="feature-text">
+                            <h2>Modern School Websites That Work</h2>
                             <p>SchoolBlocks transforms the wealth of information on school websites into a clear, engaging experience for families and staff alike. Designed with accessibility and simplicity in mind, it helps parents, students, and staff quickly find what they need—while ensuring full ADA, WCAG 2.2, and CIPA compliance.</p>
+                            <a href="/school-websites" class="learn-more-btn">Learn More</a>
                         </div>
                         <div class="feature-image">
                             <img src="Photos/Images/HomePage/featurespictures/1.png" alt="SchoolBlocks Website Interface" />
@@ -4299,7 +4370,7 @@
                 </div>
 
                 <!-- Feature 2: Google Integration (Text Right, Image Left) -->
-                <div class="feature-item reverse">
+                <div class="feature-item reverse" id="google-integration-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
                         <div class="feature-line"></div>
@@ -4310,13 +4381,15 @@
                             <img src="Photos/Images/HomePage/featurespictures/2.png" alt="Google Integration" />
                         </div>
                         <div class="feature-text">
+                            <h2>Seamless Google Workspace Integration</h2>
                             <p>With seamless Google Workspace integration, SchoolBlocks brings your files, folders, and calendar events directly into each page—making your website both powerful and easy to manage. Combined with great pricing and responsive support, it's a winning formula for every K-12 district.</p>
+                            <a href="google-integration.html" class="learn-more-btn">Learn More</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Feature 3: AI Powered Answers (Text Left, Image Right) -->
-                <div class="feature-item">
+                <div class="feature-item" id="welcomechat-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
                         <div class="feature-line"></div>
@@ -4324,7 +4397,9 @@
                     </div>
                     <div class="feature-content">
                         <div class="feature-text">
+                            <h2>Instant AI-Powered Support</h2>
                             <p>Integrate our AI Answers companion to provide your members with instant, intelligent responses in natural language—exactly what they expect from modern technology. Enhance engagement, reduce support bottlenecks, and give your community a seamless way to get the information they need, when they need it.</p>
+                            <a href="/welcomechat" class="learn-more-btn">Learn More</a>
                         </div>
                         <div class="feature-image">
                             <img src="Photos/Images/HomePage/featurespictures/3.png" alt="AI Powered Answers" />
@@ -4333,7 +4408,7 @@
                 </div>
 
                 <!-- Feature 4: Safe Social (Text Right, Image Left) -->
-                <div class="feature-item reverse">
+                <div class="feature-item reverse" id="schoolfeed-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
                         <div class="feature-line"></div>
@@ -4344,13 +4419,15 @@
                             <img src="Photos/Images/HomePage/featurespictures/4.png" alt="Safe Social Platform" />
                         </div>
                         <div class="feature-text">
+                            <h2>Safe Community Engagement</h2>
                             <p>Turn social engagement into a positive experience. Our platform eliminates the common pitfalls of traditional social media while encouraging meaningful member-to-member interactions. With conversation prompts, leaderboards, and more, engaging with your organization becomes fun, rewarding, and safe—building stronger connections and a thriving community.</p>
+                            <a href="/schoolfeed" class="learn-more-btn">Learn More</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Feature 5: Document Engagement (Text Left, Image Right) -->
-                <div class="feature-item">
+                <div class="feature-item" id="docmersion-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
                         <div class="feature-line"></div>
@@ -4358,7 +4435,9 @@
                     </div>
                     <div class="feature-content">
                         <div class="feature-text">
+                            <h2>Interactive Document Management</h2>
                             <p>Make your policies, procedures, and handbooks clear, accessible, and easy to follow with DocMersion. Our newest innovation, DocMersion transforms core documents into fully searchable, translatable, and mobile-friendly pages, so everyone can quickly find and understand content such as policies. When people know what's expected, compliance improves and your organization fosters a safer, more harmonious environment for all.</p>
+                            <a href="/docmersion" class="learn-more-btn">Learn More</a>
                         </div>
                         <div class="feature-image">
                             <img src="Photos/Images/HomePage/featurespictures/5.png" alt="Document Engagement" />
@@ -4367,7 +4446,7 @@
                 </div>
 
                 <!-- Feature 6: Mobile App (Text Right, Image Left) -->
-                <div class="feature-item reverse">
+                <div class="feature-item reverse" id="mobile-apps-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
                         <div class="feature-line"></div>
@@ -4378,7 +4457,9 @@
                             <img src="Photos/Images/HomePage/featurespictures/6.png" alt="Mobile App" />
                         </div>
                         <div class="feature-text">
+                            <h2>Progressive Web App Technology</h2>
                             <p>Launch your own app with our progressive web app (PWA) technology and see engagement soar. PWAs make your app instantly accessible, easy to use, and fast—driving up to 3× the usage compared to traditional apps. Deliver a seamless mobile experience that keeps your community coming back.</p>
+                            <a href="/mobile-apps" class="learn-more-btn">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -4563,7 +4644,7 @@
                 
                 <div class="success-grid">
                     <!-- Webmaster Success Card -->
-                    <div class="success-card">
+                    <a href="webmaster-success.html" class="success-card" style="text-decoration: none; color: inherit;">
                         <div class="success-icon">
                             <i class="bi bi-gear-fill"></i>
                         </div>
@@ -4575,10 +4656,10 @@
                                 </span>
                             </p>
                         </div>
-                    </div>
+                    </a>
                     
                     <!-- ADA Compliant Card -->
-                    <div class="success-card">
+                    <a href="ada-compliance.html" class="success-card" style="text-decoration: none; color: inherit;">
                         <div class="success-icon">
                             <i class="bi bi-universal-access"></i>
                         </div>
@@ -4590,10 +4671,10 @@
                                 </span>
                             </p>
                         </div>
-                    </div>
+                    </a>
                     
                     <!-- Trusted & Secure Card -->
-                    <div class="success-card">
+                    <a href="hosting.html" class="success-card" style="text-decoration: none; color: inherit;">
                         <div class="success-icon">
                             <i class="bi bi-shield-fill-check"></i>
                         </div>
@@ -4605,7 +4686,7 @@
                                 </span>
                             </p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -5011,16 +5092,25 @@
         }
         
         function animateVideoSolutionContent() {
-            const element = document.querySelector('.video-solution-content');
-            if (!element) return;
+            const videoContainer = document.querySelector('.video-container');
+            const ctaContainer = document.querySelector('.video-cta-container');
             
-            const rect = element.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
+            if (videoContainer) {
+                const rect = videoContainer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                if (rect.top < windowHeight * 0.8) {
+                    videoContainer.classList.add('fade-in');
+                }
+            }
             
-            if (rect.top <= windowHeight * 0.7 && rect.bottom >= 0) {
-                element.classList.add('fade-in');
-                // Remove scroll listener after animation starts
-                window.removeEventListener('scroll', animateVideoSolutionContent);
+            if (ctaContainer) {
+                const rect = ctaContainer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                if (rect.top < windowHeight * 0.8) {
+                    ctaContainer.classList.add('fade-in');
+                }
             }
         }
         
@@ -5330,6 +5420,103 @@
         });
     </script>
     
+    <!-- Circular Ecosystem Scroll Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Define mapping between services and their target sections
+            const serviceSectionMap = {
+                'websites': 'websites-section',
+                'google-integration': 'google-integration-section', 
+                'welcomechat': 'welcomechat-section',
+                'schoolfeed': 'schoolfeed-section',
+                'docmersion': 'docmersion-section',
+                'mobile-apps': 'mobile-apps-section'
+            };
+            
+            // Define mapping between label classes and services
+            const labelServiceMap = {
+                'websites-label': 'websites',
+                'google-label': 'google-integration',
+                'welcomechat-label': 'welcomechat', 
+                'schoolfeed-label': 'schoolfeed',
+                'docmersion-label': 'docmersion',
+                'mobile-label': 'mobile-apps'
+            };
+            
+            // Generic smooth scroll function
+            function scrollToSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    // Get the feature header (logo + line + title) within the section
+                    const featureHeader = section.querySelector('.feature-header');
+                    if (featureHeader) {
+                        // Scroll to show the header at the top with some offset for the navbar
+                        const headerTop = featureHeader.getBoundingClientRect().top + window.pageYOffset;
+                        const navbarHeight = document.querySelector('.header-top')?.offsetHeight || 86;
+                        const offset = 20; // Additional spacing
+                        
+                        window.scrollTo({
+                            top: headerTop - navbarHeight - offset,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        // Fallback to section scroll if header not found
+                        section.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            }
+            
+            // Add click listeners to all circular ecosystem icons and labels
+            Object.keys(serviceSectionMap).forEach(service => {
+                const sectionId = serviceSectionMap[service];
+                
+                // Desktop: Add click listeners to icon
+                const icon = document.querySelector(`.${service}-icon`);
+                if (icon) {
+                    icon.addEventListener('click', () => scrollToSection(sectionId));
+                    icon.style.cursor = 'pointer';
+                }
+                
+                // Mobile: Add click listener to accordion "Learn More" button
+                const accordion = document.querySelector(`.accordion-item[data-service="${service}"]`);
+                if (accordion) {
+                    const learnMoreBtn = accordion.querySelector('.learn-more-btn');
+                    if (learnMoreBtn) {
+                        learnMoreBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            scrollToSection(sectionId);
+                        });
+                    }
+                }
+            });
+            
+            // Add click listeners to labels and their "Learn More" links
+            Object.keys(labelServiceMap).forEach(labelClass => {
+                const service = labelServiceMap[labelClass];
+                const sectionId = serviceSectionMap[service];
+                const label = document.querySelector(`.${labelClass}`);
+                
+                if (label) {
+                    // Add click listener to label
+                    label.addEventListener('click', () => scrollToSection(sectionId));
+                    label.style.cursor = 'pointer';
+                    
+                    // Add click listener to "Learn More" link within the label
+                    const serviceLink = label.querySelector('.service-link');
+                    if (serviceLink) {
+                        serviceLink.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            scrollToSection(sectionId);
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+    
     <!-- Video Thumbnail Click Handler -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -5574,6 +5761,46 @@
             
             // Create and render the hero component
             HeroComponent.create(heroConfig, 'hero-section');
+        });
+    </script>
+    
+    <!-- Video Interaction Script -->
+    <script>
+        // Video interaction - hide shimmer on play
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoContainer = document.getElementById('video-container');
+            const playButton = document.getElementById('play-button');
+            const videoThumbnail = document.getElementById('video-thumbnail');
+            const videoIframe = document.getElementById('video-iframe');
+            
+            function playVideo() {
+                if (videoContainer && videoIframe && videoThumbnail && playButton) {
+                    // Add playing class to hide shimmer
+                    videoContainer.classList.add('playing');
+                    
+                    // Hide thumbnail and play button
+                    videoThumbnail.style.display = 'none';
+                    playButton.style.display = 'none';
+                    
+                    // Show and play the iframe
+                    videoIframe.style.display = 'block';
+                    
+                    // Add autoplay parameter to iframe src
+                    const currentSrc = videoIframe.src;
+                    if (!currentSrc.includes('autoplay=true')) {
+                        videoIframe.src = currentSrc + (currentSrc.includes('?') ? '&' : '?') + 'autoplay=true';
+                    }
+                }
+            }
+            
+            // Add click handlers
+            if (playButton) {
+                playButton.addEventListener('click', playVideo);
+            }
+            
+            if (videoThumbnail) {
+                videoThumbnail.addEventListener('click', playVideo);
+            }
         });
     </script>
     

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo CTA Component - Usage Example</title>
+    
+    <!-- Demo CTA Component -->
+    <script src="demo-cta.js"></script>
+</head>
+<body>
+    <h1>Demo CTA Component Examples</h1>
+    
+    <!-- Example 1: Default Configuration -->
+    <div id="demo-cta-default"></div>
+    
+    <!-- Example 2: Custom Configuration -->
+    <div id="demo-cta-custom"></div>
+    
+    <!-- Example 3: Different Phone Image -->
+    <div id="demo-cta-different"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Example 1: Default configuration (identical to original)
+            DemoCTAComponent.create({}, 'demo-cta-default');
+            
+            // Example 2: Custom configuration
+            DemoCTAComponent.create({
+                title: "Ready to transform your school?",
+                subtitle: "See SchoolBlocks in action!",
+                buttonText: "Book Your Demo",
+                buttonUrl: "/book-demo"
+            }, 'demo-cta-custom');
+            
+            // Example 3: Different phone image and content
+            DemoCTAComponent.create({
+                title: "Experience the difference",
+                subtitle: "Join thousands of satisfied schools!",
+                buttonText: "Get Started Free",
+                buttonUrl: "/signup",
+                phoneImage: "Photos/Images/HomePage/editmephone.webp", // You can change this path
+                phoneAlt: "Different phone demo"
+            }, 'demo-cta-different');
+            
+        });
+    </script>
+</body>
+</html>

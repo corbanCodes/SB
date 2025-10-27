@@ -42,7 +42,7 @@ function loadNavbar() {
                                     <div class="dropdown-left">
                                         <ul class="dropdown-links">
                                             <li><a href="/school-websites">School and District Websites</a></li>
-                                            <li><a href="/mobile-apps">Mobile School Apps</a></li>
+                                            <li><a href="apps.html">Mobile School Apps</a></li>
                                             <li><a href="/google-integration">Google Integration Tools</a></li>
                                             <li><a href="/microsites">Microsites</a></li>
                                             <li><a href="/docmersion"><span class="new-badge">NEW</span> Document Engagement Platform</a></li>
@@ -51,26 +51,12 @@ function loadNavbar() {
                                             <li><a href="/schoolfeed"><span class="new-badge">NEW</span> SchoolFeed Social Platform</a></li>
                                         </ul>
                                     </div>
-                                    <div class="dropdown-right">
-                                        <div class="dropdown-cta">
-                                            <div class="cta-icon">
-                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                                    <path d="m2 17 10 5 10-5"/>
-                                                    <path d="m2 12 10 5 10-5"/>
-                                                </svg>
-                                            </div>
-                                            <h3>Explore Our Complete Platform</h3>
-                                            <p>Discover how SchoolBlocks can transform your school's digital presence with our integrated solutions.</p>
-                                            <a href="/get-started" class="dropdown-cta-btn">GET STARTED</a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="mobile-dropdown-content">
                                 <ul class="mobile-dropdown-links">
                                     <li><a href="/school-websites">School and District Websites</a></li>
-                                    <li><a href="/mobile-apps">Mobile School Apps</a></li>
+                                    <li><a href="apps.html">Mobile School Apps</a></li>
                                     <li><a href="/google-integration">Google Integration Tools</a></li>
                                     <li><a href="/microsites">Microsites</a></li>
                                     <li><a href="/docmersion"><span class="new-badge">NEW</span> Document Engagement Platform</a></li>
@@ -96,21 +82,6 @@ function loadNavbar() {
                                             <li><a href="/parents">Parents</a></li>
                                             <li><a href="/students">Students</a></li>
                                         </ul>
-                                    </div>
-                                    <div class="dropdown-right">
-                                        <div class="dropdown-cta">
-                                            <div class="cta-icon">
-                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                                    <line x1="16" y1="2" x2="16" y2="6"/>
-                                                    <line x1="8" y1="2" x2="8" y2="6"/>
-                                                    <line x1="3" y1="10" x2="21" y2="10"/>
-                                                </svg>
-                                            </div>
-                                            <h3>Take a Self-Guided Tour</h3>
-                                            <p>See how SchoolBlocks can transform your school's communication and engagement across all audiences.</p>
-                                            <a href="/tour" class="dropdown-cta-btn">REQUEST A TOUR</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -139,21 +110,6 @@ function loadNavbar() {
                                             <li><a href="/case-studies">Case Studies</a></li>
                                             <li><a href="/client-stories">Client Stories</a></li>
                                         </ul>
-                                    </div>
-                                    <div class="dropdown-right">
-                                        <div class="dropdown-cta">
-                                            <div class="cta-icon">
-                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                                    <line x1="16" y1="2" x2="16" y2="6"/>
-                                                    <line x1="8" y1="2" x2="8" y2="6"/>
-                                                    <line x1="3" y1="10" x2="21" y2="10"/>
-                                                </svg>
-                                            </div>
-                                            <h3>The 2025 District Communications Report</h3>
-                                            <p>Finalsite's exclusive report explores the insights, strategies, and goals of communication leaders from more than 200 US districts and schools.</p>
-                                            <a href="/2025-communications-report" class="dropdown-cta-btn">GET YOUR FREE COPY</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -302,27 +258,19 @@ function loadNavbar() {
                 margin: 0;
                 display: flex;
                 padding: 0;
-                height: 40vh;
-                max-height: 400px;
-                min-height: 320px;
+                height: auto;
+                max-height: 350px;
+                min-height: 200px;
             }
             
             .dropdown-left {
-                width: 75%;
-                padding: 40px 60px;
+                width: 100%;
+                padding: 30px 60px;
                 background: #fafbfc;
                 overflow-y: auto;
-            }
-            
-            .dropdown-right {
-                width: 25%;
-                padding: 40px 50px;
-                background: linear-gradient(135deg, #4A90E2 0%, #4ECDC4 100%);
-                color: white;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                flex-shrink: 0;
             }
             
             .dropdown-links {
@@ -330,9 +278,11 @@ function loadNavbar() {
                 margin: 0;
                 padding: 0;
                 display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px 40px;
-                max-width: 100%;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+                gap: 15px 40px;
+                max-width: 1000px;
+                width: 100%;
+                justify-content: center;
             }
             
             .dropdown-links li {
@@ -346,10 +296,10 @@ function loadNavbar() {
             .dropdown-links a {
                 color: #2c3e50 !important;
                 text-decoration: none;
-                font-size: 17px;
+                font-size: 16px;
                 font-weight: 500;
                 letter-spacing: -0.2px;
-                padding: 12px 0;
+                padding: 8px 0;
                 display: block;
                 transition: all 0.3s ease;
                 border-radius: 8px;
@@ -402,90 +352,6 @@ function loadNavbar() {
                 0% { transform: scale(1); opacity: 1; }
                 50% { transform: scale(1.02); opacity: 0.9; }
                 100% { transform: scale(1); opacity: 1; }
-            }
-            
-            /* NEW RESOURCE Badge Styles */
-            .new-resource-badge {
-                background: rgba(255, 255, 255, 0.2);
-                color: white;
-                font-size: 11px;
-                font-weight: 700;
-                padding: 6px 12px;
-                border-radius: 20px;
-                margin-bottom: 15px;
-                text-transform: uppercase;
-                letter-spacing: 0.8px;
-                display: inline-block;
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                backdrop-filter: blur(10px);
-            }
-            
-            .dropdown-cta {
-                text-align: center;
-                max-width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-            }
-            
-            .cta-icon {
-                width: 60px;
-                height: 60px;
-                background: rgba(255, 255, 255, 0.15);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 20px;
-                backdrop-filter: blur(10px);
-                flex-shrink: 0;
-            }
-            
-            .cta-icon svg {
-                width: 28px;
-                height: 28px;
-                color: white;
-            }
-            
-            .dropdown-cta h3 {
-                font-size: 20px;
-                font-weight: 600;
-                margin: 0 0 15px 0;
-                color: white;
-                line-height: 1.2;
-                text-align: center;
-            }
-            
-            .dropdown-cta p {
-                font-size: 14px;
-                line-height: 1.4;
-                margin: 0 0 25px 0;
-                color: rgba(255, 255, 255, 0.9);
-                text-align: center;
-            }
-            
-            .dropdown-cta-btn {
-                background: white;
-                color: #4A90E2 !important;
-                padding: 12px 24px;
-                border-radius: 25px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 12px;
-                letter-spacing: 0.5px;
-                transition: all 0.3s ease;
-                display: inline-block;
-                text-transform: uppercase;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                flex-shrink: 0;
-            }
-            
-            .dropdown-cta-btn:hover {
-                background: rgba(255, 255, 255, 0.95);
-                transform: translateY(-3px);
-                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
             }
             
             .button-section {
@@ -650,92 +516,37 @@ function loadNavbar() {
             /* Responsive adjustments for dropdown */
             @media (max-width: 1400px) {
                 .dropdown-left {
-                    padding: 35px 50px;
-                }
-                .dropdown-right {
-                    padding: 35px 40px;
+                    padding: 25px 50px;
                 }
                 
                 .dropdown-content {
-                    height: 38vh;
-                    max-height: 350px;
+                    max-height: 320px;
+                    min-height: 180px;
                 }
                 
-                .cta-icon {
-                    width: 55px;
-                    height: 55px;
-                    margin-bottom: 18px;
-                }
-                
-                .cta-icon svg {
-                    width: 26px;
-                    height: 26px;
-                }
-                
-                .dropdown-cta h3 {
-                    font-size: 18px;
-                    margin-bottom: 12px;
-                }
-                
-                .dropdown-cta p {
-                    font-size: 13px;
-                    margin-bottom: 20px;
-                }
-                
-                .dropdown-cta-btn {
-                    padding: 10px 20px;
-                    font-size: 11px;
+                .dropdown-links {
+                    gap: 12px 40px;
                 }
             }
             
             @media (max-width: 1300px) {
                 .dropdown-left {
-                    padding: 30px 40px;
-                }
-                .dropdown-right {
-                    padding: 30px 35px;
+                    padding: 25px 40px;
                 }
                 
                 .dropdown-content {
-                    height: 36vh;
-                    max-height: 320px;
-                    min-height: 280px;
-                }
-                
-                .cta-icon {
-                    width: 50px;
-                    height: 50px;
-                    margin-bottom: 15px;
-                }
-                
-                .cta-icon svg {
-                    width: 24px;
-                    height: 24px;
-                }
-                
-                .dropdown-cta h3 {
-                    font-size: 16px;
-                    margin-bottom: 8px;
-                    line-height: 1.2;
-                }
-                
-                .dropdown-cta p {
-                    font-size: 11px;
-                    margin-bottom: 15px;
-                    line-height: 1.3;
-                }
-                
-                .dropdown-cta-btn {
-                    padding: 9px 18px;
-                    font-size: 10px;
-                }
-                
-                .dropdown-links a {
-                    font-size: 16px;
+                    max-height: 300px;
+                    min-height: 160px;
                 }
                 
                 .dropdown-links {
-                    gap: 15px 30px;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 12px 35px;
+                }
+                
+                .dropdown-links a {
+                    font-size: 15px;
+                    padding: 6px 0;
                 }
                 
                 .new-badge {
@@ -744,70 +555,29 @@ function loadNavbar() {
                     margin-right: 5px;
                     border-radius: 6px;
                 }
-                
-                .new-resource-badge {
-                    font-size: 9px;
-                    padding: 4px 10px;
-                    margin-bottom: 12px;
-                    letter-spacing: 0.6px;
-                }
             }
             
             
-            /* Stack dropdown content vertically on smaller screens */
+            /* Optimize for medium screens */
             @media (max-width: 1250px) {
                 .dropdown-content {
-                    flex-direction: column;
-                    height: auto;
-                    max-height: 80vh;
-                    min-height: auto;
+                    max-height: 280px;
+                    min-height: 140px;
                 }
                 
                 .dropdown-left {
-                    width: 100%;
-                    padding: 30px 40px 20px 40px;
-                }
-                
-                .dropdown-right {
-                    width: 100%;
-                    padding: 15px 40px 25px 40px;
-                    min-height: 160px;
+                    padding: 20px 40px;
                 }
                 
                 .dropdown-links {
-                    grid-template-columns: 1fr 1fr 1fr;
-                    gap: 15px 20px;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 10px 25px;
+                    max-width: 900px;
                 }
                 
-                .dropdown-cta {
-                    justify-content: center;
-                    align-items: center;
-                }
-                
-                .cta-icon {
-                    width: 55px;
-                    height: 55px;
-                    margin-bottom: 15px;
-                }
-                
-                .cta-icon svg {
-                    width: 26px;
-                    height: 26px;
-                }
-                
-                .dropdown-cta h3 {
-                    font-size: 18px;
-                    margin-bottom: 12px;
-                }
-                
-                .dropdown-cta p {
-                    font-size: 13px;
-                    margin-bottom: 20px;
-                }
-                
-                .dropdown-cta-btn {
-                    padding: 10px 22px;
-                    font-size: 11px;
+                .dropdown-links a {
+                    font-size: 14px;
+                    padding: 5px 0;
                 }
                 
                 .new-badge {
@@ -816,13 +586,6 @@ function loadNavbar() {
                     margin-right: 4px;
                     border-radius: 5px;
                     top: -0.5px;
-                }
-                
-                .new-resource-badge {
-                    font-size: 9px;
-                    padding: 4px 8px;
-                    margin-bottom: 10px;
-                    letter-spacing: 0.5px;
                 }
             }
             

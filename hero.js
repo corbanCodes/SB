@@ -46,9 +46,9 @@ class HeroComponent {
 
             .hero-container {
                 width: 100%;
-                max-width: 1400px;
-                margin: 0 auto;
-                padding: 0 40px;
+                max-width: none;
+                margin: 0;
+                padding: 0 20px;
                 position: relative;
                 z-index: 10;
                 display: flex;
@@ -62,7 +62,7 @@ class HeroComponent {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 align-items: center;
-                gap: 60px;
+                gap: 40px;
                 min-height: 0;
                 padding: 40px 0 20px 0;
             }
@@ -73,7 +73,7 @@ class HeroComponent {
                 justify-content: center;
                 align-items: flex-start;
                 text-align: left;
-                padding-right: 20px;
+                padding-right: 10px;
             }
 
             .hero-visual {
@@ -81,12 +81,12 @@ class HeroComponent {
                 align-items: center;
                 justify-content: flex-end;
                 position: relative;
-                padding-left: 20px;
+                padding-left: 10px;
             }
 
             .hero-title {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-                font-size: clamp(2.5rem, 4.5vw, 4rem);
+                font-size: clamp(3.25rem, 5.85vw, 5.2rem);
                 font-weight: 700;
                 color: #2C3E50;
                 margin-bottom: 0.5rem;
@@ -96,7 +96,7 @@ class HeroComponent {
 
             .hero-subtitle {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-                font-size: clamp(1.8rem, 3vw, 2.5rem);
+                font-size: clamp(2.34rem, 3.9vw, 3.25rem);
                 font-weight: 600;
                 color: #4A90E2;
                 margin-bottom: 1.5rem;
@@ -105,7 +105,7 @@ class HeroComponent {
 
             .hero-description {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-                font-size: clamp(1rem, 1.2vw, 1.2rem);
+                font-size: clamp(1.3rem, 1.56vw, 1.56rem);
                 line-height: 1.6;
                 color: #5A6C7D;
                 margin-bottom: 2rem;
@@ -451,7 +451,7 @@ class HeroComponent {
                     <div class="google-logo"></div>
                     <span>Google for Education Partner</span>
                 </a>
-                <a href="https://www.microsoft.com/en-us/education/partners" target="_blank" class="partner-btn">
+                <a href="microsoft-integration.html" class="partner-btn">
                     <div class="microsoft-logo"></div>
                     <span>Microsoft Partner</span>
                 </a>
