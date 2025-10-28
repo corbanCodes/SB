@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Apps - SchoolBlocks</title>
+    <title>Faculty - SchoolBlocks</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -646,6 +646,403 @@
             transform: translateY(0) !important;
             display: block !important; /* Ensure it shows on hover */
         }
+
+        /* Faculty Page Specific Styles */
+        .faculty-empowerment-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .faculty-content {
+            padding: 0 60px;
+        }
+
+        .faculty-image {
+            padding: 0 60px;
+        }
+
+        .faculty-label, .classroom-label, .staff-label, .directory-label, .section-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .faculty-title, .classroom-title, .staff-title, .directory-title, .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .faculty-description, .classroom-description, .staff-description, .directory-description, .section-description {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+        }
+
+        .faculty-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .highlight-item i {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        .highlight-item span {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .cta-button-container {
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(74, 144, 226, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(74, 144, 226, 0.4);
+            color: white;
+        }
+
+        .faculty-image img, .classroom-image img, .staff-image img, .directory-image img {
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Google Classroom Section */
+        .google-classroom-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .classroom-content {
+            padding: 0 60px;
+        }
+
+        .classroom-image {
+            padding: 0 60px;
+        }
+
+        /* Faculty Features Section */
+        .faculty-features-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .features-content {
+            padding: 0 80px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+            border-color: rgba(74, 144, 226, 0.3);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(74, 144, 226, 0.3);
+        }
+
+        .feature-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* Staff Collaboration Section */
+        .staff-collaboration-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .staff-content {
+            padding: 0 60px;
+        }
+
+        .staff-image {
+            padding: 0 60px;
+        }
+
+        .staff-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .benefit-item i {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .benefit-content h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Staff Directory Section */
+        .staff-directory-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .directory-content {
+            padding: 0 60px;
+        }
+
+        .directory-image {
+            padding: 0 60px;
+        }
+
+        .directory-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .directory-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .directory-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .directory-feature i {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        .directory-feature span {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .faculty-content,
+            .faculty-image,
+            .classroom-content,
+            .classroom-image,
+            .staff-content,
+            .staff-image,
+            .directory-content,
+            .directory-image {
+                padding: 0 40px;
+            }
+
+            .features-content {
+                padding: 0 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .faculty-empowerment-section,
+            .google-classroom-section,
+            .faculty-features-section,
+            .staff-collaboration-section,
+            .staff-directory-section {
+                padding: 60px 0;
+            }
+
+            .faculty-content,
+            .faculty-image,
+            .classroom-content,
+            .classroom-image,
+            .staff-content,
+            .staff-image,
+            .directory-content,
+            .directory-image {
+                padding: 0 30px;
+            }
+
+            .features-content {
+                padding: 0 40px;
+            }
+
+            .faculty-highlights {
+                margin-top: 2rem;
+            }
+
+            .highlight-item {
+                padding: 1.25rem;
+            }
+
+            .feature-card {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .staff-benefits {
+                margin-top: 2rem;
+            }
+
+            .benefit-item {
+                padding: 1.5rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .benefit-item i {
+                margin-top: 0;
+            }
+
+            .directory-features {
+                margin-top: 2rem;
+            }
+
+            .directory-feature {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .highlight-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.75rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .benefit-item {
+                padding: 1.25rem;
+            }
+
+            .directory-feature {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.75rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -659,100 +1056,104 @@
         <!-- Hero Section -->
         <div id="hero-section"></div>
 
-        <!-- App Showcase Section -->
-        <section class="app-showcase-section">
+        <!-- Faculty Empowerment Section -->
+        <section class="faculty-empowerment-section">
             <div class="container-fluid">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-xl-7 col-lg-7 col-md-6">
-                        <div class="showcase-content fade-in">
-                            <h3>We believe it's the right app for the occasion.</h3>
-                            <p>The SchoolBlocks App is free and offers a unique app experience for each school. Our app enjoys higher download rates!</p>
+                <div class="row align-items-center g-0">
+                    <div class="col-lg-6">
+                        <div class="faculty-content fade-in">
+                            <div class="faculty-label">EMPOWERING YOUR GREATEST ASSET</div>
+                            <h2 class="faculty-title">Highlighting Teachers and Their Great Work</h2>
+                            <p class="faculty-description">The most important asset of any district is its teachers. That's why SchoolBlocks goes further than anyone else in highlighting teachers and the great work they do. Not only are they entrusted with the welfare of the community's most precious resource - they are also the schools' most direct and visible connection to that community.</p>
                             
-                            <div class="app-features fade-in fade-in-delay-1">
-                                <div class="feature-item">
-                                    <i class="bi bi-bell-fill"></i>
-                                    <span>School-based homescreen notifications</span>
+                            <div class="faculty-highlights">
+                                <div class="highlight-item">
+                                    <i class="bi bi-person-badge"></i>
+                                    <span>Teacher profile pages that function like their own 'microsite'</span>
                                 </div>
-                                <div class="feature-item">
-                                    <i class="bi bi-hdd"></i>
-                                    <span>Requires near zero mobile hard drive space</span>
+                                <div class="highlight-item">
+                                    <i class="bi bi-globe"></i>
+                                    <span>Beautiful landing pages that look and feel like a website</span>
                                 </div>
-                                <div class="feature-item">
-                                    <i class="bi bi-wifi-off"></i>
-                                    <span>Offline browsing</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="bi bi-eye-fill"></i>
-                                    <span>Enhanced viewing experience</span>
+                                <div class="highlight-item">
+                                    <i class="bi bi-people-fill"></i>
+                                    <span>Elevate both teacher and school visibility in the community</span>
                                 </div>
                             </div>
                             
-                            <div class="schoolfeed-info fade-in fade-in-delay-2">
-                                <p>Through our news feature titled SchoolFeed, it's the perfect app to deliver school-safe news and web-content and helps rid your school of the harmful effects of social media.</p>
+                            <div class="cta-button-container">
+                                <a href="#" class="cta-button">Schedule a Demo</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4">
-                        <div class="showcase-image fade-in fade-in-delay-1">
-                            <img src="Photos/Images/appspage/phone-schoolblocks.gif" alt="SchoolBlocks Mobile App Demo" class="img-fluid">
+                    <div class="col-lg-6">
+                        <div class="faculty-image fade-in fade-in-delay-1">
+                            <img src="Photos/Images/faculty/teacher-faculty.png" alt="Teacher Faculty" class="img-fluid">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <!-- Mobile Apps Section -->
-        <section class="content-section mobile-apps-section">
-            <div class="container">
-                <div class="row align-items-center">
+        <!-- Google Classroom Integration Section -->
+        <section class="google-classroom-section">
+            <div class="container-fluid">
+                <div class="row align-items-center g-0">
                     <div class="col-lg-6">
-                        <div class="ios-apps-grid fade-in">
-                            <div class="row g-3">
-                                <div class="col-6">
-                                    <div class="app-image-container dark-bg-container">
-                                        <img src="Photos/Images/appspage/ios1.png" alt="iOS App Screenshot 1" class="img-fluid rounded shadow">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="app-image-container ios2-container">
-                                        <img src="Photos/Images/appspage/ios2.webp" alt="iOS App Screenshot 2" class="img-fluid rounded shadow">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="app-image-container dark-bg-container">
-                                        <img src="Photos/Images/appspage/ios4.webp" alt="iOS App Screenshot 4" class="img-fluid rounded shadow">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="app-image-container dark-bg-container">
-                                        <img src="Photos/Images/appspage/clean-cutout-kid.png" alt="SchoolBlocks Kid" class="img-fluid rounded shadow">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="classroom-image fade-in">
+                            <img src="Photos/Images/faculty/googleclassroom.png" alt="Google Classroom Integration" class="img-fluid">
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="mobile-apps-content fade-in fade-in-delay-1">
-                            <div class="mobile-apps-label">MOBILE APPS</div>
-                            <h2 class="mobile-apps-title">iOS & Android apps solved.</h2>
-                            <p class="mobile-apps-description">If you're looking for simple, effective and free, consider the SchoolBlocks app. If you're looking for robust two-way communication, consider one of our partners such as Parent Square, BrightArrow or Actionaly.</p>
+                        <div class="classroom-content fade-in fade-in-delay-1">
+                            <div class="classroom-label">GOOGLE CLASSROOM INTEGRATION</div>
+                            <h2 class="classroom-title">The Perfect Google Classroom Complement</h2>
+                            <p class="classroom-description">SchoolBlocks leverages the Google Classroom API to offer the ultimate LMS solution. It has the power to bring parents into the fold by combining Google Classroom data with SIS data. Combine that with the simplicity of access from the school's website and you've got something ideal for today's parent.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Faculty Features Section -->
+        <section class="faculty-features-section">
+            <div class="container-fluid">
+                <div class="features-content">
+                    <div class="section-header text-center fade-in">
+                        <div class="section-label">COMPREHENSIVE FACULTY TOOLS</div>
+                        <h2 class="section-title">Everything Teachers Need to Succeed</h2>
+                        <p class="section-description">Teachers, coaches, and club leaders can present their profiles, photos, calendars, links to valuable resources, lesson plans, and other important information in one logical place for students and parents to engage.</p>
+                    </div>
+                    
+                    <div class="features-grid fade-in fade-in-delay-1">
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                    <h3 class="feature-title">Parental Involvement</h3>
+                                    <p class="feature-description">Teachers need to communicate more than just homework assignments to parents. We all know the more involved parent, the higher the achieving student. Therefore, putting an effective parent communication platform on top of Google Classroom makes sense.</p>
+                                </div>
+                            </div>
                             
-                            <!-- Mobile-only quadrant -->
-                            <div class="mobile-quadrant d-block d-lg-none fade-in fade-in-delay-2">
-                                <div class="row g-2">
-                                    <div class="col-6">
-                                        <img src="Photos/Images/appspage/ios1.png" alt="iOS App Screenshot 1" class="img-fluid">
+                            <div class="col-lg-4">
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i class="bi bi-play-circle"></i>
                                     </div>
-                                    <div class="col-6">
-                                        <img src="Photos/Images/appspage/ios2.webp" alt="iOS App Screenshot 2" class="img-fluid">
+                                    <h3 class="feature-title">Content Delivery</h3>
+                                    <p class="feature-description">Through Google Classroom's feed, a teacher can deliver various content items to the class. However, many teachers need more than just a feed. Those teachers need ClassBlocks. In-line videos, document sharing and more are shared through both synchronous and asynchronous methodologies.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4">
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i class="bi bi-shield-check"></i>
                                     </div>
-                                    <div class="col-6">
-                                        <img src="Photos/Images/appspage/ios4.webp" alt="iOS App Screenshot 4" class="img-fluid">
-                                    </div>
-                                    <div class="col-6">
-                                        <img src="Photos/Images/appspage/clean-cutout-kid.png" alt="SchoolBlocks Kid" class="img-fluid">
-                                    </div>
+                                    <h3 class="feature-title">SSO + Security</h3>
+                                    <p class="feature-description">Through the use of SIS, G Suite or Office 365 as our host of all account information, ClassBlocks intentionally avoids storing all usernames and passwords. It enables the highest possible level of security while removing a significant amount of complexity including the management of permissions and roles.</p>
                                 </div>
                             </div>
                         </div>
@@ -761,61 +1162,86 @@
             </div>
         </section>
 
-        <!-- Mobile Partnerships Section -->
-        <section class="content-section mobile-partnerships-section">
-            <div class="container">
-                <div class="row align-items-center">
+        <!-- Staff Collaboration Section -->
+        <section class="staff-collaboration-section">
+            <div class="container-fluid">
+                <div class="row align-items-center g-0">
                     <div class="col-lg-6">
-                        <div class="partnerships-content fade-in">
-                            <div class="partnerships-label">MOBILE PARTNERSHIPS</div>
-                            <h2 class="partnerships-title">Integrate other fantastic solutions</h2>
-                            <p class="partnerships-description">Our job is to enhance your entire technology landscape, no matter the solution. That's why SchoolBlocks integrates our favorite school-based apps such as ClassTag and Actionaly.</p>
+                        <div class="staff-content fade-in">
+                            <div class="staff-label">COLLABORATIVE ENVIRONMENT</div>
+                            <h2 class="staff-title">Building Stronger Faculty Communities</h2>
+                            <p class="staff-description">Faculty microsites create a logical place for students and parents to engage, elevating both individual teacher and overall school visibility, relevance, and community engagement. Teachers can showcase their expertise while building stronger connections with families.</p>
+                            
+                            <div class="staff-benefits">
+                                <div class="benefit-item">
+                                    <i class="bi bi-calendar-event"></i>
+                                    <div class="benefit-content">
+                                        <h4>Integrated Calendars</h4>
+                                        <p>Share important dates, events, and deadlines with students and parents in one centralized location.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="benefit-item">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                    <div class="benefit-content">
+                                        <h4>Resource Sharing</h4>
+                                        <p>Provide easy access to lesson plans, study materials, and valuable educational resources.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="benefit-item">
+                                    <i class="bi bi-camera"></i>
+                                    <div class="benefit-content">
+                                        <h4>Visual Storytelling</h4>
+                                        <p>Share photos and updates that showcase classroom activities and student achievements.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="partnerships-image fade-in fade-in-delay-1">
-                            <img src="Photos/Images/appspage/apps5.webp" alt="Mobile App Integration" class="img-fluid">
+                        <div class="staff-image fade-in fade-in-delay-1">
+                            <img src="Photos/Images/faculty/teachers-faculty.png" alt="Teachers Faculty" class="img-fluid">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 mb-4">
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon"><i class="bi bi-bell-fill"></i></div>
-                        <div class="feature-title">School-based homescreen notifications</div>
-                        <div class="feature-description">Get important school updates delivered directly to your device's home screen.</div>
+        <!-- Staff Directory Section -->
+        <section class="staff-directory-section">
+            <div class="container-fluid">
+                <div class="row align-items-center g-0">
+                    <div class="col-lg-6">
+                        <div class="directory-image fade-in">
+                            <img src="Photos/Images/faculty/staff.png" alt="Staff Directory" class="img-fluid">
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-6 mb-4">
-                    <div class="feature-card fade-in fade-in-delay-1">
-                        <div class="feature-icon"><i class="bi bi-hdd"></i></div>
-                        <div class="feature-title">Requires near zero mobile hard drive space</div>
-                        <div class="feature-description">Our lightweight app design ensures minimal storage impact on your device.</div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 mb-4">
-                    <div class="feature-card fade-in fade-in-delay-2">
-                        <div class="feature-icon"><i class="bi bi-wifi-off"></i></div>
-                        <div class="feature-title">Offline browsing</div>
-                        <div class="feature-description">Access important school information even when you're not connected to the internet.</div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 mb-4">
-                    <div class="feature-card fade-in fade-in-delay-3">
-                        <div class="feature-icon"><i class="bi bi-eye-fill"></i></div>
-                        <div class="feature-title">Enhanced viewing experience</div>
-                        <div class="feature-description">Optimized interface designed specifically for mobile devices and tablets.</div>
+                    <div class="col-lg-6">
+                        <div class="directory-content fade-in fade-in-delay-1">
+                            <div class="directory-label">STAFF DIRECTORY</div>
+                            <h2 class="directory-title">Complete Faculty Profiles</h2>
+                            <p class="directory-description">Create comprehensive staff directories that help parents and students easily connect with the right faculty members. Each profile serves as a professional microsite, showcasing qualifications, contact information, and areas of expertise.</p>
+                            
+                            <div class="directory-features">
+                                <div class="directory-feature">
+                                    <i class="bi bi-person-lines-fill"></i>
+                                    <span>Professional contact information and office hours</span>
+                                </div>
+                                <div class="directory-feature">
+                                    <i class="bi bi-mortarboard"></i>
+                                    <span>Educational background and certifications</span>
+                                </div>
+                                <div class="directory-feature">
+                                    <i class="bi bi-award"></i>
+                                    <span>Achievements and areas of specialization</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- Demo CTA Section will be loaded here -->
         <div id="demo-cta-bottom"></div>
@@ -827,7 +1253,7 @@
     <!-- Load Scripts (navbar first, then Bootstrap) -->
     <script src="demo-cta.js"></script>
     <script src="navbarloader.js"></script>
-    <script src="apps-hero.js"></script>
+    <script src="faculty-hero.js"></script>
     <script src="footerloader.js"></script>
     
     <!-- Bootstrap JS (loaded after navbar to prevent interference) -->

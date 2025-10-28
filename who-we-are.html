@@ -1358,6 +1358,43 @@
     <!-- Scroll Animation & Navigation Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Debug navbar loading
+            setTimeout(() => {
+                console.log('=== WHO WE ARE PAGE NAVBAR DEBUG ===');
+                const navbarContainer = document.getElementById('navbar-container');
+                console.log('Navbar container:', navbarContainer);
+                console.log('Navbar content length:', navbarContainer?.innerHTML.length);
+                
+                const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
+                console.log('Dropdown items found:', dropdownItems.length);
+                
+                dropdownItems.forEach((item, index) => {
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    const mainLink = item.querySelector('.main-nav-link');
+                    console.log(`Dropdown ${index}:`, {
+                        dropdown: dropdown ? 'found' : 'missing',
+                        mainLink: mainLink ? 'found' : 'missing',
+                        visible: dropdown ? getComputedStyle(dropdown).visibility : 'N/A',
+                        opacity: dropdown ? getComputedStyle(dropdown).opacity : 'N/A'
+                    });
+                });
+                
+                // Test hover functionality
+                if (dropdownItems.length > 0) {
+                    console.log('Testing hover on first dropdown...');
+                    const firstDropdown = dropdownItems[0];
+                    const dropdown = firstDropdown.querySelector('.dropdown-menu');
+                    if (dropdown) {
+                        // Simulate hover
+                        firstDropdown.dispatchEvent(new MouseEvent('mouseenter'));
+                        setTimeout(() => {
+                            console.log('After hover - visibility:', getComputedStyle(dropdown).visibility);
+                            console.log('After hover - opacity:', getComputedStyle(dropdown).opacity);
+                        }, 100);
+                    }
+                }
+            }, 500);
+            
             // Hero Blur Parallax Effect
             const heroSection = document.querySelector('.hero-section');
             

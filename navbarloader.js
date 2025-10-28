@@ -77,20 +77,20 @@ function loadNavbar() {
                                 <div class="dropdown-content">
                                     <div class="dropdown-left">
                                         <ul class="dropdown-links">
-                                            <li><a href="/administration">Administration</a></li>
-                                            <li><a href="/faculty">Faculty</a></li>
-                                            <li><a href="/parents">Parents</a></li>
-                                            <li><a href="/students">Students</a></li>
+                                            <li><a href="administrators.html">Administration</a></li>
+                                            <li><a href="faculty.html">Faculty</a></li>
+                                            <li><a href="parents.html">Parents</a></li>
+                                            <li><a href="students.html">Students</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="mobile-dropdown-content">
                                 <ul class="mobile-dropdown-links">
-                                    <li><a href="/administration">Administration</a></li>
-                                    <li><a href="/faculty">Faculty</a></li>
-                                    <li><a href="/parents">Parents</a></li>
-                                    <li><a href="/students">Students</a></li>
+                                    <li><a href="administrators.html">Administration</a></li>
+                                    <li><a href="faculty.html">Faculty</a></li>
+                                    <li><a href="parents.html">Parents</a></li>
+                                    <li><a href="students.html">Students</a></li>
                                 </ul>
                             </div>
                         </li>

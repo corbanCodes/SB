@@ -334,6 +334,25 @@
                 font-size: 2rem;
             }
         }
+        
+        /* Navbar compatibility - required for navbar to work properly */
+        .main-content {
+            padding-top: 0; /* Will be set by navbar loader */
+        }
+        
+        /* Ensure navbar dropdowns work despite Bootstrap CSS */
+        .dropdown-menu {
+            position: fixed !important;
+            z-index: 1000 !important;
+            display: block !important; /* Override display: none */
+        }
+        
+        .dropdown-menu-item:hover .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: block !important; /* Ensure it shows on hover */
+        }
     </style>
 </head>
 <body>
@@ -458,14 +477,14 @@
     <!-- Footer will be loaded here -->
     <div id="footer-container"></div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Load Scripts -->
+    <!-- Load Scripts (navbar first, then Bootstrap) -->
     <script src="demo-cta.js"></script>
     <script src="navbarloader.js"></script>
     <script src="ada-hero.js"></script>
     <script src="footerloader.js"></script>
+    
+    <!-- Bootstrap JS (loaded after navbar to prevent interference) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Initialize Components -->
     <script>
