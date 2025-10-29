@@ -41,10 +41,10 @@ function loadNavbar() {
                                 <div class="dropdown-content">
                                     <div class="dropdown-left">
                                         <ul class="dropdown-links">
-                                            <li><a href="/school-websites">School and District Websites</a></li>
+                                            <li><a href="school-websites.html">School and District Websites</a></li>
                                             <li><a href="apps.html">Mobile School Apps</a></li>
                                             <li><a href="/google-integration">Google Integration Tools</a></li>
-                                            <li><a href="/microsites">Microsites</a></li>
+                                            <li><a href="school-microsites.html">Microsites</a></li>
                                             <li><a href="/docmersion"><span class="new-badge">NEW</span> Document Engagement Platform</a></li>
                                             <li><a href="/welcomechat"><span class="new-badge">NEW</span> AI-powered Answers (WelcomeChat)</a></li>
                                             <li><a href="/spirit-store"><span class="new-badge">NEW</span> Spirit Gear Store</a></li>
@@ -55,10 +55,10 @@ function loadNavbar() {
                             </div>
                             <div class="mobile-dropdown-content">
                                 <ul class="mobile-dropdown-links">
-                                    <li><a href="/school-websites">School and District Websites</a></li>
+                                    <li><a href="school-websites.html">School and District Websites</a></li>
                                     <li><a href="apps.html">Mobile School Apps</a></li>
                                     <li><a href="/google-integration">Google Integration Tools</a></li>
-                                    <li><a href="/microsites">Microsites</a></li>
+                                    <li><a href="school-microsites.html">Microsites</a></li>
                                     <li><a href="/docmersion"><span class="new-badge">NEW</span> Document Engagement Platform</a></li>
                                     <li><a href="/welcomechat"><span class="new-badge">NEW</span> AI-powered Answers (WelcomeChat)</a></li>
                                     <li><a href="/spirit-store"><span class="new-badge">NEW</span> Spirit Gear Store</a></li>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Microsites - SchoolBlocks</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 50%, #E8F4FD 100%);
+            min-height: 100vh;
+        }
+
+        /* Fade-in Animation Styles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .fade-in-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .fade-in-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .fade-in-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .fade-in-delay-5 {
+            transition-delay: 0.5s;
+        }
+
+        .fade-in-delay-6 {
+            transition-delay: 0.6s;
+        }
+
+
+        /* Modern Bootstrap Enhancements */
+        .container {
+            max-width: 1400px !important;
+            padding-left: 2rem !important;
+            padding-right: 2rem !important;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+
+        /* Custom color overrides for Bootstrap */
+        :root {
+            --bs-primary: #4A90E2;
+            --bs-primary-rgb: 74, 144, 226;
+        }
+
+        .bg-primary {
+            background-color: var(--primary-blue) !important;
+        }
+
+        .text-primary {
+            color: var(--primary-blue) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-blue);
+            border-color: var(--secondary-blue);
+        }
+
+        /* Enhanced shadows and animations */
+        .shadow-lg {
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+        }
+
+        .img-fluid {
+            transition: transform 0.3s ease;
+        }
+
+        .img-fluid:hover {
+            transform: scale(1.02);
+        }
+
+
+        /* Clean modern styles */
+        .display-5 {
+            font-weight: 700;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive enhancements */
+        @media (max-width: 768px) {
+            .display-5 {
+                font-size: 2rem !important;
+            }
+            
+            .lead {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Navbar compatibility - required for navbar to work properly */
+        .main-content {
+            padding-top: 0; /* Will be set by navbar loader */
+        }
+        
+        /* Ensure navbar dropdowns work despite Bootstrap CSS */
+        .dropdown-menu {
+            position: fixed !important;
+            z-index: 1000 !important;
+            display: block !important; /* Override display: none */
+        }
+        
+        .dropdown-menu-item:hover .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: block !important; /* Ensure it shows on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Demo CTA will be loaded here -->
+    <div id="demo-cta-container"></div>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <div id="hero-section"></div>
+
+        <!-- Microsites Features Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="pe-lg-4 fade-in">
+                            <h2 class="display-5 fw-bold text-primary mb-4">Focused Microsites for Every Purpose</h2>
+                            <p class="lead mb-4">Create dedicated spaces for specific programs, events, or departments with targeted content that serves your unique needs.</p>
+                            
+                            <div class="row g-4">
+                                <div class="col-sm-6 fade-in fade-in-delay-1">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-primary text-white rounded p-2 me-3 flex-shrink-0">
+                                            <i class="bi bi-bullseye fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-2 fw-semibold">Purpose-Built</h6>
+                                            <p class="text-muted mb-0 small">Designed specifically for athletics, academics, events, or departments</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 fade-in fade-in-delay-2">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-success text-white rounded p-2 me-3 flex-shrink-0">
+                                            <i class="bi bi-lightning-charge-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-2 fw-semibold">Quick Setup</h6>
+                                            <p class="text-muted mb-0 small">Launch focused sites in days, not weeks</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 fade-in fade-in-delay-3">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-info text-white rounded p-2 me-3 flex-shrink-0">
+                                            <i class="bi bi-people-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-2 fw-semibold">Targeted Audience</h6>
+                                            <p class="text-muted mb-0 small">Reach specific communities with relevant content</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 fade-in fade-in-delay-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-warning text-white rounded p-2 me-3 flex-shrink-0">
+                                            <i class="bi bi-link-45deg fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-2 fw-semibold">Seamless Integration</h6>
+                                            <p class="text-muted mb-0 small">Connect with your main website and systems</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center fade-in fade-in-delay-1">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="School Microsites Dashboard" class="img-fluid rounded shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Popular Microsite Types Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="text-center fade-in fade-in-delay-1">
+                            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern School Building" class="img-fluid rounded shadow-lg">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ps-lg-4 fade-in">
+                            <span class="badge bg-primary-subtle text-primary mb-3">POPULAR MICROSITES</span>
+                            <h2 class="display-5 fw-bold mb-4">Perfect for Every Department</h2>
+                            <p class="lead mb-4">From athletics to academics, create specialized sites that serve your specific audiences with targeted content and functionality.</p>
+                            
+                            <div class="row g-4">
+                                <div class="col-12 fade-in fade-in-delay-1">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-success text-white rounded p-2 me-3 flex-shrink-0">
+                                            <i class="bi bi-trophy-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-2 fw-semibold">Athletics & Sports</h6>
+                                            <p class="mb-0 text-muted">Dedicated sites for teams, schedules, stats, and sports news</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 fade-in fade-in-delay-2">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-info text-white rounded p-2 me-3 flex-shrink-0">
+                                            <i class="bi bi-calendar-event fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-2 fw-semibold">Special Events</h6>
+                                            <p class="mb-0 text-muted">Fundraisers, galas, graduations, and community events</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 fade-in fade-in-delay-3">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-warning text-white rounded p-2 me-3 flex-shrink-0">
+                                            <i class="bi bi-mortarboard-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-2 fw-semibold">Academic Programs</h6>
+                                            <p class="mb-0 text-muted">Showcase specific programs, courses, and academic achievements</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Microsite Management Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="pe-lg-4 fade-in">
+                            <h2 class="display-5 fw-bold mb-4">Simple Management, Powerful Results</h2>
+                            <p class="lead mb-4">Manage multiple microsites from one central dashboard with ease</p>
+                            
+                            <div class="bg-white rounded-3 p-4 shadow-sm mb-4 fade-in fade-in-delay-1">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px; font-weight: 600;">
+                                        1
+                                    </div>
+                                    <h5 class="mb-0 fw-bold">Centralized Dashboard</h5>
+                                </div>
+                                <p class="text-muted mb-0">Manage all your microsites from one unified control panel with real-time analytics and easy content updates.</p>
+                            </div>
+                            
+                            <div class="row g-3">
+                                <div class="col-sm-6 fade-in fade-in-delay-2">
+                                    <div class="bg-white rounded-3 p-3 shadow-sm h-100">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 24px; height: 24px; font-size: 12px; font-weight: 600;">
+                                                2
+                                            </div>
+                                            <h6 class="mb-0 fw-semibold">Brand Consistency</h6>
+                                        </div>
+                                        <p class="text-muted small mb-0">Automatic brand maintenance across all sites</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 fade-in fade-in-delay-3">
+                                    <div class="bg-white rounded-3 p-3 shadow-sm h-100">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 24px; height: 24px; font-size: 12px; font-weight: 600;">
+                                                3
+                                            </div>
+                                            <h6 class="mb-0 fw-semibold">User Permissions</h6>
+                                        </div>
+                                        <p class="text-muted small mb-0">Granular access control for staff members</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center fade-in fade-in-delay-1">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dashboard Management Interface" class="img-fluid rounded shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Microsites Section -->
+        <section class="py-5 bg-primary text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center fade-in">
+                        <h2 class="display-5 fw-bold mb-4">Why Microsites Work</h2>
+                        <p class="lead mb-5">Focused content delivers better engagement and results for your school community</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 fade-in fade-in-delay-1">
+                        <div class="text-center h-100">
+                            <div class="mb-3">
+                                <i class="bi bi-eye-fill display-4 text-white"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Better Engagement</h5>
+                            <p class="mb-0 opacity-90">Targeted content keeps visitors engaged longer</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 fade-in fade-in-delay-2">
+                        <div class="text-center h-100">
+                            <div class="mb-3">
+                                <i class="bi bi-search display-4 text-white"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Easy to Find</h5>
+                            <p class="mb-0 opacity-90">Dedicated URLs make content discoverable</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 fade-in fade-in-delay-3">
+                        <div class="text-center h-100">
+                            <div class="mb-3">
+                                <i class="bi bi-speedometer2 display-4 text-white"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Faster Loading</h5>
+                            <p class="mb-0 opacity-90">Focused sites load faster than complex main sites</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 fade-in fade-in-delay-4">
+                        <div class="text-center h-100">
+                            <div class="mb-3">
+                                <i class="bi bi-share display-4 text-white"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Easy Sharing</h5>
+                            <p class="mb-0 opacity-90">Simple URLs perfect for social media and marketing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo CTA Section will be loaded here -->
+        <div id="demo-cta-bottom"></div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Load Scripts (navbar first, then Bootstrap) -->
+    <script src="demo-cta.js"></script>
+    <script src="navbarloader.js"></script>
+    <script src="school-microsites-hero.js"></script>
+    <script src="footerloader.js"></script>
+    
+    <!-- Bootstrap JS (loaded after navbar to prevent interference) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Initialize Components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug: Check if navbar was loaded
+            console.log('School Microsites page - Navbar container:', document.getElementById('navbar-container'));
+            console.log('School Microsites page - Navbar content length:', document.getElementById('navbar-container')?.innerHTML.length);
+            
+            // Check for dropdown functionality after navbar loads
+            setTimeout(() => {
+                const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
+                console.log('School Microsites page - Dropdown items found:', dropdownItems.length);
+                
+                dropdownItems.forEach((item, index) => {
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    const mainLink = item.querySelector('.main-nav-link');
+                    console.log(`School Microsites page - Dropdown ${index}:`, {
+                        dropdown: dropdown ? 'found' : 'missing',
+                        mainLink: mainLink ? 'found' : 'missing',
+                        text: mainLink ? mainLink.textContent.trim() : 'N/A'
+                    });
+                    
+                    if (dropdown) {
+                        const styles = getComputedStyle(dropdown);
+                        console.log(`School Microsites page - Dropdown ${index} styles:`, {
+                            visibility: styles.visibility,
+                            opacity: styles.opacity,
+                            display: styles.display,
+                            position: styles.position,
+                            zIndex: styles.zIndex
+                        });
+                    }
+                });
+                
+                // Test hover functionality manually
+                if (dropdownItems.length > 0) {
+                    console.log('School Microsites page - Testing hover on first dropdown...');
+                    const firstItem = dropdownItems[0];
+                    const firstDropdown = firstItem.querySelector('.dropdown-menu');
+                    
+                    if (firstDropdown) {
+                        console.log('School Microsites page - Before hover:', {
+                            visibility: getComputedStyle(firstDropdown).visibility,
+                            opacity: getComputedStyle(firstDropdown).opacity
+                        });
+                        
+                        // Simulate hover
+                        firstItem.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+                        
+                        setTimeout(() => {
+                            console.log('School Microsites page - After hover:', {
+                                visibility: getComputedStyle(firstDropdown).visibility,
+                                opacity: getComputedStyle(firstDropdown).opacity
+                            });
+                        }, 50);
+                    }
+                }
+            }, 500);
+            
+            // Initialize hero component (uses webmaster success defaults)
+            if (typeof HeroComponent !== 'undefined') {
+                HeroComponent.create({}, 'hero-section');
+            } else {
+                console.log('HeroComponent not found');
+            }
+
+            // Initialize demo CTA component
+            if (typeof DemoCTAComponent !== 'undefined') {
+                DemoCTAComponent.create({
+                    title: "Want to know more about our product?",
+                    subtitle: "Get a demo trial today!",
+                    buttonText: "Request a Demo",
+                    buttonUrl: "#"
+                }, 'demo-cta-bottom');
+            }
+
+            // Initialize fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+
+        });
+    </script>
+</body>
+</html>
