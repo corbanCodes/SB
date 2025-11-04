@@ -795,18 +795,20 @@
         
         .logo-track {
             display: flex;
-            animation: scroll-logos 18s linear infinite;
-            width: calc(200% + 40px);
+            animation: scroll-logos 45s linear infinite;
+            width: fit-content;
         }
         
         .logo-item {
             flex: 0 0 auto;
-            margin-right: 40px;
+            width: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 120px;
             transition: transform 0.3s ease;
+            box-sizing: border-box;
+            padding: 0 20px;
         }
         
         .logo-item:hover {
@@ -839,7 +841,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(calc(-220px * 15));
             }
         }
         
@@ -881,13 +883,27 @@
             }
             
             .logo-item {
-                margin-right: 30px;
+                width: 180px;
                 height: 90px;
+                padding: 0 15px;
             }
             
             .logo-item img {
                 max-height: 68px;
                 max-width: 150px;
+            }
+            
+            .logo-track {
+                animation: scroll-logos 40s linear infinite;
+            }
+            
+            @keyframes scroll-logos {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-180px * 15));
+                }
             }
         }
         

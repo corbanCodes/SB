@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchoolFeed Social Platform - SchoolBlocks</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="schoolfeed-social-styles.css">
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 50%, #E8F4FD 100%);
+            min-height: 100vh;
+        }
+
+        /* Fade-in Animation Styles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .fade-in-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .fade-in-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .fade-in-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+
+        /* Social Overview Section */
+        .social-overview-section {
+            padding: 120px 0;
+            background: white;
+            margin: 0;
+        }
+
+        .social-content .section-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .social-content .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .social-content .section-description {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .engagement-features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .engagement-features .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .engagement-features .feature-item i {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            width: 20px;
+            flex-shrink: 0;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            z-index: 1;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-content h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+        }
+
+        .engagement-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            box-shadow: 
+                0 8px 25px rgba(74, 144, 226, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-icon i {
+            font-size: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                rgba(255, 255, 255, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 12px 35px rgba(74, 144, 226, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .feature-card:hover .feature-icon::before {
+            opacity: 1;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+
+
+
+        .section-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 50px;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(44, 62, 80, 0.1);
+        }
+
+
+        
+        /* Navbar compatibility - required for navbar to work properly */
+        .main-content {
+            padding-top: 0; /* Will be set by navbar loader */
+        }
+        
+        /* Ensure navbar dropdowns work despite Bootstrap CSS */
+        .dropdown-menu {
+            position: fixed !important;
+            z-index: 1000 !important;
+            display: block !important; /* Override display: none */
+        }
+        
+        .dropdown-menu-item:hover .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: block !important; /* Ensure it shows on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Demo CTA will be loaded here -->
+    <div id="demo-cta-container"></div>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <div id="hero-section"></div>
+
+        <!-- Social Engagement Overview Section -->
+        <section class="social-overview-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="social-content fade-in">
+                            <div class="section-label">SOCIAL ENGAGEMENT</div>
+                            <h2 class="section-title">Safe, meaningful connections for your school community</h2>
+                            <p class="section-description">SchoolFeed creates a positive social environment where students, parents, and staff can engage meaningfully without the risks of traditional social media platforms.</p>
+                            
+                            <div class="engagement-features">
+                                <div class="feature-item">
+                                    <i class="bi bi-shield-check"></i>
+                                    <span>Moderated conversations</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-people"></i>
+                                    <span>Community building tools</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-trophy"></i>
+                                    <span>Engagement rewards</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="social-visual fade-in fade-in-delay-1">
+                            <div class="glass-card">
+                                <div class="card-content">
+                                    <h4>Community Engagement</h4>
+                                    <div class="engagement-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-number">95%</span>
+                                            <span class="stat-label">Positive Interactions</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-number">3x</span>
+                                            <span class="stat-label">Higher Engagement</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Interactive Features Section -->
+        <section class="interactive-features-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <div class="section-label">INTERACTIVE FEATURES</div>
+                    <h2 class="section-title">Tools that encourage positive engagement</h2>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-glass-card fade-in">
+                            <div class="feature-icon-wrapper">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                            <h4>Conversation Prompts</h4>
+                            <p>Guided discussion topics that spark meaningful conversations and keep interactions positive and on-topic.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-glass-card fade-in fade-in-delay-1">
+                            <div class="feature-icon-wrapper">
+                                <i class="bi bi-award"></i>
+                            </div>
+                            <h4>Recognition System</h4>
+                            <p>Celebrate achievements and positive contributions with badges, points, and community recognition features.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-glass-card fade-in fade-in-delay-2">
+                            <div class="feature-icon-wrapper">
+                                <i class="bi bi-bar-chart"></i>
+                            </div>
+                            <h4>Engagement Analytics</h4>
+                            <p>Track community health with insights into participation rates, sentiment, and engagement quality.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Building Section -->
+        <section class="community-building-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="community-content fade-in">
+                            <div class="section-label">COMMUNITY BUILDING</div>
+                            <h2 class="section-title">Foster stronger school connections</h2>
+                            <p class="section-description">Create lasting relationships within your school community through structured activities, group discussions, and collaborative projects that bring people together.</p>
+                            
+                            <div class="community-benefits">
+                                <div class="benefit-item">
+                                    <i class="bi bi-heart"></i>
+                                    <div>
+                                        <h5>Stronger Relationships</h5>
+                                        <p>Build meaningful connections between students, parents, and staff</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="bi bi-graph-up"></i>
+                                    <div>
+                                        <h5>Increased Participation</h5>
+                                        <p>Higher engagement in school activities and events</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="community-visual fade-in fade-in-delay-1">
+                            <div class="floating-cards">
+                                <div class="floating-card card-1">
+                                    <i class="bi bi-people-fill"></i>
+                                    <span>Student Groups</span>
+                                </div>
+                                <div class="floating-card card-2">
+                                    <i class="bi bi-calendar-event"></i>
+                                    <span>Events</span>
+                                </div>
+                                <div class="floating-card card-3">
+                                    <i class="bi bi-megaphone"></i>
+                                    <span>Announcements</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Safety & Moderation Section -->
+    <section class="safety-moderation-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-label">SAFETY FIRST</div>
+                <h2 class="section-title">Built-in protection for your community</h2>
+                <p class="section-subtitle">Advanced moderation tools and safety features ensure every interaction is positive and appropriate</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="safety-card fade-in">
+                        <div class="safety-icon"><i class="bi bi-shield-check"></i></div>
+                        <div class="safety-title">Content Moderation</div>
+                        <div class="safety-description">AI-powered filtering with human oversight ensures all content meets community standards.</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="safety-card fade-in fade-in-delay-1">
+                        <div class="safety-icon"><i class="bi bi-eye-slash"></i></div>
+                        <div class="safety-title">Privacy Controls</div>
+                        <div class="safety-description">Granular privacy settings let users control who can see and interact with their content.</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="safety-card fade-in fade-in-delay-2">
+                        <div class="safety-icon"><i class="bi bi-flag"></i></div>
+                        <div class="safety-title">Easy Reporting</div>
+                        <div class="safety-description">Simple reporting tools allow community members to flag inappropriate content quickly.</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="safety-card fade-in fade-in-delay-3">
+                        <div class="safety-icon"><i class="bi bi-person-check"></i></div>
+                        <div class="safety-title">Verified Users</div>
+                        <div class="safety-description">School-verified accounts ensure authentic community members and reduce fake profiles.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Demo CTA Section will be loaded here -->
+        <div id="demo-cta-bottom"></div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Load Scripts (navbar first, then Bootstrap) -->
+    <script src="demo-cta.js"></script>
+    <script src="navbarloader.js"></script>
+    <script src="schoolfeed-social.js"></script>
+    <script src="footerloader.js"></script>
+    
+    <!-- Bootstrap JS (loaded after navbar to prevent interference) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Initialize Components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug: Check if navbar was loaded
+            console.log('Apps page - Navbar container:', document.getElementById('navbar-container'));
+            console.log('Apps page - Navbar content length:', document.getElementById('navbar-container')?.innerHTML.length);
+            
+            // Check for dropdown functionality after navbar loads
+            setTimeout(() => {
+                const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
+                console.log('Apps page - Dropdown items found:', dropdownItems.length);
+                
+                dropdownItems.forEach((item, index) => {
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    const mainLink = item.querySelector('.main-nav-link');
+                    console.log(`Apps page - Dropdown ${index}:`, {
+                        dropdown: dropdown ? 'found' : 'missing',
+                        mainLink: mainLink ? 'found' : 'missing',
+                        text: mainLink ? mainLink.textContent.trim() : 'N/A'
+                    });
+                    
+                    if (dropdown) {
+                        const styles = getComputedStyle(dropdown);
+                        console.log(`Apps page - Dropdown ${index} styles:`, {
+                            visibility: styles.visibility,
+                            opacity: styles.opacity,
+                            display: styles.display,
+                            position: styles.position,
+                            zIndex: styles.zIndex
+                        });
+                    }
+                });
+                
+                // Test hover functionality manually
+                if (dropdownItems.length > 0) {
+                    console.log('Apps page - Testing hover on first dropdown...');
+                    const firstItem = dropdownItems[0];
+                    const firstDropdown = firstItem.querySelector('.dropdown-menu');
+                    
+                    if (firstDropdown) {
+                        console.log('Apps page - Before hover:', {
+                            visibility: getComputedStyle(firstDropdown).visibility,
+                            opacity: getComputedStyle(firstDropdown).opacity
+                        });
+                        
+                        // Simulate hover
+                        firstItem.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+                        
+                        setTimeout(() => {
+                            console.log('Apps page - After hover:', {
+                                visibility: getComputedStyle(firstDropdown).visibility,
+                                opacity: getComputedStyle(firstDropdown).opacity
+                            });
+                        }, 50);
+                    }
+                }
+            }, 500);
+            
+            // Initialize hero component (uses webmaster success defaults)
+            if (typeof HeroComponent !== 'undefined') {
+                HeroComponent.create({}, 'hero-section');
+            } else {
+                console.log('HeroComponent not found');
+            }
+
+            // Initialize demo CTA component
+            if (typeof DemoCTAComponent !== 'undefined') {
+                DemoCTAComponent.create({
+                    title: "Want to know more about our product?",
+                    subtitle: "Get a demo trial today!",
+                    buttonText: "Request a Demo",
+                    buttonUrl: "#"
+                }, 'demo-cta-bottom');
+            }
+
+            // Initialize fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+
+        });
+    </script>
+</body>
+</html>

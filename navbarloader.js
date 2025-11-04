@@ -43,12 +43,12 @@ function loadNavbar() {
                                         <ul class="dropdown-links">
                                             <li><a href="school-websites.html">School and District Websites</a></li>
                                             <li><a href="apps.html">Mobile School Apps</a></li>
-                                            <li><a href="/google-integration">Google Integration Tools</a></li>
+                                            <li><a href="google-integration.html">Google Integration Tools</a></li>
                                             <li><a href="school-microsites.html">Microsites</a></li>
-                                            <li><a href="/docmersion"><span class="new-badge">NEW</span> Document Engagement Platform</a></li>
-                                            <li><a href="/welcomechat"><span class="new-badge">NEW</span> AI-powered Answers (WelcomeChat)</a></li>
-                                            <li><a href="/spirit-store"><span class="new-badge">NEW</span> Spirit Gear Store</a></li>
-                                            <li><a href="/schoolfeed"><span class="new-badge">NEW</span> SchoolFeed Social Platform</a></li>
+                                            <li><a href="document-engagement.html"><span class="new-badge">NEW</span> Document Engagement Platform</a></li>
+                                            <li><a href="welcome-chat.html"><span class="new-badge">NEW</span> AI-powered Answers (WelcomeChat)</a></li>
+                                            <li><a href="spirit-store.html"><span class="new-badge">NEW</span> Spirit Gear Store</a></li>
+                                            <li><a href="schoolfeed-social.html"><span class="new-badge">NEW</span> SchoolFeed Social Platform</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -57,12 +57,12 @@ function loadNavbar() {
                                 <ul class="mobile-dropdown-links">
                                     <li><a href="school-websites.html">School and District Websites</a></li>
                                     <li><a href="apps.html">Mobile School Apps</a></li>
-                                    <li><a href="/google-integration">Google Integration Tools</a></li>
+                                    <li><a href="google-integration.html">Google Integration Tools</a></li>
                                     <li><a href="school-microsites.html">Microsites</a></li>
-                                    <li><a href="/docmersion"><span class="new-badge">NEW</span> Document Engagement Platform</a></li>
-                                    <li><a href="/welcomechat"><span class="new-badge">NEW</span> AI-powered Answers (WelcomeChat)</a></li>
-                                    <li><a href="/spirit-store"><span class="new-badge">NEW</span> Spirit Gear Store</a></li>
-                                    <li><a href="/schoolfeed"><span class="new-badge">NEW</span> SchoolFeed Social Platform</a></li>
+                                    <li><a href="document-engagement.html"><span class="new-badge">NEW</span> Document Engagement Platform</a></li>
+                                    <li><a href="welcome-chat.html"><span class="new-badge">NEW</span> AI-powered Answers (WelcomeChat)</a></li>
+                                    <li><a href="spirit-store.html"><span class="new-badge">NEW</span> Spirit Gear Store</a></li>
+                                    <li><a href="schoolfeed-social.html"><span class="new-badge">NEW</span> SchoolFeed Social Platform</a></li>
                                 </ul>
                             </div>
                         </li>

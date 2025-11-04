@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spirit Store - SchoolBlocks</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 50%, #E8F4FD 100%);
+            min-height: 100vh;
+        }
+
+        /* Fade-in Animation Styles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .fade-in-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .fade-in-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .fade-in-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .benefits-section .container {
+            max-width: 1400px;
+            padding: 0 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 24px;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Product Showcase Section */
+        .product-showcase-section {
+            padding: 100px 0;
+            background: #F8F9FA;
+        }
+
+        .product-showcase-section .container {
+            max-width: 1400px;
+            padding: 0 2rem;
+        }
+
+        .showcase-content {
+            padding: 2rem 0;
+        }
+
+        .showcase-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .showcase-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .showcase-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .product-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .highlight-item i {
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+
+        .product-item {
+            aspect-ratio: 1;
+        }
+
+        .product-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .product-placeholder:hover {
+            transform: scale(1.05);
+        }
+
+        .product-placeholder i {
+            font-size: 2rem;
+        }
+
+        .product-placeholder.apparel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .product-placeholder.accessories {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .product-placeholder.drinkware {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .product-placeholder.tech {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .process-section .container {
+            max-width: 1400px;
+            padding: 0 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Why Choose Section */
+        .why-choose-section {
+            padding: 100px 0;
+            background: #F8F9FA;
+        }
+
+        .why-choose-section .container {
+            max-width: 1400px;
+            padding: 0 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 24px;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+
+        /* Responsive Design */
+
+        @media (max-width: 1024px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .showcase-title {
+                font-size: 2rem;
+            }
+
+            .showcase-content {
+                padding: 1rem 0;
+            }
+
+            .product-grid {
+                padding: 1rem 0;
+            }
+
+            .process-step {
+                padding: 1.5rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .benefits-section,
+            .product-showcase-section,
+            .process-section,
+            .why-choose-section {
+                padding: 60px 0;
+            }
+
+            .benefits-section .container,
+            .product-showcase-section .container,
+            .process-section .container,
+            .why-choose-section .container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .showcase-title {
+                font-size: 1.75rem;
+            }
+
+            .showcase-description {
+                font-size: 1rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+
+            .product-placeholder {
+                aspect-ratio: 2/1;
+            }
+
+            .benefit-card,
+            .feature-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .process-step {
+                padding: 1rem 0.5rem;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .product-highlights {
+                gap: 0.75rem;
+            }
+
+            .highlight-item {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .showcase-title {
+                font-size: 1.5rem;
+            }
+
+            .benefit-card,
+            .feature-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .benefit-icon,
+            .feature-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .step-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Navbar compatibility - required for navbar to work properly */
+        .main-content {
+            padding-top: 0; /* Will be set by navbar loader */
+        }
+        
+        /* Ensure navbar dropdowns work despite Bootstrap CSS */
+        .dropdown-menu {
+            position: fixed !important;
+            z-index: 1000 !important;
+            display: block !important; /* Override display: none */
+        }
+        
+        .dropdown-menu-item:hover .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: block !important; /* Ensure it shows on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Demo CTA will be loaded here -->
+    <div id="demo-cta-container"></div>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <div id="hero-section"></div>
+
+        <!-- Spirit Store Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center mb-5">
+                        <h2 class="section-title">Everything Your Community Needs</h2>
+                        <p class="section-subtitle">From custom apparel to branded accessories, create a complete merchandise experience that builds lasting connections.</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="bi bi-palette"></i>
+                            </div>
+                            <h4>Custom Branding</h4>
+                            <p>Every item reflects your unique identity with professional design and quality materials that showcase your community pride.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="bi bi-cart-check"></i>
+                            </div>
+                            <h4>Seamless Integration</h4>
+                            <p>Fully integrated with your existing SchoolBlocks platform for a unified experience your community already knows and trusts.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <h4>Community Building</h4>
+                            <p>Foster deeper connections and school spirit through merchandise that brings your community together in meaningful ways.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Product Showcase Section -->
+        <section class="product-showcase-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="showcase-content">
+                            <div class="showcase-label">PRODUCT CATALOG</div>
+                            <h2 class="showcase-title">Quality Merchandise That Matters</h2>
+                            <p class="showcase-description">From comfortable apparel to practical accessories, every item is carefully selected and customized to represent your community with pride and quality.</p>
+                            
+                            <div class="product-highlights">
+                                <div class="highlight-item">
+                                    <i class="bi bi-award"></i>
+                                    <span>Premium Quality Materials</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="bi bi-truck"></i>
+                                    <span>Fast, Reliable Shipping</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="bi bi-shield-check"></i>
+                                    <span>Satisfaction Guaranteed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="product-grid">
+                            <div class="product-item">
+                                <div class="product-placeholder apparel">
+                                    <i class="bi bi-person"></i>
+                                    <span>Apparel</span>
+                                </div>
+                            </div>
+                            <div class="product-item">
+                                <div class="product-placeholder accessories">
+                                    <i class="bi bi-bag"></i>
+                                    <span>Accessories</span>
+                                </div>
+                            </div>
+                            <div class="product-item">
+                                <div class="product-placeholder drinkware">
+                                    <i class="bi bi-cup"></i>
+                                    <span>Drinkware</span>
+                                </div>
+                            </div>
+                            <div class="product-item">
+                                <div class="product-placeholder tech">
+                                    <i class="bi bi-phone"></i>
+                                    <span>Tech Items</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="process-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center mb-5">
+                        <h2 class="section-title">Simple Setup, Powerful Results</h2>
+                        <p class="section-subtitle">Get your Spirit Store up and running in just a few easy steps.</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4>Design & Customize</h4>
+                            <p>Work with our team to create branded merchandise that perfectly represents your community.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4>Launch Your Store</h4>
+                            <p>We integrate your Spirit Store seamlessly into your existing SchoolBlocks platform.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4>Community Shops</h4>
+                            <p>Your community browses, orders, and receives high-quality merchandise with ease.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4>Build Connections</h4>
+                            <p>Watch as merchandise becomes a catalyst for stronger community engagement and pride.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">Why Communities Choose Our Spirit Store</h2>
+                    <p class="section-subtitle">Built for schools, designed for community engagement.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-gear"></i></div>
+                        <div class="feature-title">Zero Hassle Management</div>
+                        <div class="feature-description">We handle inventory, fulfillment, and customer service so you can focus on what matters most.</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-graph-up"></i></div>
+                        <div class="feature-title">Revenue Generation</div>
+                        <div class="feature-description">Earn proceeds from every sale to support your programs and initiatives.</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-heart"></i></div>
+                        <div class="feature-title">Community Pride</div>
+                        <div class="feature-description">Strengthen school spirit and create lasting memories with quality branded merchandise.</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-lightning"></i></div>
+                        <div class="feature-title">Quick Launch</div>
+                        <div class="feature-description">Get your store online fast with our streamlined setup and design process.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Demo CTA Section will be loaded here -->
+        <div id="demo-cta-bottom"></div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Load Scripts (navbar first, then Bootstrap) -->
+    <script src="demo-cta.js"></script>
+    <script src="navbarloader.js"></script>
+    <script src="spirit-store.js"></script>
+    <script src="footerloader.js"></script>
+    
+    <!-- Bootstrap JS (loaded after navbar to prevent interference) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Initialize Components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug: Check if navbar was loaded
+            console.log('Apps page - Navbar container:', document.getElementById('navbar-container'));
+            console.log('Apps page - Navbar content length:', document.getElementById('navbar-container')?.innerHTML.length);
+            
+            // Check for dropdown functionality after navbar loads
+            setTimeout(() => {
+                const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
+                console.log('Apps page - Dropdown items found:', dropdownItems.length);
+                
+                dropdownItems.forEach((item, index) => {
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    const mainLink = item.querySelector('.main-nav-link');
+                    console.log(`Apps page - Dropdown ${index}:`, {
+                        dropdown: dropdown ? 'found' : 'missing',
+                        mainLink: mainLink ? 'found' : 'missing',
+                        text: mainLink ? mainLink.textContent.trim() : 'N/A'
+                    });
+                    
+                    if (dropdown) {
+                        const styles = getComputedStyle(dropdown);
+                        console.log(`Apps page - Dropdown ${index} styles:`, {
+                            visibility: styles.visibility,
+                            opacity: styles.opacity,
+                            display: styles.display,
+                            position: styles.position,
+                            zIndex: styles.zIndex
+                        });
+                    }
+                });
+                
+                // Test hover functionality manually
+                if (dropdownItems.length > 0) {
+                    console.log('Apps page - Testing hover on first dropdown...');
+                    const firstItem = dropdownItems[0];
+                    const firstDropdown = firstItem.querySelector('.dropdown-menu');
+                    
+                    if (firstDropdown) {
+                        console.log('Apps page - Before hover:', {
+                            visibility: getComputedStyle(firstDropdown).visibility,
+                            opacity: getComputedStyle(firstDropdown).opacity
+                        });
+                        
+                        // Simulate hover
+                        firstItem.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+                        
+                        setTimeout(() => {
+                            console.log('Apps page - After hover:', {
+                                visibility: getComputedStyle(firstDropdown).visibility,
+                                opacity: getComputedStyle(firstDropdown).opacity
+                            });
+                        }, 50);
+                    }
+                }
+            }, 500);
+            
+            // Initialize hero component (uses webmaster success defaults)
+            if (typeof HeroComponent !== 'undefined') {
+                HeroComponent.create({}, 'hero-section');
+            } else {
+                console.log('HeroComponent not found');
+            }
+
+            // Initialize demo CTA component
+            if (typeof DemoCTAComponent !== 'undefined') {
+                DemoCTAComponent.create({
+                    title: "Want to know more about our product?",
+                    subtitle: "Get a demo trial today!",
+                    buttonText: "Request a Demo",
+                    buttonUrl: "#"
+                }, 'demo-cta-bottom');
+            }
+
+            // Initialize fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+
+        });
+    </script>
+</body>
+</html>

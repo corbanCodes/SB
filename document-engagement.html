@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Engagement Platform - SchoolBlocks</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 50%, #E8F4FD 100%);
+            min-height: 100vh;
+        }
+
+        /* Fade-in Animation Styles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .fade-in-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .fade-in-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .fade-in-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+
+        /* DocMersion Platform Overview Section */
+        .docmersion-overview-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        }
+
+        .docmersion-overview-section .container {
+            max-width: 1400px;
+            padding: 0 40px;
+        }
+
+        .feature-highlight-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .feature-highlight-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+        }
+
+        .feature-highlight-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Core Benefits Section */
+        .core-benefits-section {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .core-benefits-section .container {
+            max-width: 1400px;
+            padding: 0 40px;
+        }
+
+        .benefit-card {
+            padding: 50px 40px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Why DocMersion Section */
+        .why-docmersion-section {
+            padding: 120px 0;
+            background: white;
+            color: var(--text-primary);
+        }
+
+        .why-docmersion-section .container {
+            max-width: 1400px;
+            padding: 0 40px;
+        }
+
+        .section-heading {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        .lead-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+
+        .why-docmersion-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            border: 2px solid var(--primary-blue);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .why-docmersion-link:hover {
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+
+        .why-docmersion-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .why-docmersion-link:hover i {
+            transform: translateX(4px);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .benefit-item {
+            text-align: center;
+        }
+
+        .benefit-stat {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .benefit-desc {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .visual-placeholder {
+            background: rgba(248, 249, 250, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .placeholder-content {
+            color: var(--text-secondary);
+        }
+
+        /* Core Benefits Section - New Design */
+        .core-benefits-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        }
+
+        .benefits-content {
+            padding-right: 40px;
+        }
+
+        .benefits-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .benefits-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .benefit-item-horizontal {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .benefit-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+
+        .benefit-content h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .benefit-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .benefits-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 40px;
+        }
+
+        .benefits-showcase {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 35px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .showcase-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .showcase-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .feature-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px 15px;
+            background: rgba(248, 249, 250, 0.8);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            background: rgba(248, 249, 250, 1);
+        }
+
+        .feature-icon-small {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.25);
+        }
+
+        .feature-icon-small i {
+            font-size: 20px;
+            color: white;
+        }
+
+        .feature-box span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .showcase-footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #10ac84, #1dd1a1);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(16, 172, 132, 0.3);
+        }
+
+        .platform-badge i {
+            font-size: 16px;
+        }
+
+        /* Platform Overview Section */
+        .platform-overview-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #E8F4FD 0%, #B8E6FF 50%, #E8F4FD 100%);
+            color: var(--text-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-overview-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(184, 230, 255, 0.3) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .platform-overview-section .container {
+            max-width: 1400px;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .platform-intro {
+            margin-bottom: 80px;
+        }
+
+        .platform-badge-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(74, 144, 226, 0.2);
+            color: var(--primary-blue);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.2);
+        }
+
+        .platform-badge-large i {
+            font-size: 18px;
+        }
+
+        .platform-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            color: var(--text-primary);
+        }
+
+        .platform-description {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .platform-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--primary-blue);
+            padding: 18px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .platform-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            color: var(--primary-blue);
+        }
+
+        .platform-cta-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .platform-cta-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        .platform-features {
+            position: relative;
+        }
+
+        .platform-feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            padding: 40px 30px;
+            height: 100%;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .platform-feature-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.95);
+            border-color: rgba(74, 144, 226, 0.3);
+            box-shadow: 0 25px 60px rgba(74, 144, 226, 0.2);
+        }
+
+        .feature-visual {
+            position: relative;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .feature-icon-modern {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+
+        .platform-feature-card:hover .feature-icon-modern {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(74, 144, 226, 0.4);
+        }
+
+        .feature-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .platform-feature-card:hover .feature-glow {
+            opacity: 1;
+        }
+
+        .feature-content h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .feature-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .feature-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border: 1px solid var(--primary-blue);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            width: fit-content;
+            margin-top: auto;
+        }
+
+        .feature-link:hover {
+            background: var(--primary-blue);
+            text-decoration: none;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .feature-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .feature-link:hover i {
+            transform: translateX(2px);
+        }
+
+        /* Who We Serve Section */
+        .who-we-serve-section {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .who-we-serve-section .container {
+            max-width: 1400px;
+            padding: 0 40px;
+        }
+
+        .serve-card {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .serve-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .serve-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        .serve-card h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .serve-content {
+            padding-right: 40px;
+        }
+
+        .serve-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .serve-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .serve-stats {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .serve-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            padding-left: 40px;
+        }
+
+        .serve-item {
+            padding: 25px;
+            background: rgba(248, 249, 250, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .serve-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .serve-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .serve-badge.schools {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .serve-badge.governments {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+        }
+
+        .serve-badge.nonprofits {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+        }
+
+        .serve-badge.associations {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            color: white;
+        }
+
+        .serve-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Getting Started Section */
+        .getting-started-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        }
+
+        .getting-started-section .container {
+            max-width: 1200px;
+            padding: 0 40px;
+        }
+
+        .process-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 60px 0;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-connector {
+            position: absolute;
+            left: 35px;
+            top: 70px;
+            bottom: -10px;
+            width: 2px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            opacity: 0.3;
+        }
+
+        .timeline-item:last-child .timeline-connector {
+            display: none;
+        }
+
+        .timeline-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .timeline-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-text {
+            flex: 1;
+            padding-top: 10px;
+        }
+
+        .timeline-text h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .timeline-text p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .testimonial-section .container {
+            max-width: 1400px;
+            padding: 0 40px;
+        }
+
+        .testimonial-card {
+            padding: 60px 50px;
+            text-align: left;
+        }
+
+        .testimonial-content blockquote {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            font-style: italic;
+            border: none;
+            padding: 0;
+            margin-left: 0;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .author-info h5 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border: 1px solid var(--primary-blue);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-link:hover {
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+
+        .testimonial-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-link:hover i {
+            transform: translateX(2px);
+        }
+
+        /* Common Section Styles */
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .core-benefits-section .container,
+            .platform-overview-section .container,
+            .why-docmersion-section .container,
+            .who-we-serve-section .container,
+            .getting-started-section .container,
+            .testimonial-section .container {
+                padding: 0 30px;
+            }
+
+            .platform-title {
+                font-size: 2.8rem;
+            }
+
+            .platform-description {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .section-heading {
+                font-size: 2.5rem;
+            }
+
+            .benefits-grid {
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .core-benefits-section,
+            .platform-overview-section,
+            .why-docmersion-section,
+            .who-we-serve-section,
+            .getting-started-section,
+            .testimonial-section {
+                padding: 80px 0;
+            }
+
+            .core-benefits-section .container,
+            .platform-overview-section .container,
+            .why-docmersion-section .container,
+            .who-we-serve-section .container,
+            .getting-started-section .container,
+            .testimonial-section .container {
+                padding: 0 20px;
+            }
+
+            .platform-title {
+                font-size: 2.5rem;
+            }
+
+            .platform-description {
+                font-size: 1.1rem;
+            }
+
+            .platform-intro {
+                margin-bottom: 60px;
+            }
+
+            .platform-feature-card {
+                padding: 30px 25px;
+            }
+
+            .feature-icon-modern {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+            }
+
+            .benefits-content,
+            .serve-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .benefits-visual,
+            .serve-grid {
+                padding-left: 0;
+            }
+
+            .serve-stats {
+                justify-content: center;
+                gap: 30px;
+            }
+
+            .serve-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .timeline-content {
+                gap: 20px;
+            }
+
+            .timeline-connector {
+                left: 30px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 30px;
+            }
+
+            .section-heading {
+                font-size: 2.2rem;
+                margin-bottom: 25px;
+            }
+
+            .lead-text {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+
+            .lead {
+                font-size: 1.1rem;
+            }
+
+            .feature-highlight-card,
+            .benefit-card,
+            .serve-card,
+            .step-card {
+                padding: 30px 25px;
+            }
+
+            .testimonial-card {
+                padding: 40px 30px;
+            }
+
+            .testimonial-content blockquote {
+                font-size: 1.1rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .benefit-stat {
+                font-size: 1.6rem;
+            }
+
+            .benefits-title,
+            .serve-title {
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+            }
+
+            .benefits-description,
+            .serve-description {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+
+            .benefits-showcase {
+                max-width: 350px;
+                padding: 35px 30px;
+            }
+
+            .features-grid {
+                gap: 15px;
+            }
+
+            .feature-box {
+                padding: 15px 12px;
+            }
+
+            .feature-icon-small {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 10px;
+            }
+
+            .feature-icon-small i {
+                font-size: 18px;
+            }
+
+            .feature-box span {
+                font-size: 0.8rem;
+            }
+
+            .visual-placeholder {
+                height: 300px;
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .core-benefits-section,
+            .platform-overview-section,
+            .why-docmersion-section,
+            .who-we-serve-section,
+            .getting-started-section,
+            .testimonial-section {
+                padding: 60px 0;
+            }
+
+            .platform-title {
+                font-size: 2rem;
+            }
+
+            .platform-description {
+                font-size: 1rem;
+            }
+
+            .platform-intro {
+                margin-bottom: 50px;
+            }
+
+            .platform-feature-card {
+                padding: 25px 20px;
+                margin-bottom: 20px;
+            }
+
+            .feature-icon-modern {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+
+            .feature-content h4 {
+                font-size: 1.2rem;
+            }
+
+            .feature-content p {
+                font-size: 0.9rem;
+            }
+
+            .benefits-title,
+            .serve-title {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+
+            .benefits-description,
+            .serve-description {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+
+            .benefits-showcase {
+                max-width: 320px;
+                padding: 30px 25px;
+            }
+
+            .showcase-title {
+                font-size: 1.2rem;
+            }
+
+            .showcase-subtitle {
+                font-size: 0.85rem;
+            }
+
+            .features-grid {
+                gap: 12px;
+                margin-bottom: 25px;
+            }
+
+            .feature-box {
+                padding: 15px 10px;
+            }
+
+            .feature-icon-small {
+                width: 35px;
+                height: 35px;
+                margin-bottom: 8px;
+            }
+
+            .feature-icon-small i {
+                font-size: 16px;
+            }
+
+            .feature-box span {
+                font-size: 0.75rem;
+            }
+
+            .platform-badge {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
+
+            .benefit-number {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .benefit-item-horizontal {
+                gap: 15px;
+            }
+
+            .benefit-content h4 {
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+            }
+
+            .benefit-content p {
+                font-size: 0.9rem;
+            }
+
+            .serve-stats {
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            .timeline-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 20px;
+            }
+
+            .timeline-connector {
+                left: 30px;
+            }
+
+            .timeline-text h4 {
+                font-size: 1.3rem;
+                margin-bottom: 12px;
+            }
+
+            .timeline-text p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 25px;
+            }
+
+            .section-heading {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .lead-text {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+
+            .lead {
+                font-size: 1rem;
+            }
+
+            .feature-highlight-card,
+            .benefit-card,
+            .serve-card,
+            .step-card {
+                padding: 25px 20px;
+                margin-bottom: 20px;
+            }
+
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+
+            .testimonial-content blockquote {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .feature-highlight-icon,
+            .benefit-icon,
+            .serve-icon,
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .step-number {
+                font-size: 1.5rem;
+            }
+
+            .feature-highlight-card h4,
+            .benefit-card h3,
+            .serve-card h4,
+            .step-card h4 {
+                font-size: 1.2rem;
+                margin-bottom: 12px;
+            }
+
+            .search-bar {
+                padding: 12px 15px;
+            }
+
+            .search-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .result-item {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+
+            .result-type {
+                font-size: 0.8rem;
+            }
+
+            .result-text {
+                font-size: 0.9rem;
+            }
+
+            .visual-placeholder {
+                height: 250px;
+                padding: 30px 20px;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .core-benefits-section,
+            .platform-overview-section,
+            .why-docmersion-section,
+            .who-we-serve-section,
+            .getting-started-section,
+            .testimonial-section {
+                padding: 50px 0;
+            }
+
+            .core-benefits-section .container,
+            .platform-overview-section .container,
+            .why-docmersion-section .container,
+            .who-we-serve-section .container,
+            .getting-started-section .container,
+            .testimonial-section .container {
+                padding: 0 15px;
+            }
+
+            .platform-title {
+                font-size: 1.8rem;
+            }
+
+            .platform-description {
+                font-size: 0.95rem;
+            }
+
+            .platform-intro {
+                margin-bottom: 40px;
+            }
+
+            .platform-feature-card {
+                padding: 20px 15px;
+            }
+
+            .feature-icon-modern {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+            }
+
+            .section-heading {
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+            }
+
+            .feature-highlight-card,
+            .benefit-card,
+            .serve-card,
+            .step-card {
+                padding: 20px 15px;
+            }
+
+            .testimonial-card {
+                padding: 25px 15px;
+            }
+
+
+            .visual-placeholder {
+                height: 200px;
+                padding: 20px 15px;
+            }
+        }
+        
+        /* Navbar compatibility - required for navbar to work properly */
+        .main-content {
+            padding-top: 0; /* Will be set by navbar loader */
+        }
+        
+        /* Ensure navbar dropdowns work despite Bootstrap CSS */
+        .dropdown-menu {
+            position: fixed !important;
+            z-index: 1000 !important;
+            display: block !important; /* Override display: none */
+        }
+        
+        .dropdown-menu-item:hover .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: block !important; /* Ensure it shows on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Demo CTA will be loaded here -->
+    <div id="demo-cta-container"></div>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <div id="hero-section"></div>
+
+
+        <!-- Core Benefits Section -->
+        <section class="core-benefits-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="benefits-content fade-in">
+                            <h2 class="benefits-title">Transform Your Document Experience</h2>
+                            <p class="benefits-description">DocMersion empowers organizations to create accessible, searchable, and compliant document experiences that actually work for everyone.</p>
+                            
+                            <div class="benefits-list">
+                                <div class="benefit-item-horizontal">
+                                    <div class="benefit-number">01</div>
+                                    <div class="benefit-content">
+                                        <h4>Empower</h4>
+                                        <p>Ensure answers stay consistent across your organization with immediate answers from AI</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="benefit-item-horizontal">
+                                    <div class="benefit-number">02</div>
+                                    <div class="benefit-content">
+                                        <h4>Control</h4>
+                                        <p>Create public or private pages to ensure proper access</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="benefit-item-horizontal">
+                                    <div class="benefit-number">03</div>
+                                    <div class="benefit-content">
+                                        <h4>Align</h4>
+                                        <p>Customize your page by adding design elements and custom content that reflects your organization's identity</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="benefit-item-horizontal">
+                                    <div class="benefit-number">04</div>
+                                    <div class="benefit-content">
+                                        <h4>Compliant</h4>
+                                        <p>DocMersion is ADA, WCAG 2.2, and CIPA compliant</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="benefits-visual fade-in fade-in-delay-1">
+                            <div class="benefits-showcase">
+                                <div class="showcase-header">
+                                    <div class="showcase-title">DocMersion Platform</div>
+                                    <div class="showcase-subtitle">Comprehensive Document Management</div>
+                                </div>
+                                
+                                <div class="features-grid">
+                                    <div class="feature-box">
+                                        <div class="feature-icon-small">
+                                            <i class="bi bi-file-earmark-text"></i>
+                                        </div>
+                                        <span>Policy Documents</span>
+                                    </div>
+                                    <div class="feature-box">
+                                        <div class="feature-icon-small">
+                                            <i class="bi bi-search"></i>
+                                        </div>
+                                        <span>AI Search</span>
+                                    </div>
+                                    <div class="feature-box">
+                                        <div class="feature-icon-small">
+                                            <i class="bi bi-universal-access"></i>
+                                        </div>
+                                        <span>Accessible</span>
+                                    </div>
+                                    <div class="feature-box">
+                                        <div class="feature-icon-small">
+                                            <i class="bi bi-translate"></i>
+                                        </div>
+                                        <span>Multi-language</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="showcase-footer">
+                                    <div class="platform-badge">
+                                        <i class="bi bi-shield-check"></i>
+                                        <span>Enterprise Ready</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Overview Section -->
+        <section class="platform-overview-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="platform-intro text-center fade-in">
+                            <div class="platform-badge-large">
+                                <i class="bi bi-stars"></i>
+                                <span>Industry Leading</span>
+                            </div>
+                            <h2 class="platform-title">The Most Advanced Document Engagement Platform</h2>
+                            <p class="platform-description">DocMersion combines cutting-edge AI technology with enterprise-grade accessibility features to transform how organizations share and manage their most important documents.</p>
+                            <a href="https://www.docmersion.com" target="_blank" class="platform-cta-btn">
+                                Explore DocMersion
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="platform-features">
+                            <div class="row g-4">
+                                <div class="col-lg-4">
+                                    <div class="platform-feature-card fade-in fade-in-delay-1">
+                                        <div class="feature-visual">
+                                            <div class="feature-icon-modern">
+                                                <i class="bi bi-robot"></i>
+                                            </div>
+                                            <div class="feature-glow"></div>
+                                        </div>
+                                        <div class="feature-content">
+                                            <h4>AI-Powered Search & Discovery</h4>
+                                            <p>Advanced natural language processing helps users find exactly what they need, when they need it. Our AI understands context and intent, not just keywords.</p>
+                                            <a href="https://www.docmersion.com" target="_blank" class="feature-link">
+                                                Learn more <i class="bi bi-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-4">
+                                    <div class="platform-feature-card fade-in fade-in-delay-2">
+                                        <div class="feature-visual">
+                                            <div class="feature-icon-modern">
+                                                <i class="bi bi-universal-access-circle"></i>
+                                            </div>
+                                            <div class="feature-glow"></div>
+                                        </div>
+                                        <div class="feature-content">
+                                            <h4>Universal Accessibility Compliance</h4>
+                                            <p>Built-in WCAG 2.2 AA compliance ensures your documents are accessible to everyone. Screen readers, keyboard navigation, and color contrast are automatically optimized.</p>
+                                            <a href="https://www.docmersion.com" target="_blank" class="feature-link">
+                                                Learn more <i class="bi bi-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-4">
+                                    <div class="platform-feature-card fade-in fade-in-delay-3">
+                                        <div class="feature-visual">
+                                            <div class="feature-icon-modern">
+                                                <i class="bi bi-translate"></i>
+                                            </div>
+                                            <div class="feature-glow"></div>
+                                        </div>
+                                        <div class="feature-content">
+                                            <h4>Real-time Translation & Localization</h4>
+                                            <p>Instantly translate documents into 100+ languages while maintaining formatting and context. Perfect for diverse communities and global organizations.</p>
+                                            <a href="https://www.docmersion.com" target="_blank" class="feature-link">
+                                                Learn more <i class="bi bi-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why DocMersion Section -->
+        <section class="why-docmersion-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="why-content fade-in">
+                            <h2 class="section-heading">Why DocMersion?</h2>
+                            <p class="lead-text">DocMersion transforms complex policies into clear, usable resources—so your organization runs smarter, your people stay engaged, and your community thrives.</p>
+                            <a href="https://www.docmersion.com" target="_blank" class="why-docmersion-link">
+                                Discover DocMersion <i class="bi bi-arrow-right"></i>
+                            </a>
+                            
+                            <div class="benefits-grid">
+                                <div class="benefit-item">
+                                    <div class="benefit-stat">More visibility</div>
+                                    <div class="benefit-desc">into policies</div>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-stat">Clearer</div>
+                                    <div class="benefit-desc">understanding</div>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-stat">Smoother</div>
+                                    <div class="benefit-desc">operations</div>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-stat">Stronger</div>
+                                    <div class="benefit-desc">organizations</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="why-visual fade-in fade-in-delay-1">
+                            <div class="visual-placeholder">
+                                <div class="placeholder-content">
+                                    <i class="bi bi-file-earmark-text display-1 text-primary"></i>
+                                    <p class="mt-3">Document Transformation Visual</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Who We Serve Section -->
+        <section class="who-we-serve-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="serve-content fade-in">
+                            <h2 class="serve-title">Trusted by Organizations That Value Transparency</h2>
+                            <p class="serve-description">From educational institutions to government agencies, DocMersion helps organizations make their most important documents accessible, searchable, and compliant.</p>
+                            
+                            <div class="serve-stats">
+                                <div class="stat-item">
+                                    <div class="stat-number">500+</div>
+                                    <div class="stat-label">Organizations</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">10M+</div>
+                                    <div class="stat-label">Documents Processed</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">99.9%</div>
+                                    <div class="stat-label">Uptime</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="serve-grid fade-in fade-in-delay-1">
+                            <div class="serve-item">
+                                <div class="serve-badge schools">Schools</div>
+                                <p>Policies, procedures, and board records made easy for students, parents, and staff</p>
+                            </div>
+                            <div class="serve-item">
+                                <div class="serve-badge governments">Governments</div>
+                                <p>Modernize public access to legislation, meetings, and compliance reports</p>
+                            </div>
+                            <div class="serve-item">
+                                <div class="serve-badge nonprofits">Nonprofits</div>
+                                <p>Enhance transparency, reduce admin overhead, unify communications</p>
+                            </div>
+                            <div class="serve-item">
+                                <div class="serve-badge associations">Associations</div>
+                                <p>Publish agendas, share research, clarify decisions for your members</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Getting Started Section -->
+        <section class="getting-started-section">
+            <div class="container">
+                <div class="getting-started-header text-center mb-5 fade-in">
+                    <h2 class="section-title">Ready to Transform Your Documents?</h2>
+                    <p class="lead">Get started with DocMersion in three simple steps</p>
+                </div>
+                
+                <div class="process-timeline fade-in fade-in-delay-1">
+                    <div class="timeline-item">
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                            <div class="timeline-text">
+                                <h4>Discovery Call</h4>
+                                <p>We'll review your document portfolio and understand your organization's specific needs and goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <i class="bi bi-gear"></i>
+                            </div>
+                            <div class="timeline-text">
+                                <h4>Custom Setup</h4>
+                                <p>Our implementation team delivers white-glove service to get you up and running quickly and confidently.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <i class="bi bi-rocket-takeoff"></i>
+                            </div>
+                            <div class="timeline-text">
+                                <h4>Launch & Support</h4>
+                                <p>We'll be your partner every step of the way with ongoing support that continues beyond day one.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Success Stories -->
+        <section class="testimonial-section">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <h2 class="section-title">Customer Success Stories</h2>
+                    <p class="lead">See how organizations are transforming their document experience with DocMersion.</p>
+                </div>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="testimonial-card glass-card fade-in fade-in-delay-1">
+                            <div class="testimonial-content">
+                                <blockquote>
+                                    "The new DocMersion feature in SchoolBlocks has greatly improved both workflow efficiency and our web visitor experience. The main benefit has been in publishing School District policies. What used to take a lot of effort is now much easier and provides highly accurate search results — not just for the main policy being searched but also for all related policies. Best of all, policies can now be quickly translated into many different languages, and the translation happens instantly. As a result, parents of English language learners are more fully informed, which helps the district build stronger school-home connections."
+                                </blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h5>Helfried Zrzavy</h5>
+                                        <p>Technology Integration Specialist, ConVal Regional High School</p>
+                                        <a href="https://www.docmersion.com" target="_blank" class="testimonial-link">
+                                            Try DocMersion Today <i class="bi bi-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo CTA Section will be loaded here -->
+        <div id="demo-cta-bottom"></div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Load Scripts (navbar first, then Bootstrap) -->
+    <script src="demo-cta.js"></script>
+    <script src="navbarloader.js"></script>
+    <script src="document-engagement.js"></script>
+    <script src="footerloader.js"></script>
+    
+    <!-- Bootstrap JS (loaded after navbar to prevent interference) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Initialize Components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug: Check if navbar was loaded
+            console.log('Apps page - Navbar container:', document.getElementById('navbar-container'));
+            console.log('Apps page - Navbar content length:', document.getElementById('navbar-container')?.innerHTML.length);
+            
+            // Check for dropdown functionality after navbar loads
+            setTimeout(() => {
+                const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
+                console.log('Apps page - Dropdown items found:', dropdownItems.length);
+                
+                dropdownItems.forEach((item, index) => {
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    const mainLink = item.querySelector('.main-nav-link');
+                    console.log(`Apps page - Dropdown ${index}:`, {
+                        dropdown: dropdown ? 'found' : 'missing',
+                        mainLink: mainLink ? 'found' : 'missing',
+                        text: mainLink ? mainLink.textContent.trim() : 'N/A'
+                    });
+                    
+                    if (dropdown) {
+                        const styles = getComputedStyle(dropdown);
+                        console.log(`Apps page - Dropdown ${index} styles:`, {
+                            visibility: styles.visibility,
+                            opacity: styles.opacity,
+                            display: styles.display,
+                            position: styles.position,
+                            zIndex: styles.zIndex
+                        });
+                    }
+                });
+                
+                // Test hover functionality manually
+                if (dropdownItems.length > 0) {
+                    console.log('Apps page - Testing hover on first dropdown...');
+                    const firstItem = dropdownItems[0];
+                    const firstDropdown = firstItem.querySelector('.dropdown-menu');
+                    
+                    if (firstDropdown) {
+                        console.log('Apps page - Before hover:', {
+                            visibility: getComputedStyle(firstDropdown).visibility,
+                            opacity: getComputedStyle(firstDropdown).opacity
+                        });
+                        
+                        // Simulate hover
+                        firstItem.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+                        
+                        setTimeout(() => {
+                            console.log('Apps page - After hover:', {
+                                visibility: getComputedStyle(firstDropdown).visibility,
+                                opacity: getComputedStyle(firstDropdown).opacity
+                            });
+                        }, 50);
+                    }
+                }
+            }, 500);
+            
+            // Initialize hero component with document engagement content
+            if (typeof HeroComponent !== 'undefined') {
+                HeroComponent.create({
+                    title: "Ultra Accessible",
+                    subtitle: "Policies. Procedures. Documents.",
+                    description: "Turn your documents into digital experiences people enjoy using."
+                }, 'hero-section');
+            } else {
+                console.log('HeroComponent not found');
+            }
+
+            // Initialize demo CTA component
+            if (typeof DemoCTAComponent !== 'undefined') {
+                DemoCTAComponent.create({
+                    title: "Want to know more about our product?",
+                    subtitle: "Get a demo trial today!",
+                    buttonText: "Request a Demo",
+                    buttonUrl: "#"
+                }, 'demo-cta-bottom');
+            }
+
+            // Initialize fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+
+        });
+    </script>
+</body>
+</html>
