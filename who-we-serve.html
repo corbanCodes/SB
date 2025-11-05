@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who We Serve - SchoolBlocks</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Testimonials Styles -->
+    <link rel="stylesheet" href="testimonials.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: white;
+            min-height: 100vh;
+        }
+
+        /* Fade-in Animation Styles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .fade-in-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .fade-in-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .fade-in-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+
+        /* Features Section */
+        .features-section {
+            padding: 120px 0;
+            background: white;
+            margin: 0;
+        }
+
+        .features-section .container {
+            max-width: 1400px;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            box-shadow: 
+                0 8px 25px rgba(74, 144, 226, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-icon i {
+            font-size: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                rgba(255, 255, 255, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 12px 35px rgba(74, 144, 226, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .feature-card:hover .feature-icon::before {
+            opacity: 1;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+
+        /* Content Sections */
+        .content-section {
+            padding: 100px 0;
+            background: white;
+            margin: 0;
+        }
+
+        /* Mobile Apps Section */
+        .mobile-apps-section {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .mobile-apps-section .container {
+            max-width: 1600px;
+            padding: 0 40px;
+        }
+
+        .mobile-apps-content {
+            padding-left: 60px;
+        }
+
+        .mobile-apps-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .mobile-apps-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .mobile-apps-description {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .ios-apps-grid {
+            padding: 0;
+        }
+
+        .app-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .app-image-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .app-image-container img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .app-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Special styling for ios2.webp with dark background */
+        .ios2-container {
+            background: linear-gradient(135deg, #2C3E50, #34495E);
+            padding: 10px;
+        }
+
+        .ios2-container img {
+            border-radius: 8px;
+        }
+
+        /* Dark background for left two images matching Actionaly color */
+        .dark-bg-container {
+            background: #3F4F5F;
+            padding: 10px;
+        }
+
+        .dark-bg-container img {
+            border-radius: 8px;
+        }
+
+        /* Special positioning for the kid image to appear standing on bottom */
+        .dark-bg-container img[src*="clean-cutout-kid"] {
+            position: relative;
+            top: 10px;
+            transform: scale(1.2);
+        }
+
+        /* Tone down bright elements in BrightArrow image */
+        .dark-bg-container img[src*="ios1"] {
+            filter: brightness(0.85) saturate(0.8);
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 50px;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(44, 62, 80, 0.1);
+        }
+
+        .section-content {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(248, 249, 250, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            padding: 60px 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* App Showcase Section */
+        .app-showcase-section {
+            padding: 80px 0 30px 0;
+            background: #2C5282;
+            border-radius: 0;
+            margin: 0;
+        }
+
+        .app-showcase-section .container-fluid {
+            max-width: none;
+            padding: 0 5%;
+        }
+
+        @media (min-width: 1400px) {
+            .app-showcase-section .container-fluid {
+                padding: 0 8%;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .app-showcase-section .container-fluid {
+                padding: 0 12%;
+            }
+        }
+
+        .showcase-content {
+            padding: 0;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            position: relative;
+            overflow: visible;
+            margin: 0;
+        }
+
+        .showcase-content h3 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .showcase-content > p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .app-features {
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .feature-item i {
+            color: #87CEEB;
+            font-size: 1.2rem;
+            width: 20px;
+            flex-shrink: 0;
+        }
+
+        .schoolfeed-info {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-blue);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .schoolfeed-info p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .showcase-image {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .showcase-image img {
+            max-width: 350px;
+            height: auto;
+            border-radius: 0;
+            box-shadow: none;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+            padding: 0;
+            margin: 0;
+        }
+
+        .showcase-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Mobile Partnerships Section */
+        .mobile-partnerships-section {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .mobile-partnerships-section .container {
+            max-width: 1600px;
+            padding: 0 40px;
+        }
+
+        .partnerships-content {
+            padding-right: 60px;
+        }
+
+        .partnerships-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .partnerships-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .partnerships-description {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .partnerships-image {
+            text-align: center;
+        }
+
+        .partnerships-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .mobile-apps-section {
+                padding: 60px 0;
+            }
+
+            .mobile-apps-content {
+                padding-left: 0;
+                text-align: center;
+                margin-bottom: 40px;
+                order: 1;
+            }
+
+            .mobile-apps-title {
+                font-size: 2.2rem;
+            }
+
+            .mobile-apps-description {
+                font-size: 1.1rem;
+            }
+            
+            .app-showcase-section {
+                padding: 40px 20px 20px 20px;
+            }
+
+            .showcase-content {
+                padding: 0;
+                margin: 0 0 40px 0;
+                text-align: center;
+            }
+
+            .showcase-content h3 {
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .showcase-content > p {
+                text-align: center;
+                font-size: 1.1rem;
+                margin-bottom: 25px;
+            }
+
+            .feature-item {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .schoolfeed-info {
+                padding: 20px;
+                margin: 20px 0;
+            }
+
+            .showcase-image img {
+                max-width: 250px;
+            }
+
+            .content-section {
+                padding: 80px 0;
+            }
+
+            .section-content {
+                padding: 50px 30px;
+                margin: 0 15px;
+                font-size: 1.2rem;
+                max-width: 95%;
+            }
+
+            .section-title {
+                font-size: 2.4rem;
+                margin-bottom: 40px;
+            }
+
+            .features-section {
+                padding: 80px 0;
+            }
+
+            .feature-card {
+                margin-bottom: 30px;
+                padding: 50px 30px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .mobile-partnerships-section {
+                padding: 60px 0;
+            }
+
+            .mobile-partnerships-section .row {
+                flex-direction: column;
+            }
+
+            .partnerships-content {
+                padding-right: 0;
+                text-align: center;
+                margin-bottom: 40px;
+                order: 1;
+            }
+
+            .partnerships-image {
+                order: 2;
+                text-align: center;
+            }
+
+            .partnerships-title {
+                font-size: 2.2rem;
+            }
+
+            .partnerships-description {
+                font-size: 1.1rem;
+            }
+
+            .ios-apps-grid {
+                display: none;
+            }
+
+            .mobile-quadrant {
+                display: block;
+                margin-top: 40px;
+            }
+
+            .mobile-quadrant .row {
+                margin: 0;
+            }
+
+            .mobile-quadrant .col-6 {
+                padding: 5px;
+            }
+
+            .mobile-quadrant img {
+                width: 100%;
+                height: 120px;
+                object-fit: contain;
+                border-radius: 8px;
+                background: #3F4F5F;
+                padding: 10px;
+            }
+        }
+        
+        /* Navbar compatibility - required for navbar to work properly */
+        .main-content {
+            padding-top: 0; /* Will be set by navbar loader */
+        }
+        
+        /* Ensure navbar dropdowns work despite Bootstrap CSS */
+        .dropdown-menu {
+            position: fixed !important;
+            z-index: 1000 !important;
+            display: block !important; /* Override display: none */
+        }
+        
+        .dropdown-menu-item:hover .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: block !important; /* Ensure it shows on hover */
+        }
+
+        /* School Types Section Styles */
+        .school-types-section {
+            padding: 120px 0;
+            background: white;
+            margin: 0;
+        }
+
+        .school-types-section .container {
+            max-width: 1400px;
+            padding: 0 40px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 80px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .school-types-grid {
+            position: relative;
+        }
+
+        .school-type-card {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            padding: 50px 30px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .school-type-card.highlighted {
+            background: #F8F9FA;
+            border-color: rgba(74, 144, 226, 0.15);
+        }
+
+        .school-type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(74, 144, 226, 0.02) 0%, 
+                rgba(78, 205, 196, 0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .school-type-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.12),
+                0 8px 25px rgba(74, 144, 226, 0.15);
+            border-color: rgba(74, 144, 226, 0.2);
+        }
+
+        .school-type-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-title {
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .card-description {
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 35px;
+        }
+
+        .school-btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .school-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-blue);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .school-btn:hover {
+            color: white !important;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+
+        .school-btn:hover::before {
+            left: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .school-types-section .container {
+                padding: 0 30px;
+            }
+
+            .school-type-card {
+                padding: 40px 25px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .school-types-section {
+                padding: 80px 0;
+            }
+
+            .school-types-section .container {
+                padding: 0 20px;
+            }
+
+            .section-subtitle {
+                margin-bottom: 60px;
+            }
+
+            .school-type-card {
+                padding: 35px 20px;
+                margin-bottom: 20px;
+            }
+
+            .school-btn {
+                padding: 12px 24px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .school-types-section {
+                padding: 60px 0;
+            }
+
+            .section-subtitle {
+                margin-bottom: 50px;
+            }
+
+            .school-type-card {
+                padding: 30px 20px;
+                border-radius: 16px;
+            }
+
+            .school-btn {
+                padding: 12px 20px;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .school-types-section .container {
+                padding: 0 15px;
+            }
+
+            .school-type-card {
+                padding: 25px 15px;
+            }
+        }
+
+        /* Trusted Schools Section Styles */
+        .trusted-schools {
+            padding: 80px 0;
+            background: #f8f9fa;
+            margin: 0;
+        }
+
+        .trusted-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            text-align: center;
+        }
+
+        .modern-heading {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: #1a1a1a;
+            text-align: center;
+            line-height: 1.3;
+            margin: 0 auto 60px auto;
+            max-width: 1400px;
+            padding: 0 60px;
+        }
+
+        .highlight-word {
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        .logo-carousel {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            background: transparent;
+        }
+
+        .logo-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: calc(200px * 30); /* 15 logos * 2 sets */
+        }
+
+        .logo-item {
+            flex: 0 0 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .logo-item img {
+            max-width: 120px;
+            max-height: 60px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(0.7);
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.1);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-200px * 15));
+            }
+        }
+
+        /* Testimonials Section Fix - Match Homepage */
+        .testimonials {
+            position: relative;
+            z-index: 10;
+            transform: translateZ(0);
+            filter: none !important;
+            backdrop-filter: none !important;
+        }
+        
+        .testimonials-header {
+            filter: none !important;
+            backdrop-filter: none !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+        
+        .testimonials-title {
+            filter: none !important;
+            backdrop-filter: none !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+
+        .testimonials-title .highlight-word {
+            color: #1a1a1a !important;
+        }
+
+        /* Responsive Design for Trusted Schools */
+        @media (max-width: 1200px) {
+            .trusted-container {
+                padding: 0 40px;
+            }
+
+            .modern-heading {
+                padding: 0 40px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .trusted-schools {
+                padding: 60px 0;
+            }
+
+            .trusted-container {
+                padding: 0 30px;
+            }
+
+            .modern-heading {
+                padding: 0 30px;
+                margin-bottom: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .trusted-container {
+                padding: 0 20px;
+            }
+
+            .modern-heading {
+                padding: 0 20px;
+                margin-bottom: 40px;
+            }
+
+            .logo-item {
+                flex: 0 0 150px;
+                padding: 15px;
+            }
+
+            .logo-item img {
+                max-width: 100px;
+                max-height: 50px;
+            }
+
+            .logo-track {
+                width: calc(150px * 30);
+            }
+
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-150px * 15));
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trusted-container {
+                padding: 0 15px;
+            }
+
+            .modern-heading {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Demo CTA will be loaded here -->
+    <div id="demo-cta-container"></div>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <div id="hero-section"></div>
+
+        <!-- Trusted Schools Section -->
+        <section class="trusted-schools">
+            <div class="trusted-container">
+                <h2 class="modern-heading">Trusted by Schools for <span class="highlight-word">Over Ten Years</span></h2>
+            </div>
+            <div class="logo-carousel">
+                    <div class="logo-track">
+                        <div class="logo-item">
+                            <a href="https://www.aspenk12.net/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/aspen.png" alt="Aspen School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://covingtoncountyschools.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/covington.png" alt="Covington School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://kgbsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/ketchikan.png" alt="Ketchikan School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.wgsd.us/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/westgrand.png" alt="West Grand School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.carthagecsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/carthage.png" alt="Carthage School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.donegalsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/donegal.png" alt="Donegal School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.kcusd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/kingcity.jpg" alt="King City School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.nsbsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/northslope.png" alt="North Slope School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.wrms.wrsdsau59.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/winnisquam.png" alt="Winnisquam School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.conval.edu/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/contcook.png" alt="ConVal School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://jonesk12.org/en-US/schools" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/jonescounty.png" alt="Jones County School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.ofsd.cc/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/oldforge.png" alt="Old Forge School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.cvhs.conval.edu/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/conval.png" alt="ConVal School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://mayerschools.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/mayer.png" alt="Mayer School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://pomounties.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/Philipsburg.png" alt="Philipsburg School District">
+                            </a>
+                        </div>
+                        
+                        <!-- Duplicate set for seamless loop -->
+                        <div class="logo-item">
+                            <a href="https://www.aspenk12.net/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/aspen.png" alt="Aspen School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://covingtoncountyschools.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/covington.png" alt="Covington School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://kgbsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/ketchikan.png" alt="Ketchikan School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.wgsd.us/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/westgrand.png" alt="West Grand School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.carthagecsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/carthage.png" alt="Carthage School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.donegalsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/donegal.png" alt="Donegal School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.kcusd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/kingcity.jpg" alt="King City School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.nsbsd.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/northslope.png" alt="North Slope School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.wrms.wrsdsau59.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/winnisquam.png" alt="Winnisquam School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.conval.edu/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/contcook.png" alt="ConVal School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://jonesk12.org/en-US/schools" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/jonescounty.png" alt="Jones County School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.ofsd.cc/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/oldforge.png" alt="Old Forge School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://www.cvhs.conval.edu/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/conval.png" alt="ConVal School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://mayerschools.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/mayer.png" alt="Mayer School District">
+                            </a>
+                        </div>
+                        <div class="logo-item">
+                            <a href="https://pomounties.org/en-US" target="_blank" rel="noopener noreferrer">
+                                <img src="Photos/Client Logos/Philipsburg.png" alt="Philipsburg School District">
+                            </a>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <!-- School Types Section -->
+        <section class="school-types-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h1 class="section-title">Craft your school's story. Inspire great experiences.</h1>
+                    <p class="section-subtitle">The tools you rely on should not only meet your community's needs – but make your job easier. We built SchoolBlocks solutions to transform engagement across every touchpoint.</p>
+                </div>
+                
+                <div class="school-types-grid">
+                    <!-- Top Row -->
+                    <div class="row mb-4">
+                        <div class="col-lg-4 mb-4">
+                            <div class="school-type-card fade-in">
+                                <div class="card-content">
+                                    <h3 class="card-title">School Districts</h3>
+                                    <p class="card-description">Partners with 5,000 school districts and counting.</p>
+                                    <a href="#" class="school-btn">BOOK A DEMO</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="school-type-card highlighted fade-in fade-in-delay-1">
+                                <div class="card-content">
+                                    <h3 class="card-title">Independent Schools</h3>
+                                    <p class="card-description">Celebrating 25+ years of working with independent schools.</p>
+                                    <a href="#" class="school-btn">BOOK A DEMO</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="school-type-card fade-in fade-in-delay-2">
+                                <div class="card-content">
+                                    <h3 class="card-title">International Schools</h3>
+                                    <p class="card-description">Trusted by 360+ international schools in 119 countries across the world.</p>
+                                    <a href="#" class="school-btn">BOOK A DEMO</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom Row -->
+                    <div class="row">
+                        <div class="col-lg-4 mb-4">
+                            <div class="school-type-card highlighted fade-in fade-in-delay-3">
+                                <div class="card-content">
+                                    <h3 class="card-title">Charter Schools</h3>
+                                    <p class="card-description">Backed by charters of every size — big and small.</p>
+                                    <a href="#" class="school-btn">BOOK A DEMO</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="school-type-card fade-in fade-in-delay-4">
+                                <div class="card-content">
+                                    <h3 class="card-title">Catholic Schools</h3>
+                                    <p class="card-description">Chosen by Catholic schools and dioceses throughout the country.</p>
+                                    <a href="#" class="school-btn">BOOK A DEMO</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="school-type-card highlighted fade-in fade-in-delay-5">
+                                <div class="card-content">
+                                    <h3 class="card-title">Meet Our Schools</h3>
+                                    <p class="card-description">Read the stories from schools that have used SchoolBlocks to reach their goals!</p>
+                                    <a href="#" class="school-btn">BOOK A DEMO</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="testimonials-container">
+                <div class="testimonials-header">
+                    <h2 class="testimonials-title modern-heading">See What <span class="highlight-word">Our Schools</span> Have to Say About Us</h2>
+                </div>
+            </div>
+            <div class="testimonials-marquee">
+                    <div class="testimonials-track">
+                        <!-- Testimonial 1 - Ramona -->
+                        <div class="testimonial-card" data-school="ramona" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/6360fcf808fd7c88d96fd2e8a6fb8fce/manifest/video.m3u8', 'https://www.ramonausd.net/en-US')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/romona.png" alt="Ramona Unified School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Ramona Unified School District</div>
+                                    <div class="testimonial-name">Keith Wright, Director of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"SchoolBlocks is awesome. I personally love it."</p>
+                            <div class="testimonial-play-icon">▶</div>
+                        </div>
+                        
+                        <!-- Testimonial 2 - Candler County -->
+                        <div class="testimonial-card" data-school="candler" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/2e4404d3f49ddb13568507d338385750/manifest/video.m3u8', 'https://www.metter.org/')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/candlercounty.png" alt="Candler County Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Candler County Schools</div>
+                                    <div class="testimonial-name">Tony Lescak, Technology Specialist</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"I really like the block format because it moves you away from the desktop format. The blocks move around and it doesn't matter what you are on, it looks great."</p>
+                            <div class="testimonial-play-icon">▶</div>
+                        </div>
+                        
+                        <!-- Testimonial 3 - Moffat -->
+                        <div class="testimonial-card" data-school="moffat" onclick="window.open('https://www.moffatsd.org/', '_blank')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/moffat.png" alt="Moffat School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Moffat School District</div>
+                                    <div class="testimonial-name">Vicki Hadden, Asst. to the Superintendent</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"We were looking for a new host whenever we discovered SchoolBlocks and we were very happy with it. SchoolBlocks has terrific support."</p>
+                        </div>
+                        
+                        <!-- Testimonial 4 - Troy -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/troy.png" alt="Troy Community Consolidated School District 30-C" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Troy Community Consolidated School District 30-C</div>
+                                    <div class="testimonial-name">Ron Sarver, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"SchoolBlocks has terrific support."</p>
+                        </div>
+                        
+                        <!-- Testimonial 5 - Lewiston -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/lewiston.png" alt="Lewiston Public Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Lewiston Public Schools</div>
+                                    <div class="testimonial-name">Dave Theriault, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"The Google integration and the file sharing is one of the greatest assets of SchoolBlocks."</p>
+                        </div>
+                        
+                        <!-- Testimonial 6 - Hearne ISD -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/hearneisd.png" alt="Hearne ISD" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Hearne ISD</div>
+                                    <div class="testimonial-name">Jeremy Gaston, Directory of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"The transition over to SchoolBlocks has been so great and so smooth."</p>
+                        </div>
+
+                        <!-- Duplicate set for seamless loop -->
+                        <!-- Testimonial 1 - Ramona (Duplicate) -->
+                        <div class="testimonial-card" data-school="ramona" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/6360fcf808fd7c88d96fd2e8a6fb8fce/manifest/video.m3u8', 'https://www.ramonausd.net/en-US')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/romona.png" alt="Ramona Unified School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Ramona Unified School District</div>
+                                    <div class="testimonial-name">Keith Wright, Director of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"SchoolBlocks is awesome. I personally love it."</p>
+                            <div class="testimonial-play-icon">▶</div>
+                        </div>
+                        
+                        <!-- Testimonial 2 - Candler County (Duplicate) -->
+                        <div class="testimonial-card" data-school="candler" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/2e4404d3f49ddb13568507d338385750/manifest/video.m3u8', 'https://www.metter.org/')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/candlercounty.png" alt="Candler County Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Candler County Schools</div>
+                                    <div class="testimonial-name">Tony Lescak, Technology Specialist</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"I really like the block format because it moves you away from the desktop format. The blocks move around and it doesn't matter what you are on, it looks great."</p>
+                            <div class="testimonial-play-icon">▶</div>
+                        </div>
+                        
+                        <!-- Testimonial 3 - Moffat (Duplicate) -->
+                        <div class="testimonial-card" data-school="moffat" onclick="window.open('https://www.moffatsd.org/', '_blank')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/moffat.png" alt="Moffat School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Moffat School District</div>
+                                    <div class="testimonial-name">Vicki Hadden, Asst. to the Superintendent</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"We were looking for a new host whenever we discovered SchoolBlocks and we were very happy with it. SchoolBlocks has terrific support."</p>
+                        </div>
+                        
+                        <!-- Testimonial 4 - Troy (Duplicate) -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/troy.png" alt="Troy Community Consolidated School District 30-C" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Troy Community Consolidated School District 30-C</div>
+                                    <div class="testimonial-name">Ron Sarver, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"SchoolBlocks has terrific support."</p>
+                        </div>
+                        
+                        <!-- Testimonial 5 - Lewiston (Duplicate) -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/lewiston.png" alt="Lewiston Public Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Lewiston Public Schools</div>
+                                    <div class="testimonial-name">Dave Theriault, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"The Google integration and the file sharing is one of the greatest assets of SchoolBlocks."</p>
+                        </div>
+                        
+                        <!-- Testimonial 6 - Hearne ISD (Duplicate) -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/hearneisd.png" alt="Hearne ISD" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Hearne ISD</div>
+                                    <div class="testimonial-name">Jeremy Gaston, Directory of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"The transition over to SchoolBlocks has been so great and so smooth."</p>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Demo CTA Section will be loaded here -->
+        <div id="demo-cta-bottom"></div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Load Scripts (navbar first, then Bootstrap) -->
+    <script src="demo-cta.js"></script>
+    <script src="navbarloader.js"></script>
+    <script src="who-we-serve-hero.js"></script>
+    <script src="testimonials.js"></script>
+    <script src="footerloader.js"></script>
+    
+    <!-- Bootstrap JS (loaded after navbar to prevent interference) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Initialize Components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug: Check if navbar was loaded
+            console.log('Apps page - Navbar container:', document.getElementById('navbar-container'));
+            console.log('Apps page - Navbar content length:', document.getElementById('navbar-container')?.innerHTML.length);
+            
+            // Check for dropdown functionality after navbar loads
+            setTimeout(() => {
+                const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
+                console.log('Apps page - Dropdown items found:', dropdownItems.length);
+                
+                dropdownItems.forEach((item, index) => {
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    const mainLink = item.querySelector('.main-nav-link');
+                    console.log(`Apps page - Dropdown ${index}:`, {
+                        dropdown: dropdown ? 'found' : 'missing',
+                        mainLink: mainLink ? 'found' : 'missing',
+                        text: mainLink ? mainLink.textContent.trim() : 'N/A'
+                    });
+                    
+                    if (dropdown) {
+                        const styles = getComputedStyle(dropdown);
+                        console.log(`Apps page - Dropdown ${index} styles:`, {
+                            visibility: styles.visibility,
+                            opacity: styles.opacity,
+                            display: styles.display,
+                            position: styles.position,
+                            zIndex: styles.zIndex
+                        });
+                    }
+                });
+                
+                // Test hover functionality manually
+                if (dropdownItems.length > 0) {
+                    console.log('Apps page - Testing hover on first dropdown...');
+                    const firstItem = dropdownItems[0];
+                    const firstDropdown = firstItem.querySelector('.dropdown-menu');
+                    
+                    if (firstDropdown) {
+                        console.log('Apps page - Before hover:', {
+                            visibility: getComputedStyle(firstDropdown).visibility,
+                            opacity: getComputedStyle(firstDropdown).opacity
+                        });
+                        
+                        // Simulate hover
+                        firstItem.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+                        
+                        setTimeout(() => {
+                            console.log('Apps page - After hover:', {
+                                visibility: getComputedStyle(firstDropdown).visibility,
+                                opacity: getComputedStyle(firstDropdown).opacity
+                            });
+                        }, 50);
+                    }
+                }
+            }, 500);
+            
+            // Initialize hero component (uses webmaster success defaults)
+            if (typeof HeroComponent !== 'undefined') {
+                HeroComponent.create({}, 'hero-section');
+            } else {
+                console.log('HeroComponent not found');
+            }
+
+            // Initialize demo CTA component
+            if (typeof DemoCTAComponent !== 'undefined') {
+                DemoCTAComponent.create({
+                    title: "Want to know more about our product?",
+                    subtitle: "Get a demo trial today!",
+                    buttonText: "Request a Demo",
+                    buttonUrl: "#"
+                }, 'demo-cta-bottom');
+            }
+
+            // Initialize fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+
+        });
+    </script>
+</body>
+</html>

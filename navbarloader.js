@@ -31,7 +31,7 @@ function loadNavbar() {
                 <nav class="main-navigation">
                     <ul class="nav-menu">
                         <li class="dropdown-menu-item">
-                            <a href="/what-we-do" class="main-nav-link" data-mobile-toggle="true">
+                            <a href="what-we-do.html" class="main-nav-link" data-mobile-toggle="true">
                                 <span>WHAT WE DO</span>
                                 <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6,9 12,15 18,9"></polyline>
@@ -67,7 +67,7 @@ function loadNavbar() {
                             </div>
                         </li>
                         <li class="dropdown-menu-item">
-                            <a href="/who-we-serve" class="main-nav-link" data-mobile-toggle="true">
+                            <a href="who-we-serve.html" class="main-nav-link" data-mobile-toggle="true">
                                 <span>WHO WE SERVE</span>
                                 <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6,9 12,15 18,9"></polyline>
@@ -96,7 +96,7 @@ function loadNavbar() {
                         </li>
                         <li><a href="who-we-are.html">WHO WE ARE</a></li>
                         <li class="dropdown-menu-item">
-                            <a href="/learning-resources" class="main-nav-link" data-mobile-toggle="true">
+                            <a href="learning-resources.html" class="main-nav-link" data-mobile-toggle="true">
                                 <span>LEARNING RESOURCES</span>
                                 <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6,9 12,15 18,9"></polyline>
@@ -106,18 +106,18 @@ function loadNavbar() {
                                 <div class="dropdown-content">
                                     <div class="dropdown-left">
                                         <ul class="dropdown-links">
-                                            <li><a href="/blog">Blog</a></li>
-                                            <li><a href="/case-studies">Case Studies</a></li>
-                                            <li><a href="/client-stories">Client Stories</a></li>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="case-studies.html">Case Studies</a></li>
+                                            <li><a href="client-stories.html">Client Stories</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="mobile-dropdown-content">
                                 <ul class="mobile-dropdown-links">
-                                    <li><a href="/blog">Blog</a></li>
-                                    <li><a href="/case-studies">Case Studies</a></li>
-                                    <li><a href="/client-stories">Client Stories</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="case-studies.html">Case Studies</a></li>
+                                    <li><a href="client-stories.html">Client Stories</a></li>
                                     <li><a href="/2025-communications-report">The 2025 District Communications Report</a></li>
                                 </ul>
                             </div>
