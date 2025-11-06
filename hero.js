@@ -8,7 +8,7 @@ class HeroComponent {
             subtitle: config.subtitle || "Better-Informed Communities",
             description: config.description || "At SchoolBlocks, we empower K-12 schools to engage parents, inspire students, and simplify administration through thoughtful design, intuitive technology and a deep understanding of real human connection—creating class-act digital ecosystems that strengthen every school community.",
             ctaText: config.ctaText || "GET STARTED",
-            ctaUrl: config.ctaUrl || "/get-started",
+            ctaUrl: config.ctaUrl || "get-started.html",
             heroImage: config.heroImage || "Photos/Images/HomePage/horovectorart.png",
             showPartners: config.showPartners !== false,
             backgroundColor: config.backgroundColor || "#E8F4FD", // Light blue background
@@ -46,9 +46,9 @@ class HeroComponent {
 
             .hero-container {
                 width: 100%;
-                max-width: none;
-                margin: 0;
-                padding: 0 20px;
+                max-width: 1600px;
+                margin: 0 auto;
+                padding: 0 40px;
                 position: relative;
                 z-index: 10;
                 display: flex;
@@ -60,11 +60,14 @@ class HeroComponent {
             .hero-main {
                 flex: 1;
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 50% 50%;
                 align-items: center;
-                gap: 40px;
+                gap: 0;
                 min-height: 0;
                 padding: 40px 0 20px 0;
+                max-width: 1600px;
+                margin: 0 auto;
+                width: 100%;
             }
 
             .hero-content {
@@ -73,25 +76,30 @@ class HeroComponent {
                 justify-content: center;
                 align-items: flex-start;
                 text-align: left;
-                padding-right: 10px;
+                padding-right: 40px;
+                width: 100%;
+                box-sizing: border-box;
             }
 
             .hero-visual {
                 display: flex;
                 align-items: center;
-                justify-content: flex-end;
+                justify-content: center;
                 position: relative;
-                padding-left: 10px;
+                padding-left: 40px;
+                width: 100%;
+                box-sizing: border-box;
             }
 
             .hero-title {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-                font-size: clamp(3.25rem, 5.85vw, 5.2rem);
+                font-size: clamp(2.6rem, 4.2vw, 3.6rem);
                 font-weight: 700;
                 color: #2C3E50;
                 margin-bottom: 0.5rem;
                 line-height: 1.1;
                 letter-spacing: -0.02em;
+                white-space: nowrap;
             }
 
             .hero-subtitle {
@@ -101,6 +109,7 @@ class HeroComponent {
                 color: #4A90E2;
                 margin-bottom: 1.5rem;
                 line-height: 1.2;
+                white-space: nowrap;
             }
 
             .hero-description {
@@ -156,6 +165,7 @@ class HeroComponent {
                 object-fit: contain;
                 border-radius: 20px;
                 filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+                max-width: 100%;
             }
 
             .hero-partners {
@@ -243,8 +253,16 @@ class HeroComponent {
                 background-size: contain;
             }
 
+            /* Specific fix for subtitle overlap at medium-large screens */
+            @media (max-width: 1200px) and (min-width: 1144px) {
+                .hero-subtitle {
+                    font-size: clamp(2rem, 3.2vw, 2.8rem);
+                    white-space: nowrap;
+                }
+            }
+
             /* Specific fix for medium screens where partner buttons overlap */
-            @media (max-width: 1200px) and (min-width: 769px) {
+            @media (max-width: 1143px) and (min-width: 769px) {
                 .hero-component {
                     min-height: calc(100vh - 80px);
                     height: auto;
@@ -256,17 +274,19 @@ class HeroComponent {
                 }
 
                 .hero-main {
-                    gap: 40px;
+                    grid-template-columns: 50% 50%;
+                    gap: 0;
                     padding: 30px 0 10px 0;
                     flex: 1;
                 }
 
                 .hero-content {
-                    padding-right: 15px;
+                    padding-right: 30px;
                 }
 
                 .hero-visual {
-                    padding-left: 15px;
+                    padding-left: 30px;
+                    justify-content: center;
                 }
 
                 .hero-description {
@@ -295,24 +315,27 @@ class HeroComponent {
                 }
 
                 .hero-main {
-                    gap: 40px;
+                    grid-template-columns: 50% 50%;
+                    gap: 0;
                     padding: 30px 0 15px 0;
                 }
 
                 .hero-content {
-                    padding-right: 15px;
+                    padding-right: 25px;
                 }
 
                 .hero-visual {
-                    padding-left: 15px;
+                    padding-left: 25px;
                 }
 
                 .hero-title {
-                    font-size: clamp(2.2rem, 4vw, 3.5rem);
+                    font-size: clamp(2.25rem, 3.75vw, 3rem);
+                    white-space: nowrap;
                 }
 
                 .hero-subtitle {
-                    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+                    font-size: clamp(2rem, 3.5vw, 2.75rem);
+                    white-space: nowrap;
                 }
 
                 .hero-description {
@@ -393,13 +416,15 @@ class HeroComponent {
                 }
 
                 .hero-title {
-                    font-size: clamp(1.8rem, 6vw, 2.5rem);
+                    font-size: clamp(1.6rem, 5.2vw, 2rem);
                     margin-bottom: 0.8rem;
+                    white-space: nowrap;
                 }
 
                 .hero-subtitle {
                     font-size: clamp(1.4rem, 5vw, 1.8rem);
                     margin-bottom: 1.2rem;
+                    white-space: nowrap;
                 }
 
                 .hero-description {
@@ -428,11 +453,13 @@ class HeroComponent {
             /* Extra small screens */
             @media (max-width: 360px) {
                 .hero-title {
-                    font-size: clamp(1.6rem, 7vw, 2.2rem);
+                    font-size: clamp(1.5rem, 6vw, 1.8rem);
+                    white-space: nowrap;
                 }
 
                 .hero-subtitle {
                     font-size: clamp(1.3rem, 5.5vw, 1.6rem);
+                    white-space: nowrap;
                 }
 
                 .hero-image-container {

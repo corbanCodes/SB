@@ -134,7 +134,7 @@ function loadNavbar() {
                         <span class="fsStyleSROnly">Toggle Search</span>
                     </button>
                     
-                    <a href="/clients" target="_blank" class="client-portal-link" data-hs-event-95043485="1">
+                    <a href="//help.schoolblocks.com" target="_blank" class="client-portal-link">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
@@ -142,7 +142,7 @@ function loadNavbar() {
                         <span class="fsStyleSROnly">Client Portal (opens in new window/tab)</span>
                     </a>
                     
-                    <a href="/get-started" class="get-started-btn">
+                    <a href="get-started.html" class="get-started-btn">
                         <span>GET STARTED</span>
                     </a>
                     <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
@@ -820,6 +820,17 @@ function loadNavbar() {
             // On desktop, let the link work normally
         });
     });
+    
+    // Load search functionality after navbar is ready
+    const searchScript = document.createElement('script');
+    searchScript.src = 'search.js';
+    searchScript.onload = () => {
+        console.log('Search script loaded successfully');
+    };
+    searchScript.onerror = () => {
+        console.error('Failed to load search script');
+    };
+    document.head.appendChild(searchScript);
     
     // Dynamically adjust main content padding based on navbar height
     function adjustMainContentPadding() {

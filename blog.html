@@ -86,14 +86,17 @@
             background: white;
             border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 24px;
-            padding: 60px 40px;
+            padding: 30px;
             text-align: center;
             height: 100%;
+            min-height: 550px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
             position: relative;
             overflow: hidden;
             margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
         }
 
         .feature-card::before {
@@ -286,6 +289,73 @@
             margin: 0 auto;
         }
 
+        /* Blog-specific styles */
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .blog-card .feature-description {
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .blog-card .author-info {
+            margin-top: auto;
+        }
+
+        /* Modern Pagination Styles */
+        .pagination {
+            --bs-pagination-padding-x: 1rem;
+            --bs-pagination-padding-y: 0.75rem;
+            --bs-pagination-font-size: 1rem;
+            --bs-pagination-color: var(--text-secondary);
+            --bs-pagination-bg: white;
+            --bs-pagination-border-width: 0;
+            --bs-pagination-border-color: transparent;
+            --bs-pagination-border-radius: 12px;
+            --bs-pagination-hover-color: var(--primary-blue);
+            --bs-pagination-hover-bg: rgba(74, 144, 226, 0.1);
+            --bs-pagination-hover-border-color: transparent;
+            --bs-pagination-focus-color: var(--primary-blue);
+            --bs-pagination-focus-bg: rgba(74, 144, 226, 0.1);
+            --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(74, 144, 226, 0.25);
+            --bs-pagination-active-color: white;
+            --bs-pagination-active-bg: var(--primary-blue);
+            --bs-pagination-active-border-color: var(--primary-blue);
+            --bs-pagination-disabled-color: #6c757d;
+            --bs-pagination-disabled-bg: white;
+            --bs-pagination-disabled-border-color: transparent;
+            gap: 8px;
+        }
+
+        .pagination .page-link {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            min-width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pagination .page-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+        }
+
+        .pagination .page-item.active .page-link {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-color: var(--primary-blue);
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+        }
+
+        .pagination .page-item.disabled .page-link {
+            opacity: 0.5;
+        }
+
 
         /* Content Sections */
         .content-section {
@@ -412,89 +482,173 @@
         <!-- Hero Section -->
         <div id="hero-section"></div>
 
-        <!-- Blog Content Overview Section -->
+        <!-- Blog Header Section -->
         <section class="content-section">
             <div class="container">
-                <div class="row align-items-center mb-5">
-                    <div class="col-lg-6">
-                        <div class="resource-image fade-in">
-                            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog Content" class="img-fluid rounded-4 shadow-lg">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="glass-container fade-in fade-in-delay-1">
-                            <div class="section-label">BLOG & INSIGHTS</div>
-                            <h2 class="section-title-left">Stay Informed & Inspired</h2>
-                            <p class="section-description-left">Discover the latest trends in school communications, website design best practices, and success stories from educational institutions using SchoolBlocks.</p>
-                            <div class="resource-highlights">
-                                <div class="highlight-item">
-                                    <i class="bi bi-newspaper"></i>
-                                    <span>Industry News</span>
-                                </div>
-                                <div class="highlight-item">
-                                    <i class="bi bi-lightbulb-fill"></i>
-                                    <span>Best Practices</span>
-                                </div>
-                                <div class="highlight-item">
-                                    <i class="bi bi-graph-up-arrow"></i>
-                                    <span>Success Stories</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-center mb-5">
+                    <h1 class="section-title fade-in">SchoolBlocks Blog</h1>
+                    <p class="section-subtitle fade-in fade-in-delay-1">Insights, tips, and success stories from the world of school communications</p>
                 </div>
             </div>
         </section>
 
-        <!-- Blog Categories Section -->
+        <!-- Blog Posts Section -->
         <section class="features-section">
             <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="section-title fade-in">Explore Our Content</h2>
-                    <p class="section-subtitle fade-in fade-in-delay-1">Insights and updates from the world of school communications</p>
-                </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in">
-                            <div class="feature-icon"><i class="bi bi-newspaper"></i></div>
-                            <div class="feature-title">Industry Updates</div>
-                            <div class="feature-description">Stay current with the latest developments in educational technology and school communication trends.</div>
-                        </div>
+                    <!-- Blog Post 1 -->
+                    <div class="col-lg-6 mb-5">
+                        <article class="feature-card blog-card fade-in" style="text-align: left;">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="School website design" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-primary me-2">Design Tips</span>
+                                <small class="text-muted">November 1, 2024</small>
+                            </div>
+                            <h3 class="feature-title mb-3">5 Essential Design Principles for Modern School Websites</h3>
+                            <p class="feature-description">Creating an effective school website goes beyond just looking good. Learn the five fundamental design principles that make school websites both beautiful and functional, from accessibility considerations to mobile-first design approaches.</p>
+                            <div class="d-flex align-items-center author-info">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Author" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                <div>
+                                    <small class="fw-bold d-block">Sarah Chen</small>
+                                    <small class="text-muted">UX Designer</small>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-1">
-                            <div class="feature-icon"><i class="bi bi-palette-fill"></i></div>
-                            <div class="feature-title">Design Tips</div>
-                            <div class="feature-description">Learn how to create engaging, accessible websites that effectively communicate with your school community.</div>
-                        </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="col-lg-6 mb-5">
+                        <article class="feature-card blog-card fade-in fade-in-delay-1" style="text-align: left;">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Parent engagement" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-success me-2">Success Story</span>
+                                <small class="text-muted">October 28, 2024</small>
+                            </div>
+                            <h3 class="feature-title mb-3">How Lincoln Elementary Increased Parent Engagement by 300%</h3>
+                            <p class="feature-description">Discover how Lincoln Elementary School transformed their parent communication strategy using SchoolBlocks, resulting in unprecedented levels of community involvement and student success.</p>
+                            <div class="d-flex align-items-center author-info">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Author" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                <div>
+                                    <small class="fw-bold d-block">Maria Rodriguez</small>
+                                    <small class="text-muted">Education Specialist</small>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-2">
-                            <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
-                            <div class="feature-title">Success Stories</div>
-                            <div class="feature-description">Read about schools that have transformed their communications and engagement using SchoolBlocks.</div>
-                        </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="col-lg-6 mb-5">
+                        <article class="feature-card blog-card fade-in fade-in-delay-2" style="text-align: left;">
+                            <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ADA compliance" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-warning me-2">Compliance</span>
+                                <small class="text-muted">October 25, 2024</small>
+                            </div>
+                            <h3 class="feature-title mb-3">ADA Compliance: What Every School District Needs to Know</h3>
+                            <p class="feature-description">Understanding ADA compliance requirements for school websites is crucial for protecting your district. Learn about the latest guidelines, common pitfalls, and how to ensure your website meets all accessibility standards.</p>
+                            <div class="d-flex align-items-center author-info">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Author" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                <div>
+                                    <small class="fw-bold d-block">David Thompson</small>
+                                    <small class="text-muted">Legal Compliance Expert</small>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-3">
-                            <div class="feature-icon"><i class="bi bi-gear-fill"></i></div>
-                            <div class="feature-title">Technical Guides</div>
-                            <div class="feature-description">In-depth tutorials and technical insights to help you maximize your SchoolBlocks implementation.</div>
-                        </div>
+
+                    <!-- Blog Post 4 -->
+                    <div class="col-lg-6 mb-5">
+                        <article class="feature-card blog-card fade-in fade-in-delay-3" style="text-align: left;">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile optimization" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-info me-2">Technology</span>
+                                <small class="text-muted">October 22, 2024</small>
+                            </div>
+                            <h3 class="feature-title mb-3">Mobile-First Design: Why It Matters for Schools</h3>
+                            <p class="feature-description">With over 70% of parents accessing school information on mobile devices, mobile-first design isn't optional—it's essential. Learn how to optimize your school's digital presence for mobile users.</p>
+                            <div class="d-flex align-items-center author-info">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Author" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                <div>
+                                    <small class="fw-bold d-block">Jennifer Park</small>
+                                    <small class="text-muted">Mobile Strategy Lead</small>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-4">
-                            <div class="feature-icon"><i class="bi bi-people-fill"></i></div>
-                            <div class="feature-title">Community Spotlight</div>
-                            <div class="feature-description">Highlighting innovative uses of SchoolBlocks and celebrating our community of educators.</div>
-                        </div>
+
+                    <!-- Blog Post 5 -->
+                    <div class="col-lg-6 mb-5">
+                        <article class="feature-card blog-card fade-in fade-in-delay-4" style="text-align: left;">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crisis communication" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-danger me-2">Crisis Management</span>
+                                <small class="text-muted">October 20, 2024</small>
+                            </div>
+                            <h3 class="feature-title mb-3">Crisis Communication: Keeping Your Community Informed</h3>
+                            <p class="feature-description">When emergencies strike, clear communication can make all the difference. Explore best practices for crisis communication and how SchoolBlocks helps districts respond quickly and effectively.</p>
+                            <div class="d-flex align-items-center author-info">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Author" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                <div>
+                                    <small class="fw-bold d-block">Michael Johnson</small>
+                                    <small class="text-muted">Communications Director</small>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-5">
-                            <div class="feature-icon"><i class="bi bi-calendar-event-fill"></i></div>
-                            <div class="feature-title">Events & Webinars</div>
-                            <div class="feature-description">Information about upcoming training sessions, conferences, and educational events in our community.</div>
-                        </div>
+
+                    <!-- Blog Post 6 -->
+                    <div class="col-lg-6 mb-5">
+                        <article class="feature-card blog-card fade-in fade-in-delay-5" style="text-align: left;">
+                            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Content strategy" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-secondary me-2">Content Strategy</span>
+                                <small class="text-muted">October 18, 2024</small>
+                            </div>
+                            <h3 class="feature-title mb-3">Creating Compelling Content That Parents Actually Read</h3>
+                            <p class="feature-description">Cut through the noise with content that resonates. Learn proven strategies for creating school communications that capture attention, drive engagement, and build stronger community connections.</p>
+                            <div class="d-flex align-items-center author-info">
+                                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Author" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                <div>
+                                    <small class="fw-bold d-block">Amanda Foster</small>
+                                    <small class="text-muted">Content Strategist</small>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="Blog pagination" class="d-flex justify-content-center mt-5">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <i class="bi bi-chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item">
+                                    <span class="page-link" style="border: none; background: none; color: var(--text-secondary);">...</span>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">12</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <i class="bi bi-chevron-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
