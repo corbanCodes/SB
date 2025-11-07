@@ -7,7 +7,7 @@ class DemoCTAComponent {
             title: config.title || "Want to know more about our product?",
             subtitle: config.subtitle || "Schedule a demo today!",
             buttonText: config.buttonText || "Request a Demo",
-            buttonUrl: config.buttonUrl || "#",
+            buttonUrl: config.buttonUrl || "get-started.html",
             phoneImage: config.phoneImage || "Photos/Images/HomePage/editmephone.webp",
             phoneAlt: config.phoneAlt || "SchoolBlocks Mobile App Demo",
             showAnimation: config.showAnimation !== false,

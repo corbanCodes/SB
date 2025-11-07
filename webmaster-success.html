@@ -519,7 +519,7 @@
     <!-- Load Scripts (navbar first, then Bootstrap) -->
     <script src="demo-cta.js"></script>
     <script src="navbarloader.js"></script>
-    <script src="webmastersuccess-hero.js.js"></script>
+    <script src="webmaster-success-hero.js"></script>
     <script src="footerloader.js"></script>
     
     <!-- Bootstrap JS (loaded after navbar to prevent interference) -->
@@ -543,9 +543,17 @@
                 });
             }, 100);
             
-            // Initialize hero component (uses webmaster success defaults)
+            // Initialize hero component with webmaster success configuration
             if (typeof HeroComponent !== 'undefined') {
-                HeroComponent.create({}, 'hero-section');
+                HeroComponent.create({
+                    title: "Webmaster Success",
+                    subtitle: "School Website Excellence",
+                    description: "SchoolBlocks empowers webmasters to create stunning, functional school websites that engage communities and streamline communication. Our intuitive platform combines powerful design tools with deep educational expertise, helping you build digital experiences that truly serve your school community.",
+                    ctaText: "GET STARTED",
+                    ctaUrl: "get-started.html",
+                    heroImage: "Photos/Images/webmastersuccess/webmastersuccessherovectorart.png",
+                    showPartners: false
+                }, 'hero-section');
             } else {
                 console.log('HeroComponent not found');
             }
@@ -556,7 +564,7 @@
                     title: "Want to know more about our product?",
                     subtitle: "Get a demo trial today!",
                     buttonText: "Request a Demo",
-                    buttonUrl: "#"
+                    buttonUrl: "get-started.html"
                 }, 'demo-cta-bottom');
             }
 

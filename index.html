@@ -2401,6 +2401,22 @@
             
         }
         
+        /* Above mobile - left align text content, keep headers as they were */
+        @media (min-width: 769px) {
+            .feature-text h2 {
+                text-align: left;
+            }
+            
+            .feature-text p {
+                text-align: left;
+            }
+            
+            .feature-text .learn-more-btn {
+                text-align: left;
+                display: inline-block;
+            }
+        }
+
         @media (max-width: 768px) {
             .product-features {
                 padding: 80px 0;
@@ -2418,7 +2434,7 @@
             .feature-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
-                text-align: center;
+                text-align: left;
             }
             
             .feature-text {
@@ -2447,7 +2463,7 @@
             }
             
             .feature-header {
-                justify-content: center;
+                justify-content: flex-start;
                 margin-bottom: 30px;
             }
         }
@@ -4009,8 +4025,8 @@
                         </div>
                         <div class="accordion-content">
                             <div class="content-inner">
-                                <h5>DocMersion</h5>
-                                <p>Interactive document sharing and collaboration tools that transform static documents into engaging, interactive experiences.</p>
+                                <h5>ADA Compliant Policies, Procedures, and Handbooks</h5>
+                                <p>Make your policies, procedures, and handbooks clear, accessible, and easy to follow with DocMersion. Transform core documents into fully searchable, translatable, and mobile-friendly pages.</p>
                                 <a href="/docmersion" class="learn-more-btn">Learn More</a>
                             </div>
                         </div>
@@ -4253,7 +4269,7 @@
                 
                 <!-- Get Started button below video -->
                 <div class="video-cta-container">
-                    <a href="/get-started" class="video-cta">
+                    <a href="get-started.html" class="video-cta">
                         Get Started Today
                     </a>
                 </div>
@@ -4327,7 +4343,7 @@
         <!-- Product Features Section -->
         <section class="product-features">
             <div class="features-grid">
-                <!-- Feature 1: AI Chatbot (Text Left, Image Right) -->
+                <!-- Feature 1: Modern School Websites (Text Left, Image Right) -->
                 <div class="feature-item" id="websites-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
@@ -4341,50 +4357,50 @@
                             <a href="/school-websites" class="learn-more-btn">Learn More</a>
                         </div>
                         <div class="feature-image">
-                            <img src="Photos/Images/HomePage/featurespictures/1.png" alt="SchoolBlocks Website Interface" />
+                            <img src="Photos/Images/HomePage/schoolwebsitesthatwork.webp" alt="SchoolBlocks Website Interface" />
                         </div>
                     </div>
                 </div>
 
-                <!-- Feature 2: Google Integration (Text Right, Image Left) -->
-                <div class="feature-item reverse" id="google-integration-section">
+                <!-- Feature 2: Mobile Apps (Image Left, Text Right) -->
+                <div class="feature-item reverse" id="mobile-apps-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
                         <div class="feature-line"></div>
-                        <h3 class="feature-title">GOOGLE INTEGRATION</h3>
+                        <h3 class="feature-title">MOBILE APPS</h3>
                     </div>
                     <div class="feature-content">
                         <div class="feature-image">
-                            <img src="Photos/Images/HomePage/featurespictures/2.png" alt="Google Integration" />
+                            <img src="Photos/Images/HomePage/featurespictures/6.png" alt="Mobile App" />
                         </div>
                         <div class="feature-text">
-                            <h2>Seamless Google Workspace Integration</h2>
-                            <p>With seamless Google Workspace integration, SchoolBlocks brings your files, folders, and calendar events directly into each page—making your website both powerful and easy to manage. Combined with great pricing and responsive support, it's a winning formula for every K-12 district.</p>
-                            <a href="google-integration.html" class="learn-more-btn">Learn More</a>
+                            <h2>Progressive Web App Technology</h2>
+                            <p>Launch your own app with our progressive web app (PWA) technology and see engagement soar. PWAs make your app instantly accessible, easy to use, and fast—driving up to 3× the usage compared to traditional apps. Deliver a seamless mobile experience that keeps your community coming back.</p>
+                            <a href="/mobile-apps" class="learn-more-btn">Learn More</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Feature 3: AI Powered Answers (Text Left, Image Right) -->
-                <div class="feature-item" id="welcomechat-section">
+                <!-- Feature 3: Document Engagement (Text Left, Image Right) -->
+                <div class="feature-item" id="docmersion-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
                         <div class="feature-line"></div>
-                        <h3 class="feature-title">AI POWERED ANSWERS</h3>
+                        <h3 class="feature-title">DOCUMENT ENGAGEMENT</h3>
                     </div>
                     <div class="feature-content">
                         <div class="feature-text">
-                            <h2>Instant AI-Powered Support</h2>
-                            <p>Integrate our AI Answers companion to provide your members with instant, intelligent responses in natural language—exactly what they expect from modern technology. Enhance engagement, reduce support bottlenecks, and give your community a seamless way to get the information they need, when they need it.</p>
-                            <a href="/welcomechat" class="learn-more-btn">Learn More</a>
+                            <h2>ADA Compliant Policies, Procedures, and Handbooks</h2>
+                            <p>Make your policies, procedures, and handbooks clear, accessible, and easy to follow with DocMersion. Our newest innovation, DocMersion transforms core documents into fully searchable, translatable, and mobile-friendly pages, so everyone can quickly find and understand content such as policies. When people know what's expected, compliance improves and your organization fosters a safer, more harmonious environment for all.</p>
+                            <a href="/docmersion" class="learn-more-btn">Learn More</a>
                         </div>
                         <div class="feature-image">
-                            <img src="Photos/Images/HomePage/featurespictures/3.png" alt="AI Powered Answers" />
+                            <img src="Photos/Images/HomePage/featurespictures/5.png" alt="Document Engagement" />
                         </div>
                     </div>
                 </div>
 
-                <!-- Feature 4: Safe Social (Text Right, Image Left) -->
+                <!-- Feature 4: Safe Social Platform (Image Left, Text Right) -->
                 <div class="feature-item reverse" id="schoolfeed-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
@@ -4403,40 +4419,40 @@
                     </div>
                 </div>
 
-                <!-- Feature 5: Document Engagement (Text Left, Image Right) -->
-                <div class="feature-item" id="docmersion-section">
+                <!-- Feature 5: Google Integration (Text Left, Image Right) -->
+                <div class="feature-item" id="google-integration-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
                         <div class="feature-line"></div>
-                        <h3 class="feature-title">DOCUMENT ENGAGEMENT</h3>
+                        <h3 class="feature-title">GOOGLE INTEGRATION</h3>
                     </div>
                     <div class="feature-content">
                         <div class="feature-text">
-                            <h2>Interactive Document Management</h2>
-                            <p>Make your policies, procedures, and handbooks clear, accessible, and easy to follow with DocMersion. Our newest innovation, DocMersion transforms core documents into fully searchable, translatable, and mobile-friendly pages, so everyone can quickly find and understand content such as policies. When people know what's expected, compliance improves and your organization fosters a safer, more harmonious environment for all.</p>
-                            <a href="/docmersion" class="learn-more-btn">Learn More</a>
+                            <h2>Seamless Google Workspace Integration</h2>
+                            <p>With seamless Google Workspace integration, SchoolBlocks brings your files, folders, and calendar events directly into each page—making your website both powerful and easy to manage. Combined with great pricing and responsive support, it's a winning formula for every K-12 district.</p>
+                            <a href="google-integration.html" class="learn-more-btn">Learn More</a>
                         </div>
                         <div class="feature-image">
-                            <img src="Photos/Images/HomePage/featurespictures/5.png" alt="Document Engagement" />
+                            <img src="Photos/Images/HomePage/featurespictures/2.png" alt="Google Integration" />
                         </div>
                     </div>
                 </div>
 
-                <!-- Feature 6: Mobile App (Text Right, Image Left) -->
-                <div class="feature-item reverse" id="mobile-apps-section">
+                <!-- Feature 6: AI Powered Answers (Image Left, Text Right) -->
+                <div class="feature-item reverse" id="welcomechat-section">
                     <div class="feature-header">
                         <img src="Photos/Logo/small sB only official.png" alt="SchoolBlocks Logo" class="feature-logo">
                         <div class="feature-line"></div>
-                        <h3 class="feature-title">MOBILE APPS</h3>
+                        <h3 class="feature-title">AI POWERED ANSWERS</h3>
                     </div>
                     <div class="feature-content">
                         <div class="feature-image">
-                            <img src="Photos/Images/HomePage/featurespictures/6.png" alt="Mobile App" />
+                            <img src="Photos/Images/HomePage/featurespictures/3.png" alt="AI Powered Answers" />
                         </div>
                         <div class="feature-text">
-                            <h2>Progressive Web App Technology</h2>
-                            <p>Launch your own app with our progressive web app (PWA) technology and see engagement soar. PWAs make your app instantly accessible, easy to use, and fast—driving up to 3× the usage compared to traditional apps. Deliver a seamless mobile experience that keeps your community coming back.</p>
-                            <a href="/mobile-apps" class="learn-more-btn">Learn More</a>
+                            <h2>Instant AI-Powered Support</h2>
+                            <p>Integrate our AI Answers companion to provide your members with instant, intelligent responses in natural language—exactly what they expect from modern technology. Enhance engagement, reduce support bottlenecks, and give your community a seamless way to get the information they need, when they need it.</p>
+                            <a href="/welcomechat" class="learn-more-btn">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -4675,7 +4691,7 @@
                     <div class="demo-text">
                         <h2>Want to know more about our product?</h2>
                         <p>Schedule a demo today!</p>
-                        <a href="#" class="demo-button">Request a Demo</a>
+                        <a href="get-started.html" class="demo-button">Request a Demo</a>
                         <div class="demo-visual">
                             <div class="phone-container" id="phoneContainer">
                                 <img src="Photos/Images/HomePage/editmephone.webp" alt="SchoolBlocks Mobile App Demo" class="demo-phone" id="demoPhone">
@@ -5639,8 +5655,8 @@
                     description: 'Seamless integration with Google Workspace, Classroom, and Drive to streamline workflows, enhance digital learning experiences, and improve productivity across your entire district.'
                 },
                 docmersion: {
-                    title: 'Document Engagement Platform (DocMersion)',
-                    description: 'Transform static documents into interactive experiences with embedded videos, quizzes, analytics, and engagement tracking to boost comprehension and measure effectiveness.'
+                    title: 'ADA Compliant Policies, Procedures, and Handbooks',
+                    description: 'Make your policies, procedures, and handbooks clear, accessible, and easy to follow with DocMersion. Transform core documents into fully searchable, translatable, and mobile-friendly pages for better compliance and understanding.'
                 },
                 welcomechat: {
                     title: 'AI-powered Answers (WelcomeChat)',

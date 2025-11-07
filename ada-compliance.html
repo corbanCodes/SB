@@ -1339,9 +1339,17 @@
                 });
             }, 100);
             
-            // Initialize hero component
+            // Initialize hero component with ADA compliance configuration
             if (typeof HeroComponent !== 'undefined') {
-                HeroComponent.create({}, 'hero-section');
+                HeroComponent.create({
+                    title: "ADA Compliance",
+                    subtitle: "Accessibility for All",
+                    description: "SchoolBlocks ensures your school website meets ADA compliance standards with built-in accessibility features. Our platform provides keyboard navigation, screen reader compatibility, and WCAG 2.2 compliance to create inclusive digital experiences for every member of your school community.",
+                    ctaText: "GET STARTED",
+                    ctaUrl: "get-started.html",
+                    heroImage: "Photos/Images/ADA compliance/adacompliance-hero-vector.png",
+                    showPartners: false
+                }, 'hero-section');
             } else {
                 console.log('HeroComponent not found');
             }

@@ -891,9 +891,17 @@
                 }
             }, 500);
             
-            // Initialize hero component (uses webmaster success defaults)
+            // Initialize hero component with mobile apps configuration
             if (typeof HeroComponent !== 'undefined') {
-                HeroComponent.create({}, 'hero-section');
+                HeroComponent.create({
+                    title: "Empower Your Community",
+                    subtitle: "With Helpful Apps",
+                    description: "SchoolBlocks delivers powerful Progressive Web App technology that transforms your school's digital presence. Our mobile-first approach creates app-like experiences that boost engagement up to 3× while providing instant access to school information, events, and communication tools.",
+                    ctaText: "GET STARTED",
+                    ctaUrl: "get-started.html",
+                    heroImage: "Photos/Images/mobile-apps/mobile-apps.png",
+                    showPartners: false
+                }, 'hero-section');
             } else {
                 console.log('HeroComponent not found');
             }
