@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternative Features Bar - SchoolBlocks</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        /* Single Bar Features Section */
+        .features-bar-section {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .features-bar-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .features-bar-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .features-bar-header h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .features-bar-header .highlight-word {
+            color: var(--text-primary);
+        }
+
+        /* Allow wrapping on mobile and smaller tablets */
+        @media (max-width: 1024px) {
+            .features-bar-header h2 {
+                white-space: normal;
+            }
+        }
+
+        .features-bar-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Single Horizontal Bar */
+        .features-bar {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(74, 144, 226, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FECA57, #A8E6CF);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 40px;
+            align-items: start;
+        }
+
+        .feature-item {
+            text-align: center;
+            transition: all 0.3s ease;
+            padding: 20px 10px;
+            border-radius: 12px;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            background: rgba(74, 144, 226, 0.05);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .feature-icon.websites { background: linear-gradient(135deg, #FF6B6B, #FF5252); }
+        .feature-icon.mobile-apps { background: linear-gradient(135deg, #4ECDC4, #26A69A); }
+        .feature-icon.google { background: linear-gradient(135deg, #45B7D1, #2196F3); }
+        .feature-icon.documents { background: linear-gradient(135deg, #96CEB4, #4CAF50); }
+        .feature-icon.ai-chat { background: linear-gradient(135deg, #FECA57, #FF9800); }
+        .feature-icon.social { background: linear-gradient(135deg, #A8E6CF, #66BB6A); }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .feature-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.5;
+            min-height: 60px;
+        }
+
+        .feature-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-link:hover {
+            color: var(--secondary-blue);
+            gap: 10px;
+        }
+
+        .features-cta {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .features-cta-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+
+        .features-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(74, 144, 226, 0.4);
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1400px) {
+            .features-grid {
+                gap: 30px;
+            }
+            
+            .feature-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+            }
+            
+            .feature-title {
+                font-size: 1rem;
+            }
+            
+            .feature-description {
+                font-size: 0.85rem;
+                min-height: 50px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+            }
+            
+            .features-bar {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-bar-section {
+                padding: 60px 0;
+            }
+            
+            .features-bar-container {
+                padding: 0 20px;
+            }
+            
+            .features-bar-header {
+                margin-bottom: 50px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .features-bar {
+                padding: 25px 20px;
+            }
+            
+            .feature-description {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .feature-item {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Single Bar Features Section -->
+    <section class="features-bar-section">
+        <div class="features-bar-container">
+            <div class="features-bar-header">
+                <h2>Everything your district needs for a <span class="highlight-word">modern online presence</span></h2>
+                <p>Comprehensive digital solutions designed specifically for K-12 education</p>
+            </div>
+            
+            <div class="features-bar">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon websites">
+                            <i class="bi bi-globe2"></i>
+                        </div>
+                        <h3 class="feature-title">Professional Websites</h3>
+                        <p class="feature-description">Beautiful, responsive school websites that engage your community and showcase your district's unique story.</p>
+                        <a href="school-websites.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon mobile-apps">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h3 class="feature-title">Mobile School Apps</h3>
+                        <p class="feature-description">Native iOS and Android apps that keep your community connected with push notifications and real-time updates.</p>
+                        <a href="apps.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon google">
+                            <i class="bi bi-google"></i>
+                        </div>
+                        <h3 class="feature-title">Google Integration</h3>
+                        <p class="feature-description">Seamless integration with Google Workspace for streamlined communication and document management.</p>
+                        <a href="google-integration.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon documents">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <h3 class="feature-title">Document Engagement</h3>
+                        <p class="feature-description">Transform static documents into interactive experiences that ensure important information reaches everyone.</p>
+                        <a href="document-engagement.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon ai-chat">
+                            <i class="bi bi-chat-dots"></i>
+                        </div>
+                        <h3 class="feature-title">AI-Powered Answers</h3>
+                        <p class="feature-description">Intelligent chatbot that provides instant, accurate answers to common questions 24/7.</p>
+                        <a href="welcome-chat.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon social">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3 class="feature-title">Safe Social Platform</h3>
+                        <p class="feature-description">Secure social networking designed specifically for schools to celebrate achievements and build community.</p>
+                        <a href="schoolfeed-social.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features-cta">
+                <a href="get-started.html" class="features-cta-button">
+                    Get Started Today <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

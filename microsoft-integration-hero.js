@@ -4,9 +4,9 @@
 class HeroComponent {
     constructor(config = {}) {
         this.config = {
-            title: config.title || "Microsoft 365",
-            subtitle: config.subtitle || "Integration",
-            description: config.description || "Seamlessly connect your school's Microsoft 365 environment with SchoolBlocks. Sync users, calendars, OneDrive files, and Teams to create a unified digital experience. Keep your website content automatically updated with your Microsoft services while maintaining security and proper permissions.",
+            title: config.title || "#1 Microsoft 365",
+            subtitle: config.subtitle || "Integrated Provider",
+            description: config.description || "SchoolBlocks is your trusted Microsoft 365 integrated provider. We seamlessly sync users, calendars, OneDrive files, and Teams to create a unified digital experience. Keep your website content automatically updated with your Microsoft services while maintaining security and proper permissions.",
             ctaText: config.ctaText || "EXPLORE INTEGRATION",
             ctaUrl: config.ctaUrl || "get-started.html",
             heroImage: config.heroImage || "Photos/Images/microsoft/microsoft-hero-vector.png",

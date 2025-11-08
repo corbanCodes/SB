@@ -3114,6 +3114,198 @@
             }
         }
         
+        /* Contact Form Section */
+        .contact-section {
+            background: #f8f9fa;
+            padding: 100px 0;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .contact-header p {
+            font-size: 1.2rem;
+            color: #5A6C7D;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(74, 144, 226, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4A90E2;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #4A90E2, #357ABD);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(74, 144, 226, 0.4);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(74, 144, 226, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4A90E2, #357ABD);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .info-content h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 4px;
+        }
+
+        .info-content p {
+            color: #5A6C7D;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section Responsive */
+        @media (max-width: 1024px) {
+            .contact-form-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 60px 0;
+            }
+            
+            .contact-container {
+                padding: 0 20px;
+            }
+            
+            .contact-header {
+                margin-bottom: 40px;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .info-item {
+                padding: 20px;
+            }
+            
+            .info-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+        
         /* Demo CTA Section */
         .demo-cta {
             padding: 120px 0;
@@ -4680,6 +4872,67 @@
                             </p>
                         </div>
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-header">
+                    <h2>Want to know more about our product?</h2>
+                    <p>Get in touch with our team and discover how SchoolBlocks can transform your district's digital presence</p>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <form action="https://formspree.io/f/xdkyndwk" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="email">Your email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your district's needs and how we can help..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">
+                            <i class="bi bi-send"></i>
+                            Send Message
+                        </button>
+                    </form>
+                    
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Call Us</h4>
+                                <p>Ready to talk? Give us a call</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-calendar-check"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Schedule Demo</h4>
+                                <p>See SchoolBlocks in action</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Live Chat</h4>
+                                <p>Get instant answers to your questions</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

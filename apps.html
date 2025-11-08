@@ -70,6 +70,460 @@
             transition-delay: 0.4s;
         }
 
+        .fade-in-delay-5 {
+            transition-delay: 0.5s;
+        }
+
+        .fade-in-delay-6 {
+            transition-delay: 0.6s;
+        }
+
+        .fade-in-delay-7 {
+            transition-delay: 0.7s;
+        }
+
+        /* PWA Technology Section - Unique Design */
+        .pwa-technology-section {
+            position: relative;
+            background: white;
+            padding: 120px 0;
+            overflow: hidden;
+        }
+
+        .pwa-diagonal-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(74, 144, 226, 0.05) 25%, 
+                transparent 25%, 
+                transparent 75%, 
+                rgba(74, 144, 226, 0.05) 75%);
+            background-size: 60px 60px;
+            opacity: 0.5;
+        }
+
+        .pwa-content {
+            padding: 0 40px;
+        }
+
+        .pwa-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(74, 144, 226, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 144, 226, 0.2);
+            border-radius: 50px;
+            padding: 8px 20px;
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .pwa-main-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 0.9;
+        }
+
+        .pwa-subtitle {
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin: 10px 0 30px 0;
+            font-style: italic;
+        }
+
+        .pwa-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .pwa-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 0;
+        }
+
+        .pwa-stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pwa-visual {
+            padding: 0 20px;
+        }
+
+        .pwa-comparison {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .comparison-side {
+            margin-bottom: 30px;
+        }
+
+        .comparison-side:last-child {
+            margin-bottom: 0;
+        }
+
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .comparison-header i {
+            font-size: 24px;
+        }
+
+        .comparison-header span {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .traditional .comparison-header {
+            color: #e74c3c;
+        }
+
+        .pwa .comparison-header {
+            color: var(--primary-blue);
+        }
+
+        .comparison-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .comparison-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+        }
+
+        .comparison-item i {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .comparison-item.negative i {
+            color: #e74c3c;
+        }
+
+        .comparison-item.positive i {
+            color: #27ae60;
+        }
+
+        .comparison-item span {
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .vs-divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .vs-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #ddd;
+            z-index: 1;
+        }
+
+        .vs-divider span {
+            background: white;
+            padding: 0 20px;
+            font-weight: 800;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Brand Power Section */
+        .brand-power-section {
+            background: white;
+            padding: 120px 0;
+        }
+
+        .brand-power-section .container {
+            max-width: 1400px;
+        }
+
+        .brand-power-visual {
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .brand-showcase {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        .brand-circle {
+            position: absolute;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .main-brand {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.3);
+            z-index: 3;
+        }
+
+        .main-brand:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 20px 50px rgba(74, 144, 226, 0.4);
+        }
+
+        .brand-logo {
+            color: white;
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+
+        .brand-label {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .satellite {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 3px solid var(--primary-blue);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .satellite:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 35px rgba(74, 144, 226, 0.2);
+        }
+
+        .satellite-1 {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .satellite-2 {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        .satellite-3 {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .brand-icon {
+            color: var(--primary-blue);
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .satellite-label {
+            color: var(--text-primary);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .connection-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(90deg, var(--primary-blue), transparent);
+            height: 2px;
+            opacity: 0.6;
+        }
+
+        .line-1 {
+            top: 60px;
+            left: 50%;
+            right: 50%;
+            width: 120px;
+            transform: translateX(-50%) rotate(-90deg);
+            transform-origin: center;
+        }
+
+        .line-2 {
+            top: 50%;
+            right: 60px;
+            width: 120px;
+            transform: translateY(-50%);
+        }
+
+        .line-3 {
+            bottom: 60px;
+            left: 50%;
+            width: 120px;
+            transform: translateX(-50%) rotate(90deg);
+            transform-origin: center;
+        }
+
+        .brand-power-content {
+            padding-left: 40px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(74, 144, 226, 0.1);
+            color: var(--primary-blue);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(74, 144, 226, 0.2);
+        }
+
+        .brand-power-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .brand-power-description {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .brand-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .benefit-row {
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideInLeft 0.6s ease forwards;
+        }
+
+        .benefit-row:nth-child(1) { animation-delay: 0.2s; }
+        .benefit-row:nth-child(2) { animation-delay: 0.4s; }
+        .benefit-row:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            background: rgba(74, 144, 226, 0.02);
+            border-radius: 16px;
+            border-left: 4px solid var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(74, 144, 226, 0.05);
+            transform: translateX(8px);
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .benefit-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
 
         /* Features Section */
         .features-section {
@@ -489,6 +943,158 @@
             box-shadow: none;
         }
 
+        /* PWA Technology Section Responsive */
+        @media (max-width: 991px) {
+            .pwa-technology-section {
+                padding: 80px 0;
+            }
+            
+            .pwa-main-title {
+                font-size: 3rem;
+            }
+            
+            .pwa-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .pwa-stats {
+                gap: 30px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pwa-technology-section {
+                padding: 60px 0;
+            }
+            
+            .pwa-content {
+                padding: 0 20px;
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            
+            .pwa-main-title {
+                font-size: 2.5rem;
+            }
+            
+            .pwa-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .pwa-stats {
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .pwa-visual {
+                padding: 0 10px;
+            }
+            
+            .pwa-comparison {
+                padding: 20px;
+            }
+        }
+
+        /* Brand Power Section Responsive */
+        @media (max-width: 991px) {
+            .brand-power-section {
+                padding: 80px 0;
+            }
+            
+            .brand-power-content {
+                padding-left: 0;
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            
+            .brand-power-title {
+                font-size: 2.5rem;
+            }
+            
+            .brand-showcase {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .main-brand {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .brand-logo {
+                font-size: 32px;
+            }
+            
+            .satellite {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .brand-icon {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .brand-power-section {
+                padding: 60px 0;
+            }
+            
+            .brand-power-visual {
+                padding: 20px;
+                margin-bottom: 40px;
+            }
+            
+            .brand-showcase {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .main-brand {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .brand-logo {
+                font-size: 24px;
+            }
+            
+            .satellite {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .brand-icon {
+                font-size: 18px;
+            }
+            
+            .satellite-label {
+                font-size: 0.6rem;
+            }
+            
+            .brand-power-title {
+                font-size: 2rem;
+            }
+            
+            .brand-power-description {
+                font-size: 1.1rem;
+            }
+            
+            .benefit-item {
+                padding: 20px;
+            }
+            
+            .benefit-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 991px) {
             .mobile-apps-section {
@@ -659,6 +1265,101 @@
         <!-- Hero Section -->
         <div id="hero-section"></div>
 
+        <!-- PWA Technology Section -->
+        <section class="pwa-technology-section">
+            <div class="pwa-diagonal-bg"></div>
+            <div class="container-fluid">
+                <div class="row align-items-center min-vh-50">
+                    <div class="col-lg-6">
+                        <div class="pwa-content fade-in">
+                            <div class="pwa-badge">
+                                <i class="bi bi-code-square"></i>
+                                <span>PWA TECHNOLOGY</span>
+                            </div>
+                            <h2 class="pwa-main-title">Progressive Web Apps</h2>
+                            <h3 class="pwa-subtitle">The Future is Here</h3>
+                            <p class="pwa-description">Skip the app store entirely. Our Progressive Web App technology delivers native app performance directly through your browser. Instant loading, offline functionality, and push notifications - all without the download.</p>
+                            
+                            <div class="pwa-stats">
+                                <div class="pwa-stat-item">
+                                    <div class="stat-number">Fast</div>
+                                    <div class="stat-label">Performance</div>
+                                </div>
+                                <div class="pwa-stat-item">
+                                    <div class="stat-number">Easy</div>
+                                    <div class="stat-label">Installation</div>
+                                </div>
+                                <div class="pwa-stat-item">
+                                    <div class="stat-number">Works</div>
+                                    <div class="stat-label">Offline</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="pwa-visual fade-in fade-in-delay-1">
+                            <div class="pwa-comparison">
+                                <div class="comparison-side traditional">
+                                    <div class="comparison-header">
+                                        <i class="bi bi-shop"></i>
+                                        <span>Traditional Apps</span>
+                                    </div>
+                                    <div class="comparison-items">
+                                        <div class="comparison-item negative">
+                                            <i class="bi bi-x-circle"></i>
+                                            <span>App store approval</span>
+                                        </div>
+                                        <div class="comparison-item negative">
+                                            <i class="bi bi-x-circle"></i>
+                                            <span>Large downloads</span>
+                                        </div>
+                                        <div class="comparison-item negative">
+                                            <i class="bi bi-x-circle"></i>
+                                            <span>Update delays</span>
+                                        </div>
+                                        <div class="comparison-item negative">
+                                            <i class="bi bi-x-circle"></i>
+                                            <span>Storage space</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="vs-divider">
+                                    <span>VS</span>
+                                </div>
+                                
+                                <div class="comparison-side pwa">
+                                    <div class="comparison-header">
+                                        <i class="bi bi-lightning-charge"></i>
+                                        <span>SchoolBlocks PWA</span>
+                                    </div>
+                                    <div class="comparison-items">
+                                        <div class="comparison-item positive">
+                                            <i class="bi bi-check-circle"></i>
+                                            <span>Instant access</span>
+                                        </div>
+                                        <div class="comparison-item positive">
+                                            <i class="bi bi-check-circle"></i>
+                                            <span>Lightweight</span>
+                                        </div>
+                                        <div class="comparison-item positive">
+                                            <i class="bi bi-check-circle"></i>
+                                            <span>Auto-updates</span>
+                                        </div>
+                                        <div class="comparison-item positive">
+                                            <i class="bi bi-check-circle"></i>
+                                            <span>Zero storage</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- App Showcase Section -->
         <section class="app-showcase-section">
             <div class="container-fluid">
@@ -666,7 +1367,7 @@
                     <div class="col-xl-7 col-lg-7 col-md-6">
                         <div class="showcase-content fade-in">
                             <h3>We believe it's the right app for the occasion.</h3>
-                            <p>The SchoolBlocks App is free and offers a unique app experience for each school. Our app enjoys higher download rates!</p>
+                            <p>The SchoolBlocks App offers a unique app experience for each school. Our app enjoys higher download rates!</p>
                             
                             <div class="app-features fade-in fade-in-delay-1">
                                 <div class="feature-item">
@@ -736,7 +1437,7 @@
                         <div class="mobile-apps-content fade-in fade-in-delay-1">
                             <div class="mobile-apps-label">MOBILE APPS</div>
                             <h2 class="mobile-apps-title">iOS & Android apps solved.</h2>
-                            <p class="mobile-apps-description">If you're looking for simple, effective and free, consider the SchoolBlocks app. If you're looking for robust two-way communication, consider one of our partners such as Parent Square, BrightArrow or Actionaly.</p>
+                            <p class="mobile-apps-description">If you're looking for simple and effective solutions, consider the SchoolBlocks app. If you're looking for robust two-way communication, consider one of our partners such as Parent Square, BrightArrow or Actionaly.</p>
                             
                             <!-- Mobile-only quadrant -->
                             <div class="mobile-quadrant d-block d-lg-none fade-in fade-in-delay-2">
@@ -761,7 +1462,106 @@
             </div>
         </section>
 
+        <!-- Brand Power Section -->
+        <section class="brand-power-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="brand-power-visual fade-in">
+                            <div class="brand-showcase">
+                                <div class="brand-circle main-brand">
+                                    <div class="brand-logo">
+                                        <i class="bi bi-building"></i>
+                                    </div>
+                                    <span class="brand-label">Your School</span>
+                                </div>
+                                
+                                <div class="connection-lines">
+                                    <div class="connection-line line-1"></div>
+                                    <div class="connection-line line-2"></div>
+                                    <div class="connection-line line-3"></div>
+                                </div>
+                                
+                                <div class="brand-circle satellite satellite-1">
+                                    <div class="brand-icon">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                    <span class="satellite-label">Parents</span>
+                                </div>
+                                
+                                <div class="brand-circle satellite satellite-2">
+                                    <div class="brand-icon">
+                                        <i class="bi bi-mortarboard"></i>
+                                    </div>
+                                    <span class="satellite-label">Students</span>
+                                </div>
+                                
+                                <div class="brand-circle satellite satellite-3">
+                                    <div class="brand-icon">
+                                        <i class="bi bi-person-workspace"></i>
+                                    </div>
+                                    <span class="satellite-label">Faculty</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-7">
+                        <div class="brand-power-content fade-in fade-in-delay-1">
+                            <div class="section-badge">
+                                <i class="bi bi-award"></i>
+                                <span>BRAND POWER</span>
+                            </div>
+                            
+                            <h2 class="brand-power-title">Your Brand. Your App. Your Community.</h2>
+                            
+                            <p class="brand-power-description">Transform your school's identity into a powerful digital presence. A branded mobile app isn't just technology—it's your school's flag in the digital world, creating lasting connections and building community pride.</p>
+                            
+                            <div class="brand-benefits">
+                                <div class="benefit-row">
+                                    <div class="benefit-item">
+                                        <div class="benefit-icon">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                        <div class="benefit-content">
+                                            <h4>Enhanced Visibility</h4>
+                                            <p>Your school logo on every device, keeping your brand top-of-mind in your community.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="benefit-row">
+                                    <div class="benefit-item">
+                                        <div class="benefit-icon">
+                                            <i class="bi bi-heart"></i>
+                                        </div>
+                                        <div class="benefit-content">
+                                            <h4>Community Pride</h4>
+                                            <p>Foster deeper connections as families proudly display your school app on their phones.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="benefit-row">
+                                    <div class="benefit-item">
+                                        <div class="benefit-icon">
+                                            <i class="bi bi-graph-up-arrow"></i>
+                                        </div>
+                                        <div class="benefit-content">
+                                            <h4>Professional Image</h4>
+                                            <p>Demonstrate innovation and forward-thinking leadership in your educational community.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Mobile Partnerships Section -->
+        <!-- 
         <section class="content-section mobile-partnerships-section">
             <div class="container">
                 <div class="row align-items-center">
@@ -780,6 +1580,7 @@
                 </div>
             </div>
         </section>
+        -->
 
     <!-- Features Section -->
     <section class="features-section">

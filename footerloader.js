@@ -1,154 +1,287 @@
-// SchoolBlocks Footer Loader
-// This script dynamically loads the footer HTML and CSS for reuse across pages
+// SchoolBlocks Footer Loader - Comprehensive Professional Footer
+// This script dynamically loads a comprehensive footer with all site links
 
 function loadFooter() {
     const footerHTML = `
         <footer class="site-footer">
-            <div class="footer-main">
-                <div class="footer-left">
-                    <div class="footer-logo">
-                        <img src="Photos/Logo/SchoolBlocks Logo-2024_long-logo.png" alt="SchoolBlocks" class="footer-logo-img">
+            <div class="footer-container">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <img src="Photos/Logo/SchoolBlocks Logo-2024_long-logo.png" alt="SchoolBlocks" class="footer-logo">
                         <p class="footer-tagline">Empowering Educators. Amplifying Impact.</p>
+                        <p class="footer-description">Comprehensive digital solutions designed specifically for K-12 education, trusted by over 3,000 schools nationwide.</p>
+                        
+                        <div class="footer-contact">
+                            <div class="contact-item">
+                                <i class="bi bi-geo-alt"></i>
+                                <a href="https://maps.google.com/?q=417+Main+Street+Suite+U,+Carbondale,+CO+81623" target="_blank" class="contact-link">
+                                    417 Main Street Suite U<br>Carbondale, CO 81623
+                                </a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-telephone"></i>
+                                <a href="tel:+18003136438" class="contact-link">
+                                    (800) 313-6438
+                                </a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-envelope"></i>
+                                <a href="mailto:info@schoolblocks.com" class="contact-link">
+                                    info@schoolblocks.com
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="footer-contact">
-                        <div class="contact-item">
-                            <a href="https://maps.google.com/?q=417+Main+Street+Suite+U,+Carbondale,+CO+81623" target="_blank" class="contact-link">
-                                417 Main Street Suite U<br>
-                                Carbondale, CO 81623
-                            </a>
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4 class="footer-heading">What We Do</h4>
+                            <ul class="footer-nav">
+                                <li><a href="school-websites.html" class="footer-link">School & District Websites</a></li>
+                                <li><a href="apps.html" class="footer-link">Mobile School Apps</a></li>
+                                <li><a href="google-integration.html" class="footer-link">Google Integration Tools</a></li>
+                                <li><a href="school-microsites.html" class="footer-link">Microsites</a></li>
+                                <li><a href="document-engagement.html" class="footer-link">Document Engagement <span class="new-badge">NEW</span></a></li>
+                                <li><a href="welcome-chat.html" class="footer-link">AI-powered Answers <span class="new-badge">NEW</span></a></li>
+                                <li><a href="spirit-store.html" class="footer-link">Spirit Gear Store <span class="new-badge">NEW</span></a></li>
+                                <li><a href="schoolfeed-social.html" class="footer-link">SchoolFeed Social <span class="new-badge">NEW</span></a></li>
+                            </ul>
                         </div>
-                        <div class="contact-item">
-                            <a href="tel:+18003136438" class="contact-link">
-                                +(800) 313-6438
-                            </a>
+                        
+                        <div class="footer-column">
+                            <h4 class="footer-heading">Who We Serve</h4>
+                            <ul class="footer-nav">
+                                <li><a href="administrators.html" class="footer-link">Administration</a></li>
+                                <li><a href="faculty.html" class="footer-link">Faculty</a></li>
+                                <li><a href="parents.html" class="footer-link">Parents</a></li>
+                                <li><a href="students.html" class="footer-link">Students</a></li>
+                            </ul>
+                            
+                            <h4 class="footer-heading">Learning Resources</h4>
+                            <ul class="footer-nav">
+                                <li><a href="blog.html" class="footer-link">Blog</a></li>
+                                <li><a href="case-studies.html" class="footer-link">Case Studies</a></li>
+                                <li><a href="client-stories.html" class="footer-link">Client Stories</a></li>
+                            </ul>
                         </div>
-                    </div>
-                    
-                    <div class="footer-social">
-                        <a href="#" class="social-link facebook" aria-label="Follow us on Facebook">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link twitter" aria-label="Follow us on Twitter">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link linkedin" aria-label="Follow us on LinkedIn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
+                        
+                        <div class="footer-column">
+                            <h4 class="footer-heading">Company</h4>
+                            <ul class="footer-nav">
+                                <li><a href="who-we-are.html" class="footer-link">Who We Are</a></li>
+                                <li><a href="what-we-do.html" class="footer-link">What We Do</a></li>
+                                <li><a href="who-we-serve.html" class="footer-link">Who We Serve</a></li>
+                                <li><a href="learning-resources.html" class="footer-link">Learning Resources</a></li>
+                                <li><a href="webmaster-success.html" class="footer-link">Webmaster Success</a></li>
+                                <li><a href="ada-compliance.html" class="footer-link">ADA Compliance</a></li>
+                                <li><a href="hosting.html" class="footer-link">Hosting</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 class="footer-heading">Get Started</h4>
+                            <ul class="footer-nav">
+                                <li><a href="get-started.html" class="footer-link">Request Demo</a></li>
+                                <li><a href="demo-cta-usage-example.html" class="footer-link">Schedule Consultation</a></li>
+                                <li><a href="#" class="footer-link">Pricing</a></li>
+                                <li><a href="#" class="footer-link">Support Center</a></li>
+                                <li><a href="#" class="footer-link">Training Resources</a></li>
+                            </ul>
+                            
+                            <h4 class="footer-heading">Legal</h4>
+                            <ul class="footer-nav">
+                                <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                                <li><a href="#" class="footer-link">Terms of Service</a></li>
+                                <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                                <li><a href="#" class="footer-link">Accessibility</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="footer-right">
-                    <a href="/contact" class="footer-nav-link">Contact</a>
-                    <a href="/careers" class="footer-nav-link">Careers <span class="red-dot"></span></a>
-                    <a href="/privacy-policy" class="footer-nav-link">Privacy Policy</a>
+                <div class="footer-bottom">
+                    <div class="footer-social">
+                        <a href="#" class="social-link facebook" aria-label="Follow us on Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link twitter" aria-label="Follow us on Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin" aria-label="Follow us on LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link youtube" aria-label="Follow us on YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link instagram" aria-label="Follow us on Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="footer-copyright">
+                        <p>&copy; <span id="current-year"></span> SchoolBlocks. All rights reserved.</p>
+                        <p class="footer-subtitle">Trusted by over 3,000 schools nationwide • 25 Years of K-12 Innovation</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="footer-social-mobile">
-                <a href="#" class="social-link facebook" aria-label="Follow us on Facebook">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                </a>
-                <a href="#" class="social-link twitter" aria-label="Follow us on Twitter">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                    </svg>
-                </a>
-                <a href="#" class="social-link linkedin" aria-label="Follow us on LinkedIn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                </a>
-            </div>
-            
-            <div class="footer-copyright">
-                <p class="copyright">Copyright ©<span id="current-year"></span> School Blocks</p>
             </div>
         </footer>
     `;
 
     const footerCSS = `
         <style>
-            /* SchoolBlocks Footer Styles - Clean Structure */
+            /* SchoolBlocks Professional Footer Styles */
             .site-footer {
-                background: #ffffff;
-                color: #333333;
-                padding: 60px 40px 30px;
-                width: 100%;
-                box-sizing: border-box;
+                background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+                color: #ffffff;
+                padding: 80px 0 0;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             }
             
-            .footer-main {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                width: 100%;
+            .footer-container {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 0 40px;
             }
             
-            .footer-left {
-                text-align: left;
+            .footer-top {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                gap: 80px;
+                padding-bottom: 60px;
+            }
+            
+            /* Brand Section */
+            .footer-brand {
+                max-width: 400px;
             }
             
             .footer-logo {
-                margin-bottom: 30px;
-            }
-            
-            .footer-logo-img {
-                height: 48px;
+                height: 60px;
                 width: auto;
-                margin-bottom: 15px;
+                margin-bottom: 24px;
+                filter: brightness(0) invert(1);
             }
             
             .footer-tagline {
-                color: #333333;
-                font-size: 16px;
-                margin: 0;
-                font-weight: 400;
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #74a9e8;
+                margin: 0 0 16px 0;
+                line-height: 1.3;
+            }
+            
+            .footer-description {
+                font-size: 1rem;
+                color: rgba(255, 255, 255, 0.8);
+                line-height: 1.6;
+                margin: 0 0 32px 0;
             }
             
             .footer-contact {
-                margin-bottom: 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
             }
             
             .contact-item {
-                margin-bottom: 15px;
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
             }
             
-            .contact-item:last-child {
-                margin-bottom: 0;
+            .contact-item i {
+                color: #74a9e8;
+                font-size: 18px;
+                margin-top: 2px;
+                flex-shrink: 0;
             }
             
             .contact-link {
-                color: #333333;
+                color: rgba(255, 255, 255, 0.9);
                 text-decoration: none;
-                font-size: 16px;
+                font-size: 0.95rem;
                 line-height: 1.5;
                 transition: color 0.3s ease;
-                display: inline-block;
-                font-weight: 500;
             }
             
             .contact-link:hover {
-                color: #4A90E2;
-                text-decoration: underline;
+                color: #74a9e8;
+            }
+            
+            /* Links Section */
+            .footer-links {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 40px;
+            }
+            
+            .footer-column {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .footer-heading {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #ffffff;
+                margin: 0 0 20px 0;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+            
+            .footer-nav {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 32px 0;
+            }
+            
+            .footer-nav li {
+                margin-bottom: 12px;
+            }
+            
+            .footer-nav li:last-child {
+                margin-bottom: 0;
+            }
+            
+            .footer-link {
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                font-size: 0.9rem;
+                line-height: 1.4;
+                transition: all 0.3s ease;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .footer-link:hover {
+                color: #74a9e8;
+                transform: translateX(4px);
+            }
+            
+            .new-badge {
+                background: linear-gradient(135deg, #4A90E2, #357ABD);
+                color: white;
+                font-size: 0.7rem;
+                font-weight: 600;
+                padding: 2px 6px;
+                border-radius: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+            
+            /* Footer Bottom */
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 40px 0;
+                margin-top: 60px;
             }
             
             .footer-social {
                 display: flex;
-                gap: 15px;
-            }
-            
-            .footer-social-mobile {
-                display: none;
+                gap: 16px;
             }
             
             .social-link {
@@ -157,137 +290,117 @@ function loadFooter() {
                 justify-content: center;
                 width: 44px;
                 height: 44px;
-                background: rgba(74, 144, 226, 0.1);
+                background: rgba(255, 255, 255, 0.1);
                 border-radius: 50%;
-                color: #333333;
+                color: rgba(255, 255, 255, 0.8);
                 text-decoration: none;
                 transition: all 0.3s ease;
+                font-size: 18px;
             }
             
             .social-link:hover {
-                background: #4A90E2;
+                background: #74a9e8;
                 color: #ffffff;
-                transform: translateY(-2px);
-            }
-            
-            .footer-right {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                text-align: right;
-            }
-            
-            .footer-nav-link {
-                color: #333333;
-                text-decoration: none;
-                font-size: 14px;
-                font-weight: 500;
-                letter-spacing: 1px;
-                transition: color 0.3s ease;
-            }
-            
-            .footer-nav-link:hover {
-                color: #4A90E2;
-            }
-            
-            .red-dot {
-                display: inline-block;
-                width: 8px;
-                height: 8px;
-                background-color: #ff4444;
-                border-radius: 50%;
-                margin-left: 6px;
-                vertical-align: middle;
+                transform: translateY(-3px);
             }
             
             .footer-copyright {
-                text-align: center;
-                padding-top: 30px;
+                text-align: right;
             }
             
-            .copyright {
-                color: #333333;
-                font-size: 14px;
+            .footer-copyright p {
                 margin: 0;
-                font-weight: 400;
+                font-size: 0.9rem;
+                color: rgba(255, 255, 255, 0.8);
+                line-height: 1.4;
+            }
+            
+            .footer-subtitle {
+                font-size: 0.8rem !important;
+                color: rgba(255, 255, 255, 0.6) !important;
+                margin-top: 4px !important;
             }
             
             /* Responsive Design */
-            @media (max-width: 759px) {
+            @media (max-width: 1200px) {
+                .footer-top {
+                    grid-template-columns: 1fr;
+                    gap: 60px;
+                }
+                
+                .footer-links {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 40px;
+                }
+            }
+            
+            @media (max-width: 768px) {
                 .site-footer {
-                    padding: 40px 20px 20px;
-                    text-align: center;
-                    display: flex;
-                    flex-direction: column;
+                    padding: 60px 0 0;
                 }
                 
-                .footer-main {
+                .footer-container {
+                    padding: 0 20px;
+                }
+                
+                .footer-top {
+                    gap: 50px;
+                }
+                
+                .footer-links {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+                
+                .footer-bottom {
                     flex-direction: column;
                     gap: 30px;
                     text-align: center;
-                    align-items: center;
-                    order: 1;
-                }
-                
-                .footer-left,
-                .footer-right {
-                    text-align: center;
-                    width: 100%;
-                }
-                
-                .footer-right {
-                    display: flex;
-                    flex-direction: row;
-                    gap: 30px;
-                    justify-content: center;
-                    flex-wrap: wrap;
-                    order: 2;
-                }
-                
-                .footer-social {
-                    display: none;
-                }
-                
-                .footer-social-mobile {
-                    display: flex;
-                    justify-content: center;
-                    gap: 15px;
-                    order: 3;
-                    margin: 20px 0;
                 }
                 
                 .footer-copyright {
-                    order: 4;
+                    text-align: center;
+                }
+                
+                .footer-brand {
+                    max-width: none;
+                    text-align: center;
+                }
+                
+                .footer-contact {
+                    align-items: center;
                 }
             }
             
             @media (max-width: 480px) {
                 .site-footer {
-                    padding: 30px 15px 15px;
+                    padding: 40px 0 0;
                 }
                 
-                .footer-main {
-                    gap: 30px;
+                .footer-container {
+                    padding: 0 15px;
                 }
                 
-                .footer-logo-img {
-                    height: 40px;
+                .footer-top {
+                    gap: 40px;
                 }
                 
-                .footer-tagline,
-                .contact-link,
-                .footer-nav-link {
-                    font-size: 14px;
+                .footer-logo {
+                    height: 48px;
+                }
+                
+                .footer-tagline {
+                    font-size: 1.1rem;
+                }
+                
+                .footer-description {
+                    font-size: 0.9rem;
                 }
                 
                 .social-link {
                     width: 40px;
                     height: 40px;
-                }
-                
-                .social-link svg {
-                    width: 18px;
-                    height: 18px;
+                    font-size: 16px;
                 }
             }
         </style>

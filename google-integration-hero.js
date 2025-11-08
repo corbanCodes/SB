@@ -4,9 +4,9 @@
 class HeroComponent {
     constructor(config = {}) {
         this.config = {
-            title: config.title || "Google Workspace",
-            subtitle: config.subtitle || "Integration",
-            description: config.description || "Seamlessly connect your school's Google Workspace with SchoolBlocks. Sync users, calendars, files, and Google Classroom to create a unified digital experience. Keep your website content automatically updated with your Google services while maintaining security and proper permissions.",
+            title: config.title || "#1 Google Workspace",
+            subtitle: config.subtitle || "Integrated Provider",
+            description: config.description || "SchoolBlocks is your trusted Google Workspace integrated provider. We seamlessly sync users, calendars, files, and Google Classroom to create a unified digital experience. Keep your website content automatically updated with your Google services while maintaining security and proper permissions.",
             ctaText: config.ctaText || "EXPLORE INTEGRATION",
             ctaUrl: config.ctaUrl || "get-started.html",
             heroImage: config.heroImage || "Photos/Images/google/google-integration-hero-vector.png",

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternative Features Section - SchoolBlocks</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        /* ALTERNATIVE 1: Everything Your District Needs - Modern Card Grid */
+        .alternative-features {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .alternative-features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .alternative-features-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .alternative-features-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .alternative-features-header .highlight-word {
+            color: var(--primary-blue);
+            position: relative;
+        }
+
+        .alternative-features-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            border: 1px solid rgba(74, 144, 226, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(74, 144, 226, 0.15);
+            border-color: var(--primary-blue);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 32px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .feature-icon.websites { background: linear-gradient(135deg, #FF6B6B, #FF5252); }
+        .feature-icon.mobile-apps { background: linear-gradient(135deg, #4ECDC4, #26A69A); }
+        .feature-icon.google { background: linear-gradient(135deg, #45B7D1, #2196F3); }
+        .feature-icon.documents { background: linear-gradient(135deg, #96CEB4, #4CAF50); }
+        .feature-icon.ai-chat { background: linear-gradient(135deg, #FECA57, #FF9800); }
+        .feature-icon.social { background: linear-gradient(135deg, #A8E6CF, #66BB6A); }
+
+        .feature-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .feature-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-link:hover {
+            color: var(--secondary-blue);
+            gap: 12px;
+        }
+
+        .features-cta {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .features-cta-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+
+        .features-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(74, 144, 226, 0.4);
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .alternative-features {
+                padding: 60px 0;
+            }
+            
+            .alternative-features-container {
+                padding: 0 20px;
+            }
+            
+            .alternative-features-header {
+                margin-bottom: 50px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+            
+            .feature-card {
+                padding: 30px 20px;
+            }
+            
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ALTERNATIVE 1: Everything Your District Needs - Modern Card Grid -->
+    <section class="alternative-features">
+        <div class="alternative-features-container">
+            <div class="alternative-features-header">
+                <h2>Everything your district needs for a <span class="highlight-word">modern online presence</span></h2>
+                <p>Comprehensive digital solutions designed specifically for K-12 education</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon websites">
+                        <i class="bi bi-globe2"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Professional Websites</h3>
+                        <p>Beautiful, responsive school websites that engage your community and showcase your district's unique story.</p>
+                        <a href="school-websites.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon mobile-apps">
+                        <i class="bi bi-phone"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Mobile School Apps</h3>
+                        <p>Native iOS and Android apps that keep your community connected with push notifications and real-time updates.</p>
+                        <a href="apps.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon google">
+                        <i class="bi bi-google"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Google Integration</h3>
+                        <p>Seamless integration with Google Workspace for streamlined communication and document management.</p>
+                        <a href="google-integration.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon documents">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Document Engagement</h3>
+                        <p>Transform static documents into interactive experiences that ensure important information reaches everyone.</p>
+                        <a href="document-engagement.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon ai-chat">
+                        <i class="bi bi-chat-dots"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>AI-Powered Answers</h3>
+                        <p>Intelligent chatbot that provides instant, accurate answers to common questions 24/7.</p>
+                        <a href="welcome-chat.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon social">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Safe Social Platform</h3>
+                        <p>Secure social networking designed specifically for schools to celebrate achievements and build community.</p>
+                        <a href="schoolfeed-social.html" class="feature-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features-cta">
+                <a href="get-started.html" class="features-cta-button">
+                    Get Started Today <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

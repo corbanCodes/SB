@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternative Video Section - SchoolBlocks</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        /* ALTERNATIVE 2: Professional Video Section */
+        .alternative-video-section {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .alternative-video-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .video-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .video-text-content {
+            padding-right: 20px;
+        }
+
+        .video-text-content h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .video-text-content .highlight-word {
+            color: var(--primary-blue);
+            position: relative;
+        }
+
+        .video-text-content .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .video-features-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+        .video-features-list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(74, 144, 226, 0.1);
+        }
+
+        .video-features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-check {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .video-cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .primary-cta {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+
+        .primary-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(74, 144, 226, 0.4);
+            color: white;
+        }
+
+        .secondary-cta {
+            background: transparent;
+            color: var(--primary-blue);
+            padding: 16px 32px;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-cta:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .video-container-wrapper {
+            position: relative;
+        }
+
+        .professional-video-container {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .professional-video-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-frame {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f8f9fa;
+        }
+
+        .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .video-play-overlay:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 32px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+            display: none;
+        }
+
+        .video-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(74, 144, 226, 0.05);
+            border-radius: 12px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .video-content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .video-text-content {
+                padding-right: 0;
+                text-align: center;
+            }
+            
+            .video-cta-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .alternative-video-section {
+                padding: 60px 0;
+            }
+            
+            .alternative-video-container {
+                padding: 0 20px;
+            }
+            
+            .video-content-wrapper {
+                gap: 40px;
+            }
+            
+            .professional-video-container {
+                padding: 15px;
+            }
+            
+            .video-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .primary-cta,
+            .secondary-cta {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .video-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ALTERNATIVE 2: Professional Video Section -->
+    <section class="alternative-video-section">
+        <div class="alternative-video-container">
+            <div class="video-content-wrapper">
+                <div class="video-text-content">
+                    <h2>The all-in-one school website solution that fits your <span class="highlight-word">budget</span></h2>
+                    <p class="subtitle">Discover how thousands of schools are transforming their digital presence with SchoolBlocks' comprehensive platform.</p>
+                    
+                    <ul class="video-features-list">
+                        <li>
+                            <div class="feature-check">
+                                <i class="bi bi-check"></i>
+                            </div>
+                            <span class="feature-text">Professional websites that engage communities</span>
+                        </li>
+                        <li>
+                            <div class="feature-check">
+                                <i class="bi bi-check"></i>
+                            </div>
+                            <span class="feature-text">Integrated communication tools</span>
+                        </li>
+                        <li>
+                            <div class="feature-check">
+                                <i class="bi bi-check"></i>
+                            </div>
+                            <span class="feature-text">Budget-friendly pricing for all districts</span>
+                        </li>
+                        <li>
+                            <div class="feature-check">
+                                <i class="bi bi-check"></i>
+                            </div>
+                            <span class="feature-text">Expert support and training included</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="video-cta-buttons">
+                        <a href="get-started.html" class="primary-cta">
+                            Get Started Today <i class="bi bi-arrow-right"></i>
+                        </a>
+                        <a href="demo-cta-usage-example.html" class="secondary-cta">
+                            Schedule Demo <i class="bi bi-calendar-check"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="video-container-wrapper">
+                    <div class="professional-video-container">
+                        <div class="video-frame" id="video-frame">
+                            <img 
+                                src="Photos/Images/HomePage/betterthumbnail2.png" 
+                                alt="SchoolBlocks platform demonstration" 
+                                class="video-thumbnail"
+                                id="video-thumbnail">
+                            <div class="video-play-overlay" id="play-overlay">
+                                <div class="play-button">
+                                    <i class="bi bi-play-fill"></i>
+                                </div>
+                            </div>
+                            <iframe 
+                                src="https://customer-394md8sxxno51fu2.cloudflarestream.com/023420146717080eff31f5f27ce23d8e/iframe"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true"
+                                aria-label="SchoolBlocks platform demonstration video"
+                                class="video-iframe"
+                                id="video-iframe">
+                            </iframe>
+                        </div>
+                        
+                        <div class="video-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">3,000+</span>
+                                <span class="stat-label">Schools Trust Us</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">25</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">99.9%</span>
+                                <span class="stat-label">Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Video play functionality
+        document.getElementById('play-overlay').addEventListener('click', function() {
+            const thumbnail = document.getElementById('video-thumbnail');
+            const overlay = document.getElementById('play-overlay');
+            const iframe = document.getElementById('video-iframe');
+            
+            thumbnail.style.display = 'none';
+            overlay.style.display = 'none';
+            iframe.style.display = 'block';
+            
+            // Add autoplay parameter to iframe src
+            const currentSrc = iframe.src;
+            if (!currentSrc.includes('autoplay')) {
+                iframe.src = currentSrc + (currentSrc.includes('?') ? '&' : '?') + 'autoplay=true';
+            }
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

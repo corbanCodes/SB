@@ -124,15 +124,21 @@ function loadNavbar() {
                                 </div>
                             </div>
                             <div class="mobile-dropdown-content">
+                                <div class="mobile-dropdown-header">
+                                    <a href="what-we-do.html" class="mobile-dropdown-main-link">
+                                        <i class="bi bi-arrow-right-circle"></i>
+                                        <span>Explore Our Platform</span>
+                                    </a>
+                                </div>
                                 <ul class="mobile-dropdown-links">
-                                    <li><a href="school-websites.html">School and District Websites</a></li>
-                                    <li><a href="apps.html">Mobile School Apps</a></li>
-                                    <li><a href="google-integration.html">Google Integration Tools</a></li>
-                                    <li><a href="school-microsites.html">Microsites</a></li>
-                                    <li><a href="document-engagement.html"><span class="new-badge">NEW</span> Document Engagement Platform</a></li>
-                                    <li><a href="welcome-chat.html"><span class="new-badge">NEW</span> AI-powered Answers (WelcomeChat)</a></li>
-                                    <li><a href="spirit-store.html"><span class="new-badge">NEW</span> Spirit Gear Store</a></li>
-                                    <li><a href="schoolfeed-social.html"><span class="new-badge">NEW</span> SchoolFeed Social Platform</a></li>
+                                    <li><a href="school-websites.html"><i class="bi bi-globe2"></i>School and District Websites</a></li>
+                                    <li><a href="apps.html"><i class="bi bi-phone"></i>Mobile School Apps</a></li>
+                                    <li><a href="google-integration.html"><i class="bi bi-google"></i>Google Integration Tools</a></li>
+                                    <li><a href="school-microsites.html"><i class="bi bi-layout-text-window"></i>Microsites</a></li>
+                                    <li><a href="document-engagement.html"><i class="bi bi-file-earmark-text"></i><span class="new-badge">NEW</span> Document Engagement Platform</a></li>
+                                    <li><a href="welcome-chat.html"><i class="bi bi-chat-dots"></i><span class="new-badge">NEW</span> AI-powered Answers (WelcomeChat)</a></li>
+                                    <li><a href="spirit-store.html"><i class="bi bi-shop"></i><span class="new-badge">NEW</span> Spirit Gear Store</a></li>
+                                    <li><a href="schoolfeed-social.html"><i class="bi bi-people"></i><span class="new-badge">NEW</span> SchoolFeed Social Platform</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -189,11 +195,17 @@ function loadNavbar() {
                                 </div>
                             </div>
                             <div class="mobile-dropdown-content">
+                                <div class="mobile-dropdown-header">
+                                    <a href="who-we-serve.html" class="mobile-dropdown-main-link">
+                                        <i class="bi bi-people-fill"></i>
+                                        <span>Meet Our Community</span>
+                                    </a>
+                                </div>
                                 <ul class="mobile-dropdown-links">
-                                    <li><a href="administrators.html">Administration</a></li>
-                                    <li><a href="faculty.html">Faculty</a></li>
-                                    <li><a href="parents.html">Parents</a></li>
-                                    <li><a href="students.html">Students</a></li>
+                                    <li><a href="administrators.html"><i class="bi bi-person-badge"></i>Administration</a></li>
+                                    <li><a href="faculty.html"><i class="bi bi-mortarboard"></i>Faculty</a></li>
+                                    <li><a href="parents.html"><i class="bi bi-house-heart"></i>Parents</a></li>
+                                    <li><a href="students.html"><i class="bi bi-backpack"></i>Students</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -242,11 +254,16 @@ function loadNavbar() {
                                 </div>
                             </div>
                             <div class="mobile-dropdown-content">
+                                <div class="mobile-dropdown-header">
+                                    <a href="learning-resources.html" class="mobile-dropdown-main-link">
+                                        <i class="bi bi-book-half"></i>
+                                        <span>Start Learning Today</span>
+                                    </a>
+                                </div>
                                 <ul class="mobile-dropdown-links">
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="case-studies.html">Case Studies</a></li>
-                                    <li><a href="client-stories.html">Client Stories</a></li>
-                                    <li><a href="/2025-communications-report">The 2025 District Communications Report</a></li>
+                                    <li><a href="blog.html"><i class="bi bi-journal-text"></i>Blog</a></li>
+                                    <li><a href="case-studies.html"><i class="bi bi-graph-up"></i>Case Studies</a></li>
+                                    <li><a href="client-stories.html"><i class="bi bi-chat-quote"></i>Client Stories</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -760,6 +777,39 @@ function loadNavbar() {
                 display: none;
                 background: white;
                 margin-top: 0;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                margin: 8px 16px;
+            }
+            
+            .mobile-dropdown-header {
+                background: linear-gradient(135deg, #4A90E2, #357ABD);
+                padding: 0;
+                margin: 0;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+            
+            .mobile-dropdown-main-link {
+                display: flex !important;
+                align-items: center !important;
+                padding: 16px 20px !important;
+                color: white !important;
+                text-decoration: none !important;
+                font-weight: 600 !important;
+                font-size: 15px !important;
+                gap: 12px !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            .mobile-dropdown-main-link:hover {
+                background: rgba(255, 255, 255, 0.1) !important;
+                color: white !important;
+            }
+            
+            .mobile-dropdown-main-link i {
+                font-size: 18px !important;
+                color: white !important;
             }
             
             .mobile-dropdown-links {
@@ -777,20 +827,39 @@ function loadNavbar() {
             }
             
             .mobile-dropdown-links a {
-                display: block;
-                padding: 15px 30px;
+                display: flex !important;
+                align-items: center !important;
+                padding: 15px 20px !important;
                 color: #495057 !important;
-                text-decoration: none;
-                font-size: 15px;
-                font-weight: 400;
-                transition: all 0.3s ease;
-                background: #f8f9fa;
+                text-decoration: none !important;
+                font-size: 15px !important;
+                font-weight: 400 !important;
+                transition: all 0.3s ease !important;
+                background: #f8f9fa !important;
+                gap: 12px !important;
             }
             
             .mobile-dropdown-links a:hover {
-                background: #e9ecef;
+                background: #e9ecef !important;
                 color: #4A90E2 !important;
-                padding-left: 35px;
+                transform: translateX(4px) !important;
+            }
+            
+            .mobile-dropdown-links a i {
+                font-size: 16px !important;
+                color: #74a9e8 !important;
+                flex-shrink: 0 !important;
+                width: 20px !important;
+                text-align: center !important;
+            }
+            
+            .mobile-dropdown-links a:hover i {
+                color: #4A90E2 !important;
+            }
+            
+            .mobile-dropdown-links .new-badge {
+                margin-left: 8px !important;
+                margin-right: 0 !important;
             }
             
             /* Hide dropdown completely on mobile screens */
@@ -882,12 +951,25 @@ function loadNavbar() {
                 }
                 
                 .main-navigation.mobile-open .dropdown-menu-item > a {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    padding: 20px;
-                    cursor: pointer;
-                    width: 100%;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: space-between !important;
+                    padding: 20px !important;
+                    cursor: pointer !important;
+                    width: 100% !important;
+                    text-decoration: none !important;
+                    color: #333 !important;
+                    background: transparent !important;
+                    border: none !important;
+                    font-size: 16px !important;
+                    font-weight: 500 !important;
+                    transition: background-color 0.3s ease !important;
+                }
+                
+                .main-navigation.mobile-open .dropdown-menu-item > a:hover,
+                .main-navigation.mobile-open .dropdown-menu-item > a:focus {
+                    background-color: #f8f9fa !important;
+                    color: #4A90E2 !important;
                 }
                 
                 .main-navigation.mobile-open .dropdown-arrow {
@@ -959,11 +1041,14 @@ function loadNavbar() {
         link.addEventListener('click', (e) => {
             // Only prevent default and toggle on mobile
             if (window.innerWidth <= 1160) {
+                console.log('📱 Mobile dropdown clicked:', link.textContent.trim());
                 e.preventDefault();
                 e.stopPropagation();
                 
                 const dropdownContent = link.parentElement.querySelector('.mobile-dropdown-content');
                 const isOpen = dropdownContent.classList.contains('open');
+                
+                console.log('📋 Dropdown state:', isOpen ? 'open' : 'closed');
                 
                 // Close all other dropdowns
                 document.querySelectorAll('.mobile-dropdown-content.open').forEach(content => {
@@ -977,9 +1062,23 @@ function loadNavbar() {
                 if (!isOpen) {
                     dropdownContent.classList.add('open');
                     link.classList.add('active');
+                    console.log('✅ Dropdown opened');
+                } else {
+                    console.log('❌ Dropdown closed');
                 }
             }
             // On desktop, let the link work normally
+        });
+        
+        // Add touch event for better mobile responsiveness
+        link.addEventListener('touchstart', (e) => {
+            if (window.innerWidth <= 1160) {
+                // Add visual feedback on touch
+                link.style.backgroundColor = '#f8f9fa';
+                setTimeout(() => {
+                    link.style.backgroundColor = '';
+                }, 150);
+            }
         });
     });
     

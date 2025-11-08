@@ -232,6 +232,49 @@ class HeroComponent {
                 background: rgba(255, 255, 255, 0.95);
             }
 
+            /* Subtle Gloss Animation */
+            .partner-btn::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    90deg, 
+                    transparent 0%, 
+                    rgba(255, 255, 255, 0.2) 40%, 
+                    rgba(255, 255, 255, 0.4) 50%, 
+                    rgba(255, 255, 255, 0.2) 60%, 
+                    transparent 100%
+                );
+                border-radius: 50px;
+                animation: gloss 3s ease-in-out infinite;
+                z-index: 3;
+                pointer-events: none;
+            }
+
+            @keyframes gloss {
+                0% {
+                    left: -100%;
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    left: 100%;
+                    opacity: 0;
+                }
+            }
+
+            .partner-btn:hover::after {
+                animation-duration: 1.5s;
+            }
+
             .partner-logo {
                 width: 24px;
                 height: 24px;
