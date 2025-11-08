@@ -39,86 +39,16 @@ function loadNavbar() {
                             </a>
                             <div class="dropdown-menu">
                                 <div class="dropdown-content">
-                                    <div class="dropdown-section">
-                                        <h4 class="dropdown-title">Core Services</h4>
+                                    <div class="dropdown-left">
                                         <ul class="dropdown-links">
-                                            <li>
-                                                <a href="school-websites.html">
-                                                    <i class="bi bi-globe2"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">School and District Websites</span>
-                                                        <span class="link-desc">Professional websites that engage communities</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="apps.html">
-                                                    <i class="bi bi-phone"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Mobile School Apps</span>
-                                                        <span class="link-desc">Native iOS and Android applications</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="google-integration.html">
-                                                    <i class="bi bi-google"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Google Integration Tools</span>
-                                                        <span class="link-desc">Seamless Google Workspace integration</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="school-microsites.html">
-                                                    <i class="bi bi-layout-text-window"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Microsites</span>
-                                                        <span class="link-desc">Dedicated sites for departments and events</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="dropdown-section">
-                                        <h4 class="dropdown-title">New Features</h4>
-                                        <ul class="dropdown-links">
-                                            <li>
-                                                <a href="document-engagement.html">
-                                                    <i class="bi bi-file-earmark-text"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Document Engagement Platform <span class="new-badge">NEW</span></span>
-                                                        <span class="link-desc">Interactive document experiences</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="welcome-chat.html">
-                                                    <i class="bi bi-chat-dots"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">AI-powered Answers (WelcomeChat) <span class="new-badge">NEW</span></span>
-                                                        <span class="link-desc">Intelligent chatbot for instant support</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="spirit-store.html">
-                                                    <i class="bi bi-shop"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Spirit Gear Store <span class="new-badge">NEW</span></span>
-                                                        <span class="link-desc">Branded merchandise and fundraising</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="schoolfeed-social.html">
-                                                    <i class="bi bi-people"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">SchoolFeed Social Platform <span class="new-badge">NEW</span></span>
-                                                        <span class="link-desc">Safe social networking for schools</span>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                            <li><a href="school-websites.html">School and District Websites</a></li>
+                                            <li><a href="apps.html">Mobile School Apps</a></li>
+                                            <li><a href="google-integration.html">Google Integration Tools</a></li>
+                                            <li><a href="school-microsites.html">Microsites</a></li>
+                                            <li><a href="document-engagement.html"><span class="new-badge">NEW</span> Document Engagement Platform</a></li>
+                                            <li><a href="welcome-chat.html"><span class="new-badge">NEW</span> AI-powered Answers (WelcomeChat)</a></li>
+                                            <li><a href="spirit-store.html"><span class="new-badge">NEW</span> Spirit Gear Store</a></li>
+                                            <li><a href="schoolfeed-social.html"><span class="new-badge">NEW</span> SchoolFeed Social Platform</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -145,45 +75,12 @@ function loadNavbar() {
                             </a>
                             <div class="dropdown-menu">
                                 <div class="dropdown-content">
-                                    <div class="dropdown-section">
-                                        <h4 class="dropdown-title">Our Community</h4>
+                                    <div class="dropdown-left">
                                         <ul class="dropdown-links">
-                                            <li>
-                                                <a href="administrators.html">
-                                                    <i class="bi bi-person-badge"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Administration</span>
-                                                        <span class="link-desc">Strategic leadership tools and insights</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="faculty.html">
-                                                    <i class="bi bi-mortarboard"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Faculty</span>
-                                                        <span class="link-desc">Empower your greatest asset</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="parents.html">
-                                                    <i class="bi bi-house-heart"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Parents</span>
-                                                        <span class="link-desc">Stay connected and informed</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="students.html">
-                                                    <i class="bi bi-backpack"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Students</span>
-                                                        <span class="link-desc">Student-centered digital experience</span>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                            <li><a href="administrators.html">Administration</a></li>
+                                            <li><a href="faculty.html">Faculty</a></li>
+                                            <li><a href="parents.html">Parents</a></li>
+                                            <li><a href="students.html">Students</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -207,36 +104,11 @@ function loadNavbar() {
                             </a>
                             <div class="dropdown-menu">
                                 <div class="dropdown-content">
-                                    <div class="dropdown-section">
-                                        <h4 class="dropdown-title">Learn & Explore</h4>
+                                    <div class="dropdown-left">
                                         <ul class="dropdown-links">
-                                            <li>
-                                                <a href="blog.html">
-                                                    <i class="bi bi-journal-text"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Blog</span>
-                                                        <span class="link-desc">Insights & tips from education experts</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="case-studies.html">
-                                                    <i class="bi bi-graph-up"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Case Studies</span>
-                                                        <span class="link-desc">In-depth analysis & measurable outcomes</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="client-stories.html">
-                                                    <i class="bi bi-chat-quote"></i>
-                                                    <div class="link-content">
-                                                        <span class="link-title">Client Stories</span>
-                                                        <span class="link-desc">Real schools, real success stories</span>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="case-studies.html">Case Studies</a></li>
+                                            <li><a href="client-stories.html">Client Stories</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -284,7 +156,6 @@ function loadNavbar() {
     `;
 
     const navbarCSS = `
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
         <style>
             /* SchoolBlocks Navbar Styles */
             .header-top {
@@ -355,128 +226,106 @@ function loadNavbar() {
                 color: #4A90E2;
             }
             
-            /* Modern Dropdown Menu Styles */
+            /* Dropdown Menu Styles */
             .dropdown-menu-item {
                 position: relative;
             }
             
             .dropdown-menu {
-                position: absolute !important;
-                top: 100% !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                background: white !important;
-                border-radius: 12px !important;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
-                border: 1px solid rgba(74, 144, 226, 0.1) !important;
-                opacity: 0 !important;
-                visibility: hidden !important;
-                transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-                z-index: 9999 !important;
-                transform: translateX(-50%) translateY(-10px) !important;
-                min-width: 320px !important;
-                max-width: 480px !important;
-                width: max-content !important;
-                margin-top: 8px !important;
-            }
-            
-            /* Wider dropdown for "What We Do" with more content */
-            .dropdown-menu-item:first-child .dropdown-menu {
-                min-width: 420px;
-                max-width: 580px;
+                position: fixed;
+                top: 86px;
+                left: 0;
+                right: 0;
+                width: 100vw;
+                background: white;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+                border-top: 1px solid rgba(0, 0, 0, 0.08);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                z-index: 999;
+                transform: translateY(-10px);
             }
             
             .dropdown-menu-item:hover .dropdown-menu {
-                opacity: 1 !important;
-                visibility: visible !important;
-                transform: translateX(-50%) translateY(0) !important;
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
             }
             
             .dropdown-content {
-                padding: 16px;
+                width: 100%;
+                margin: 0;
+                display: flex;
+                padding: 0;
+                height: auto;
+                max-height: 350px;
+                min-height: 200px;
             }
             
-            .dropdown-section {
-                margin-bottom: 0;
-            }
-            
-            .dropdown-section + .dropdown-section {
-                margin-top: 16px;
-                padding-top: 16px;
-                border-top: 1px solid rgba(74, 144, 226, 0.1);
-            }
-            
-            .dropdown-title {
-                font-size: 13px;
-                font-weight: 600;
-                color: #74a9e8;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                margin: 0 0 12px 0;
-                padding: 0 12px;
+            .dropdown-left {
+                width: 100%;
+                padding: 30px 60px;
+                background: #fafbfc;
+                overflow-y: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             
             .dropdown-links {
                 list-style: none;
                 margin: 0;
                 padding: 0;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+                gap: 15px 40px;
+                max-width: 1000px;
+                width: 100%;
+                justify-content: center;
             }
             
             .dropdown-links li {
-                margin: 0;
+                margin-bottom: 0;
+            }
+            
+            .dropdown-links li:last-child {
+                margin-bottom: 0;
             }
             
             .dropdown-links a {
-                display: flex;
-                align-items: flex-start;
-                padding: 12px;
-                text-decoration: none;
-                border-radius: 8px;
-                transition: all 0.2s ease;
                 color: #2c3e50 !important;
-                gap: 12px;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: -0.2px;
+                padding: 8px 0;
+                display: block;
+                transition: all 0.3s ease;
+                border-radius: 8px;
+                position: relative;
             }
             
             .dropdown-links a:hover {
-                background: rgba(74, 144, 226, 0.08);
                 color: #4A90E2 !important;
-                transform: translateY(-1px);
+                transform: translateX(8px);
             }
             
-            .dropdown-links a i {
-                font-size: 18px;
-                color: #74a9e8;
-                flex-shrink: 0;
-                margin-top: 2px;
+            .dropdown-links a::before {
+                content: '';
+                position: absolute;
+                left: -20px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 4px;
+                height: 0;
+                background: #4A90E2;
+                transition: height 0.3s ease;
+                border-radius: 2px;
             }
             
-            .dropdown-links a:hover i {
-                color: #4A90E2;
-            }
-            
-            .link-content {
-                display: flex;
-                flex-direction: column;
-                gap: 2px;
-                min-width: 0;
-            }
-            
-            .link-title {
-                font-size: 14px;
-                font-weight: 600;
-                color: inherit;
-                line-height: 1.3;
-            }
-            
-            .link-desc {
-                font-size: 12px;
-                color: #6c757d;
-                line-height: 1.4;
-                font-weight: 400;
-            }
-            
-            .dropdown-links a:hover .link-desc {
-                color: #5a6c7d;
+            .dropdown-links a:hover::before {
+                height: 100%;
             }
             
             /* NEW Badge Styles */
@@ -664,77 +513,79 @@ function loadNavbar() {
                 }
             }
             
-            /* Responsive adjustments for modern dropdown */
+            /* Responsive adjustments for dropdown */
             @media (max-width: 1400px) {
-                .dropdown-menu {
-                    min-width: 300px;
-                    max-width: 420px;
+                .dropdown-left {
+                    padding: 25px 50px;
                 }
                 
                 .dropdown-content {
-                    padding: 14px;
+                    max-height: 320px;
+                    min-height: 180px;
                 }
                 
-                .dropdown-links a {
-                    padding: 10px;
-                }
-                
-                .link-title {
-                    font-size: 13px;
-                }
-                
-                .link-desc {
-                    font-size: 11px;
+                .dropdown-links {
+                    gap: 12px 40px;
                 }
             }
             
             @media (max-width: 1300px) {
-                .dropdown-menu {
-                    min-width: 280px;
-                    max-width: 380px;
+                .dropdown-left {
+                    padding: 25px 40px;
                 }
                 
                 .dropdown-content {
-                    padding: 12px;
+                    max-height: 300px;
+                    min-height: 160px;
+                }
+                
+                .dropdown-links {
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 12px 35px;
                 }
                 
                 .dropdown-links a {
-                    padding: 8px;
-                    gap: 10px;
-                }
-                
-                .dropdown-links a i {
-                    font-size: 16px;
-                }
-                
-                .link-title {
-                    font-size: 12px;
-                }
-                
-                .link-desc {
-                    font-size: 10px;
-                }
-                
-                .dropdown-title {
-                    font-size: 11px;
-                    margin-bottom: 8px;
-                }
-            }
-            
-            @media (max-width: 1250px) {
-                .dropdown-menu {
-                    min-width: 260px;
-                    max-width: 340px;
-                }
-                
-                .dropdown-links a {
-                    padding: 6px;
+                    font-size: 15px;
+                    padding: 6px 0;
                 }
                 
                 .new-badge {
                     font-size: 7px;
-                    padding: 1px 4px;
-                    margin-left: 4px;
+                    padding: 1.5px 5px;
+                    margin-right: 5px;
+                    border-radius: 6px;
+                }
+            }
+            
+            
+            /* Optimize for medium screens */
+            @media (max-width: 1250px) {
+                .dropdown-content {
+                    max-height: 280px;
+                    min-height: 140px;
+                }
+                
+                .dropdown-left {
+                    padding: 20px 40px;
+                }
+                
+                .dropdown-links {
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 10px 25px;
+                    max-width: 900px;
+                }
+                
+                .dropdown-links a {
+                    font-size: 14px;
+                    padding: 5px 0;
+                }
+                
+                .new-badge {
+                    font-size: 7px;
+                    padding: 1.5px 4px;
+                    margin-right: 4px;
+                    border-radius: 5px;
+                    top: -0.5px;
                 }
             }
             
@@ -926,19 +777,6 @@ function loadNavbar() {
     const navbarContainer = document.getElementById('navbar-container');
     if (navbarContainer) {
         navbarContainer.innerHTML = navbarHTML;
-        console.log('✅ Navbar HTML loaded successfully');
-        
-        // Debug: Check if dropdown elements exist
-        setTimeout(() => {
-            const dropdowns = document.querySelectorAll('.dropdown-menu');
-            console.log(`📋 Found ${dropdowns.length} dropdown menus`);
-            dropdowns.forEach((dropdown, index) => {
-                const computedStyle = window.getComputedStyle(dropdown);
-                console.log(`Dropdown ${index}: position=${computedStyle.position}, z-index=${computedStyle.zIndex}, opacity=${computedStyle.opacity}`);
-            });
-        }, 100);
-    } else {
-        console.error('❌ navbar-container not found!');
     }
     
     // Mobile menu toggle functionality
