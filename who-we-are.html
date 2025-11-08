@@ -43,170 +43,6 @@
             padding-top: 0; /* Will be set by navbar loader */
         }
         
-        /* Hero Section - Exactly viewport height minus navbar */
-        .hero-section {
-            background: linear-gradient(135deg, #4ECDC4 0%, #4A90E2 100%);
-            height: calc(100vh - var(--navbar-height, 87px));
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 0 60px;
-            position: relative;
-            transition: filter 0.1s ease-out, opacity 0.1s ease-out;
-        }
-        
-        .hero-content {
-            max-width: min(50%, 800px);
-            color: white;
-            z-index: 2;
-            position: relative;
-        }
-        
-        /* Hero Image Positioning */
-        .hero-image {
-            position: absolute;
-            bottom: 0;
-            right: -200px;
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        .hero-image img {
-            height: 100%;
-            width: auto;
-            object-fit: cover;
-            object-position: bottom right;
-            display: block;
-        }
-        
-        /* Adjust width and positioning for smaller screens */
-        @media (max-width: 1176px) {
-            .hero-section {
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: clamp(20px, 5vh, 60px);
-            }
-            
-            .hero-content {
-                max-width: 85%;
-                text-align: center;
-            }
-            
-            /* Center image at bottom */
-            .hero-image {
-                right: 50%;
-                transform: translateX(50%);
-            }
-            
-            .hero-image img {
-                height: 50vh;
-            }
-        }
-        
-        /* Move content to top and center on smaller screens */
-        @media (max-width: 1158px) {
-            .hero-section {
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: clamp(20px, 5vh, 60px);
-            }
-            
-            .hero-content {
-                text-align: center;
-            }
-            
-            
-            /* Center image at bottom for smaller screens */
-            .hero-image {
-                right: 50%;
-                transform: translateX(50%);
-            }
-            
-            .hero-image img {
-                height: 60vh;
-            }
-        }
-        
-        /* Reset to normal text size for very small screens */
-        @media (max-width: 880px) {
-            .hero-title {
-                font-size: clamp(1.5rem, 4vw, 4rem) !important;
-            }
-            
-            .hero-subtitle {
-                font-size: clamp(0.875rem, 1.2vw, 1.25rem) !important;
-            }
-        }
-        
-        .hero-title {
-            font-size: clamp(1.5rem, 4vw, 4rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: clamp(15px, 3vh, 30px);
-            font-family: 'brandon-grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-subtitle {
-            font-size: clamp(0.875rem, 1.2vw, 1.25rem);
-            line-height: 1.5;
-            opacity: 0.95;
-            font-weight: 400;
-            margin-bottom: clamp(20px, 4vh, 40px);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Get Started button styled exactly like navbar button */
-        .hero-section .get-started-btn {
-            background: white !important;
-            color: #4A90E2 !important;
-            padding: 12px 24px !important;
-            border: 2px solid #4A90E2 !important;
-            border-radius: 25px !important;
-            font-weight: 600 !important;
-            font-size: 14px !important;
-            text-decoration: none !important;
-            transition: all 0.3s ease !important;
-            display: inline-block !important;
-            letter-spacing: 0.5px !important;
-            min-width: auto !important;
-            text-align: center !important;
-            width: auto !important;
-        }
-        
-        .hero-section .get-started-btn:hover {
-            background: #4A90E2 !important;
-            color: white !important;
-        }
-        
-        
-        
-        /* Decorative elements */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 60%;
-            height: 60%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="lines" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0,20 Q20,0 40,20" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/></pattern></defs><rect width="200" height="200" fill="url(%23lines)"/></svg>');
-            opacity: 0.4;
-            z-index: 0;
-        }
-        
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 300px;
-            height: 300px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            z-index: 0;
-        }
         
         /* Scroll Animation Styles */
         .fade-in-section {
@@ -1137,16 +973,7 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">We help schools strengthen pride, connection, and success across their communities.</h1>
-                <p class="hero-subtitle">SchoolBlocks is dedicated to helping K–12 institutions build stronger, deeper, and safer community connections. We bring this to life through the harmony of design, technology, and usability—crafted to reflect the real human capacity of school systems. The result is a digital communications ecosystem that feels vibrant, relevant, and inviting—encouraging exploration and meaningful engagement.</p>
-                <a href="/get-started" class="get-started-btn">GET STARTED</a>
-            </div>
-            <div class="hero-image">
-                <img src="Photos/Images/HomePage/newhero2.png" alt="SchoolBlocks Team Member" loading="lazy">
-            </div>
-        </section>
+        <div id="hero-section"></div>
         
         <!-- Our Roots Section -->
         <section class="our-roots-section fade-in-section">
@@ -1396,27 +1223,12 @@
                 }
             }, 500);
             
-            // Hero Blur Parallax Effect
-            const heroSection = document.querySelector('.hero-section');
-            
-            function updateHeroBlur() {
-                const scrollY = window.scrollY;
-                const heroHeight = heroSection.offsetHeight;
-                
-                // Calculate blur amount based on scroll position
-                // Max blur of 8px when scrolled past hero section
-                const blurAmount = Math.min((scrollY / heroHeight) * 8, 8);
-                
-                // Apply blur filter
-                heroSection.style.filter = `blur(${blurAmount}px)`;
-                
-                // Optional: Add slight opacity fade as well
-                const opacity = Math.max(1 - (scrollY / heroHeight) * 0.3, 0.7);
-                heroSection.style.opacity = opacity;
+            // Initialize hero component
+            if (typeof HeroComponent !== 'undefined') {
+                HeroComponent.create({}, 'hero-section');
+            } else {
+                console.log('HeroComponent not found');
             }
-            
-            // Update blur on scroll
-            window.addEventListener('scroll', updateHeroBlur);
             
             // Intersection Observer for scroll animations
             const observerOptions = {

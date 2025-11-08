@@ -4,12 +4,12 @@
 class HeroComponent {
     constructor(config = {}) {
         this.config = {
-            title: config.title || "Who We Serve",
-            subtitle: config.subtitle || "& Support",
-            description: config.description || "From K-12 schools to entire districts, we serve educational communities of all sizes. Our platform connects administrators, teachers, parents, and students through comprehensive communication solutions designed specifically for the unique needs of educational institutions.",
-            ctaText: config.ctaText || "DISCOVER SOLUTIONS",
+            title: config.title || "In-Depth Case",
+            subtitle: config.subtitle || "Studies & Analysis",
+            description: config.description || "Explore comprehensive case studies that showcase how educational institutions have successfully implemented SchoolBlocks solutions. From detailed implementation strategies to measurable outcomes, discover the data-driven insights behind our most successful transformations.",
+            ctaText: config.ctaText || "EXPLORE CASE STUDIES",
             ctaUrl: config.ctaUrl || "get-started.html",
-            heroImage: config.heroImage || "Photos/Images/who-we-serve/who-we-serve-hero-vector-art.png",
+            heroImage: config.heroImage || "Photos/Images/Case Studies/case-studies-hero-vector.png",
             showPartners: config.showPartners || false,
             backgroundColor: config.backgroundColor || "#E8F4FD", // Light blue background
             ...config

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; object-src 'none';">
     <title>Microsoft Integration - SchoolBlocks</title>
-    <meta name="description" content="The #1 Microsoft Integration Tool for Schools. SchoolBlocks offers seamless Microsoft 365 integration with fantastic support and competitive pricing.">
+    <meta name="description" content="Microsoft 365 Integration for Schools. SchoolBlocks seamlessly connects with Microsoft services to create unified digital experiences for your school community.">
     
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
@@ -42,7 +42,7 @@
         
         .main-content {
             margin-top: 0;
-            padding: 160px 0 80px 0;
+            padding: 0;
             position: relative;
         }
         
@@ -53,54 +53,13 @@
             width: 100%;
         }
         
-        /* Header Styles */
-        .page-header {
-            text-align: center;
-            margin-bottom: 100px;
-            position: relative;
-        }
-        
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 4px;
-            background: linear-gradient(90deg, #0078D4, #107C10, #FFB900, #D13438);
-            border-radius: 2px;
-            opacity: 0.8;
-        }
-        
-        .page-header h1 {
-            font-size: clamp(2.8rem, 5vw, 4.5rem);
-            font-weight: 700;
-            background: linear-gradient(135deg, #1d1d1f 0%, #0078D4 50%, #107C10 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 24px;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-        
-        .page-header h2 {
-            font-size: clamp(1.3rem, 3vw, 1.6rem);
-            font-weight: 500;
-            color: #86868b;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.4;
-            letter-spacing: -0.01em;
-        }
         
         /* Integration Tabs */
         .integration-tabs {
             display: flex;
             justify-content: center;
             gap: 24px;
-            margin: 0 auto 80px auto;
+            margin: 80px auto 80px auto;
             flex-wrap: wrap;
             padding: 20px;
             background: rgba(255, 255, 255, 0.7);
@@ -529,28 +488,14 @@
         }
         
         @media (max-width: 768px) {
-            .main-content {
-                padding: 140px 0 60px 0;
-            }
-            
             .container {
                 padding: 0 20px;
-            }
-            
-            .page-header {
-                margin-bottom: 60px;
-            }
-            
-            .page-header::before {
-                width: 80px;
-                height: 3px;
-                top: -30px;
             }
             
             .integration-tabs {
                 gap: 16px;
                 padding: 16px;
-                margin-bottom: 60px;
+                margin: 60px auto 60px auto;
             }
             
             .tab-item {
@@ -639,13 +584,10 @@
         }
         
         @media (max-width: 480px) {
-            .main-content {
-                padding: 120px 0 40px 0;
-            }
-            
             .integration-tabs {
                 gap: 12px;
                 padding: 12px;
+                margin: 40px auto 40px auto;
             }
             
             .tab-item {
@@ -704,11 +646,8 @@
     
     <main class="main-content">
         <div class="container">
-            <!-- Page Header -->
-            <div class="page-header">
-                <h1>#1 Microsoft Integration Tool for Schools</h1>
-                <h2>All bias aside, SchoolBlocks is the best because of its winning combination of Microsoft 365 integration, price and fantastic support.</h2>
-            </div>
+            <!-- Hero Section -->
+            <div id="hero-section"></div>
             
             <!-- Integration Tabs -->
             <div class="integration-tabs">
@@ -813,6 +752,7 @@
     
     <!-- Load Navigation and Footer -->
     <script src="navbarloader.js"></script>
+    <script src="microsoft-integration-hero.js"></script>
     <script src="footerloader.js"></script>
     
     <!-- Initialize Navigation and Footer -->
@@ -822,10 +762,11 @@
             loadNavbar();
             loadFooter();
             
-            // Add proper padding to main content to account for fixed navbar
-            const mainContent = document.querySelector('.main-content');
-            if (mainContent) {
-                mainContent.style.paddingTop = '100px';
+            // Initialize hero component
+            if (typeof HeroComponent !== 'undefined') {
+                HeroComponent.create({}, 'hero-section');
+            } else {
+                console.log('HeroComponent not found');
             }
             
             // Tab switching functionality
