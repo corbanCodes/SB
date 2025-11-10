@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Statement - SchoolBlocks</title>
+    <meta name="description" content="SchoolBlocks Accessibility Statement - Our commitment to making our educational platform accessible to all users.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+        
+        .main-content {
+            padding-top: 0;
+        }
+        
+        .accessibility-header {
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            color: white;
+            padding: 80px 0 60px 0;
+            text-align: center;
+        }
+        
+        .accessibility-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .accessibility-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .accessibility-content {
+            background: white;
+            margin: -40px auto 0;
+            max-width: 900px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .accessibility-nav {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .accessibility-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .accessibility-nav a {
+            color: #4A90E2;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .accessibility-nav a:hover {
+            background: #4A90E2;
+            color: white;
+        }
+        
+        .accessibility-body {
+            padding: 40px 30px;
+        }
+        
+        .accessibility-section {
+            margin-bottom: 40px;
+        }
+        
+        .accessibility-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .accessibility-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4A90E2;
+        }
+        
+        .accessibility-section h3 {
+            color: #34495e;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+        }
+        
+        .accessibility-section p {
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        
+        .accessibility-section ul {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        
+        .accessibility-section li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.1);
+            border-color: #4A90E2;
+        }
+        
+        .feature-card h4 {
+            color: #4A90E2;
+            margin-bottom: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-card .icon {
+            font-size: 1.5rem;
+        }
+        
+        .wcag-level {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+        
+        .wcag-aa {
+            background: #28a745;
+            color: white;
+        }
+        
+        .wcag-aaa {
+            background: #007bff;
+            color: white;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-left: 4px solid #4A90E2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 1px solid #e9ecef;
+        }
+        
+        .contact-info h4 {
+            color: #4A90E2;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .last-updated {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #6c757d;
+            font-style: italic;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        @media (max-width: 768px) {
+            .accessibility-header {
+                padding: 60px 0 40px 0;
+            }
+            
+            .accessibility-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .accessibility-content {
+                margin: -20px 15px 0;
+                border-radius: 12px;
+            }
+            
+            .accessibility-body {
+                padding: 30px 20px;
+            }
+            
+            .accessibility-nav {
+                padding: 15px 20px;
+            }
+            
+            .accessibility-nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .accessibility-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+    
+    <div class="main-content">
+        <!-- Accessibility Header -->
+        <section class="accessibility-header">
+            <div class="container">
+                <h1>Accessibility Statement</h1>
+                <p>SchoolBlocks is committed to ensuring our educational platform is accessible to all users, regardless of ability or technology.</p>
+            </div>
+        </section>
+        
+        <!-- Accessibility Content -->
+        <div class="container">
+            <div class="accessibility-content">
+                <!-- Quick Navigation -->
+                <nav class="accessibility-nav">
+                    <ul>
+                        <li><a href="#commitment">Our Commitment</a></li>
+                        <li><a href="#standards">Standards & Guidelines</a></li>
+                        <li><a href="#features">Accessibility Features</a></li>
+                        <li><a href="#testing">Testing & Compliance</a></li>
+                        <li><a href="#feedback">Feedback & Support</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="accessibility-body">
+                    <!-- Introduction -->
+                    <div class="accessibility-section">
+                        <p><strong>Last Updated:</strong> December 10, 2024</p>
+                        <p>SchoolBlocks is dedicated to providing an inclusive educational technology platform that serves all members of the school community. We believe that accessibility is not just a legal requirement, but a fundamental aspect of creating equitable educational experiences.</p>
+                        
+                        <div class="highlight-box">
+                            <strong>Our Goal:</strong> To ensure that all users, including those with disabilities, can effectively access, navigate, and interact with our platform to achieve their educational objectives.
+                        </div>
+                    </div>
+                    
+                    <!-- Our Commitment -->
+                    <div class="accessibility-section" id="commitment">
+                        <h2>1. Our Commitment to Accessibility</h2>
+                        
+                        <p>SchoolBlocks is committed to making our platform accessible to people with disabilities. We continuously work to improve the user experience for everyone and apply relevant accessibility standards.</p>
+                        
+                        <h3>Legal Compliance</h3>
+                        <p>We strive to comply with applicable accessibility laws and regulations, including:</p>
+                        <ul>
+                            <li><strong>Americans with Disabilities Act (ADA)</strong> - Ensuring equal access to public accommodations</li>
+                            <li><strong>Section 504 of the Rehabilitation Act</strong> - Prohibiting disability discrimination in federally funded programs</li>
+                            <li><strong>Section 508 of the Rehabilitation Act</strong> - Federal accessibility standards for electronic content</li>
+                            <li><strong>State Accessibility Laws</strong> - Various state-level requirements for educational institutions</li>
+                        </ul>
+                        
+                        <h3>Ongoing Efforts</h3>
+                        <p>Our accessibility efforts include:</p>
+                        <ul>
+                            <li>Regular accessibility audits and testing</li>
+                            <li>User feedback integration and response</li>
+                            <li>Staff training on accessibility best practices</li>
+                            <li>Collaboration with accessibility experts and organizations</li>
+                            <li>Continuous improvement of our platform's accessibility features</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Standards and Guidelines -->
+                    <div class="accessibility-section" id="standards">
+                        <h2>2. Standards and Guidelines</h2>
+                        
+                        <p>We follow internationally recognized accessibility standards to ensure our platform meets the needs of users with diverse abilities.</p>
+                        
+                        <h3>Web Content Accessibility Guidelines (WCAG) 2.1</h3>
+                        <p>Our platform aims to conform to WCAG 2.1 Level AA standards. These guidelines are organized around four main principles:</p>
+                        
+                        <div class="feature-card">
+                            <h4>
+                                <i class="bi bi-eye icon text-primary"></i>
+                                Perceivable
+                                <span class="wcag-level wcag-aa">Level AA</span>
+                            </h4>
+                            <p>Information and user interface components must be presentable to users in ways they can perceive.</p>
+                            <ul>
+                                <li>Text alternatives for images and media</li>
+                                <li>Captions and transcripts for videos</li>
+                                <li>Sufficient color contrast ratios</li>
+                                <li>Resizable text up to 200% without loss of functionality</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>
+                                <i class="bi bi-hand-index icon text-success"></i>
+                                Operable
+                                <span class="wcag-level wcag-aa">Level AA</span>
+                            </h4>
+                            <p>User interface components and navigation must be operable by all users.</p>
+                            <ul>
+                                <li>Full keyboard accessibility</li>
+                                <li>No content that causes seizures or physical reactions</li>
+                                <li>Sufficient time limits for timed content</li>
+                                <li>Clear navigation and page structure</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>
+                                <i class="bi bi-lightbulb icon text-warning"></i>
+                                Understandable
+                                <span class="wcag-level wcag-aa">Level AA</span>
+                            </h4>
+                            <p>Information and the operation of user interface must be understandable.</p>
+                            <ul>
+                                <li>Clear and simple language</li>
+                                <li>Predictable navigation and functionality</li>
+                                <li>Input assistance and error identification</li>
+                                <li>Consistent design patterns</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>
+                                <i class="bi bi-shield-check icon text-info"></i>
+                                Robust
+                                <span class="wcag-level wcag-aa">Level AA</span>
+                            </h4>
+                            <p>Content must be robust enough to be interpreted by a wide variety of user agents and assistive technologies.</p>
+                            <ul>
+                                <li>Valid, semantic HTML markup</li>
+                                <li>Compatibility with screen readers</li>
+                                <li>Support for assistive technologies</li>
+                                <li>Future-proof accessibility features</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Accessibility Features -->
+                    <div class="accessibility-section" id="features">
+                        <h2>3. Accessibility Features</h2>
+                        
+                        <p>Our platform includes numerous built-in accessibility features designed to support users with various needs:</p>
+                        
+                        <h3>Visual Accessibility</h3>
+                        <div class="feature-card">
+                            <h4><i class="bi bi-contrast icon"></i> High Contrast Mode</h4>
+                            <p>Enhanced color contrast options for users with visual impairments or color vision deficiencies.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="bi bi-zoom-in icon"></i> Text Scaling</h4>
+                            <p>Support for browser zoom up to 200% and customizable font sizes throughout the platform.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="bi bi-image-alt icon"></i> Alternative Text</h4>
+                            <p>Comprehensive alt text for images, graphics, and visual content to support screen readers.</p>
+                        </div>
+                        
+                        <h3>Motor and Mobility Accessibility</h3>
+                        <div class="feature-card">
+                            <h4><i class="bi bi-keyboard icon"></i> Keyboard Navigation</h4>
+                            <p>Full keyboard accessibility with logical tab order and visible focus indicators.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="bi bi-cursor icon"></i> Click Target Size</h4>
+                            <p>Appropriately sized clickable elements (minimum 44x44 pixels) for easy interaction.</p>
+                        </div>
+                        
+                        <h3>Cognitive Accessibility</h3>
+                        <div class="feature-card">
+                            <h4><i class="bi bi-layout-text-sidebar icon"></i> Clear Layout</h4>
+                            <p>Consistent, predictable layout with clear headings and logical content structure.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="bi bi-exclamation-triangle icon"></i> Error Prevention</h4>
+                            <p>Clear error messages, form validation, and confirmation dialogs for important actions.</p>
+                        </div>
+                        
+                        <h3>Hearing Accessibility</h3>
+                        <div class="feature-card">
+                            <h4><i class="bi bi-badge-cc icon"></i> Captions and Transcripts</h4>
+                            <p>Closed captions for videos and transcripts for audio content when available.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="bi bi-volume-mute icon"></i> Visual Indicators</h4>
+                            <p>Visual alternatives to audio alerts and notifications throughout the platform.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testing and Compliance -->
+                    <div class="accessibility-section" id="testing">
+                        <h2>4. Testing and Compliance</h2>
+                        
+                        <h3>Regular Testing Methods</h3>
+                        <p>We employ multiple testing approaches to ensure accessibility compliance:</p>
+                        
+                        <ul>
+                            <li><strong>Automated Testing:</strong> Regular scans using tools like axe-core, WAVE, and Lighthouse</li>
+                            <li><strong>Manual Testing:</strong> Human evaluation of user interfaces and workflows</li>
+                            <li><strong>Screen Reader Testing:</strong> Testing with NVDA, JAWS, and VoiceOver</li>
+                            <li><strong>Keyboard Navigation Testing:</strong> Ensuring full functionality without a mouse</li>
+                            <li><strong>User Testing:</strong> Feedback from users with disabilities</li>
+                        </ul>
+                        
+                        <h3>Third-Party Audits</h3>
+                        <p>We regularly engage accessibility experts and organizations to conduct independent audits of our platform, including:</p>
+                        <ul>
+                            <li>Annual comprehensive accessibility assessments</li>
+                            <li>Specialized testing for new features and updates</li>
+                            <li>Compliance verification against current standards</li>
+                            <li>Recommendations for continuous improvement</li>
+                        </ul>
+                        
+                        <h3>Assistive Technology Compatibility</h3>
+                        <p>Our platform is tested and optimized for compatibility with:</p>
+                        <ul>
+                            <li><strong>Screen Readers:</strong> NVDA, JAWS, VoiceOver, TalkBack</li>
+                            <li><strong>Voice Recognition:</strong> Dragon NaturallySpeaking, Windows Speech Recognition</li>
+                            <li><strong>Switch Navigation:</strong> Various switch-activated devices</li>
+                            <li><strong>Magnification Software:</strong> ZoomText, MAGic, built-in OS magnifiers</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Feedback and Support -->
+                    <div class="accessibility-section" id="feedback">
+                        <h2>5. Feedback and Support</h2>
+                        
+                        <p>We value feedback from our users and are committed to addressing accessibility concerns promptly and effectively.</p>
+                        
+                        <h3>How to Report Accessibility Issues</h3>
+                        <p>If you encounter accessibility barriers while using our platform, please let us know:</p>
+                        
+                        <div class="contact-info">
+                            <h4>Accessibility Support Team</h4>
+                            <p><strong>Email:</strong> accessibility@schoolblocks.com</p>
+                            <p><strong>Phone:</strong> 1-800-SCHOOLBLOCKS (Press 3 for Accessibility Support)</p>
+                            <p><strong>Online Form:</strong> <a href="#feedback-form">Submit Accessibility Feedback</a></p>
+                        </div>
+                        
+                        <h3>What to Include in Your Report</h3>
+                        <p>To help us address your concern quickly, please include:</p>
+                        <ul>
+                            <li>Description of the accessibility barrier</li>
+                            <li>The specific page or feature affected</li>
+                            <li>Your browser and assistive technology information</li>
+                            <li>Steps to reproduce the issue</li>
+                            <li>Your contact information for follow-up</li>
+                        </ul>
+                        
+                        <h3>Our Response Commitment</h3>
+                        <p>We are committed to responding to accessibility feedback:</p>
+                        <ul>
+                            <li><strong>Acknowledgment:</strong> Within 2 business days</li>
+                            <li><strong>Initial Assessment:</strong> Within 5 business days</li>
+                            <li><strong>Resolution Timeline:</strong> Provided based on issue complexity</li>
+                            <li><strong>Follow-up:</strong> Regular updates until resolution</li>
+                        </ul>
+                        
+                        <h3>Alternative Access</h3>
+                        <p>If you cannot access certain content or features due to accessibility barriers, we will work with you to provide alternative access methods, which may include:</p>
+                        <ul>
+                            <li>Alternative formats for documents and media</li>
+                            <li>Phone or email assistance for online processes</li>
+                            <li>Temporary workarounds while we address the issue</li>
+                            <li>Direct support from our accessibility team</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Future Improvements -->
+                    <div class="accessibility-section">
+                        <h2>6. Ongoing Improvements</h2>
+                        
+                        <p>Accessibility is an ongoing commitment, and we continuously work to improve our platform:</p>
+                        
+                        <h3>Current Initiatives</h3>
+                        <ul>
+                            <li>Implementation of ARIA landmarks and labels</li>
+                            <li>Enhanced keyboard navigation patterns</li>
+                            <li>Improved color contrast across all interfaces</li>
+                            <li>Better support for screen reader announcements</li>
+                            <li>Mobile accessibility enhancements</li>
+                        </ul>
+                        
+                        <h3>Future Plans</h3>
+                        <ul>
+                            <li>WCAG 2.2 compliance implementation</li>
+                            <li>Advanced personalization options</li>
+                            <li>Enhanced cognitive accessibility features</li>
+                            <li>Improved multilingual accessibility support</li>
+                            <li>Integration with emerging assistive technologies</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <strong>Stay Updated:</strong> We regularly update this accessibility statement to reflect our current efforts and improvements. Check back periodically for the latest information about our accessibility initiatives.
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="accessibility-section" id="contact">
+                        <h2>7. Contact Information</h2>
+                        
+                        <p>For questions about accessibility or to request assistance, please contact us:</p>
+                        
+                        <div class="contact-info">
+                            <h4>SchoolBlocks Accessibility Team</h4>
+                            <p><strong>Email:</strong> accessibility@schoolblocks.com</p>
+                            <p><strong>Phone:</strong> 1-800-SCHOOLBLOCKS</p>
+                            <p><strong>TTY:</strong> 1-800-555-0199</p>
+                            <p><strong>Mail:</strong><br>
+                            SchoolBlocks Accessibility Team<br>
+                            123 Education Way<br>
+                            Learning City, LC 12345</p>
+                        </div>
+                        
+                        <h3>Business Hours</h3>
+                        <p>Our accessibility support team is available:</p>
+                        <ul>
+                            <li><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM EST</li>
+                            <li><strong>Emergency Support:</strong> Available 24/7 for critical accessibility issues</li>
+                            <li><strong>Email Support:</strong> Monitored continuously with response within 24 hours</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="last-updated">
+                    Last updated: December 10, 2024
+                </div>
+            </div>
+        </div>
+        
+        <div style="height: 60px;"></div>
+    </div>
+    
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Load Navbar and Footer -->
+    <script src="navbarloader.js"></script>
+    <script src="footerloader.js"></script>
+    
+    <!-- Smooth Scrolling for Navigation Links -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for accessibility navigation links
+            const navLinks = document.querySelectorAll('.accessibility-nav a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const headerOffset = 100;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

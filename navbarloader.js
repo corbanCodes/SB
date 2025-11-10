@@ -1093,6 +1093,17 @@ function loadNavbar() {
     };
     document.head.appendChild(searchScript);
     
+    // Load cookie consent functionality
+    const cookieScript = document.createElement('script');
+    cookieScript.src = 'cookieloader.js';
+    cookieScript.onload = () => {
+        console.log('Cookie consent script loaded successfully');
+    };
+    cookieScript.onerror = () => {
+        console.error('Failed to load cookie consent script');
+    };
+    document.head.appendChild(cookieScript);
+    
     // Dynamically adjust main content padding based on navbar height
     function adjustMainContentPadding() {
         const navbar = document.querySelector('.header-top');

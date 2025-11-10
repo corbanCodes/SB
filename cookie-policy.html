@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - SchoolBlocks</title>
+    <meta name="description" content="SchoolBlocks Cookie Policy - Learn about how we use cookies and similar technologies on our educational platform.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+        
+        .main-content {
+            padding-top: 0;
+        }
+        
+        .cookie-header {
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            color: white;
+            padding: 80px 0 60px 0;
+            text-align: center;
+        }
+        
+        .cookie-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .cookie-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cookie-content {
+            background: white;
+            margin: -40px auto 0;
+            max-width: 900px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cookie-nav {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .cookie-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .cookie-nav a {
+            color: #4A90E2;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .cookie-nav a:hover {
+            background: #4A90E2;
+            color: white;
+        }
+        
+        .cookie-body {
+            padding: 40px 30px;
+        }
+        
+        .cookie-section {
+            margin-bottom: 40px;
+        }
+        
+        .cookie-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .cookie-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4A90E2;
+        }
+        
+        .cookie-section h3 {
+            color: #34495e;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+        }
+        
+        .cookie-section p {
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        
+        .cookie-section ul {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        
+        .cookie-section li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .cookie-type-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .cookie-type-card:hover {
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.1);
+            border-color: #4A90E2;
+        }
+        
+        .cookie-type-card h4 {
+            color: #4A90E2;
+            margin-bottom: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cookie-type-card .badge {
+            font-size: 10px;
+            padding: 4px 8px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-left: 4px solid #4A90E2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cookie-table th {
+            background: #4A90E2;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .cookie-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .cookie-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .cookie-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 1px solid #e9ecef;
+        }
+        
+        .contact-info h4 {
+            color: #4A90E2;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .last-updated {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #6c757d;
+            font-style: italic;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        @media (max-width: 768px) {
+            .cookie-header {
+                padding: 60px 0 40px 0;
+            }
+            
+            .cookie-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .cookie-content {
+                margin: -20px 15px 0;
+                border-radius: 12px;
+            }
+            
+            .cookie-body {
+                padding: 30px 20px;
+            }
+            
+            .cookie-nav {
+                padding: 15px 20px;
+            }
+            
+            .cookie-nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .cookie-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .cookie-table {
+                font-size: 14px;
+            }
+            
+            .cookie-table th,
+            .cookie-table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+    
+    <div class="main-content">
+        <!-- Cookie Policy Header -->
+        <section class="cookie-header">
+            <div class="container">
+                <h1>Cookie Policy</h1>
+                <p>Learn about how SchoolBlocks uses cookies and similar technologies to enhance your experience.</p>
+            </div>
+        </section>
+        
+        <!-- Cookie Policy Content -->
+        <div class="container">
+            <div class="cookie-content">
+                <!-- Quick Navigation -->
+                <nav class="cookie-nav">
+                    <ul>
+                        <li><a href="#what-are-cookies">What Are Cookies</a></li>
+                        <li><a href="#cookie-types">Types of Cookies</a></li>
+                        <li><a href="#how-we-use">How We Use Cookies</a></li>
+                        <li><a href="#third-party">Third-Party Cookies</a></li>
+                        <li><a href="#manage-cookies">Managing Cookies</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="cookie-body">
+                    <!-- Introduction -->
+                    <div class="cookie-section">
+                        <p><strong>Effective Date:</strong> December 10, 2024</p>
+                        <p>This Cookie Policy explains how SchoolBlocks ("we," "our," or "us") uses cookies and similar tracking technologies when you visit our websites, use our mobile applications, or interact with our educational platform services.</p>
+                        
+                        <div class="highlight-box">
+                            <strong>Quick Summary:</strong> We use cookies to improve your experience, remember your preferences, and analyze how our platform is used. You can control cookie settings through your browser or our cookie consent banner.
+                        </div>
+                    </div>
+                    
+                    <!-- What Are Cookies -->
+                    <div class="cookie-section" id="what-are-cookies">
+                        <h2>1. What Are Cookies?</h2>
+                        
+                        <p>Cookies are small text files that are stored on your device (computer, tablet, or mobile phone) when you visit a website. They help websites remember information about your visit, such as your preferred language, login status, and other settings.</p>
+                        
+                        <h3>Similar Technologies</h3>
+                        <p>In addition to cookies, we may also use:</p>
+                        <ul>
+                            <li><strong>Web Beacons:</strong> Small transparent images that help us understand user behavior</li>
+                            <li><strong>Local Storage:</strong> Browser storage that persists longer than session cookies</li>
+                            <li><strong>Session Storage:</strong> Temporary storage that expires when you close your browser</li>
+                            <li><strong>Pixels:</strong> Tiny images used for tracking and analytics</li>
+                        </ul>
+                        
+                        <h3>Why We Use These Technologies</h3>
+                        <p>These technologies help us:</p>
+                        <ul>
+                            <li>Provide a better, more personalized experience</li>
+                            <li>Remember your preferences and settings</li>
+                            <li>Understand how our platform is being used</li>
+                            <li>Improve our services and fix technical issues</li>
+                            <li>Ensure security and prevent fraud</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Types of Cookies -->
+                    <div class="cookie-section" id="cookie-types">
+                        <h2>2. Types of Cookies We Use</h2>
+                        
+                        <div class="cookie-type-card">
+                            <h4>
+                                <i class="bi bi-shield-check text-success"></i>
+                                Essential Cookies
+                                <span class="badge bg-success">Always Active</span>
+                            </h4>
+                            <p>These cookies are necessary for our platform to function properly. They enable basic features like page navigation, access to secure areas, and form submissions. Without these cookies, our services cannot work correctly.</p>
+                            <p><strong>Examples:</strong> Authentication tokens, session identifiers, security cookies</p>
+                        </div>
+                        
+                        <div class="cookie-type-card">
+                            <h4>
+                                <i class="bi bi-graph-up text-primary"></i>
+                                Analytics Cookies
+                                <span class="badge bg-primary">Optional</span>
+                            </h4>
+                            <p>These cookies help us understand how visitors interact with our platform by collecting and reporting information anonymously. This helps us improve our services and user experience.</p>
+                            <p><strong>Examples:</strong> Google Analytics, usage statistics, performance monitoring</p>
+                        </div>
+                        
+                        <div class="cookie-type-card">
+                            <h4>
+                                <i class="bi bi-gear text-info"></i>
+                                Functional Cookies
+                                <span class="badge bg-info">Optional</span>
+                            </h4>
+                            <p>These cookies enable enhanced functionality and personalization. They remember your preferences, such as language settings, theme choices, and customized layouts.</p>
+                            <p><strong>Examples:</strong> Language preferences, theme settings, accessibility options</p>
+                        </div>
+                        
+                        <div class="cookie-type-card">
+                            <h4>
+                                <i class="bi bi-bullseye text-warning"></i>
+                                Marketing Cookies
+                                <span class="badge bg-warning">Optional</span>
+                            </h4>
+                            <p>These cookies track visitors across websites to display relevant advertisements and measure the effectiveness of marketing campaigns. We use these sparingly and only with your consent.</p>
+                            <p><strong>Examples:</strong> Advertising pixels, conversion tracking, remarketing tags</p>
+                        </div>
+                    </div>
+                    
+                    <!-- How We Use Cookies -->
+                    <div class="cookie-section" id="how-we-use">
+                        <h2>3. How We Use Cookies</h2>
+                        
+                        <h3>Detailed Cookie Information</h3>
+                        <table class="cookie-table">
+                            <thead>
+                                <tr>
+                                    <th>Cookie Name</th>
+                                    <th>Purpose</th>
+                                    <th>Type</th>
+                                    <th>Duration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sb_session</td>
+                                    <td>Maintains user login session</td>
+                                    <td>Essential</td>
+                                    <td>Session</td>
+                                </tr>
+                                <tr>
+                                    <td>sb_auth_token</td>
+                                    <td>Authentication and security</td>
+                                    <td>Essential</td>
+                                    <td>30 days</td>
+                                </tr>
+                                <tr>
+                                    <td>sb_preferences</td>
+                                    <td>Stores user preferences</td>
+                                    <td>Functional</td>
+                                    <td>1 year</td>
+                                </tr>
+                                <tr>
+                                    <td>sb_analytics</td>
+                                    <td>Usage analytics and statistics</td>
+                                    <td>Analytics</td>
+                                    <td>2 years</td>
+                                </tr>
+                                <tr>
+                                    <td>_ga</td>
+                                    <td>Google Analytics tracking</td>
+                                    <td>Analytics</td>
+                                    <td>2 years</td>
+                                </tr>
+                                <tr>
+                                    <td>sb_consent</td>
+                                    <td>Remembers cookie consent choices</td>
+                                    <td>Essential</td>
+                                    <td>1 year</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h3>Educational Platform Specific Uses</h3>
+                        <ul>
+                            <li><strong>User Authentication:</strong> Keeping you logged in securely across sessions</li>
+                            <li><strong>Personalization:</strong> Remembering your dashboard layout and preferences</li>
+                            <li><strong>Communication:</strong> Tracking message read status and notification preferences</li>
+                            <li><strong>Performance:</strong> Optimizing load times and reducing server requests</li>
+                            <li><strong>Security:</strong> Detecting and preventing unauthorized access attempts</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Third-Party Cookies -->
+                    <div class="cookie-section" id="third-party">
+                        <h2>4. Third-Party Cookies and Services</h2>
+                        
+                        <p>We work with trusted third-party services that may set their own cookies. These services help us provide better functionality and insights:</p>
+                        
+                        <h3>Analytics Services</h3>
+                        <ul>
+                            <li><strong>Google Analytics:</strong> Website and app usage analytics</li>
+                            <li><strong>Hotjar:</strong> User behavior analysis and heatmaps</li>
+                            <li><strong>Mixpanel:</strong> Event tracking and user journey analysis</li>
+                        </ul>
+                        
+                        <h3>Integration Services</h3>
+                        <ul>
+                            <li><strong>Google Workspace:</strong> Single sign-on and document integration</li>
+                            <li><strong>Microsoft 365:</strong> Authentication and file sharing</li>
+                            <li><strong>Zoom:</strong> Video conferencing integration</li>
+                        </ul>
+                        
+                        <h3>Support and Communication</h3>
+                        <ul>
+                            <li><strong>Intercom:</strong> Customer support chat functionality</li>
+                            <li><strong>Zendesk:</strong> Help desk and ticket management</li>
+                            <li><strong>Mailchimp:</strong> Email communication and newsletters</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <strong>Third-Party Privacy:</strong> Each third-party service has its own privacy policy and cookie practices. We encourage you to review their policies to understand how they handle your data.
+                        </div>
+                    </div>
+                    
+                    <!-- Managing Cookies -->
+                    <div class="cookie-section" id="manage-cookies">
+                        <h2>5. Managing Your Cookie Preferences</h2>
+                        
+                        <h3>Cookie Consent Banner</h3>
+                        <p>When you first visit our platform, you'll see a cookie consent banner that allows you to:</p>
+                        <ul>
+                            <li>Accept all cookies</li>
+                            <li>Decline non-essential cookies</li>
+                            <li>Customize your cookie preferences</li>
+                            <li>Learn more about each cookie category</li>
+                        </ul>
+                        
+                        <h3>Browser Settings</h3>
+                        <p>You can also manage cookies through your browser settings:</p>
+                        
+                        <div class="cookie-type-card">
+                            <h4><i class="bi bi-browser-chrome"></i> Chrome</h4>
+                            <p>Settings → Privacy and Security → Cookies and other site data</p>
+                        </div>
+                        
+                        <div class="cookie-type-card">
+                            <h4><i class="bi bi-browser-firefox"></i> Firefox</h4>
+                            <p>Settings → Privacy & Security → Cookies and Site Data</p>
+                        </div>
+                        
+                        <div class="cookie-type-card">
+                            <h4><i class="bi bi-browser-safari"></i> Safari</h4>
+                            <p>Preferences → Privacy → Manage Website Data</p>
+                        </div>
+                        
+                        <div class="cookie-type-card">
+                            <h4><i class="bi bi-browser-edge"></i> Edge</h4>
+                            <p>Settings → Cookies and site permissions → Cookies and site data</p>
+                        </div>
+                        
+                        <h3>Mobile Devices</h3>
+                        <p>On mobile devices, you can manage cookies through:</p>
+                        <ul>
+                            <li><strong>iOS Safari:</strong> Settings → Safari → Privacy & Security</li>
+                            <li><strong>Android Chrome:</strong> Chrome app → Settings → Site Settings → Cookies</li>
+                            <li><strong>Our Mobile Apps:</strong> In-app privacy settings</li>
+                        </ul>
+                        
+                        <h3>Impact of Disabling Cookies</h3>
+                        <p>Please note that disabling certain cookies may affect your experience:</p>
+                        <ul>
+                            <li>You may need to log in more frequently</li>
+                            <li>Your preferences may not be saved</li>
+                            <li>Some features may not work properly</li>
+                            <li>Personalized content may not be available</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Updates and Changes -->
+                    <div class="cookie-section">
+                        <h2>6. Updates to This Policy</h2>
+                        
+                        <p>We may update this Cookie Policy from time to time to reflect changes in our practices, technology, or legal requirements. When we make significant changes, we will:</p>
+                        <ul>
+                            <li>Update the "Last Modified" date at the bottom of this policy</li>
+                            <li>Notify you through our platform or via email</li>
+                            <li>Request renewed consent if required by law</li>
+                            <li>Provide clear information about what has changed</li>
+                        </ul>
+                        
+                        <p>We encourage you to review this policy periodically to stay informed about how we use cookies.</p>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="cookie-section" id="contact">
+                        <h2>7. Contact Us</h2>
+                        
+                        <p>If you have questions about our use of cookies or this Cookie Policy, please contact us:</p>
+                        
+                        <div class="contact-info">
+                            <h4>Privacy Team</h4>
+                            <p><strong>Email:</strong> privacy@schoolblocks.com</p>
+                            <p><strong>Phone:</strong> 1-800-SCHOOLBLOCKS</p>
+                            <p><strong>Mail:</strong><br>
+                            SchoolBlocks Privacy Team<br>
+                            123 Education Way<br>
+                            Learning City, LC 12345</p>
+                        </div>
+                        
+                        <h3>Data Protection Officer</h3>
+                        <p>For specific privacy and data protection inquiries, you can also contact our Data Protection Officer at <strong>dpo@schoolblocks.com</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="last-updated">
+                    Last updated: December 10, 2024
+                </div>
+            </div>
+        </div>
+        
+        <div style="height: 60px;"></div>
+    </div>
+    
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Load Navbar and Footer -->
+    <script src="navbarloader.js"></script>
+    <script src="footerloader.js"></script>
+    
+    <!-- Smooth Scrolling for Navigation Links -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for cookie navigation links
+            const navLinks = document.querySelectorAll('.cookie-nav a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const headerOffset = 100;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
