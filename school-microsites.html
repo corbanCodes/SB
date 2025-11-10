@@ -82,14 +82,21 @@
         /* Modern Bootstrap Enhancements */
         .container {
             max-width: 1400px !important;
-            padding-left: 2rem !important;
-            padding-right: 2rem !important;
+            padding-left: 3rem !important;
+            padding-right: 3rem !important;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                padding-left: 2.5rem !important;
+                padding-right: 2.5rem !important;
+            }
         }
 
         @media (max-width: 768px) {
             .container {
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
             }
         }
 
@@ -176,6 +183,30 @@
             transform: translateY(0) !important;
             display: block !important; /* Ensure it shows on hover */
         }
+        
+        /* Custom transform utilities */
+        .transform-rotate-3 {
+            transform: rotate(3deg);
+        }
+        
+        /* Icon hover effects */
+        .icon-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .icon-hover:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Card hover effects for enhanced interaction */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        }
     </style>
 </head>
 <body>
@@ -192,63 +223,65 @@
         <!-- Microsites Features Section -->
         <section class="py-5 bg-light">
             <div class="container">
-                <div class="row align-items-center">
+                <div class="row align-items-center g-5">
                     <div class="col-lg-6 mb-4 mb-lg-0">
-                        <div class="pe-lg-4 fade-in">
+                        <div class="pe-lg-5 fade-in">
+                            <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2">TAILORED SOLUTIONS</span>
                             <h2 class="display-5 fw-bold text-primary mb-4">Focused Microsites for Every Purpose</h2>
-                            <p class="lead mb-4">Create dedicated spaces for specific programs, events, or departments with targeted content that serves your unique needs.</p>
+                            <p class="lead mb-5">Create dedicated digital spaces for specific programs, events, or departments with targeted content that serves your unique community needs.</p>
                             
                             <div class="row g-4">
                                 <div class="col-sm-6 fade-in fade-in-delay-1">
-                                    <div class="d-flex align-items-start">
-                                        <div class="bg-primary text-white rounded p-2 me-3 flex-shrink-0">
-                                            <i class="bi bi-bullseye fs-5"></i>
+                                    <div class="bg-white rounded-4 p-4 shadow-sm h-100 border-0 card-hover">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-primary bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 icon-hover">
+                                                <i class="bi bi-bullseye fs-4"></i>
+                                            </div>
+                                            <h5 class="mb-0 fw-bold">Purpose-Built</h5>
                                         </div>
-                                        <div>
-                                            <h6 class="mb-2 fw-semibold">Purpose-Built</h6>
-                                            <p class="text-muted mb-0 small">Designed specifically for athletics, academics, events, or departments</p>
-                                        </div>
+                                        <p class="text-muted mb-0">Designed specifically for athletics, academics, events, or departments with custom functionality</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 fade-in fade-in-delay-2">
-                                    <div class="d-flex align-items-start">
-                                        <div class="bg-success text-white rounded p-2 me-3 flex-shrink-0">
-                                            <i class="bi bi-lightning-charge-fill fs-5"></i>
+                                    <div class="bg-white rounded-4 p-4 shadow-sm h-100 border-0 card-hover">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-success bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 icon-hover">
+                                                <i class="bi bi-lightning-charge-fill fs-4"></i>
+                                            </div>
+                                            <h5 class="mb-0 fw-bold">Rapid Deployment</h5>
                                         </div>
-                                        <div>
-                                            <h6 class="mb-2 fw-semibold">Quick Setup</h6>
-                                            <p class="text-muted mb-0 small">Launch focused sites in days, not weeks</p>
-                                        </div>
+                                        <p class="text-muted mb-0">Launch professional microsites in days with pre-built templates and automated setup</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 fade-in fade-in-delay-3">
-                                    <div class="d-flex align-items-start">
-                                        <div class="bg-info text-white rounded p-2 me-3 flex-shrink-0">
-                                            <i class="bi bi-people-fill fs-5"></i>
+                                    <div class="bg-white rounded-4 p-4 shadow-sm h-100 border-0 card-hover">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-info bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 icon-hover">
+                                                <i class="bi bi-people-fill fs-4"></i>
+                                            </div>
+                                            <h5 class="mb-0 fw-bold">Targeted Engagement</h5>
                                         </div>
-                                        <div>
-                                            <h6 class="mb-2 fw-semibold">Targeted Audience</h6>
-                                            <p class="text-muted mb-0 small">Reach specific communities with relevant content</p>
-                                        </div>
+                                        <p class="text-muted mb-0">Reach specific communities with relevant, personalized content and features</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 fade-in fade-in-delay-4">
-                                    <div class="d-flex align-items-start">
-                                        <div class="bg-warning text-white rounded p-2 me-3 flex-shrink-0">
-                                            <i class="bi bi-link-45deg fs-5"></i>
+                                    <div class="bg-white rounded-4 p-4 shadow-sm h-100 border-0 card-hover">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-warning bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 icon-hover">
+                                                <i class="bi bi-diagram-3-fill fs-4"></i>
+                                            </div>
+                                            <h5 class="mb-0 fw-bold">Smart Integration</h5>
                                         </div>
-                                        <div>
-                                            <h6 class="mb-2 fw-semibold">Seamless Integration</h6>
-                                            <p class="text-muted mb-0 small">Connect with your main website and systems</p>
-                                        </div>
+                                        <p class="text-muted mb-0">Seamlessly connect with your main website, student systems, and communication tools</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="text-center fade-in fade-in-delay-1">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="School Microsites Dashboard" class="img-fluid rounded shadow-lg">
+                        <div class="text-center fade-in fade-in-delay-1 position-relative">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-10 rounded-4 transform-rotate-3"></div>
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="School Microsites Dashboard" class="img-fluid rounded-4 shadow-lg position-relative">
                         </div>
                     </div>
                 </div>
@@ -257,51 +290,58 @@
 
 
         <!-- Popular Microsite Types Section -->
-        <section class="py-5">
+        <section class="py-5 bg-white">
             <div class="container">
-                <div class="row align-items-center">
+                <div class="row align-items-center g-5">
                     <div class="col-lg-6 mb-4 mb-lg-0">
-                        <div class="text-center fade-in fade-in-delay-1">
-                            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern School Building" class="img-fluid rounded shadow-lg">
+                        <div class="text-center fade-in fade-in-delay-1 position-relative">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-10 rounded-4 transform-rotate-3"></div>
+                            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern School Building" class="img-fluid rounded-4 shadow-lg position-relative">
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="ps-lg-4 fade-in">
-                            <span class="badge bg-primary-subtle text-primary mb-3">POPULAR MICROSITES</span>
-                            <h2 class="display-5 fw-bold mb-4">Perfect for Every Department</h2>
-                            <p class="lead mb-4">From athletics to academics, create specialized sites that serve your specific audiences with targeted content and functionality.</p>
+                        <div class="ps-lg-5 fade-in">
+                            <span class="badge bg-gradient bg-primary text-white mb-3 px-4 py-2 fs-6 fw-semibold">POPULAR MICROSITES</span>
+                            <h2 class="display-5 fw-bold mb-4 text-dark">Perfect for Every Department</h2>
+                            <p class="lead mb-5 text-muted">From athletics to academics, create specialized digital experiences that serve your specific audiences with targeted content and advanced functionality.</p>
                             
                             <div class="row g-4">
                                 <div class="col-12 fade-in fade-in-delay-1">
-                                    <div class="d-flex align-items-start">
-                                        <div class="bg-success text-white rounded p-2 me-3 flex-shrink-0">
-                                            <i class="bi bi-trophy-fill fs-5"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="mb-2 fw-semibold">Athletics & Sports</h6>
-                                            <p class="mb-0 text-muted">Dedicated sites for teams, schedules, stats, and sports news</p>
+                                    <div class="bg-light rounded-4 p-4 border-start border-5 border-success card-hover">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-success bg-gradient text-white rounded-3 p-3 me-4 flex-shrink-0 icon-hover">
+                                                <i class="bi bi-trophy-fill fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1 fw-bold text-dark">Athletics & Sports</h5>
+                                                <p class="mb-0 text-muted">Comprehensive sites for teams, live scores, player stats, schedules, and sports news with fan engagement tools</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12 fade-in fade-in-delay-2">
-                                    <div class="d-flex align-items-start">
-                                        <div class="bg-info text-white rounded p-2 me-3 flex-shrink-0">
-                                            <i class="bi bi-calendar-event fs-5"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="mb-2 fw-semibold">Special Events</h6>
-                                            <p class="mb-0 text-muted">Fundraisers, galas, graduations, and community events</p>
+                                    <div class="bg-light rounded-4 p-4 border-start border-5 border-info card-hover">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-info bg-gradient text-white rounded-3 p-3 me-4 flex-shrink-0 icon-hover">
+                                                <i class="bi bi-calendar-event fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1 fw-bold text-dark">Special Events</h5>
+                                                <p class="mb-0 text-muted">Dedicated event hubs for fundraisers, galas, graduations, and community celebrations with RSVP management</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12 fade-in fade-in-delay-3">
-                                    <div class="d-flex align-items-start">
-                                        <div class="bg-warning text-white rounded p-2 me-3 flex-shrink-0">
-                                            <i class="bi bi-mortarboard-fill fs-5"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="mb-2 fw-semibold">Academic Programs</h6>
-                                            <p class="mb-0 text-muted">Showcase specific programs, courses, and academic achievements</p>
+                                    <div class="bg-light rounded-4 p-4 border-start border-5 border-warning card-hover">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-warning bg-gradient text-white rounded-3 p-3 me-4 flex-shrink-0 icon-hover">
+                                                <i class="bi bi-mortarboard-fill fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1 fw-bold text-dark">Academic Programs</h5>
+                                                <p class="mb-0 text-muted">Showcase specialized programs, course catalogs, faculty profiles, and academic achievements with enrollment tools</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -313,6 +353,7 @@
         </section>
 
         <!-- Microsite Management Section -->
+        <!-- 
         <section class="py-5 bg-light">
             <div class="container">
                 <div class="row align-items-center">
@@ -360,6 +401,141 @@
                     <div class="col-lg-6">
                         <div class="text-center fade-in fade-in-delay-1">
                             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dashboard Management Interface" class="img-fluid rounded shadow-lg">
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-1">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-primary bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-shield-check fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Smart Permissions</h5>
+                            <p class="text-muted mb-0">Granular role-based access ensures the right people can update the right content without compromising security or brand consistency.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-2">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-success bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-people-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Distributed Management</h5>
+                            <p class="text-muted mb-0">Empower teachers, coaches, and staff to manage their own content areas while maintaining oversight and brand standards across all sites.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-3">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-info bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-lightning-charge-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Intuitive Interface</h5>
+                            <p class="text-muted mb-0">Our drag-and-drop editor is so simple that anyone can create professional content without training or technical expertise.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-4">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-warning bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-gear-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Automated Workflows</h5>
+                            <p class="text-muted mb-0">Built-in approval processes and content scheduling ensure quality control while reducing administrative overhead.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-5">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-danger bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-award-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Proven Success</h5>
+                            <p class="text-muted mb-0">Thousands of schools trust our platform because it actually works - reducing IT burden while increasing content freshness and engagement.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-6">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-secondary bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-clock-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Real-Time Updates</h5>
+                            <p class="text-muted mb-0">Content changes go live instantly across all platforms, ensuring your community always has the most current information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Management & Permissions Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center fade-in">
+                        <span class="badge bg-success-subtle text-success mb-3 px-4 py-2 fs-6 fw-semibold">INDUSTRY LEADING</span>
+                        <h2 class="display-5 fw-bold mb-4 text-dark">Easiest Content Management in the Business</h2>
+                        <p class="lead mb-5 text-muted">We've successfully distributed content management responsibilities across entire school communities because our system is simply the easiest to use in the industry.</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-1">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-primary bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-shield-check fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Smart Permissions</h5>
+                            <p class="text-muted mb-0">Granular role-based access ensures the right people can update the right content without compromising security or brand consistency.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-2">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-success bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-people-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Distributed Management</h5>
+                            <p class="text-muted mb-0">Empower teachers, coaches, and staff to manage their own content areas while maintaining oversight and brand standards across all sites.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-3">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-info bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-lightning-charge-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Intuitive Interface</h5>
+                            <p class="text-muted mb-0">Our drag-and-drop editor is so simple that anyone can create professional content without training or technical expertise.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-4">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-warning bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-gear-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Automated Workflows</h5>
+                            <p class="text-muted mb-0">Built-in approval processes and content scheduling ensure quality control while reducing administrative overhead.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-5">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-danger bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-award-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Proven Success</h5>
+                            <p class="text-muted mb-0">Thousands of schools trust our platform because it actually works - reducing IT burden while increasing content freshness and engagement.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-6">
+                        <div class="text-center h-100 bg-light rounded-4 p-4 card-hover">
+                            <div class="bg-secondary bg-gradient text-white rounded-3 p-3 mx-auto mb-4 icon-hover" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-clock-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Real-Time Updates</h5>
+                            <p class="text-muted mb-0">Content changes go live instantly across all platforms, ensuring your community always has the most current information.</p>
                         </div>
                     </div>
                 </div>
@@ -495,7 +671,7 @@
                 HeroComponent.create({
                     title: "School Microsites",
                     subtitle: "Tailored Solutions",
-                    description: "SchoolBlocks creates custom microsites for individual schools within your district. Each microsite maintains district branding while providing unique content management, local event calendars, and personalized communication tools that serve each school's specific community needs.",
+                    description: "SchoolBlocks creates custom microsites for individual schools within your district. Each microsite maintains district branding while providing unique content management, group calendars, and personalized communication tools that serve each school's specific community needs.",
                     ctaText: "GET STARTED",
                     ctaUrl: "get-started.html",
                     heroImage: "Photos/Images/microsites/microsites-hero2.png",

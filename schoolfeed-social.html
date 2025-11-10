@@ -11,6 +11,7 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     
+    
     <!-- Custom Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -309,6 +310,85 @@
             transform: translateY(0) !important;
             display: block !important; /* Ensure it shows on hover */
         }
+        
+        /* Icon Hover Effects */
+        .danger-item .bg-gradient,
+        .solution-feature .bg-gradient {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .danger-item:hover .bg-gradient,
+        .solution-feature:hover .bg-gradient {
+            transform: scale(1.1);
+        }
+        
+        /* Interactive Features Tabs */
+        .features-tabs .nav-link {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            color: #6c757d;
+            font-weight: 500;
+            padding: 1rem 1.5rem;
+            margin: 0 0.25rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 60px;
+        }
+        
+        .features-tabs .nav-link:hover {
+            background: #e9ecef;
+            border-color: #dee2e6;
+            color: #495057;
+            transform: translateY(-2px);
+        }
+        
+        .features-tabs .nav-link.active {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: white;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+        
+        .features-tabs .nav-link i {
+            font-size: 1.1rem;
+        }
+        
+        .features-tab-content {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .features-tabs .nav-link {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+                margin: 0.25rem 0;
+                min-height: 50px;
+            }
+            
+            .features-tab-content {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .features-tabs {
+                flex-direction: column;
+            }
+            
+            .features-tabs .nav-link {
+                margin: 0.25rem 0;
+                text-align: left;
+                justify-content: flex-start;
+            }
+        }
     </style>
 </head>
 <body>
@@ -322,45 +402,158 @@
         <!-- Hero Section -->
         <div id="hero-section"></div>
 
-        <!-- Social Engagement Overview Section -->
-        <section class="social-overview-section">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="social-content fade-in">
-                            <div class="section-label">SOCIAL ENGAGEMENT</div>
-                            <h2 class="section-title">Safe, meaningful connections for your school community</h2>
-                            <p class="section-description">SchoolFeed creates a positive social environment where students, parents, and staff can engage meaningfully without the risks of traditional social media platforms.</p>
-                            
-                            <div class="engagement-features">
-                                <div class="feature-item">
-                                    <i class="bi bi-shield-check"></i>
-                                    <span>Moderated conversations</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="bi bi-people"></i>
-                                    <span>Community building tools</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="bi bi-trophy"></i>
-                                    <span>Engagement rewards</span>
+        <!-- Interactive Features Tabs Section -->
+        <section class="py-5 bg-white">
+            <div class="container-fluid" style="max-width: 1600px; padding: 0 60px;">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="text-center mb-5 fade-in">
+                            <span class="badge bg-success-subtle text-success mb-3 px-4 py-2 fs-6 fw-semibold">INTERACTIVE FEATURES</span>
+                            <h2 class="display-5 fw-bold text-dark mb-4">Tools That Encourage Positive Engagement</h2>
+                            <p class="lead text-secondary">Safe Social™ includes powerful features designed to foster meaningful connections, celebrate achievements, and build stronger school communities.</p>
+                        </div>
+                        
+                        <!-- Tab Navigation -->
+                        <div class="nav nav-pills nav-justified mb-4 features-tabs" id="featuresTabs" role="tablist">
+                            <button class="nav-link active" id="prompts-tab" data-bs-toggle="pill" data-bs-target="#prompts" type="button" role="tab">
+                                <i class="bi bi-chat-dots me-2"></i>Conversation Prompts
+                            </button>
+                            <button class="nav-link" id="recognition-tab" data-bs-toggle="pill" data-bs-target="#recognition" type="button" role="tab">
+                                <i class="bi bi-award me-2"></i>Recognition System
+                            </button>
+                            <button class="nav-link" id="moderation-tab" data-bs-toggle="pill" data-bs-target="#moderation" type="button" role="tab">
+                                <i class="bi bi-shield-check me-2"></i>Smart Moderation
+                            </button>
+                            <button class="nav-link" id="analytics-tab" data-bs-toggle="pill" data-bs-target="#analytics" type="button" role="tab">
+                                <i class="bi bi-graph-up me-2"></i>Community Analytics
+                            </button>
+                            <button class="nav-link" id="safety-tab" data-bs-toggle="pill" data-bs-target="#safety" type="button" role="tab">
+                                <i class="bi bi-heart-fill me-2"></i>Safety Tools
+                            </button>
+                        </div>
+                        
+                        <!-- Tab Content -->
+                        <div class="tab-content features-tab-content" id="featuresTabsContent">
+                            <!-- Conversation Prompts Tab -->
+                            <div class="tab-pane fade show active" id="prompts" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="feature-content">
+                                            <h3 class="fw-bold text-dark mb-3">Guided Conversation Prompts</h3>
+                                            <p class="text-secondary mb-4">Spark meaningful discussions with carefully crafted conversation starters that encourage positive interactions and keep conversations on-topic. Our prompts are designed by education professionals to foster community building and celebrate achievements.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Weekly themed discussion topics</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Achievement celebration prompts</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Community building questions</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Educational discussion starters</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="feature-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-chat-dots display-1 text-primary mb-3"></i>
+                                            <h5 class="fw-bold">Meaningful Conversations</h5>
+                                            <p class="text-muted mb-0">Encouraging positive dialogue and community connection</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="social-visual fade-in fade-in-delay-1">
-                            <div class="glass-card">
-                                <div class="card-content">
-                                    <h4>Community Engagement</h4>
-                                    <div class="engagement-stats">
-                                        <div class="stat-item">
-                                            <span class="stat-number">95%</span>
-                                            <span class="stat-label">Positive Interactions</span>
+                            
+                            <!-- Recognition System Tab -->
+                            <div class="tab-pane fade" id="recognition" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="feature-content">
+                                            <h3 class="fw-bold text-dark mb-3">Achievement Recognition System</h3>
+                                            <p class="text-secondary mb-4">Celebrate student achievements, staff contributions, and community milestones with a comprehensive recognition system. Build positive momentum and encourage continued engagement through meaningful rewards and public acknowledgment.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Custom achievement badges</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Community recognition boards</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Milestone celebrations</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Positive contribution tracking</li>
+                                            </ul>
                                         </div>
-                                        <div class="stat-item">
-                                            <span class="stat-number">3x</span>
-                                            <span class="stat-label">Higher Engagement</span>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="feature-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-award display-1 text-warning mb-3"></i>
+                                            <h5 class="fw-bold">Celebrate Success</h5>
+                                            <p class="text-muted mb-0">Recognizing achievements and building community pride</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Smart Moderation Tab -->
+                            <div class="tab-pane fade" id="moderation" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="feature-content">
+                                            <h3 class="fw-bold text-dark mb-3">Professional Content Moderation</h3>
+                                            <p class="text-secondary mb-4">Every post is reviewed by trained education professionals before publication. Our moderation system ensures all content aligns with educational values and maintains a safe, supportive environment for all community members.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Pre-publication review process</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Education-trained moderators</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Community guidelines enforcement</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Inappropriate content filtering</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="feature-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-shield-check display-1 text-success mb-3"></i>
+                                            <h5 class="fw-bold">Safe Environment</h5>
+                                            <p class="text-muted mb-0">Professional moderation ensuring community safety</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Community Analytics Tab -->
+                            <div class="tab-pane fade" id="analytics" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="feature-content">
+                                            <h3 class="fw-bold text-dark mb-3">Community Health Analytics</h3>
+                                            <p class="text-secondary mb-4">Monitor community engagement, sentiment, and participation with comprehensive analytics designed for educational environments. Track positive interactions, identify trends, and measure the impact of your community building efforts.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Engagement rate tracking</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sentiment analysis reports</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Participation insights</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Community growth metrics</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="feature-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-graph-up display-1 text-info mb-3"></i>
+                                            <h5 class="fw-bold">Data-Driven Insights</h5>
+                                            <p class="text-muted mb-0">Understanding community health and engagement</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Safety Tools Tab -->
+                            <div class="tab-pane fade" id="safety" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="feature-content">
+                                            <h3 class="fw-bold text-dark mb-3">Comprehensive Safety Tools</h3>
+                                            <p class="text-secondary mb-4">Built-in safety features protect your community from cyberbullying, inappropriate content, and harmful interactions. Our tools empower administrators, teachers, and parents to maintain a positive environment where everyone feels safe and valued.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Anti-bullying detection</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Inappropriate content blocking</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Emergency reporting system</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Parent notification tools</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="feature-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-heart-fill display-1 text-danger mb-3"></i>
+                                            <h5 class="fw-bold">Protected Community</h5>
+                                            <p class="text-muted mb-0">Comprehensive safety tools for peace of mind</p>
                                         </div>
                                     </div>
                                 </div>
@@ -371,43 +564,151 @@
             </div>
         </section>
 
-
-        <!-- Interactive Features Section -->
-        <section class="interactive-features-section">
+        <!-- Social Media Dangers & Solution Section -->
+        <section class="py-5 bg-white">
             <div class="container">
-                <div class="text-center mb-5">
-                    <div class="section-label">INTERACTIVE FEATURES</div>
-                    <h2 class="section-title">Tools that encourage positive engagement</h2>
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center fade-in">
+                        <span class="badge bg-danger-subtle text-danger mb-3 px-4 py-2 fs-6 fw-semibold">SOCIAL MEDIA RISKS</span>
+                        <h2 class="display-5 fw-bold text-dark mb-4">The Hidden Dangers of Traditional Social Media</h2>
+                        <p class="lead text-secondary">Facebook, Twitter, and other platforms expose your school community to cyberbullying, inappropriate content, privacy violations, and mental health risks. Safe Social™ provides a secure alternative designed specifically for educational communities.</p>
+                    </div>
                 </div>
                 
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="feature-glass-card fade-in">
-                            <div class="feature-icon-wrapper">
-                                <i class="bi bi-chat-dots"></i>
+                <div class="row g-5 align-items-center mb-5">
+                    <div class="col-lg-6 fade-in">
+                        <div class="dangers-content">
+                            <h3 class="fw-bold text-dark mb-4">Why Traditional Social Media Fails Schools</h3>
+                            
+                            <div class="row g-4">
+                                <div class="col-12">
+                                    <div class="danger-item d-flex align-items-start">
+                                        <div class="bg-danger bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
+                                            <i class="bi bi-exclamation-triangle-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold text-dark mb-2">Cyberbullying & Harassment</h5>
+                                            <p class="text-muted mb-0">Unmoderated platforms allow toxic behavior that can devastate students' mental health and create liability issues for schools.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="danger-item d-flex align-items-start">
+                                        <div class="bg-danger bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
+                                            <i class="bi bi-eye-slash-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold text-dark mb-2">Privacy Violations</h5>
+                                            <p class="text-muted mb-0">Major platforms harvest student data, share personal information with advertisers, and create permanent digital footprints.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="danger-item d-flex align-items-start">
+                                        <div class="bg-danger bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
+                                            <i class="bi bi-x-octagon-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold text-dark mb-2">Inappropriate Content Exposure</h5>
+                                            <p class="text-muted mb-0">Algorithms push inappropriate content, misinformation, and harmful material directly to students and families.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="danger-item d-flex align-items-start">
+                                        <div class="bg-danger bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
+                                            <i class="bi bi-emoji-frown-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold text-dark mb-2">Mental Health Impact</h5>
+                                            <p class="text-muted mb-0">Studies link traditional social media to increased anxiety, depression, and self-esteem issues among students.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <h4>Conversation Prompts</h4>
-                            <p>Guided discussion topics that spark meaningful conversations and keep interactions positive and on-topic.</p>
                         </div>
                     </div>
                     
-                    <div class="col-lg-4 col-md-6">
-                        <div class="feature-glass-card fade-in fade-in-delay-1">
-                            <div class="feature-icon-wrapper">
-                                <i class="bi bi-award"></i>
+                    <div class="col-lg-6 fade-in fade-in-delay-1">
+                        <div class="video-container position-relative">
+                            <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg">
+                                <!-- Video Thumbnail -->
+                                <div id="videoThumbnail" class="position-absolute top-0 start-0 w-100 h-100" onclick="playVideo()" style="cursor: pointer; z-index: 10;">
+                                    <img 
+                                        src="Photos/Images/schoolfeed-social/safe-social-thumbnail.png"
+                                        alt="Safe Social Video"
+                                        class="w-100 h-100"
+                                        style="object-fit: cover;">
+                                    <div class="position-absolute top-50 start-50 translate-middle" style="z-index: 11;">
+                                        <div class="bg-white bg-opacity-90 rounded-circle d-flex align-items-center justify-content-center shadow" style="width: 70px; height: 70px;">
+                                            <i class="bi bi-play-fill text-primary" style="font-size: 2rem; margin-left: 3px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Video Iframe (hidden initially) -->
+                                <iframe 
+                                    id="videoIframe"
+                                    src=""
+                                    class="w-100 h-100"
+                                    style="border: none; border-radius: 1rem; display: none;"
+                                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                    allowfullscreen="true">
+                                </iframe>
                             </div>
-                            <h4>Recognition System</h4>
-                            <p>Celebrate achievements and positive contributions with badges, points, and community recognition features.</p>
                         </div>
                     </div>
-                    
-                    <div class="col-lg-4 col-md-6">
-                        <div class="feature-glass-card fade-in fade-in-delay-2">
-                            <div class="feature-icon-wrapper">
-                                <i class="bi bi-bar-chart"></i>
+                </div>
+                
+                <!-- Safe Social Solution -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="solution-section bg-light rounded-4 p-5 fade-in fade-in-delay-2">
+                            <div class="text-center mb-4">
+                                <div class="bg-success bg-gradient text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                    <i class="bi bi-shield-check fs-1"></i>
+                                </div>
+                                <h3 class="fw-bold text-dark mb-3">Safe Social™: The Secure Alternative</h3>
+                                <p class="text-secondary lead">Purpose-built for education with comprehensive safety features, content moderation, and privacy protection that traditional platforms simply cannot provide.</p>
                             </div>
-                            <h4>Engagement Analytics</h4>
-                            <p>Track community health with insights into participation rates, sentiment, and engagement quality.</p>
+                            
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="solution-feature text-center">
+                                        <div class="bg-primary bg-gradient text-white rounded-3 p-3 mx-auto mb-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-person-check fs-4"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-dark mb-2">Professional Moderation</h5>
+                                        <p class="text-muted small mb-0">Every post reviewed by trained moderators before publication</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="solution-feature text-center">
+                                        <div class="bg-success bg-gradient text-white rounded-3 p-3 mx-auto mb-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-lock-fill fs-4"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-dark mb-2">Complete Privacy Control</h5>
+                                        <p class="text-muted small mb-0">No data harvesting, no advertising, no external sharing</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="solution-feature text-center">
+                                        <div class="bg-warning bg-gradient text-white rounded-3 p-3 mx-auto mb-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-mortarboard fs-4"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-dark mb-2">Education-Focused</h5>
+                                        <p class="text-muted small mb-0">Designed specifically for school communities and learning</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="solution-feature text-center">
+                                        <div class="bg-info bg-gradient text-white rounded-3 p-3 mx-auto mb-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-heart-fill fs-4"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-dark mb-2">Positive Environment</h5>
+                                        <p class="text-muted small mb-0">Promotes kindness, celebration, and community building</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -419,10 +720,10 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 order-lg-2">
-                        <div class="community-content fade-in">
+                        <div class="community-content fade-in text-start">
                             <div class="section-label">COMMUNITY BUILDING</div>
-                            <h2 class="section-title">Foster stronger school connections</h2>
-                            <p class="section-description">Create lasting relationships within your school community through structured activities, group discussions, and collaborative projects that bring people together.</p>
+                            <h2 class="section-title text-start">Foster stronger school connections</h2>
+                            <p class="section-description text-start">Create lasting relationships within your school community through structured activities, group discussions, and collaborative projects that bring people together.</p>
                             
                             <div class="community-benefits">
                                 <div class="benefit-item">
@@ -444,19 +745,14 @@
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="community-visual fade-in fade-in-delay-1">
-                            <div class="floating-cards">
-                                <div class="floating-card card-1">
-                                    <i class="bi bi-people-fill"></i>
-                                    <span>Student Groups</span>
-                                </div>
-                                <div class="floating-card card-2">
-                                    <i class="bi bi-calendar-event"></i>
-                                    <span>Events</span>
-                                </div>
-                                <div class="floating-card card-3">
-                                    <i class="bi bi-megaphone"></i>
-                                    <span>Announcements</span>
-                                </div>
+                            <div class="community-image-container bg-light rounded-4 p-4" style="background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 100%);">
+                                <img 
+                                    src="Photos/Images/schoolfeed-social/community-safe-social.png"
+                                    alt="Safe Social Community Building"
+                                    class="img-fluid rounded-3 shadow community-image-hover"
+                                    style="max-width: 100%; height: auto; display: block; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
+                                    onmouseover="this.style.transform='scale(1.05)'"
+                                    onmouseout="this.style.transform='scale(1)'">
                             </div>
                         </div>
                     </div>
@@ -616,6 +912,22 @@
             fadeElements.forEach(el => observer.observe(el));
 
         });
+        
+        // Simple video play function
+        function playVideo() {
+            const thumbnail = document.getElementById('videoThumbnail');
+            const iframe = document.getElementById('videoIframe');
+            
+            // Hide thumbnail
+            thumbnail.style.display = 'none';
+            
+            // Show and load iframe
+            iframe.src = 'https://customer-394md8sxxno51fu2.cloudflarestream.com/941cc2a4a6577c27c4346e2e5c8bb496/iframe';
+            iframe.style.display = 'block';
+        }
     </script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

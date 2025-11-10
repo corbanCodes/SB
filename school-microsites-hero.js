@@ -6,7 +6,7 @@ class HeroComponent {
         this.config = {
             title: config.title || "School Microsites",
             subtitle: config.subtitle || "Tailored Solutions",
-            description: config.description || "SchoolBlocks creates custom microsites for individual schools within your district. Each microsite maintains district branding while providing unique content management, local event calendars, and personalized communication tools that serve each school's specific community needs.",
+            description: config.description || "SchoolBlocks creates custom microsites for individual schools within your district. Each microsite maintains district branding while providing unique content management, group calendars, and personalized communication tools that serve each school's specific community needs.",
             ctaText: config.ctaText || "GET STARTED",
             ctaUrl: config.ctaUrl || "get-started.html",
             heroImage: config.heroImage || "Photos/Images/microsites/microsites-hero2.png",

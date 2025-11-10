@@ -90,10 +90,10 @@ function loadFooter() {
                             
                             <h4 class="footer-heading">Legal</h4>
                             <ul class="footer-nav">
-                                <li><a href="#" class="footer-link">Privacy Policy</a></li>
-                                <li><a href="#" class="footer-link">Terms of Service</a></li>
-                                <li><a href="#" class="footer-link">Cookie Policy</a></li>
-                                <li><a href="#" class="footer-link">Accessibility</a></li>
+                                <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+                                <li><a href="terms-of-service.html" class="footer-link">Terms of Service</a></li>
+                                <li><a href="cookie-policy.html" class="footer-link">Cookie Policy</a></li>
+                                <li><a href="accessibility.html" class="footer-link">Accessibility</a></li>
                             </ul>
                         </div>
                     </div>

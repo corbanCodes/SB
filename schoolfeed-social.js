@@ -4,8 +4,8 @@
 class HeroComponent {
     constructor(config = {}) {
         this.config = {
-            title: config.title || "Safe Social",
-            subtitle: config.subtitle || "School Community",
+            title: config.title || "Protect Your Community",
+            subtitle: config.subtitle || "Safe Social™",
             description: config.description || "Connect your school community through SchoolFeed's secure social platform designed specifically for education. Foster meaningful relationships, celebrate achievements, and build stronger connections between students, parents, and staff in a safe, moderated environment.",
             ctaText: config.ctaText || "EXPLORE SCHOOLFEED",
             ctaUrl: config.ctaUrl || "get-started.html",

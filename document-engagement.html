@@ -986,6 +986,104 @@
             transform: translateX(2px);
         }
 
+        /* Custom transform utilities */
+        .transform-rotate-3 {
+            transform: rotate(3deg);
+        }
+        
+        /* Benefit Item Hover Effects */
+        .benefit-item-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        
+        .benefit-item-hover:hover {
+            transform: scale(1.05);
+        }
+        
+        .benefit-item-hover:hover .bg-gradient {
+            transform: scale(1.1);
+        }
+        
+        /* Demo Modal Styles */
+        .demo-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .demo-modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .demo-modal-content {
+            position: relative;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            max-width: 90vw;
+            max-height: 90vh;
+            width: 1200px;
+            overflow: hidden;
+        }
+        
+        .demo-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f8f9fa;
+        }
+        
+        .demo-close-btn {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .demo-close-btn:hover {
+            background: #e5e7eb;
+            color: #374151;
+        }
+        
+        .demo-embed-container {
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-modal-content {
+                width: 95vw;
+                max-height: 85vh;
+            }
+            
+            .demo-modal-header {
+                padding: 1rem 1.5rem;
+            }
+            
+            .demo-embed-container {
+                padding: 1rem;
+            }
+        }
+
         /* Common Section Styles */
         .section-title {
             font-size: 3rem;
@@ -1532,6 +1630,122 @@
         <!-- Hero Section -->
         <div id="hero-section"></div>
 
+        <!-- Why DocMersion Section -->
+        <section class="why-docmersion-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="why-content fade-in">
+                            <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2">DOCUMENT ENGAGEMENT</span>
+                            <h2 class="section-heading">Why DocMersion?</h2>
+                            <p class="lead-text">DocMersion transforms complex policies into clear, usable resources—so your organization runs smarter, your people stay engaged, and your community thrives. A good organization is a smart one, where people understand the rules so they can work together effectively. When everyone knows what's expected, collaboration flourishes and your community succeeds.</p>
+                            
+                            <div class="row g-4 mt-4">
+                                <div class="col-sm-6 fade-in fade-in-delay-1">
+                                    <div class="d-flex align-items-start benefit-item-hover">
+                                        <div class="bg-primary bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
+                                            <i class="bi bi-eye-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-2 fw-bold">Increased Visibility</h5>
+                                            <p class="text-muted mb-0">Important information reaches more people through engaging, accessible formats</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 fade-in fade-in-delay-2">
+                                    <div class="d-flex align-items-start benefit-item-hover">
+                                        <div class="bg-success bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
+                                            <i class="bi bi-lightbulb-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-2 fw-bold">Better Understanding</h5>
+                                            <p class="text-muted mb-0">Complex policies become clear and actionable for all community members</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 fade-in fade-in-delay-3">
+                                    <div class="d-flex align-items-start benefit-item-hover">
+                                        <div class="bg-info bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
+                                            <i class="bi bi-gear-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-2 fw-bold">Streamlined Operations</h5>
+                                            <p class="text-muted mb-0">Reduce repetitive questions and improve workflow efficiency</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 fade-in fade-in-delay-4">
+                                    <div class="d-flex align-items-start benefit-item-hover">
+                                        <div class="bg-warning bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
+                                            <i class="bi bi-people-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-2 fw-bold">Stronger Community</h5>
+                                            <p class="text-muted mb-0">Build trust through transparent, accessible communication</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <a href="https://www.docmersion.com" target="_blank" class="why-docmersion-link">
+                                    Discover DocMersion <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="why-visual fade-in fade-in-delay-1 position-relative">
+                            <div class="position-relative p-5">
+                                <div class="position-absolute" style="inset: -1rem; background: linear-gradient(135deg, #4A90E2 0%, #8B5CF6 100%); border-radius: 1.5rem; opacity: 0.2; filter: blur(40px); transition: opacity 0.3s ease;"></div>
+                                <div class="position-relative bg-white rounded-4 p-5 shadow-lg border border-light">
+                                    <div class="text-center">
+                                        <div class="bg-gradient bg-primary text-white rounded-3 p-4 mx-auto mb-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-play-circle fs-1"></i>
+                                        </div>
+                                        <h4 class="fw-bold mb-3">Interactive Demo</h4>
+                                        <p class="text-muted">See DocMersion in action</p>
+                                        <div class="mt-4">
+                                            <button class="btn btn-primary btn-lg" onclick="openDemoEmbed()">
+                                                Try Interactive Demo <i class="bi bi-arrow-right ms-2"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Embed Modal -->
+        <div id="demoModal" class="demo-modal" style="display: none;">
+            <div class="demo-modal-overlay" onclick="closeDemoEmbed()"></div>
+            <div class="demo-modal-content">
+                <div class="demo-modal-header">
+                    <h3 class="mb-0">DocMersion Interactive Demo</h3>
+                    <button class="demo-close-btn" onclick="closeDemoEmbed()">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div class="demo-embed-container">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; width: 100%; overflow: hidden;">
+                        <iframe id="demoIframe" 
+                                src="" 
+                                title="DocMersion Interactive Demo" 
+                                frameborder="0" 
+                                loading="lazy" 
+                                webkitallowfullscreen 
+                                mozallowfullscreen 
+                                allowfullscreen 
+                                allow="clipboard-write" 
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 0.75rem;">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Core Benefits Section -->
         <section class="core-benefits-section">
@@ -1547,7 +1761,7 @@
                                     <div class="benefit-number">01</div>
                                     <div class="benefit-content">
                                         <h4>Empower</h4>
-                                        <p>Ensure answers stay consistent across your organization with immediate answers from AI</p>
+                                        <p>Ensure answers stay consistent across your organization with immediate search results</p>
                                     </div>
                                 </div>
                                 
@@ -1596,7 +1810,7 @@
                                         <div class="feature-icon-small">
                                             <i class="bi bi-search"></i>
                                         </div>
-                                        <span>AI Search</span>
+                                        <span>Search</span>
                                     </div>
                                     <div class="feature-box">
                                         <div class="feature-icon-small">
@@ -1636,7 +1850,7 @@
                                 <span>Industry Leading</span>
                             </div>
                             <h2 class="platform-title">The Most Advanced Document Engagement Platform</h2>
-                            <p class="platform-description">DocMersion combines cutting-edge AI technology with enterprise-grade accessibility features to transform how organizations share and manage their most important documents.</p>
+                            <p class="platform-description">DocMersion combines cutting-edge search technology with enterprise-grade accessibility features to transform how organizations share and manage their most important documents.</p>
                             <a href="https://www.docmersion.com" target="_blank" class="platform-cta-btn">
                                 Explore DocMersion
                                 <i class="bi bi-arrow-right"></i>
@@ -1654,8 +1868,8 @@
                                             <div class="feature-glow"></div>
                                         </div>
                                         <div class="feature-content">
-                                            <h4>AI-Powered Search & Discovery</h4>
-                                            <p>Advanced natural language processing helps users find exactly what they need, when they need it. Our AI understands context and intent, not just keywords.</p>
+                                            <h4>Advanced Search & Discovery</h4>
+                                            <p>Advanced search capabilities help users find exactly what they need, when they need it. Our search understands context and intent, not just keywords.</p>
                                             <a href="https://www.docmersion.com" target="_blank" class="feature-link">
                                                 Learn more <i class="bi bi-arrow-right"></i>
                                             </a>
@@ -1705,74 +1919,28 @@
             </div>
         </section>
 
-        <!-- Why DocMersion Section -->
-        <section class="why-docmersion-section">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="why-content fade-in">
-                            <h2 class="section-heading">Why DocMersion?</h2>
-                            <p class="lead-text">DocMersion transforms complex policies into clear, usable resources—so your organization runs smarter, your people stay engaged, and your community thrives.</p>
-                            <a href="https://www.docmersion.com" target="_blank" class="why-docmersion-link">
-                                Discover DocMersion <i class="bi bi-arrow-right"></i>
-                            </a>
-                            
-                            <div class="benefits-grid">
-                                <div class="benefit-item">
-                                    <div class="benefit-stat">More visibility</div>
-                                    <div class="benefit-desc">into policies</div>
-                                </div>
-                                <div class="benefit-item">
-                                    <div class="benefit-stat">Clearer</div>
-                                    <div class="benefit-desc">understanding</div>
-                                </div>
-                                <div class="benefit-item">
-                                    <div class="benefit-stat">Smoother</div>
-                                    <div class="benefit-desc">operations</div>
-                                </div>
-                                <div class="benefit-item">
-                                    <div class="benefit-stat">Stronger</div>
-                                    <div class="benefit-desc">organizations</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="why-visual fade-in fade-in-delay-1">
-                            <div class="visual-placeholder">
-                                <div class="placeholder-content">
-                                    <i class="bi bi-file-earmark-text display-1 text-primary"></i>
-                                    <p class="mt-3">Document Transformation Visual</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
         <!-- Who We Serve Section -->
         <section class="who-we-serve-section">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <div class="serve-content fade-in">
-                            <h2 class="serve-title">Trusted by Organizations That Value Transparency</h2>
-                            <p class="serve-description">From educational institutions to government agencies, DocMersion helps organizations make their most important documents accessible, searchable, and compliant.</p>
+                            <span class="badge bg-success-subtle text-success mb-3 px-3 py-2">EDUCATION FOCUSED</span>
+                            <h2 class="serve-title">Trusted by Schools That Value Transparency</h2>
+                            <p class="serve-description">DocMersion helps school districts transform their most critical documents—from policies and procedures to handbooks and compliance reports—into accessible, searchable resources that serve their entire community.</p>
                             
                             <div class="serve-stats">
                                 <div class="stat-item">
-                                    <div class="stat-number">500+</div>
-                                    <div class="stat-label">Organizations</div>
+                                    <div class="stat-number">1,200+</div>
+                                    <div class="stat-label">School Districts</div>
                                 </div>
                                 <div class="stat-item">
-                                    <div class="stat-number">10M+</div>
-                                    <div class="stat-label">Documents Processed</div>
+                                    <div class="stat-number">5M+</div>
+                                    <div class="stat-label">School Documents</div>
                                 </div>
                                 <div class="stat-item">
-                                    <div class="stat-number">99.9%</div>
-                                    <div class="stat-label">Uptime</div>
+                                    <div class="stat-number">100%</div>
+                                    <div class="stat-label">Compliance Ready</div>
                                 </div>
                             </div>
                         </div>
@@ -1780,20 +1948,28 @@
                     <div class="col-lg-7">
                         <div class="serve-grid fade-in fade-in-delay-1">
                             <div class="serve-item">
-                                <div class="serve-badge schools">Schools</div>
-                                <p>Policies, procedures, and board records made easy for students, parents, and staff</p>
+                                <div class="serve-badge policies">
+                                    <i class="bi bi-file-earmark-text me-2"></i>Policies & Procedures
+                                </div>
+                                <p>Transform district policies and administrative procedures into searchable, accessible resources for all stakeholders</p>
                             </div>
                             <div class="serve-item">
-                                <div class="serve-badge governments">Governments</div>
-                                <p>Modernize public access to legislation, meetings, and compliance reports</p>
+                                <div class="serve-badge handbooks">
+                                    <i class="bi bi-book me-2"></i>Student & Staff Handbooks
+                                </div>
+                                <p>Make handbooks interactive and easy to navigate, ensuring everyone understands expectations and guidelines</p>
                             </div>
                             <div class="serve-item">
-                                <div class="serve-badge nonprofits">Nonprofits</div>
-                                <p>Enhance transparency, reduce admin overhead, unify communications</p>
+                                <div class="serve-badge compliance">
+                                    <i class="bi bi-shield-check me-2"></i>Compliance Documentation
+                                </div>
+                                <p>Streamline access to board minutes, audit reports, and regulatory documents for transparency and accountability</p>
                             </div>
                             <div class="serve-item">
-                                <div class="serve-badge associations">Associations</div>
-                                <p>Publish agendas, share research, clarify decisions for your members</p>
+                                <div class="serve-badge staff">
+                                    <i class="bi bi-people-fill me-2"></i>Staff Resources
+                                </div>
+                                <p>Centralize professional development materials, HR policies, and operational guides for efficient staff management</p>
                             </div>
                         </div>
                     </div>
@@ -1995,6 +2171,43 @@
             const fadeElements = document.querySelectorAll('.fade-in');
             fadeElements.forEach(el => observer.observe(el));
 
+        });
+        
+        // Demo Modal Functions
+        function openDemoEmbed() {
+            const modal = document.getElementById('demoModal');
+            const iframe = document.getElementById('demoIframe');
+            
+            // Set the iframe source when opening
+            iframe.src = 'https://demo.arcade.software/Q0aiaL3qDKFfQe9FboXV?embed&embed_mobile=inline&embed_desktop=inline&show_copy_link=true';
+            
+            // Show modal
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Add fade-in animation
+            setTimeout(() => {
+                modal.style.opacity = '1';
+            }, 10);
+        }
+        
+        function closeDemoEmbed() {
+            const modal = document.getElementById('demoModal');
+            const iframe = document.getElementById('demoIframe');
+            
+            // Hide modal
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Clear iframe source to stop the demo
+            iframe.src = '';
+        }
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDemoEmbed();
+            }
         });
     </script>
 </body>

@@ -1190,6 +1190,134 @@
             transform: translateY(0) !important;
             display: block !important; /* Ensure it shows on hover */
         }
+        
+        /* Intelligence Tabs Styles */
+        .intelligence-tabs .nav-link {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            color: #6c757d;
+            font-weight: 500;
+            padding: 1rem 1.5rem;
+            margin: 0 0.25rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 60px;
+        }
+        
+        .intelligence-tabs .nav-link:hover {
+            background: #e9ecef;
+            border-color: #dee2e6;
+            color: #495057;
+            transform: translateY(-2px);
+        }
+        
+        .intelligence-tabs .nav-link.active {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: white;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+        
+        .intelligence-tabs .nav-link i {
+            font-size: 1.1rem;
+        }
+        
+        .tab-content {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+        
+        .intelligence-content {
+            padding-right: 2rem;
+        }
+        
+        .intelligence-visual {
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .intelligence-tabs .nav-link {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+                margin: 0.25rem 0;
+                min-height: 50px;
+            }
+            
+            .intelligence-tabs .nav-link i {
+                font-size: 1rem;
+            }
+            
+            .tab-content {
+                padding: 1.5rem;
+            }
+            
+            .intelligence-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .intelligence-visual {
+                min-height: 150px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .intelligence-tabs {
+                flex-direction: column;
+            }
+            
+            .intelligence-tabs .nav-link {
+                margin: 0.25rem 0;
+                text-align: left;
+                justify-content: flex-start;
+            }
+        }
+        
+        /* Training Section Styles */
+        .training-feature .feature-icon-circle {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .training-feature:hover .feature-icon-circle {
+            transform: scale(1.1);
+        }
+        
+        .document-icon {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .document-type:hover .document-icon {
+            transform: scale(1.1);
+        }
+        
+        .document-type-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .document-type-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        .document-type-card:hover .document-icon {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -1203,123 +1331,431 @@
         <!-- Hero Section -->
         <div id="hero-section"></div>
 
-        <!-- AI Answers Introduction Section -->
+        <!-- Instant Intelligence Tabs Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="text-center mb-5 fade-in">
+                            <h3 class="display-4 fw-bold text-dark mb-4">Instant Intelligence</h3>
+                            <p class="lead text-secondary mb-5">Transform how your community accesses information with intelligent processing that understands context and intent.</p>
+                        </div>
+                        
+                        <!-- Tab Navigation -->
+                        <div class="nav nav-pills nav-justified mb-4 intelligence-tabs" id="intelligenceTabs" role="tablist">
+                            <button class="nav-link active" id="response-tab" data-bs-toggle="pill" data-bs-target="#response" type="button" role="tab">
+                                <i class="bi bi-lightning-charge-fill me-2"></i>Real-time Response
+                            </button>
+                            <button class="nav-link" id="conversation-tab" data-bs-toggle="pill" data-bs-target="#conversation" type="button" role="tab">
+                                <i class="bi bi-chat-text-fill me-2"></i>Natural Conversation
+                            </button>
+                            <button class="nav-link" id="context-tab" data-bs-toggle="pill" data-bs-target="#context" type="button" role="tab">
+                                <i class="bi bi-cpu-fill me-2"></i>Context Awareness
+                            </button>
+                            <button class="nav-link" id="learning-tab" data-bs-toggle="pill" data-bs-target="#learning" type="button" role="tab">
+                                <i class="bi bi-graph-up-arrow me-2"></i>Adaptive Learning
+                            </button>
+                            <button class="nav-link" id="integration-tab" data-bs-toggle="pill" data-bs-target="#integration" type="button" role="tab">
+                                <i class="bi bi-diagram-3-fill me-2"></i>Smart Integration
+                            </button>
+                        </div>
+                        
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="intelligenceTabsContent">
+                            <!-- Real-time Response Tab -->
+                            <div class="tab-pane fade show active" id="response" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="intelligence-content">
+                                            <h4 class="fw-bold text-dark mb-3">Lightning-Fast Processing</h4>
+                                            <p class="text-secondary mb-4">Deliver answers in milliseconds, not minutes. Our advanced processing engine ensures your community gets instant responses to their questions, improving satisfaction and reducing wait times.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sub-second response times</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>24/7 availability</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Scalable performance</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="intelligence-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-lightning-charge-fill display-1 text-primary mb-3"></i>
+                                            <h5 class="fw-bold">Instant Responses</h5>
+                                            <p class="text-muted mb-0">Processing thousands of queries simultaneously</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Natural Conversation Tab -->
+                            <div class="tab-pane fade" id="conversation" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="intelligence-content">
+                                            <h4 class="fw-bold text-dark mb-3">Human-Like Interactions</h4>
+                                            <p class="text-secondary mb-4">Engage your community with natural, conversational responses that feel warm and personal. No more robotic interactions or confusing automated messages.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Natural language understanding</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Conversational flow</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Empathetic responses</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="intelligence-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-chat-text-fill display-1 text-success mb-3"></i>
+                                            <h5 class="fw-bold">Natural Dialogue</h5>
+                                            <p class="text-muted mb-0">Conversations that feel genuinely helpful</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Context Awareness Tab -->
+                            <div class="tab-pane fade" id="context" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="intelligence-content">
+                                            <h4 class="fw-bold text-dark mb-3">Smart Context Understanding</h4>
+                                            <p class="text-secondary mb-4">Remember previous conversations and understand the full context of each interaction. Provide relevant, personalized responses that build on past conversations.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Conversation memory</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Contextual relevance</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Personalized responses</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="intelligence-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-cpu-fill display-1 text-info mb-3"></i>
+                                            <h5 class="fw-bold">Context Awareness</h5>
+                                            <p class="text-muted mb-0">Understanding the full picture of each conversation</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Adaptive Learning Tab -->
+                            <div class="tab-pane fade" id="learning" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="intelligence-content">
+                                            <h4 class="fw-bold text-dark mb-3">Continuous Improvement</h4>
+                                            <p class="text-secondary mb-4">Learn from every interaction to provide better responses over time. The system adapts to your school's unique needs and communication style.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Machine learning optimization</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Performance analytics</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Automated improvements</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="intelligence-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-graph-up-arrow display-1 text-warning mb-3"></i>
+                                            <h5 class="fw-bold">Adaptive Learning</h5>
+                                            <p class="text-muted mb-0">Getting smarter with every interaction</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Smart Integration Tab -->
+                            <div class="tab-pane fade" id="integration" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="intelligence-content">
+                                            <h4 class="fw-bold text-dark mb-3">Seamless Platform Integration</h4>
+                                            <p class="text-secondary mb-4">Connect with your existing school systems, websites, and communication tools. No disruption to your current workflow - just enhanced capabilities.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>API integrations</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Multi-platform support</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Easy deployment</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="intelligence-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-diagram-3-fill display-1 text-danger mb-3"></i>
+                                            <h5 class="fw-bold">Smart Integration</h5>
+                                            <p class="text-muted mb-0">Connecting all your school systems seamlessly</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training & Knowledge Base Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center mb-5 fade-in">
+                        <span class="badge bg-info-subtle text-info mb-3 px-4 py-2 fs-6 fw-semibold">KNOWLEDGE TRAINING</span>
+                        <h3 class="display-5 fw-bold text-dark mb-4">Trained on Your Content</h3>
+                        <p class="lead text-secondary">WelcomeChat learns from your existing website content and any specific documents you choose to include, ensuring responses are accurate, relevant, and aligned with your school's policies and information.</p>
+                    </div>
+                </div>
+                
+                <div class="row g-5 align-items-center mb-5">
+                    <div class="col-lg-6 fade-in">
+                        <div class="training-content">
+                            <h4 class="fw-bold text-dark mb-4">Comprehensive Content Analysis</h4>
+                            <p class="text-secondary mb-4">Our advanced training process analyzes your entire website, extracting key information, policies, procedures, and frequently asked questions to build a comprehensive knowledge base tailored specifically to your school.</p>
+                            
+                            <div class="row g-4">
+                                <div class="col-sm-6">
+                                    <div class="training-feature d-flex align-items-start">
+                                        <div class="bg-primary bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 feature-icon-circle">
+                                            <i class="bi bi-globe2 fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-2">Website Crawling</h6>
+                                            <p class="text-muted small mb-0">Automatically scans all public pages</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="training-feature d-flex align-items-start">
+                                        <div class="bg-success bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 feature-icon-circle">
+                                            <i class="bi bi-file-text fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-2">Document Processing</h6>
+                                            <p class="text-muted small mb-0">Extracts information from PDFs and files</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="training-feature d-flex align-items-start">
+                                        <div class="bg-warning bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 feature-icon-circle">
+                                            <i class="bi bi-shield-lock fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-2">Privacy Protection</h6>
+                                            <p class="text-muted small mb-0">Only processes approved content</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="training-feature d-flex align-items-start">
+                                        <div class="bg-info bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 feature-icon-circle">
+                                            <i class="bi bi-arrow-clockwise fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-2">Regular Updates</h6>
+                                            <p class="text-muted small mb-0">Stays current with content changes</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 fade-in fade-in-delay-1">
+                        <div class="training-visual position-relative">
+                            <div class="bg-light rounded-4 p-4 text-center">
+                                <div class="row g-3">
+                                    <div class="col-4">
+                                        <div class="training-source bg-white rounded-3 p-3 shadow-sm">
+                                            <i class="bi bi-house-door text-primary fs-4 mb-2"></i>
+                                            <p class="small fw-semibold mb-0">Homepage</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="training-source bg-white rounded-3 p-3 shadow-sm">
+                                            <i class="bi bi-journal-text text-success fs-4 mb-2"></i>
+                                            <p class="small fw-semibold mb-0">Policies</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="training-source bg-white rounded-3 p-3 shadow-sm">
+                                            <i class="bi bi-calendar-event text-warning fs-4 mb-2"></i>
+                                            <p class="small fw-semibold mb-0">Events</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="training-source bg-white rounded-3 p-3 shadow-sm">
+                                            <i class="bi bi-people text-info fs-4 mb-2"></i>
+                                            <p class="small fw-semibold mb-0">Staff</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="training-source bg-white rounded-3 p-3 shadow-sm">
+                                            <i class="bi bi-question-circle text-danger fs-4 mb-2"></i>
+                                            <p class="small fw-semibold mb-0">FAQs</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="training-source bg-white rounded-3 p-3 shadow-sm">
+                                            <i class="bi bi-newspaper text-secondary fs-4 mb-2"></i>
+                                            <p class="small fw-semibold mb-0">News</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <i class="bi bi-arrow-down text-primary fs-2"></i>
+                                </div>
+                                <div class="bg-primary bg-gradient text-white rounded-3 p-3 mt-3">
+                                    <i class="bi bi-robot fs-1 mb-2"></i>
+                                    <h6 class="fw-bold mb-0">WelcomeChat Knowledge Base</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Document Selection Process -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="document-selection-section bg-light rounded-4 p-5 fade-in fade-in-delay-2">
+                            <div class="text-center mb-5">
+                                <h4 class="fw-bold text-dark mb-3">Choose Your Training Documents</h4>
+                                <p class="text-secondary">Select specific documents and content areas to include in your WelcomeChat training for the most relevant and accurate responses.</p>
+                            </div>
+                            
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <div class="document-type-card bg-white rounded-3 p-4 h-100 shadow-sm">
+                                        <div class="d-flex align-items-start">
+                                            <div class="bg-primary bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 document-icon">
+                                                <i class="bi bi-file-earmark-pdf fs-5"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold text-dark mb-2">Policy Documents</h6>
+                                                <p class="text-muted small mb-0">Student handbooks, staff policies, code of conduct, disciplinary procedures</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="document-type-card bg-white rounded-3 p-4 h-100 shadow-sm">
+                                        <div class="d-flex align-items-start">
+                                            <div class="bg-success bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 document-icon">
+                                                <i class="bi bi-clipboard-data fs-5"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold text-dark mb-2">Procedures & Forms</h6>
+                                                <p class="text-muted small mb-0">Enrollment processes, emergency procedures, administrative forms</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="document-type-card bg-white rounded-3 p-4 h-100 shadow-sm">
+                                        <div class="d-flex align-items-start">
+                                            <div class="bg-warning bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 document-icon">
+                                                <i class="bi bi-calendar-check fs-5"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold text-dark mb-2">Schedules & Calendars</h6>
+                                                <p class="text-muted small mb-0">Academic calendars, event schedules, important dates, holidays</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="document-type-card bg-white rounded-3 p-4 h-100 shadow-sm">
+                                        <div class="d-flex align-items-start">
+                                            <div class="bg-info bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 document-icon">
+                                                <i class="bi bi-patch-question fs-5"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold text-dark mb-2">FAQs & Guides</h6>
+                                                <p class="text-muted small mb-0">Common questions, how-to guides, troubleshooting resources</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <div class="d-inline-flex align-items-center bg-white rounded-pill px-4 py-2 shadow-sm">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span class="fw-semibold text-dark">You maintain full control over what content is included</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Powerful Notifications Section -->
         <section class="py-5 bg-white">
             <div class="container">
                 <div class="row justify-content-center mb-5">
                     <div class="col-lg-8 text-center">
-                        <h2 class="display-4 fw-bold text-dark mb-4">AI Answers Companion</h2>
-                        <p class="lead text-secondary mb-0">Integrate our AI Answers companion to provide your members with instant, intelligent responses in natural language—exactly what they expect from modern technology.</p>
+                        <h2 class="display-4 fw-bold text-dark mb-4">Powerful Mass Notifications</h2>
+                        <p class="lead text-secondary mb-0">Deliver messages simultaneously to large groups of people with our powerful outreach system that integrates with your SIS and uses tier one phone connections.</p>
                     </div>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-6">
                         <div class="intro-benefit-card h-100 p-4 fade-in">
                             <div class="intro-icon mb-3">
-                                <i class="bi bi-graph-up-arrow"></i>
+                                <i class="bi bi-megaphone-fill"></i>
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">Enhance Engagement</h5>
-                            <p class="text-secondary mb-0">Keep your community more connected and engaged with intelligent, personalized responses that feel natural and helpful.</p>
+                            <h5 class="fw-bold text-dark mb-3">Mass Communication</h5>
+                            <p class="text-secondary mb-0">Quickly send calls, emails, and texts to mass deliver messages to all parents, faculty, staff, or any subgroup simultaneously.</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="intro-benefit-card h-100 p-4 fade-in fade-in-delay-1">
                             <div class="intro-icon mb-3">
-                                <i class="bi bi-funnel-fill"></i>
+                                <i class="bi bi-telephone-fill"></i>
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">Reduce Support Bottlenecks</h5>
-                            <p class="text-secondary mb-0">Streamline your workflow and free up valuable time by automating routine inquiries and common questions.</p>
+                            <h5 class="fw-bold text-dark mb-3">Crystal Clear Audio</h5>
+                            <p class="text-secondary mb-0">System uses tier one phone connections, delivering crisp and clear audio with user programmable call speed for optimal delivery.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Instant Intelligence Section -->
-        <section class="py-5 bg-white position-relative overflow-hidden">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <div class="text-center mb-5 fade-in">
-                            <h3 class="display-4 fw-bold text-dark mb-4">Instant Intelligence</h3>
-                            <p class="lead text-secondary mb-5">Transform how your community accesses information with natural language processing that understands context and intent.</p>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-lg-4">
-                                <div class="modern-feature-card h-100 p-4 fade-in">
-                                    <div class="feature-icon-modern mb-3">
-                                        <i class="bi bi-lightning-charge-fill"></i>
-                                    </div>
-                                    <h5 class="fw-bold text-dark mb-3">Real-time Response Generation</h5>
-                                    <p class="text-secondary mb-0">Lightning-fast AI processing delivers answers in milliseconds, not minutes.</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="modern-feature-card h-100 p-4 fade-in fade-in-delay-1">
-                                    <div class="feature-icon-modern mb-3">
-                                        <i class="bi bi-chat-text-fill"></i>
-                                    </div>
-                                    <h5 class="fw-bold text-dark mb-3">Natural Conversation Flow</h5>
-                                    <p class="text-secondary mb-0">Engage in human-like conversations that feel natural and intuitive.</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="modern-feature-card h-100 p-4 fade-in fade-in-delay-2">
-                                    <div class="feature-icon-modern mb-3">
-                                        <i class="bi bi-cpu-fill"></i>
-                                    </div>
-                                    <h5 class="fw-bold text-dark mb-3">Context-aware Understanding</h5>
-                                    <p class="text-secondary mb-0">AI that remembers context and provides relevant, personalized responses.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Enhanced Engagement Section -->
+        <!-- Notification Features Section -->
         <section class="py-5" style="background: linear-gradient(135deg, #F8F9FA 0%, #E8F4FD 100%);">
             <div class="container">
                 <div class="text-center mb-5 fade-in">
-                    <h3 class="display-4 fw-bold text-dark mb-4">Enhanced Engagement</h3>
-                    <p class="lead text-secondary mb-0">Keep your community connected and informed with intelligent responses that feel personal and helpful.</p>
+                    <h3 class="display-4 fw-bold text-dark mb-4">Advanced Notification Features</h3>
+                    <p class="lead text-secondary mb-0">Comprehensive communication tools with SIS integration and unlimited contact management for every member of your school community.</p>
                 </div>
                 <div class="row g-4 mb-5">
                     <div class="col-lg-3 col-md-6">
                         <div class="engagement-card text-center p-4 h-100 fade-in">
                             <div class="engagement-icon mb-3">
-                                <i class="bi bi-people-fill"></i>
+                                <i class="bi bi-speedometer2"></i>
                             </div>
-                            <h5 class="fw-bold text-dark mb-2">Community Focus</h5>
-                            <p class="text-secondary small mb-0">Tailored responses that understand your school's unique culture and needs.</p>
+                            <h5 class="fw-bold text-dark mb-2">Programmable Speed</h5>
+                            <p class="text-secondary small mb-0">User programmable call speed to optimize delivery timing for your specific needs.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="engagement-card text-center p-4 h-100 fade-in fade-in-delay-1">
                             <div class="engagement-icon mb-3">
-                                <i class="bi bi-heart-fill"></i>
+                                <i class="bi bi-diagram-3-fill"></i>
                             </div>
-                            <h5 class="fw-bold text-dark mb-2">Personal Touch</h5>
-                            <p class="text-secondary small mb-0">Every interaction feels warm, helpful, and genuinely caring.</p>
+                            <h5 class="fw-bold text-dark mb-2">SIS Integration</h5>
+                            <p class="text-secondary small mb-0">Seamlessly integrates with your Student Information System for accurate contact data.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="engagement-card text-center p-4 h-100 fade-in fade-in-delay-2">
                             <div class="engagement-icon mb-3">
-                                <i class="bi bi-arrow-up-circle-fill"></i>
+                                <i class="bi bi-infinity"></i>
                             </div>
-                            <h5 class="fw-bold text-dark mb-2">Improved Satisfaction</h5>
-                            <p class="text-secondary small mb-0">Higher satisfaction scores from parents, students, and staff.</p>
+                            <h5 class="fw-bold text-dark mb-2">Unlimited Contacts</h5>
+                            <p class="text-secondary small mb-0">Unrestricted number of phone numbers and email addresses for each student, faculty, and staff member.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="engagement-card text-center p-4 h-100 fade-in fade-in-delay-3">
                             <div class="engagement-icon mb-3">
-                                <i class="bi bi-graph-up-arrow"></i>
+                                <i class="bi bi-people-fill"></i>
                             </div>
-                            <h5 class="fw-bold text-dark mb-2">Higher Engagement</h5>
-                            <p class="text-secondary small mb-0">More active participation and stronger community connections.</p>
+                            <h5 class="fw-bold text-dark mb-2">Targeted Groups</h5>
+                            <p class="text-secondary small mb-0">Send messages to specific subgroups - parents, faculty, staff, or any custom group you define.</p>
                         </div>
                     </div>
                 </div>
@@ -1327,28 +1763,28 @@
                     <div class="col-lg-8">
                         <div class="capabilities-grid fade-in fade-in-delay-1">
                             <div class="capability-item">
-                                <i class="bi bi-chat-dots"></i>
-                                <span>Smart Conversations</span>
+                                <i class="bi bi-telephone"></i>
+                                <span>Voice Calls</span>
                             </div>
                             <div class="capability-item">
-                                <i class="bi bi-search"></i>
-                                <span>Quick Answers</span>
+                                <i class="bi bi-envelope"></i>
+                                <span>Email Messages</span>
                             </div>
                             <div class="capability-item">
-                                <i class="bi bi-bookmark-check"></i>
-                                <span>Helpful Resources</span>
+                                <i class="bi bi-chat-text"></i>
+                                <span>Text Messages</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="bi bi-lightning-charge"></i>
+                                <span>Instant Delivery</span>
                             </div>
                             <div class="capability-item">
                                 <i class="bi bi-shield-check"></i>
-                                <span>Reliable Support</span>
+                                <span>Tier 1 Connections</span>
                             </div>
                             <div class="capability-item">
-                                <i class="bi bi-translate"></i>
-                                <span>Natural Language</span>
-                            </div>
-                            <div class="capability-item">
-                                <i class="bi bi-clock-fill"></i>
-                                <span>Always Available</span>
+                                <i class="bi bi-broadcast"></i>
+                                <span>Mass Broadcasting</span>
                             </div>
                         </div>
                     </div>
@@ -1357,12 +1793,12 @@
         </section>
 
 
-        <!-- Seamless Information Access Section -->
+        <!-- Notification Workflow Section -->
         <section class="py-5" style="background: linear-gradient(135deg, #F8F9FA 0%, #E8F4FD 100%);">
             <div class="container">
                 <div class="text-center mb-5 fade-in">
-                    <h3 class="display-4 fw-bold text-dark mb-4">Seamless Information Access</h3>
-                    <p class="lead text-secondary mb-0">Give your community the information they need, exactly when they need it, through intuitive AI-powered interactions.</p>
+                    <h3 class="display-4 fw-bold text-dark mb-4">How Mass Notifications Work</h3>
+                    <p class="lead text-secondary mb-0">Simple, powerful workflow to reach your entire school community instantly with calls, emails, and texts simultaneously.</p>
                 </div>
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
@@ -1373,8 +1809,8 @@
                                     <div class="step-line"></div>
                                 </div>
                                 <div class="step-content">
-                                    <h5 class="fw-bold text-dark mb-2">Ask Naturally</h5>
-                                    <p class="text-secondary mb-0">Users can ask questions in their own words, just like talking to a helpful person.</p>
+                                    <h5 class="fw-bold text-dark mb-2">Create Your Message</h5>
+                                    <p class="text-secondary mb-0">Compose your message once and choose your delivery methods: voice calls, emails, and text messages.</p>
                                 </div>
                             </div>
                             <div class="access-step">
@@ -1383,8 +1819,8 @@
                                     <div class="step-line"></div>
                                 </div>
                                 <div class="step-content">
-                                    <h5 class="fw-bold text-dark mb-2">Get Instant Answers</h5>
-                                    <p class="text-secondary mb-0">Receive immediate, accurate responses without waiting for human support.</p>
+                                    <h5 class="fw-bold text-dark mb-2">Select Your Audience</h5>
+                                    <p class="text-secondary mb-0">Choose from all parents, faculty, staff, or any custom subgroup. SIS integration ensures accurate contact lists.</p>
                                 </div>
                             </div>
                             <div class="access-step">
@@ -1392,8 +1828,8 @@
                                     <span class="step-number">3</span>
                                 </div>
                                 <div class="step-content">
-                                    <h5 class="fw-bold text-dark mb-2">Stay Connected</h5>
-                                    <p class="text-secondary mb-0">Access information anytime, anywhere, keeping your community informed and engaged.</p>
+                                    <h5 class="fw-bold text-dark mb-2">Deliver Simultaneously</h5>
+                                    <p class="text-secondary mb-0">Messages are delivered instantly to large groups with tier one phone connections for crystal clear audio.</p>
                                 </div>
                             </div>
                         </div>
@@ -1402,30 +1838,30 @@
                         <div class="process-visualization fade-in fade-in-delay-1">
                             <div class="process-card active">
                                 <div class="process-icon">
-                                    <i class="bi bi-question-circle-fill"></i>
+                                    <i class="bi bi-pencil-square"></i>
                                 </div>
-                                <h6 class="fw-bold mb-1">Question Asked</h6>
-                                <p class="small text-secondary mb-0">Natural language query</p>
+                                <h6 class="fw-bold mb-1">Message Created</h6>
+                                <p class="small text-secondary mb-0">Voice, email & text content</p>
                             </div>
                             <div class="process-arrow">
                                 <i class="bi bi-arrow-down"></i>
                             </div>
                             <div class="process-card processing">
                                 <div class="process-icon">
-                                    <i class="bi bi-cpu-fill"></i>
+                                    <i class="bi bi-people-fill"></i>
                                 </div>
-                                <h6 class="fw-bold mb-1">AI Processing</h6>
-                                <p class="small text-secondary mb-0">Context analysis & understanding</p>
+                                <h6 class="fw-bold mb-1">Audience Selected</h6>
+                                <p class="small text-secondary mb-0">Target groups from SIS data</p>
                             </div>
                             <div class="process-arrow">
                                 <i class="bi bi-arrow-down"></i>
                             </div>
                             <div class="process-card complete">
                                 <div class="process-icon">
-                                    <i class="bi bi-check-circle-fill"></i>
+                                    <i class="bi bi-broadcast"></i>
                                 </div>
-                                <h6 class="fw-bold mb-1">Instant Answer</h6>
-                                <p class="small text-secondary mb-0">Accurate, helpful response</p>
+                                <h6 class="fw-bold mb-1">Mass Delivery</h6>
+                                <p class="small text-secondary mb-0">Simultaneous outreach</p>
                             </div>
                         </div>
                     </div>
@@ -1544,5 +1980,8 @@
 
         });
     </script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

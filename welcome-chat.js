@@ -4,8 +4,8 @@
 class HeroComponent {
     constructor(config = {}) {
         this.config = {
-            title: config.title || "AI-Powered",
-            subtitle: config.subtitle || "Instant Answers",
+            title: config.title || "Intelligent School Communication",
+            subtitle: config.subtitle || "WelcomeChat™",
             description: config.description || "Transform your school's communication with intelligent AI assistance that provides instant, accurate answers to common questions. WelcomeChat learns from your content to deliver personalized responses, reducing staff workload while improving community satisfaction 24/7.",
             ctaText: config.ctaText || "DISCOVER AI CHAT",
             ctaUrl: config.ctaUrl || "get-started.html",

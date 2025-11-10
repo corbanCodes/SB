@@ -54,6 +54,74 @@
             transform: translateY(0);
         }
 
+        /* Administrator Challenges Tabs */
+        .admin-challenges-tabs .nav-link {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            color: #6c757d;
+            font-weight: 500;
+            padding: 1rem 1.5rem;
+            margin: 0 0.25rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 60px;
+        }
+        
+        .admin-challenges-tabs .nav-link:hover {
+            background: #e9ecef;
+            border-color: #dee2e6;
+            color: #495057;
+            transform: translateY(-2px);
+        }
+        
+        .admin-challenges-tabs .nav-link.active {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: white;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+        
+        .admin-challenges-tabs .nav-link i {
+            font-size: 1.1rem;
+        }
+        
+        .admin-challenges-tab-content {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-challenges-tabs .nav-link {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+                margin: 0.25rem 0;
+                min-height: 50px;
+            }
+            
+            .admin-challenges-tab-content {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .admin-challenges-tabs {
+                flex-direction: column;
+            }
+            
+            .admin-challenges-tabs .nav-link {
+                margin: 0.25rem 0;
+                text-align: left;
+                justify-content: flex-start;
+            }
+        }
+
         .fade-in-delay-1 {
             transition-delay: 0.1s;
         }
@@ -944,6 +1012,168 @@
     <main class="main-content">
         <!-- Hero Section -->
         <div id="hero-section"></div>
+
+        <!-- Administrator Challenges & Solutions Section -->
+        <section class="py-5 bg-white">
+            <div class="container-fluid" style="max-width: 1600px; padding: 0 60px;">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="text-center mb-5 fade-in">
+                            <span class="badge bg-primary-subtle text-primary mb-3 px-4 py-2 fs-6 fw-semibold">ADMINISTRATOR SOLUTIONS</span>
+                            <h2 class="display-5 fw-bold text-dark mb-4">We Understand Your Daily Challenges</h2>
+                            <p class="lead text-secondary">Running a school system is incredibly demanding. That's why we've built tools specifically designed to save administrators time and reduce complexity.</p>
+                        </div>
+                        
+                        <!-- Tab Navigation -->
+                        <div class="nav nav-pills nav-justified mb-4 admin-challenges-tabs" id="adminChallengesTabs" role="tablist">
+                            <button class="nav-link active" id="time-management-tab" data-bs-toggle="pill" data-bs-target="#time-management" type="button" role="tab">
+                                <i class="bi bi-clock me-2"></i>Time Management
+                            </button>
+                            <button class="nav-link" id="integration-tab" data-bs-toggle="pill" data-bs-target="#integration" type="button" role="tab">
+                                <i class="bi bi-puzzle me-2"></i>System Integration
+                            </button>
+                            <button class="nav-link" id="branding-tab" data-bs-toggle="pill" data-bs-target="#branding" type="button" role="tab">
+                                <i class="bi bi-palette me-2"></i>Brand Consistency
+                            </button>
+                            <button class="nav-link" id="efficiency-tab" data-bs-toggle="pill" data-bs-target="#efficiency" type="button" role="tab">
+                                <i class="bi bi-lightning me-2"></i>Operational Efficiency
+                            </button>
+                            <button class="nav-link" id="ease-of-use-tab" data-bs-toggle="pill" data-bs-target="#ease-of-use" type="button" role="tab">
+                                <i class="bi bi-hand-thumbs-up me-2"></i>Ease of Use
+                            </button>
+                        </div>
+                        
+                        <!-- Tab Content -->
+                        <div class="tab-content admin-challenges-tab-content" id="adminChallengesTabsContent">
+                            <!-- Time Management Tab -->
+                            <div class="tab-pane fade show active" id="time-management" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="challenge-content">
+                                            <h3 class="fw-bold text-dark mb-3">Your Time is Precious</h3>
+                                            <p class="text-secondary mb-4">We know you're juggling countless responsibilities - from board meetings to budget planning, staff management to student safety. Our platform consolidates multiple tools into one streamlined system, giving you hours back in your day.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Unified dashboard for all school operations</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Automated routine tasks and workflows</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Real-time insights without manual reporting</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Mobile access for on-the-go management</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="challenge-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-clock display-1 text-primary mb-3"></i>
+                                            <h5 class="fw-bold">Save 10+ Hours Weekly</h5>
+                                            <p class="text-muted mb-0">Streamlined workflows designed for busy administrators</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- System Integration Tab -->
+                            <div class="tab-pane fade" id="integration" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="challenge-content">
+                                            <h3 class="fw-bold text-dark mb-3">Seamless Technology Integration</h3>
+                                            <p class="text-secondary mb-4">Stop wrestling with disconnected systems. We understand the frustration of managing multiple platforms that don't talk to each other. Our solution integrates with your existing SIS, communication tools, and administrative systems.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Direct SIS integration and data sync</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Single sign-on across all platforms</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>API connections to existing tools</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Minimal IT overhead and setup</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="challenge-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-puzzle display-1 text-info mb-3"></i>
+                                            <h5 class="fw-bold">One Platform, Everything Connected</h5>
+                                            <p class="text-muted mb-0">Eliminate data silos and system conflicts</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Brand Consistency Tab -->
+                            <div class="tab-pane fade" id="branding" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="challenge-content">
+                                            <h3 class="fw-bold text-dark mb-3">Maintain Your School's Identity</h3>
+                                            <p class="text-secondary mb-4">Your school's brand matters. We make it effortless to maintain consistent branding across all digital touchpoints - from your website to parent communications, ensuring your school's identity shines through every interaction.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Custom branding across all platforms</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Logo, colors, and fonts automatically applied</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Professional templates that reflect your values</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Brand guidelines enforcement tools</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="challenge-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-palette display-1 text-warning mb-3"></i>
+                                            <h5 class="fw-bold">Consistent School Identity</h5>
+                                            <p class="text-muted mb-0">Professional branding that builds community pride</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Operational Efficiency Tab -->
+                            <div class="tab-pane fade" id="efficiency" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="challenge-content">
+                                            <h3 class="fw-bold text-dark mb-3">Maximum Efficiency, Minimum Effort</h3>
+                                            <p class="text-secondary mb-4">We've studied how schools operate and built tools that eliminate redundancy. From automated enrollment processes to streamlined communication workflows, every feature is designed to make your operations more efficient.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Automated enrollment and registration</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Bulk communication tools and templates</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Workflow automation for routine tasks</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Data-driven decision making tools</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="challenge-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-lightning display-1 text-success mb-3"></i>
+                                            <h5 class="fw-bold">Streamlined Operations</h5>
+                                            <p class="text-muted mb-0">Automation that works behind the scenes</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Ease of Use Tab -->
+                            <div class="tab-pane fade" id="ease-of-use" role="tabpanel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="challenge-content">
+                                            <h3 class="fw-bold text-dark mb-3">Intuitive Tools That Just Work</h3>
+                                            <p class="text-secondary mb-4">You shouldn't need a computer science degree to manage your school's technology. Our platform is designed with administrators in mind - intuitive interfaces, clear navigation, and helpful support when you need it.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Intuitive, administrator-friendly interface</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Comprehensive training and onboarding</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>24/7 support from education experts</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Regular updates without complexity</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="challenge-visual bg-light rounded-4 p-4 text-center">
+                                            <i class="bi bi-hand-thumbs-up display-1 text-danger mb-3"></i>
+                                            <h5 class="fw-bold">User-Friendly Design</h5>
+                                            <p class="text-muted mb-0">Technology that enhances, not complicates</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Administrator Leadership Section -->
         <section class="admin-leadership-section">

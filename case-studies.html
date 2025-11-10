@@ -192,18 +192,32 @@
             line-height: 1.6;
         }
 
-        /* Glass Container Styles */
+        /* Enhanced Glass Container Styles */
         .glass-container {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 24px;
-            padding: 40px;
+            border: 2px solid rgba(74, 144, 226, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
             box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+                0 10px 30px rgba(74, 144, 226, 0.08),
+                0 4px 15px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glass-container:hover {
+            transform: translateY(-5px);
+            border-color: rgba(74, 144, 226, 0.2);
+            box-shadow: 
+                0 20px 50px rgba(74, 144, 226, 0.12),
+                0 8px 25px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
         }
 
         .glass-container::before {
@@ -212,17 +226,91 @@
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.1) 0%, 
-                rgba(255, 255, 255, 0.05) 50%, 
-                rgba(255, 255, 255, 0.1) 100%);
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+            opacity: 0;
+            transition: opacity 0.3s ease;
             z-index: 1;
+        }
+
+        .glass-container:hover::before {
+            opacity: 1;
         }
 
         .glass-container > * {
             position: relative;
             z-index: 2;
+        }
+
+        .glass-container h4 {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .glass-container p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 0;
+        }
+
+        .glass-container ul {
+            flex-grow: 1;
+        }
+
+        .glass-container ul li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .glass-container ul li strong {
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        /* Case Study Section Enhancements */
+        .case-study-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .case-study-section:nth-child(even) {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .case-study-section .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-study-section .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 3rem;
+        }
+
+        /* Uniform Row Heights */
+        .case-study-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 0;
+        }
+
+        .case-study-row > [class*="col-"] {
+            display: flex;
+            margin-bottom: 2rem;
         }
 
         .section-label {
@@ -415,25 +503,20 @@
         <!-- Case Studies Overview Section -->
         <section class="content-section">
             <div class="container">
-                <div class="row align-items-center mb-5">
-                    <div class="col-lg-6">
-                        <div class="resource-image fade-in">
-                            <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Case Studies" class="img-fluid rounded-4 shadow-lg">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="glass-container fade-in fade-in-delay-1">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8">
+                        <div class="glass-container fade-in text-center">
                             <div class="section-label">CASE STUDIES</div>
-                            <h2 class="section-title-left">In-Depth Success Analysis</h2>
-                            <p class="section-description-left">Explore detailed case studies showcasing how schools have overcome challenges and achieved remarkable results with SchoolBlocks solutions.</p>
-                            <div class="resource-highlights">
+                            <h2 class="section-title-left">Real-World Success Stories</h2>
+                            <p class="section-description-left"> FAKE FOR NOW SITE UNDER CONSTRUCTION detailed case studies showcasing how schools have transformed their digital presence and achieved remarkable results with SchoolBlocks solutions.</p>
+                            <div class="resource-highlights justify-content-center">
                                 <div class="highlight-item">
                                     <i class="bi bi-search"></i>
-                                    <span>Detailed Analysis</span>
+                                    <span>In-Depth Analysis</span>
                                 </div>
                                 <div class="highlight-item">
                                     <i class="bi bi-bar-chart-fill"></i>
-                                    <span>Data-Driven Results</span>
+                                    <span>Measurable Results</span>
                                 </div>
                                 <div class="highlight-item">
                                     <i class="bi bi-lightbulb-fill"></i>
@@ -446,54 +529,235 @@
             </div>
         </section>
 
-        <!-- Case Study Categories Section -->
-        <section class="features-section">
+        <!-- Case Study 1: Riverside Unified School District -->
+        <section class="content-section">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="section-title fade-in">Comprehensive Implementation Studies</h2>
-                    <p class="section-subtitle fade-in fade-in-delay-1">Deep dives into successful SchoolBlocks transformations</p>
+                    <h2 class="section-title fade-in"><i class="bi bi-building-fill me-3" style="color: var(--primary-blue);"></i>Riverside Unified School District</h2>
+                    <p class="section-subtitle fade-in fade-in-delay-1">District-Wide Digital Transformation Success Story</p>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in">
-                            <div class="feature-icon"><i class="bi bi-building-fill"></i></div>
-                            <div class="feature-title">District-Wide Rollouts</div>
-                            <div class="feature-description">Comprehensive studies of large-scale implementations across entire school districts and their transformative impact.</div>
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="glass-container fade-in">
+                            <h4 class="mb-3"><i class="bi bi-info-circle-fill me-2" style="color: var(--primary-blue);"></i>The Challenge</h4>
+                            <p>Riverside Unified School District faced declining parent engagement across their 23 schools serving 15,000 students. With a diverse community speaking over 12 languages, their outdated website wasn't meeting the needs of modern families. Parent participation in school events dropped to just 18%, and critical information wasn't reaching families effectively.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-1">
-                            <div class="feature-icon"><i class="bi bi-shield-check-fill"></i></div>
-                            <div class="feature-title">ADA Compliance Journeys</div>
-                            <div class="feature-description">Detailed analysis of how schools achieved full accessibility compliance and protected themselves from legal challenges.</div>
+                    <div class="col-lg-6">
+                        <div class="glass-container fade-in fade-in-delay-1">
+                            <h4 class="mb-3"><i class="bi bi-lightbulb-fill me-2" style="color: var(--primary-blue);"></i>The Solution</h4>
+                            <p>SchoolBlocks implemented a comprehensive digital transformation featuring mobile-first design, multilingual support for 12 languages, integrated event management, and streamlined communication tools. The new platform included automated translation services and culturally-responsive design elements.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-2">
-                            <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
-                            <div class="feature-title">Engagement Transformations</div>
-                            <div class="feature-description">Studies showing how schools dramatically increased parent and community engagement through strategic website redesigns.</div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-2">
+                            <h4 class="mb-3"><i class="bi bi-graph-up-arrow me-2" style="color: var(--primary-blue);"></i>Key Results</h4>
+                            <ul class="list-unstyled">
+                                <li><strong>340% increase</strong> in parent engagement</li>
+                                <li><strong>85% mobile usage</strong> within 6 months</li>
+                                <li><strong>12 languages</strong> fully supported</li>
+                                <li><strong>95% satisfaction</strong> rate from families</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-3">
-                            <div class="feature-icon"><i class="bi bi-clock-fill"></i></div>
-                            <div class="feature-title">Efficiency Improvements</div>
-                            <div class="feature-description">Analysis of workflow optimizations and time savings achieved through SchoolBlocks content management systems.</div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-3">
+                            <h4 class="mb-3"><i class="bi bi-tools me-2" style="color: var(--primary-blue);"></i>Implementation</h4>
+                            <p>The 6-month rollout included staff training, content migration, and phased launch across all 23 schools. SchoolBlocks provided dedicated support and custom integrations with existing student information systems.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-4">
-                            <div class="feature-icon"><i class="bi bi-phone-fill"></i></div>
-                            <div class="feature-title">Mobile-First Strategies</div>
-                            <div class="feature-description">Case studies focusing on mobile optimization strategies and their impact on community engagement and accessibility.</div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-4">
+                            <h4 class="mb-3"><i class="bi bi-award-fill me-2" style="color: var(--primary-blue);"></i>Long-term Impact</h4>
+                            <p>Two years later, Riverside continues to see sustained engagement growth. The district has become a model for multilingual digital communication, with other districts requesting consultation on their approach.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-5">
-                            <div class="feature-icon"><i class="bi bi-tools"></i></div>
-                            <div class="feature-title">Technical Integrations</div>
-                            <div class="feature-description">In-depth studies of complex system integrations and how schools successfully unified their technology ecosystems.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study 2: Maplewood High School -->
+        <section class="content-section" style="background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title fade-in"><i class="bi bi-building-fill me-3" style="color: var(--primary-blue);"></i>Maplewood High School</h2>
+                    <p class="section-subtitle fade-in fade-in-delay-1">From ADA Compliance Crisis to Accessibility Excellence</p>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="glass-container fade-in">
+                            <h4 class="mb-3"><i class="bi bi-exclamation-triangle-fill me-2" style="color: var(--primary-blue);"></i>The Crisis</h4>
+                            <p>Maplewood High School received a formal ADA compliance complaint and faced potential legal action. Their website failed basic accessibility tests, with no alt text for images, poor color contrast, and navigation that was impossible for screen reader users. They had just 90 days to achieve compliance.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="glass-container fade-in fade-in-delay-1">
+                            <h4 class="mb-3"><i class="bi bi-gear-fill me-2" style="color: var(--primary-blue);"></i>The Transformation</h4>
+                            <p>SchoolBlocks deployed their ADA compliance framework, implementing WCAG 2.1 AA standards throughout the site. This included automated alt text generation, color contrast optimization, keyboard navigation improvements, and screen reader compatibility testing.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-2">
+                            <h4 class="mb-3"><i class="bi bi-check-circle-fill me-2" style="color: var(--primary-blue);"></i>Compliance Achieved</h4>
+                            <ul class="list-unstyled">
+                                <li><strong>100% WCAG 2.1 AA</strong> compliance</li>
+                                <li><strong>90 days</strong> to full compliance</li>
+                                <li><strong>Zero legal issues</strong> since launch</li>
+                                <li><strong>45% better</strong> user experience scores</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-3">
+                            <h4 class="mb-3"><i class="bi bi-people-fill me-2" style="color: var(--primary-blue);"></i>User Impact</h4>
+                            <p>Students and families with disabilities now have equal access to all school information. The improved design benefits all users, with faster load times and clearer navigation increasing overall satisfaction.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-4">
+                            <h4 class="mb-3"><i class="bi bi-shield-fill me-2" style="color: var(--primary-blue);"></i>Ongoing Protection</h4>
+                            <p>SchoolBlocks provides continuous accessibility monitoring and automatic updates to maintain compliance as web standards evolve, protecting Maplewood from future legal challenges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study 3: Central Valley Elementary -->
+        <section class="content-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title fade-in"><i class="bi bi-building-fill me-3" style="color: var(--primary-blue);"></i>Central Valley Elementary</h2>
+                    <p class="section-subtitle fade-in fade-in-delay-1">Small School, Big Impact Success Story</p>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="glass-container fade-in">
+                            <h4 class="mb-3"><i class="bi bi-building me-2" style="color: var(--primary-blue);"></i>Small School Challenges</h4>
+                            <p>Central Valley Elementary, with just 400 students, struggled with limited resources and an overworked administrative staff. Their basic website required constant manual updates, and parent communication was fragmented across multiple platforms, leading to low engagement and missed opportunities.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="glass-container fade-in fade-in-delay-1">
+                            <h4 class="mb-3"><i class="bi bi-magic me-2" style="color: var(--primary-blue);"></i>Smart Automation</h4>
+                            <p>SchoolBlocks implemented intelligent automation features including auto-updating calendars, streamlined event management, and integrated communication tools. The system was designed to work seamlessly with minimal staff intervention while maximizing community engagement.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-2">
+                            <h4 class="mb-3"><i class="bi bi-speedometer2 me-2" style="color: var(--primary-blue);"></i>Efficiency Gains</h4>
+                            <ul class="list-unstyled">
+                                <li><strong>50% reduction</strong> in admin workload</li>
+                                <li><strong>280% increase</strong> in community engagement</li>
+                                <li><strong>90% automation</strong> of routine tasks</li>
+                                <li><strong>3 hours saved</strong> per day on updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-3">
+                            <h4 class="mb-3"><i class="bi bi-heart-fill me-2" style="color: var(--primary-blue);"></i>Community Response</h4>
+                            <p>Parents praised the new system's ease of use and timely information. Volunteer participation increased dramatically, and the school's social media engagement grew by 400% as families shared school updates more frequently.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-4">
+                            <h4 class="mb-3"><i class="bi bi-trophy-fill me-2" style="color: var(--primary-blue);"></i>Recognition</h4>
+                            <p>Central Valley Elementary received the State's "Excellence in Digital Communication" award and has been featured as a case study for small school technology implementation best practices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study 4: Oakwood Academy -->
+        <section class="content-section" style="background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title fade-in"><i class="bi bi-building-fill me-3" style="color: var(--primary-blue);"></i>Oakwood Academy</h2>
+                    <p class="section-subtitle fade-in fade-in-delay-1">Mobile-First Strategy Drives Enrollment Success</p>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="glass-container fade-in">
+                            <h4 class="mb-3"><i class="bi bi-phone-vibrate me-2" style="color: var(--primary-blue);"></i>Mobile-First Vision</h4>
+                            <p>Oakwood Academy, a private K-12 institution, recognized that prospective families primarily researched schools on mobile devices. Their desktop-focused website was losing potential enrollments to competitors with better mobile experiences, prompting a complete mobile-first redesign strategy.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="glass-container fade-in fade-in-delay-1">
+                            <h4 class="mb-3"><i class="bi bi-layout-text-window-reverse me-2" style="color: var(--primary-blue);"></i>Responsive Excellence</h4>
+                            <p>SchoolBlocks created a mobile-first design that prioritized fast loading, intuitive navigation, and compelling visual storytelling. The new site featured optimized images, streamlined forms, and touch-friendly interfaces that showcased the academy's unique value proposition.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-2">
+                            <h4 class="mb-3"><i class="bi bi-graph-up me-2" style="color: var(--primary-blue);"></i>Mobile Metrics</h4>
+                            <ul class="list-unstyled">
+                                <li><strong>95% mobile traffic</strong> within 6 months</li>
+                                <li><strong>450% increase</strong> in enrollment inquiries</li>
+                                <li><strong>3.2 second</strong> average load time</li>
+                                <li><strong>85% mobile</strong> conversion rate</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-3">
+                            <h4 class="mb-3"><i class="bi bi-people me-2" style="color: var(--primary-blue);"></i>Enrollment Impact</h4>
+                            <p>The mobile-optimized experience directly contributed to a 35% increase in enrollment applications. Families reported that the smooth mobile experience gave them confidence in the school's commitment to modern education approaches.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-4">
+                            <h4 class="mb-3"><i class="bi bi-star-fill me-2" style="color: var(--primary-blue);"></i>Industry Recognition</h4>
+                            <p>Oakwood Academy's mobile strategy earned recognition from the Private School Marketing Association and has been featured in educational technology publications as a model for mobile-first school marketing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study 5: Northside Independent School District -->
+        <section class="content-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title fade-in"><i class="bi bi-building-fill me-3" style="color: var(--primary-blue);"></i>Northside Independent School District</h2>
+                    <p class="section-subtitle fade-in fade-in-delay-1">Crisis Communication Excellence in Action</p>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="glass-container fade-in">
+                            <h4 class="mb-3"><i class="bi bi-exclamation-diamond-fill me-2" style="color: var(--primary-blue);"></i>Communication Challenge</h4>
+                            <p>Northside ISD, serving 28,000 students across 45 schools, faced critical communication challenges during emergency situations. Their fragmented notification system took hours to reach all families, creating anxiety and confusion during weather emergencies and security incidents.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="glass-container fade-in fade-in-delay-1">
+                            <h4 class="mb-3"><i class="bi bi-broadcast me-2" style="color: var(--primary-blue);"></i>Integrated Solution</h4>
+                            <p>SchoolBlocks implemented a comprehensive crisis communication system featuring multi-channel notifications, automated translation services, and real-time status updates. The system integrates with local emergency services and provides instant district-wide communication capabilities.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-2">
+                            <h4 class="mb-3"><i class="bi bi-stopwatch me-2" style="color: var(--primary-blue);"></i>Speed Results</h4>
+                            <ul class="list-unstyled">
+                                <li><strong>15 minutes</strong> to reach 100% of families</li>
+                                <li><strong>99.8% delivery</strong> success rate</li>
+                                <li><strong>8 languages</strong> simultaneous translation</li>
+                                <li><strong>24/7 availability</strong> guaranteed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-3">
+                            <h4 class="mb-3"><i class="bi bi-shield-check me-2" style="color: var(--primary-blue);"></i>Crisis Performance</h4>
+                            <p>During recent severe weather events, the system successfully notified all 28,000 families within 12 minutes, including automated school closure decisions and transportation updates. Parent anxiety decreased significantly with timely, accurate information.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="glass-container fade-in fade-in-delay-4">
+                            <h4 class="mb-3"><i class="bi bi-award me-2" style="color: var(--primary-blue);"></i>Emergency Preparedness</h4>
+                            <p>Northside ISD now serves as a model for emergency communication best practices. The district has shared their protocols with state emergency management agencies and other school districts seeking to improve crisis communication capabilities.</p>
                         </div>
                     </div>
                 </div>
