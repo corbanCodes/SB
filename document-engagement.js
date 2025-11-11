@@ -4,8 +4,8 @@
 class HeroComponent {
     constructor(config = {}) {
         this.config = {
-            title: config.title || "Document Engagement",
-            subtitle: config.subtitle || "Platform",
+            title: config.title || "Policies. Procedures. Documents.",
+            subtitle: config.subtitle || "DocMersion™",
             description: config.description || "Transform how your community interacts with important documents through our comprehensive engagement platform. From policy updates to newsletters, create interactive experiences that ensure critical information reaches and resonates with every stakeholder in your educational community.",
             ctaText: config.ctaText || "EXPLORE PLATFORM",
             ctaUrl: config.ctaUrl || "get-started.html",
@@ -381,6 +381,17 @@ class HeroComponent {
                     padding-left: 0;
                 }
 
+                .hero-title {
+                    font-size: clamp(1.8rem, 5vw, 2.2rem);
+                    white-space: normal;
+                    line-height: 1.1;
+                }
+
+                .hero-subtitle {
+                    font-size: clamp(1.6rem, 4.5vw, 2rem);
+                    white-space: nowrap;
+                }
+
                 .hero-description {
                     max-width: 100%;
                     margin-bottom: 1.5rem;
@@ -416,9 +427,10 @@ class HeroComponent {
                 }
 
                 .hero-title {
-                    font-size: clamp(1.6rem, 5.2vw, 2rem);
+                    font-size: clamp(1.4rem, 4.8vw, 1.8rem);
                     margin-bottom: 0.8rem;
-                    white-space: nowrap;
+                    white-space: normal;
+                    line-height: 1.1;
                 }
 
                 .hero-subtitle {
@@ -453,8 +465,9 @@ class HeroComponent {
             /* Extra small screens */
             @media (max-width: 360px) {
                 .hero-title {
-                    font-size: clamp(1.5rem, 6vw, 1.8rem);
-                    white-space: nowrap;
+                    font-size: clamp(1.2rem, 5.5vw, 1.5rem);
+                    white-space: normal;
+                    line-height: 1.1;
                 }
 
                 .hero-subtitle {
