@@ -2048,26 +2048,30 @@
         
         .pricing-cta-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
-            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #1a202c;
+            border: 2px solid rgba(66, 153, 225, 0.3);
             padding: 18px 40px;
-            border-radius: 35px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+            box-shadow: 0 4px 20px rgba(66, 153, 225, 0.2);
+            cursor: pointer;
             position: relative;
             z-index: 2;
+            margin-top: 20px;
         }
-        
+
         .pricing-cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(74, 144, 226, 0.4);
-            background: linear-gradient(135deg, #357ABD 0%, #2E6BA8 100%);
-            color: white;
+            transform: translateY(-3px);
+            background: rgba(66, 153, 225, 0.15);
+            border-color: rgba(66, 153, 225, 0.5);
+            box-shadow: 0 8px 30px rgba(66, 153, 225, 0.3);
+            color: #1a202c;
             text-decoration: none;
         }
         
@@ -4663,6 +4667,8 @@
                         <div class="trusted-partner">
                             <strong>Trusted K-12 Partner</strong>
                         </div>
+                        
+                        <button onclick="scrollToContact()" class="pricing-cta-btn">Request Pricing Info</button>
                     </div>
                 </div>
             </div>
@@ -4877,7 +4883,7 @@
         </section>
 
         <!-- Contact Form Section -->
-        <section class="contact-section">
+        <section class="contact-section" id="contact-form">
             <div class="contact-container">
                 <div class="contact-header">
                     <h2>Want to know more about our product?</h2>
@@ -5531,6 +5537,17 @@
                 demoPhone.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1.02)';
             });
         });
+
+        // Scroll to contact form function
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact-form');
+            if (contactSection) {
+                contactSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
     </script>
 
     <!-- Hero Blur Effect -->

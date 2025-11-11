@@ -71,32 +71,29 @@
         }
 
 
-        /* Features Section */
-        .features-section {
-            padding: 120px 0;
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 20px 0 80px 0;
             background: white;
-            margin: 0;
         }
 
-        .features-section .container {
+        .testimonials-section .container {
             max-width: 1400px;
         }
 
-        .feature-card {
-            background: white;
+        .testimonial-story {
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 24px;
-            padding: 60px 40px;
-            text-align: center;
-            height: 100%;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 50px 40px;
+            margin-bottom: 60px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            margin-bottom: 40px;
         }
 
-        .feature-card::before {
+        .testimonial-story::before {
             content: '';
             position: absolute;
             top: 0;
@@ -104,92 +101,149 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.1) 0%, 
-                rgba(255, 255, 255, 0.05) 50%, 
-                rgba(255, 255, 255, 0.1) 100%);
+                rgba(74, 144, 226, 0.02) 0%, 
+                rgba(74, 144, 226, 0.01) 50%, 
+                rgba(74, 144, 226, 0.02) 100%);
             opacity: 0;
             transition: opacity 0.4s ease;
             z-index: 1;
         }
 
-        .feature-card:hover {
-            transform: translateY(-12px) scale(1.02);
+        .testimonial-story:hover {
+            transform: translateY(-8px);
             box-shadow: 
-                0 25px 60px rgba(0, 0, 0, 0.15),
+                0 25px 60px rgba(0, 0, 0, 0.12),
                 inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.4);
+            border-color: rgba(74, 144, 226, 0.2);
         }
 
-        .feature-card:hover::before {
+        .testimonial-story:hover::before {
             opacity: 1;
         }
 
-        .feature-card > * {
+        .testimonial-story > * {
             position: relative;
             z-index: 2;
         }
 
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            border-radius: 20px;
+        .school-logo-container {
+            background: white;
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            color: white;
-            box-shadow: 
-                0 8px 25px rgba(74, 144, 226, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin: 0 auto;
+        }
+
+        .testimonial-story:hover .school-logo-container {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .school-logo {
+            max-width: 90px;
+            max-height: 60px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .testimonial-content {
             position: relative;
-            overflow: hidden;
         }
 
-        .feature-icon i {
-            font-size: 28px;
-            position: relative;
-            z-index: 2;
+        .quote-icon {
+            font-size: 4rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+            opacity: 0.3;
         }
 
-        .feature-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.2) 0%, 
-                rgba(255, 255, 255, 0.1) 50%, 
-                rgba(255, 255, 255, 0.2) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 
-                0 12px 35px rgba(74, 144, 226, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
-
-        .feature-card:hover .feature-icon::before {
-            opacity: 1;
-        }
-
-        .feature-title {
+        .testimonial-quote {
             font-size: 1.4rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 30px;
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-author {
+            margin-bottom: 25px;
+        }
+
+        .author-name {
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
 
-        .feature-description {
+        .author-title {
+            font-size: 1rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .school-name {
+            font-size: 1rem;
             color: var(--text-secondary);
-            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .testimonial-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .visit-website-btn,
+        .play-video-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .visit-website-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+
+        .visit-website-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+            color: white;
+        }
+
+        .play-video-btn {
+            background: rgba(74, 144, 226, 0.1);
+            color: var(--primary-blue);
+            border: 1px solid rgba(74, 144, 226, 0.2);
+        }
+
+        .play-video-btn:hover {
+            background: rgba(74, 144, 226, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
         }
 
         /* Glass Container Styles */
@@ -289,7 +343,7 @@
 
         /* Content Sections */
         .content-section {
-            padding: 100px 0;
+            padding: 60px 0 10px 0;
             background: white;
             margin: 0;
         }
@@ -333,14 +387,7 @@
         /* Responsive Design */
         @media (max-width: 991px) {
             .content-section {
-                padding: 80px 0;
-            }
-
-            .section-content {
-                padding: 50px 30px;
-                margin: 0 15px;
-                font-size: 1.2rem;
-                max-width: 95%;
+                padding: 50px 0 5px 0;
             }
 
             .section-title {
@@ -348,36 +395,105 @@
                 margin-bottom: 40px;
             }
 
-            .section-title-left {
-                font-size: 2.2rem;
-            }
-
-            .section-description-left {
+            .section-subtitle {
                 font-size: 1.1rem;
             }
 
-            .features-section {
-                padding: 80px 0;
+            .testimonials-section {
+                padding: 15px 0 60px 0;
             }
 
-            .feature-card {
+            .testimonial-story {
+                padding: 40px 30px;
+                margin-bottom: 50px;
+            }
+
+            .school-logo-container {
+                width: 120px;
+                height: 120px;
+                padding: 20px;
                 margin-bottom: 30px;
-                padding: 50px 30px;
-                margin-left: 20px;
-                margin-right: 20px;
             }
 
-            .glass-container {
-                padding: 30px;
-                margin-bottom: 40px;
+            .school-logo {
+                max-width: 80px;
+                max-height: 55px;
             }
 
-            .resource-highlights {
+            .quote-icon {
+                font-size: 3rem;
+            }
+
+            .testimonial-quote {
+                font-size: 1.2rem;
+                margin-bottom: 25px;
+            }
+
+            .author-name {
+                font-size: 1.1rem;
+            }
+
+            .testimonial-actions {
+                flex-direction: column;
                 gap: 12px;
             }
 
-            .highlight-item {
+            .visit-website-btn,
+            .play-video-btn {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 40px 0 0px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .testimonials-section {
+                padding: 10px 0 50px 0;
+            }
+
+            .testimonial-story {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            .school-logo-container {
+                width: 100px;
+                height: 100px;
+                padding: 15px;
+            }
+
+            .school-logo {
+                max-width: 70px;
+                max-height: 50px;
+            }
+
+            .quote-icon {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .testimonial-quote {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+
+            .author-name {
                 font-size: 1rem;
+            }
+
+            .author-title,
+            .school-name {
+                font-size: 0.9rem;
             }
         }
         
@@ -412,88 +528,191 @@
         <!-- Hero Section -->
         <div id="hero-section"></div>
 
-        <!-- Client Stories Overview Section -->
+        <!-- Client Stories Introduction Section -->
         <section class="content-section">
             <div class="container">
-                <div class="row align-items-center mb-5">
-                    <div class="col-lg-6">
-                        <div class="glass-container fade-in">
-                            <div class="section-label">CLIENT STORIES</div>
-                            <h2 class="section-title-left">Real Schools, Real Results</h2>
-                            <p class="section-description-left">Discover how educational institutions across the country have transformed their communications and community engagement with SchoolBlocks.</p>
-                            <div class="resource-highlights">
-                                <div class="highlight-item">
-                                    <i class="bi bi-award-fill"></i>
-                                    <span>Success Stories</span>
-                                </div>
-                                <div class="highlight-item">
-                                    <i class="bi bi-graph-up-arrow"></i>
-                                    <span>Measurable Impact</span>
-                                </div>
-                                <div class="highlight-item">
-                                    <i class="bi bi-people-fill"></i>
-                                    <span>Community Engagement</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="resource-image fade-in fade-in-delay-1">
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Client Success" class="img-fluid rounded-4 shadow-lg">
-                        </div>
-                    </div>
+                <div class="text-center mb-5">
+                    <h2 class="section-title fade-in">Real Schools, Real Success Stories</h2>
+                    <p class="section-subtitle fade-in fade-in-delay-1">Hear directly from the educators and administrators who have transformed their school communications with SchoolBlocks</p>
                 </div>
             </div>
         </section>
 
-        <!-- Success Metrics Section -->
-        <section class="features-section">
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
             <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="section-title fade-in">Proven Results Across Districts</h2>
-                    <p class="section-subtitle fade-in fade-in-delay-1">See how SchoolBlocks has made a difference for schools nationwide</p>
+                <!-- Ramona Unified School District -->
+                <div class="testimonial-story fade-in">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
+                            <div class="school-logo-container">
+                                <img src="Photos/testimonial logos/romona.png" alt="Ramona Unified School District" class="school-logo">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">"</div>
+                                <blockquote class="testimonial-quote">SchoolBlocks is awesome. I personally love it.</blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Keith Wright</div>
+                                    <div class="author-title">Director of Technology</div>
+                                    <div class="school-name">Ramona Unified School District</div>
+                                </div>
+                                <div class="testimonial-actions">
+                                    <a href="https://www.ramonausd.net/en-US" target="_blank" class="visit-website-btn">
+                                        <i class="bi bi-globe"></i>
+                                        Visit Website
+                                    </a>
+                                    <button class="play-video-btn" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/6360fcf808fd7c88d96fd2e8a6fb8fce/manifest/video.m3u8', 'https://www.ramonausd.net/en-US')">
+                                        <i class="bi bi-play-circle"></i>
+                                        Watch Video
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in">
-                            <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
-                            <div class="feature-title">Increased Engagement</div>
-                            <div class="feature-description">Schools report up to 300% increase in parent and community engagement after implementing SchoolBlocks.</div>
+
+                <!-- Candler County Schools -->
+                <div class="testimonial-story fade-in fade-in-delay-1">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
+                            <div class="school-logo-container">
+                                <img src="Photos/testimonial logos/candlercounty.png" alt="Candler County Schools" class="school-logo">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">"</div>
+                                <blockquote class="testimonial-quote">I really like the block format because it moves you away from the desktop format. The blocks move around and it doesn't matter what you are on, it looks great.</blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Tony Lescak</div>
+                                    <div class="author-title">Technology Specialist</div>
+                                    <div class="school-name">Candler County Schools</div>
+                                </div>
+                                <div class="testimonial-actions">
+                                    <a href="https://www.metter.org/" target="_blank" class="visit-website-btn">
+                                        <i class="bi bi-globe"></i>
+                                        Visit Website
+                                    </a>
+                                    <button class="play-video-btn" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/2e4404d3f49ddb13568507d338385750/manifest/video.m3u8', 'https://www.metter.org/')">
+                                        <i class="bi bi-play-circle"></i>
+                                        Watch Video
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-1">
-                            <div class="feature-icon"><i class="bi bi-clock-fill"></i></div>
-                            <div class="feature-title">Time Savings</div>
-                            <div class="feature-description">Administrative staff save an average of 10 hours per week on website updates and communications.</div>
+                </div>
+
+                <!-- Moffat School District -->
+                <div class="testimonial-story fade-in fade-in-delay-2">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
+                            <div class="school-logo-container">
+                                <img src="Photos/testimonial logos/moffat.png" alt="Moffat School District" class="school-logo">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">"</div>
+                                <blockquote class="testimonial-quote">We were looking for a new host whenever we discovered SchoolBlocks and we were very happy with it. SchoolBlocks has terrific support.</blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Vicki Hadden</div>
+                                    <div class="author-title">Assistant to the Superintendent</div>
+                                    <div class="school-name">Moffat School District</div>
+                                </div>
+                                <div class="testimonial-actions">
+                                    <a href="https://www.moffatsd.org/" target="_blank" class="visit-website-btn">
+                                        <i class="bi bi-globe"></i>
+                                        Visit Website
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-2">
-                            <div class="feature-icon"><i class="bi bi-shield-check-fill"></i></div>
-                            <div class="feature-title">ADA Compliance</div>
-                            <div class="feature-description">100% of our clients achieve full ADA compliance, protecting their districts from legal challenges.</div>
+                </div>
+
+                <!-- Troy Community Consolidated School District 30-C -->
+                <div class="testimonial-story fade-in fade-in-delay-3">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
+                            <div class="school-logo-container">
+                                <img src="Photos/testimonial logos/troy.png" alt="Troy Community Consolidated School District 30-C" class="school-logo">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">"</div>
+                                <blockquote class="testimonial-quote">SchoolBlocks has terrific support.</blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Ron Sarver</div>
+                                    <div class="author-title">Technology Director</div>
+                                    <div class="school-name">Troy Community Consolidated School District 30-C</div>
+                                </div>
+                                <div class="testimonial-actions">
+                                    <a href="https://www.troy30c.org/" target="_blank" class="visit-website-btn">
+                                        <i class="bi bi-globe"></i>
+                                        Visit Website
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-3">
-                            <div class="feature-icon"><i class="bi bi-phone-fill"></i></div>
-                            <div class="feature-title">Mobile Optimization</div>
-                            <div class="feature-description">Mobile traffic increases by an average of 150% with our responsive, mobile-first designs.</div>
+                </div>
+
+                <!-- Lewiston Public Schools -->
+                <div class="testimonial-story fade-in fade-in-delay-4">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
+                            <div class="school-logo-container">
+                                <img src="Photos/testimonial logos/lewiston.png" alt="Lewiston Public Schools" class="school-logo">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">"</div>
+                                <blockquote class="testimonial-quote">The Google integration and the file sharing is one of the greatest assets of SchoolBlocks.</blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Dave Theriault</div>
+                                    <div class="author-title">Technology Director</div>
+                                    <div class="school-name">Lewiston Public Schools</div>
+                                </div>
+                                <div class="testimonial-actions">
+                                    <a href="https://www.lewistonpublicschools.org/en-US" target="_blank" class="visit-website-btn">
+                                        <i class="bi bi-globe"></i>
+                                        Visit Website
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-4">
-                            <div class="feature-icon"><i class="bi bi-star-fill"></i></div>
-                            <div class="feature-title">Satisfaction Rate</div>
-                            <div class="feature-description">98% client satisfaction rate with our platform, support, and ongoing partnership approach.</div>
+                </div>
+
+                <!-- Hearne ISD -->
+                <div class="testimonial-story fade-in fade-in-delay-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
+                            <div class="school-logo-container">
+                                <img src="Photos/testimonial logos/hearneisd.png" alt="Hearne ISD" class="school-logo">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="feature-card fade-in fade-in-delay-5">
-                            <div class="feature-icon"><i class="bi bi-speedometer2"></i></div>
-                            <div class="feature-title">Faster Updates</div>
-                            <div class="feature-description">Website updates that used to take days now happen in minutes with our intuitive content management system.</div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">"</div>
+                                <blockquote class="testimonial-quote">The transition over to SchoolBlocks has been so great and so smooth.</blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Jeremy Gaston</div>
+                                    <div class="author-title">Director of Technology</div>
+                                    <div class="school-name">Hearne ISD</div>
+                                </div>
+                                <div class="testimonial-actions">
+                                    <a href="https://www.hearneisd.com/en-US" target="_blank" class="visit-website-btn">
+                                        <i class="bi bi-globe"></i>
+                                        Visit Website
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -610,6 +829,53 @@
             fadeElements.forEach(el => observer.observe(el));
 
         });
+
+        // Video Modal Functionality
+        function showVideoModal(videoUrl, websiteUrl) {
+            // Create modal HTML
+            const modalHTML = `
+                <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content" style="background: #000; border: none; border-radius: 16px; overflow: hidden;">
+                            <div class="modal-header" style="background: rgba(0,0,0,0.8); border: none; padding: 20px;">
+                                <h5 class="modal-title text-white" id="videoModalLabel">Client Success Story</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <video controls autoplay style="width: 100%; height: auto; max-height: 400px;">
+                                    <source src="${videoUrl}" type="application/x-mpegURL">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="modal-footer" style="background: rgba(0,0,0,0.8); border: none; padding: 20px;">
+                                <a href="${websiteUrl}" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, #4A90E2, #357ABD); border: none; border-radius: 8px;">
+                                    <i class="bi bi-globe me-2"></i>Visit School Website
+                                </a>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 8px;">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Remove existing modal if any
+            const existingModal = document.getElementById('videoModal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            // Add modal to body
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('videoModal'));
+            modal.show();
+
+            // Clean up when modal is hidden
+            document.getElementById('videoModal').addEventListener('hidden.bs.modal', function() {
+                this.remove();
+            });
+        }
     </script>
 </body>
 </html>

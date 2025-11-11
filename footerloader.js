@@ -101,19 +101,19 @@ function loadFooter() {
                 
                 <div class="footer-bottom">
                     <div class="footer-social">
-                        <a href="#" class="social-link facebook" aria-label="Follow us on Facebook">
+                        <a href="https://www.facebook.com/schoolblockscommunity/?locale=nb_NO" class="social-link facebook" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
                             <i class="bi bi-facebook"></i>
                         </a>
-                        <a href="#" class="social-link twitter" aria-label="Follow us on Twitter">
+                        <a href="https://twitter.com/SchoolBlocks/" class="social-link twitter" aria-label="Follow us on Twitter" target="_blank" rel="noopener noreferrer">
                             <i class="bi bi-twitter"></i>
                         </a>
-                        <a href="#" class="social-link linkedin" aria-label="Follow us on LinkedIn">
+                        <a href="https://www.linkedin.com/company/school-blocks" class="social-link linkedin" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer">
                             <i class="bi bi-linkedin"></i>
                         </a>
-                        <a href="#" class="social-link youtube" aria-label="Follow us on YouTube">
+                        <a href="https://www.youtube.com/@schoolblocks6176" class="social-link youtube" aria-label="Follow us on YouTube" target="_blank" rel="noopener noreferrer">
                             <i class="bi bi-youtube"></i>
                         </a>
-                        <a href="#" class="social-link instagram" aria-label="Follow us on Instagram">
+                        <a href="https://www.instagram.com/schoolblocks/?hl=en" class="social-link instagram" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
                             <i class="bi bi-instagram"></i>
                         </a>
                     </div>

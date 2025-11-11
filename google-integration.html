@@ -653,6 +653,141 @@
             }
             
         }
+        
+        /* Integration Features Styling */
+        .integration-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .integration-header h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+        
+        .integration-header h3 i {
+            color: #4A90E2;
+            margin-right: 12px;
+            font-size: 2rem;
+        }
+        
+        .integration-intro {
+            font-size: 1.3rem;
+            color: #5a6c7d;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .integration-features {
+            display: grid;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 16px 48px rgba(0, 0, 0, 0.06),
+                0 1px 0 rgba(255, 255, 255, 0.7) inset;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.1),
+                0 1px 0 rgba(255, 255, 255, 0.8) inset;
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+        
+        .feature-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .feature-content h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .feature-content p {
+            font-size: 1.1rem;
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Responsive for Integration Features */
+        @media (max-width: 768px) {
+            .integration-header h3 {
+                font-size: 1.8rem;
+            }
+            
+            .integration-header h3 i {
+                font-size: 1.6rem;
+                margin-right: 8px;
+            }
+            
+            .integration-intro {
+                font-size: 1.1rem;
+            }
+            
+            .integration-features {
+                gap: 30px;
+                margin-top: 40px;
+            }
+            
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 25px;
+                gap: 20px;
+            }
+            
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto;
+            }
+            
+            .feature-icon i {
+                font-size: 1.6rem;
+            }
+            
+            .feature-content h4 {
+                font-size: 1.3rem;
+            }
+            
+            .feature-content p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -713,7 +848,32 @@
             <!-- Content Description -->
             <div class="content-description">
                 <div class="description-text active" data-content="users">
-                    <p>Seamlessly sync your Google Workspace users with SchoolBlocks. Automatically import staff directories, student rosters, and organizational units. Keep your website's user management in perfect sync with your Google domain, ensuring accurate contact information and proper access permissions across your entire school website.</p>
+                    <div class="integration-header">
+                        <h3><i class="bi bi-lightning-charge-fill"></i> Real-Time Google Integration for Ultimate Synchronization</h3>
+                        <p class="integration-intro">SchoolBlocks goes 1,000 miles further than any other vendor to ensure that your school's data is always current and consistent across all platforms. We leverage Google's APIs and Webhooks in the following ways:</p>
+                    </div>
+                    
+                    <div class="integration-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="bi bi-calendar-event"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Calendar API Sync</h4>
+                                <p>Instantly synchronize your Google Calendars with the SchoolBlocks platform, ensuring all events, important dates, and schedule changes are immediately reflected. Never miss an update on school events, board meetings, or classroom schedules.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="bi bi-cloud-arrow-up-fill"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Drive API & Webhook Document Sync</h4>
+                                <p>Maintain a single source of truth for all school documents and folders. Our combined use of the Google Drive API and webhooks guarantees real-time synchronization, meaning any addition, update, or deletion in your Google Drive is mirrored in SchoolBlocks—and vice versa—automatically.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="description-text" data-content="calendars">
