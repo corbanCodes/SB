@@ -1118,6 +1118,43 @@ function loadNavbar() {
     // Adjust padding on load and resize
     adjustMainContentPadding();
     window.addEventListener('resize', adjustMainContentPadding);
+    
+    // Load Help Scout Beacon Chat Widget
+    function loadChatWidget() {
+        try {
+            console.log('Starting Help Scout Beacon chat widget initialization...');
+            
+            // Help Scout Beacon initialization script
+            !function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});
+            
+            // Wait a bit for the script to load, then initialize
+            setTimeout(() => {
+                if (window.Beacon) {
+                    console.log('Beacon object found, initializing...');
+                    // Initialize Beacon with SchoolBlocks ID
+                    window.Beacon('init', '86c64d0d-c7d8-48ca-9917-5138db3cb7b0');
+                    console.log('Help Scout Beacon chat widget initialized successfully');
+                    
+                    // Check if widget elements exist after initialization
+                    setTimeout(() => {
+                        const beaconElements = document.querySelectorAll('[data-beacon], [class*="beacon"], [id*="beacon"]');
+                        console.log('Found Beacon elements:', beaconElements.length);
+                        beaconElements.forEach((el, index) => {
+                            console.log(`Beacon element ${index}:`, el, 'Visible:', el.offsetParent !== null);
+                        });
+                    }, 3000);
+                } else {
+                    console.error('Beacon object not found - chat widget may not load');
+                }
+            }, 2000);
+            
+        } catch (error) {
+            console.error('Error loading Help Scout Beacon chat widget:', error);
+        }
+    }
+    
+    // Load chat widget after a short delay to ensure page is ready
+    setTimeout(loadChatWidget, 1500);
 }
 
 // Auto-load navbar when DOM is ready
