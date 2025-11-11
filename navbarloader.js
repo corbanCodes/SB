@@ -1155,6 +1155,23 @@ function loadNavbar() {
     
     // Load chat widget after a short delay to ensure page is ready
     setTimeout(loadChatWidget, 1500);
+    
+    // Load ADA Compliance Widget
+    function loadADAWidget() {
+        const adaScript = document.createElement('script');
+        adaScript.src = 'ada-widget.js';
+        adaScript.async = true;
+        adaScript.onload = () => {
+            console.log('🔧 ADA Compliance Widget loaded successfully');
+        };
+        adaScript.onerror = () => {
+            console.error('❌ Failed to load ADA Compliance Widget');
+        };
+        document.head.appendChild(adaScript);
+    }
+    
+    // Load ADA widget after navbar is ready
+    setTimeout(loadADAWidget, 2000);
 }
 
 // Auto-load navbar when DOM is ready
