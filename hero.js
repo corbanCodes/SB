@@ -23,12 +23,11 @@ class HeroComponent {
             .hero-component {
                 background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 50%, #E8F4FD 100%);
                 min-height: calc(100vh - 80px); /* Account for navbar */
-                height: calc(100vh - 80px);
                 display: flex;
                 align-items: center;
                 position: relative;
-                overflow: hidden;
-                padding: 0;
+                overflow: visible;
+                padding: 20px 0;
             }
 
             .hero-component::before {
@@ -53,18 +52,17 @@ class HeroComponent {
                 z-index: 10;
                 display: flex;
                 flex-direction: column;
-                height: 100%;
-                justify-content: space-between;
+                min-height: 600px;
+                gap: 30px;
             }
 
             .hero-main {
-                flex: 1;
                 display: grid;
                 grid-template-columns: 50% 50%;
                 align-items: center;
                 gap: 0;
-                min-height: 0;
-                padding: 40px 0 20px 0;
+                min-height: 450px;
+                padding: 20px 0;
                 max-width: 1600px;
                 margin: 0 auto;
                 width: 100%;
@@ -169,14 +167,13 @@ class HeroComponent {
             }
 
             .hero-partners {
-                padding: 20px 0 30px 0;
+                padding: 0 0 10px 0;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 gap: 30px;
                 flex-wrap: wrap;
                 flex-shrink: 0;
-                margin-top: auto;
             }
 
             .partner-btn {
@@ -308,19 +305,20 @@ class HeroComponent {
             @media (max-width: 1143px) and (min-width: 769px) {
                 .hero-component {
                     min-height: calc(100vh - 80px);
-                    height: auto;
+                    padding: 15px 0;
                 }
 
                 .hero-container {
                     padding: 0 30px;
-                    justify-content: space-between;
+                    min-height: 550px;
+                    gap: 25px;
                 }
 
                 .hero-main {
                     grid-template-columns: 50% 50%;
                     gap: 0;
-                    padding: 30px 0 10px 0;
-                    flex: 1;
+                    padding: 15px 0;
+                    min-height: 400px;
                 }
 
                 .hero-content {
@@ -339,9 +337,7 @@ class HeroComponent {
                 }
 
                 .hero-partners {
-                    padding: 15px 0 25px 0;
-                    margin-top: auto;
-                    flex-shrink: 0;
+                    padding: 0 0 10px 0;
                 }
 
                 .partner-btn {
@@ -353,14 +349,21 @@ class HeroComponent {
 
             /* Mobile Responsive Design */
             @media (max-width: 1024px) {
+                .hero-component {
+                    padding: 15px 0;
+                }
+
                 .hero-container {
                     padding: 0 30px;
+                    min-height: 500px;
+                    gap: 20px;
                 }
 
                 .hero-main {
                     grid-template-columns: 50% 50%;
                     gap: 0;
-                    padding: 30px 0 15px 0;
+                    padding: 15px 0;
+                    min-height: 380px;
                 }
 
                 .hero-content {
@@ -394,21 +397,22 @@ class HeroComponent {
 
             @media (max-width: 768px) {
                 .hero-component {
-                    min-height: calc(100vh - 70px);
-                    height: auto;
+                    min-height: auto;
                     padding: 15px 0;
                 }
 
                 .hero-container {
                     padding: 0 20px;
-                    justify-content: flex-start;
+                    min-height: auto;
+                    gap: 20px;
                 }
 
                 .hero-main {
                     grid-template-columns: 1fr;
                     gap: 30px;
                     text-align: center;
-                    padding: 20px 0 15px 0;
+                    padding: 10px 0;
+                    min-height: auto;
                 }
 
                 .hero-content {
@@ -434,10 +438,9 @@ class HeroComponent {
                 }
 
                 .hero-partners {
-                    padding: 15px 0 20px 0;
+                    padding: 0 0 10px 0;
                     flex-direction: column;
                     gap: 15px;
-                    margin-top: 0;
                 }
 
                 .partner-btn {
