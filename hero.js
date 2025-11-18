@@ -53,7 +53,7 @@ class HeroComponent {
                 display: flex;
                 flex-direction: column;
                 min-height: 600px;
-                gap: 30px;
+                gap: 15px;
             }
 
             .hero-main {
@@ -311,7 +311,7 @@ class HeroComponent {
                 .hero-container {
                     padding: 0 30px;
                     min-height: 550px;
-                    gap: 25px;
+                    gap: 15px;
                 }
 
                 .hero-main {
@@ -356,7 +356,7 @@ class HeroComponent {
                 .hero-container {
                     padding: 0 30px;
                     min-height: 500px;
-                    gap: 20px;
+                    gap: 12px;
                 }
 
                 .hero-main {
@@ -404,7 +404,7 @@ class HeroComponent {
                 .hero-container {
                     padding: 0 20px;
                     min-height: auto;
-                    gap: 20px;
+                    gap: 15px;
                 }
 
                 .hero-main {

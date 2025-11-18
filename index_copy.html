@@ -1196,7 +1196,7 @@
             text-align: center;
             font-size: clamp(1.4rem, 4.5vw, 2.8rem);
             margin-top: 0px;
-            margin-bottom: 24px;
+            margin-bottom: 40px;
             color: #2C3E50;
             font-weight: 600;
             line-height: 1.3;
@@ -1218,10 +1218,10 @@
         /* Subtext under heading */
         .features-subtext {
             text-align: center;
-            font-size: 1.65rem;
+            font-size: 1.1rem;
             color: #5A6C7D;
-            margin-top: 0;
-            margin-bottom: 42px;
+            margin-top: -20px;
+            margin-bottom: 40px;
             font-weight: 500;
             letter-spacing: 0.3px;
             opacity: 0;
@@ -2658,11 +2658,40 @@
             flex-direction: column;
             align-items: center;
             min-height: 120px;
+            position: relative;
         }
+        
+        /* Subtle block indicator - top left accent */
+        .features-bar .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 16px;
+            height: 16px;
+            background: currentColor;
+            opacity: 0.12;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Color each block accent based on its feature */
+        .features-bar .feature-item:nth-child(1)::before { background: #FF6B6B; }
+        .features-bar .feature-item:nth-child(2)::before { background: #4ECDC4; }
+        .features-bar .feature-item:nth-child(3)::before { background: #45B7D1; }
+        .features-bar .feature-item:nth-child(4)::before { background: #96CEB4; }
+        .features-bar .feature-item:nth-child(5)::before { background: #FECA57; }
+        .features-bar .feature-item:nth-child(6)::before { background: #A8E6CF; }
 
         .features-bar .feature-item:hover {
             transform: translateY(-8px);
             background: rgba(74, 144, 226, 0.05);
+        }
+        
+        .features-bar .feature-item:hover::before {
+            opacity: 0.25;
+            width: 20px;
+            height: 20px;
         }
 
         .features-bar .feature-icon {
@@ -2886,14 +2915,9 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
-            align-items: start;
+            align-items: center;
         }
         
-        .feature-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
         
         .feature-text h2 {
             font-size: clamp(1.6rem, 3vw, 2.2rem);
@@ -2905,31 +2929,26 @@
         }
         
         .feature-text p {
-            font-size: clamp(1.15rem, 1.5vw, 1.6rem);
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
             color: #666;
-            line-height: 1.7;
-            margin: 0 0 25px 0;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
         }
         
         .feature-text .learn-more-btn {
-            margin-top: 5px;
-            font-size: 1.44rem;
+            margin-top: 0;
+            font-size: 1.2rem;
             text-align: center;
             display: block;
         }
         
         .feature-image {
             position: relative;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
         }
         
         .feature-image img {
             width: 100%;
-            height: 500px;
-            object-fit: cover;
-            object-position: center;
+            height: auto;
             border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
@@ -2961,10 +2980,6 @@
             
             .feature-content {
                 gap: 60px;
-            }
-            
-            .feature-image img {
-                height: 450px;
             }
             
         }
@@ -3013,11 +3028,6 @@
                 order: 2;
             }
             
-            .feature-image img {
-                height: auto;
-                max-height: 400px;
-            }
-            
             .product-features .feature-item.reverse .feature-content {
                 grid-template-columns: 1fr;
             }
@@ -3032,11 +3042,7 @@
             
             
             .feature-text p {
-                font-size: clamp(1.15rem, 2.5vw, 1.5rem);
-            }
-            
-            .feature-text .learn-more-btn {
-                font-size: 1.28rem;
+                font-size: clamp(1.1rem, 2vw, 1.4rem);
             }
             
             .feature-header {
@@ -3801,28 +3807,24 @@
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 24px;
-            height: 100%;
-            justify-content: space-between;
+            gap: 30px;
         }
 
         .info-item {
             display: flex;
             align-items: center;
             gap: 20px;
-            padding: 32px 28px;
+            padding: 24px;
             background: white;
             border-radius: 16px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(74, 144, 226, 0.1);
             transition: all 0.3s ease;
-            flex: 1;
         }
 
         .info-item:hover {
             transform: translateY(-4px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            border-color: rgba(74, 144, 226, 0.3);
         }
 
         .info-icon {
@@ -3839,17 +3841,16 @@
         }
 
         .info-content h4 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #2C3E50;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .info-content p {
             color: #5A6C7D;
             margin: 0;
-            font-size: 1.1rem;
-            line-height: 1.5;
+            font-size: 0.95rem;
         }
 
         /* Contact Section Responsive */
@@ -3885,14 +3886,6 @@
                 width: 50px;
                 height: 50px;
                 font-size: 20px;
-            }
-            
-            .info-content h4 {
-                font-size: 1.3rem;
-            }
-            
-            .info-content p {
-                font-size: 1rem;
             }
         }
         
@@ -4237,12 +4230,13 @@
             .features h2.modern-heading {
                 font-size: clamp(1.3rem, 4vw, 2.2rem);
                 margin-top: 0px;
-                margin-bottom: 20px;
+                margin-bottom: 30px;
             }
             
             .features-subtext {
-                font-size: 1.5rem;
-                margin-bottom: 36px;
+                font-size: 1rem;
+                margin-top: -15px;
+                margin-bottom: 30px;
             }
             
             .mobile-accordion {
@@ -4264,12 +4258,7 @@
             .features h2.modern-heading {
                 font-size: clamp(1.2rem, 3.5vw, 2rem);
                 margin-top: 0px;
-                margin-bottom: 18px;
-            }
-            
-            .features-subtext {
-                font-size: 1.4rem;
-                margin-bottom: 32px;
+                margin-bottom: 25px;
             }
         }
         
@@ -4281,13 +4270,14 @@
             .features h2.modern-heading {
                 font-size: clamp(1rem, 3vw, 1.6rem);
                 margin-top: 0px;
-                margin-bottom: 16px;
+                margin-bottom: 20px;
                 white-space: normal;
             }
             
             .features-subtext {
-                font-size: 1.35rem;
-                margin-bottom: 28px;
+                font-size: 0.95rem;
+                margin-top: -10px;
+                margin-bottom: 25px;
                 padding: 0 20px;
             }
             
@@ -4640,7 +4630,7 @@
         <section class="features">
             <div class="features-container">
                 <h2 class="modern-heading">Everything your district needs for a <span class="highlight-word">modern online presence</span>.</h2>
-                <p class="features-subtext">Explore the building blocks of modern online presence</p>
+                <p class="features-subtext">Explore the building blocks of modern school communication</p>
                 
                 <!-- Desktop Alternative Features Bar -->
                 <div class="features-bar-container desktop-only">
@@ -5184,12 +5174,12 @@
                     </div>
                     <div class="feature-content">
                         <div class="feature-text">
-                            <h2>Modern School Websites</h2>
-                            <p>SchoolBlocks transforms the wealth of information on school websites into a clear, engaging experience for families and staff alike. Designed with accessibility and simplicity in mind, it helps parents, students, and staff quickly find what they need—while ensuring full ADA, WCAG 2.2, and CIPA compliance. Our intuitive drag-and-drop interface makes updates effortless for webmasters of any skill level. With responsive design that looks beautiful on every device, your school's digital presence will shine across desktops, tablets, and smartphones.</p>
+                            <h2>Modern School Websites That Work</h2>
+                            <p>SchoolBlocks transforms the wealth of information on school websites into a clear, engaging experience for families and staff alike. Designed with accessibility and simplicity in mind, it helps parents, students, and staff quickly find what they need—while ensuring full ADA, WCAG 2.2, and CIPA compliance.</p>
                             <a href="school-websites.html" class="learn-more-btn">Learn More</a>
                         </div>
                         <div class="feature-image">
-                            <img src="Photos/Images/google-integration/4 - classroom photo.webp" alt="SchoolBlocks Website Interface" />
+                            <img src="Photos/Images/HomePage/schoolwebsitesthatwork.webp" alt="SchoolBlocks Website Interface" />
                         </div>
                     </div>
                 </div>
@@ -5207,7 +5197,7 @@
                         </div>
                         <div class="feature-text">
                             <h2>Progressive Web App Technology</h2>
-                            <p>Launch your own app with our progressive web app (PWA) technology and see engagement soar. PWAs make your app instantly accessible, easy to use, and fast—driving up to 3× the usage compared to traditional apps. Deliver a seamless mobile experience that keeps your community coming back, with push notifications and offline capabilities that work across all devices. No app store approval needed—your PWA updates instantly whenever you make changes. Users can add it to their home screen with one tap, creating an app-like experience without the traditional development costs or complexity.</p>
+                            <p>Launch your own app with our progressive web app (PWA) technology and see engagement soar. PWAs make your app instantly accessible, easy to use, and fast—driving up to 3× the usage compared to traditional apps. Deliver a seamless mobile experience that keeps your community coming back.</p>
                             <a href="apps.html" class="learn-more-btn">Learn More</a>
                         </div>
                     </div>
@@ -5245,7 +5235,7 @@
                         </div>
                         <div class="feature-text">
                             <h2>Safe Community Engagement</h2>
-                            <p>Turn social engagement into a positive experience. Our platform eliminates the common pitfalls of traditional social media while encouraging meaningful member-to-member interactions. With conversation prompts, leaderboards, and more, engaging with your organization becomes fun, rewarding, and safe—building stronger connections and a thriving community. Moderation tools give you complete control to maintain a positive, inclusive environment for all members.</p>
+                            <p>Turn social engagement into a positive experience. Our platform eliminates the common pitfalls of traditional social media while encouraging meaningful member-to-member interactions. With conversation prompts, leaderboards, and more, engaging with your organization becomes fun, rewarding, and safe—building stronger connections and a thriving community.</p>
                             <a href="schoolfeed-social.html" class="learn-more-btn">Learn More</a>
                         </div>
                     </div>
@@ -5261,7 +5251,7 @@
                     <div class="feature-content">
                         <div class="feature-text">
                             <h2>Seamless Google Workspace Integration</h2>
-                            <p>With seamless Google Workspace integration, SchoolBlocks brings your files, folders, and calendar events directly into each page—making your website both powerful and easy to manage. Display Google Calendars, embed Drive documents, and sync staff directories automatically. Combined with great pricing and responsive support, it's a winning formula for every K-12 district. Keep content fresh and accurate without double-entry—updates in Google instantly reflect on your website.</p>
+                            <p>With seamless Google Workspace integration, SchoolBlocks brings your files, folders, and calendar events directly into each page—making your website both powerful and easy to manage. Combined with great pricing and responsive support, it's a winning formula for every K-12 district.</p>
                             <a href="google-integration.html" class="learn-more-btn">Learn More</a>
                         </div>
                         <div class="feature-image">
@@ -5283,7 +5273,7 @@
                         </div>
                         <div class="feature-text">
                             <h2>Instant AI-Powered Support</h2>
-                            <p>Integrate our AI Answers companion to provide your members with instant, intelligent responses in natural language—exactly what they expect from modern technology. Our AI learns from your website content to deliver accurate, contextual answers 24/7. Enhance engagement, reduce support bottlenecks, and give your community a seamless way to get the information they need, when they need it. Free up your staff to focus on what matters most while AI handles routine inquiries efficiently.</p>
+                            <p>Integrate our AI Answers companion to provide your members with instant, intelligent responses in natural language—exactly what they expect from modern technology. Enhance engagement, reduce support bottlenecks, and give your community a seamless way to get the information they need, when they need it.</p>
                             <a href="welcome-chat.html" class="learn-more-btn">Learn More</a>
                         </div>
                     </div>
@@ -5317,43 +5307,149 @@
                     <h2 class="testimonials-title modern-heading">See What <span class="highlight-word">Our Schools</span> Have to Say About Us</h2>
                 </div>
             </div>
-            <div class="testimonials-grid-container">
-                <!-- Testimonial 1 - Ramona -->
-                <div class="testimonial-card" data-school="ramona" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/6360fcf808fd7c88d96fd2e8a6fb8fce/manifest/video.m3u8', 'https://www.ramonausd.net/en-US')">
-                    <div class="testimonial-header">
-                        <img src="Photos/testimonial logos/romona.png" alt="Ramona Unified School District" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <div class="testimonial-school">Ramona Unified School District</div>
-                            <div class="testimonial-name">Keith Wright, Director of Technology</div>
+            <div class="testimonials-marquee">
+                    <div class="testimonials-track">
+                        <!-- Testimonial 1 - Ramona -->
+                        <div class="testimonial-card" data-school="ramona" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/6360fcf808fd7c88d96fd2e8a6fb8fce/manifest/video.m3u8', 'https://www.ramonausd.net/en-US')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/romona.png" alt="Ramona Unified School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Ramona Unified School District</div>
+                                    <div class="testimonial-name">Keith Wright, Director of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"SchoolBlocks is awesome. I personally love it."</p>
+                            <div class="testimonial-play-icon">▶</div>
+                        </div>
+                        
+                        <!-- Testimonial 2 - Candler County -->
+                        <div class="testimonial-card" data-school="candler" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/2e4404d3f49ddb13568507d338385750/manifest/video.m3u8', 'https://www.metter.org/')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/candlercounty.png" alt="Candler County Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Candler County Schools</div>
+                                    <div class="testimonial-name">Tony Lescak, Technology Specialist</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"I really like the block format because it moves you away from the desktop format. The blocks move around and it doesn't matter what you are on, it looks great."</p>
+                            <div class="testimonial-play-icon">▶</div>
+                        </div>
+                        
+                        <!-- Testimonial 3 - Moffat -->
+                        <div class="testimonial-card" data-school="moffat" onclick="window.open('https://www.moffatsd.org/', '_blank')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/moffat.png" alt="Moffat School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Moffat School District</div>
+                                    <div class="testimonial-name">Vicki Hadden, Asst. to the Superintendent</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"We were looking for a new host whenever we discovered SchoolBlocks and we were very happy with it. SchoolBlocks has terrific support."</p>
+                        </div>
+                        
+                        <!-- Testimonial 4 - Troy -->
+                        <div class="testimonial-card" data-school="troy" onclick="window.open('https://www.troy30c.org/', '_blank')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/troy.png" alt="Troy Community Consolidated School District 30-C" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Troy Community Consolidated School District 30-C</div>
+                                    <div class="testimonial-name">Ron Sarver, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"SchoolBlocks has terrific support."</p>
+                        </div>
+                        
+                        <!-- Testimonial 5 - Lewiston -->
+                        <div class="testimonial-card" data-school="lewiston" onclick="window.open('https://www.lewistonpublicschools.org/en-US', '_blank')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/lewiston.png" alt="Lewiston Public Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Lewiston Public Schools</div>
+                                    <div class="testimonial-name">Dave Theriault, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"The Google integration and the file sharing is one of the greatest assets of SchoolBlocks."</p>
+                        </div>
+                        
+                        <!-- Testimonial 6 - Hearne ISD -->
+                        <div class="testimonial-card" data-school="hearne" onclick="window.open('https://www.hearneisd.com/en-US', '_blank')">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/hearneisd.png" alt="Hearne ISD" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Hearne ISD</div>
+                                    <div class="testimonial-name">Jeremy Gaston, Directory of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"The transition over to SchoolBlocks has been so great and so smooth."</p>
+                        </div>
+                        
+                        <!-- Duplicate set for seamless loop -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/romona.png" alt="Ramona Unified School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Ramona Unified School District</div>
+                                    <div class="testimonial-name">Keith Wright, Director of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"SchoolBlocks is awesome. I personally love it."</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/candlercounty.png" alt="Candler County Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Candler County Schools</div>
+                                    <div class="testimonial-name">Tony Lescak, Technology Specialist</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"I really like the block format because it moves you away from the desktop format. The blocks move around and it doesn't matter what you are on, it looks great."</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/moffat.png" alt="Moffat School District" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Moffat School District</div>
+                                    <div class="testimonial-name">Vicki Hadden, Asst. to the Superintendent</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"We were looking for a new host whenever we discovered SchoolBlocks and we were very happy with it. SchoolBlocks has terrific support."</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/troy.png" alt="Troy Community Consolidated School District 30-C" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Troy Community Consolidated School District 30-C</div>
+                                    <div class="testimonial-name">Ron Sarver, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"SchoolBlocks has terrific support."</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/lewiston.png" alt="Lewiston Public Schools" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Lewiston Public Schools</div>
+                                    <div class="testimonial-name">Dave Theriault, Technology Director</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"The Google integration and the file sharing is one of the greatest assets of SchoolBlocks."</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="Photos/testimonial logos/hearneisd.png" alt="Hearne ISD" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <div class="testimonial-school">Hearne ISD</div>
+                                    <div class="testimonial-name">Jeremy Gaston, Directory of Technology</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-quote">"The transition over to SchoolBlocks has been so great and so smooth."</p>
                         </div>
                     </div>
-                    <p class="testimonial-quote">"SchoolBlocks is awesome. I personally love it."</p>
-                    <div class="testimonial-play-icon">▶</div>
-                </div>
-                
-                <!-- Testimonial 2 - Lewiston -->
-                <div class="testimonial-card" data-school="lewiston" onclick="window.open('https://www.lewistonpublicschools.org/en-US', '_blank')">
-                    <div class="testimonial-header">
-                        <img src="Photos/testimonial logos/lewiston.png" alt="Lewiston Public Schools" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <div class="testimonial-school">Lewiston Public Schools</div>
-                            <div class="testimonial-name">Dave Theriault, Technology Director</div>
-                        </div>
-                    </div>
-                    <p class="testimonial-quote">"The Google integration and the file sharing is one of the greatest assets of SchoolBlocks."</p>
-                </div>
-                
-                <!-- Testimonial 3 - Hearne ISD -->
-                <div class="testimonial-card" data-school="hearne" onclick="window.open('https://www.hearneisd.com/en-US', '_blank')">
-                    <div class="testimonial-header">
-                        <img src="Photos/testimonial logos/hearneisd.png" alt="Hearne ISD" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <div class="testimonial-school">Hearne ISD</div>
-                            <div class="testimonial-name">Jeremy Gaston, Directory of Technology</div>
-                        </div>
-                    </div>
-                    <p class="testimonial-quote">"The transition over to SchoolBlocks has been so great and so smooth."</p>
-                </div>
             </div>
         </section>
         
@@ -5428,11 +5524,6 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Your phone (optional)</label>
-                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
-                        </div>
-                        
-                        <div class="form-group">
                             <label for="message">Your message</label>
                             <textarea id="message" name="message" rows="5" placeholder="Tell us about your district's needs and how we can help..." required></textarea>
                         </div>
@@ -5444,7 +5535,7 @@
                     </form>
                     
                     <div class="contact-info">
-                        <div class="info-item" onclick="openCallModal()" style="cursor: pointer;">
+                        <div class="info-item">
                             <div class="info-icon">
                                 <i class="bi bi-telephone"></i>
                             </div>
@@ -5454,7 +5545,7 @@
                             </div>
                         </div>
                         
-                        <a href="get-started.html" class="info-item" style="text-decoration: none; color: inherit;">
+                        <div class="info-item">
                             <div class="info-icon">
                                 <i class="bi bi-calendar-check"></i>
                             </div>
@@ -5462,9 +5553,9 @@
                                 <h4>Schedule Demo</h4>
                                 <p>See SchoolBlocks in action</p>
                             </div>
-                        </a>
+                        </div>
                         
-                        <div class="info-item" onclick="openLiveChat()" style="cursor: pointer;">
+                        <div class="info-item">
                             <div class="info-icon">
                                 <i class="bi bi-chat-dots"></i>
                             </div>
@@ -5477,191 +5568,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Call Us Modal -->
-        <div id="callModal" class="call-modal-overlay">
-            <div class="call-modal-content">
-                <button class="call-modal-close" onclick="closeCallModal()">&times;</button>
-                <div class="call-modal-body">
-                    <div class="call-modal-icon">
-                        <i class="bi bi-telephone-fill"></i>
-                    </div>
-                    <h3>Let's Talk!</h3>
-                    <p class="call-modal-description">Our team is ready to help you transform your district's digital presence</p>
-                    <a href="tel:+18003136438" class="phone-number-link">
-                        <i class="bi bi-telephone"></i>
-                        (800) 313-6438
-                    </a>
-                    <p class="call-modal-hours">Monday - Friday, 8am - 5pm MST</p>
-                </div>
-            </div>
-        </div>
-
-        <style>
-            /* Pure CSS Modal */
-            .call-modal-overlay {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.6);
-                z-index: 9999;
-                justify-content: center;
-                align-items: center;
-            }
-            
-            .call-modal-overlay.active {
-                display: flex;
-            }
-            
-            .call-modal-content {
-                background: white;
-                border-radius: 20px;
-                padding: 0;
-                max-width: 500px;
-                width: 90%;
-                position: relative;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-                animation: modalFadeIn 0.3s ease;
-            }
-            
-            @keyframes modalFadeIn {
-                from {
-                    opacity: 0;
-                    transform: scale(0.9);
-                }
-                to {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-            }
-            
-            .call-modal-close {
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                background: none;
-                border: none;
-                font-size: 2rem;
-                color: #999;
-                cursor: pointer;
-                line-height: 1;
-                padding: 0;
-                width: 30px;
-                height: 30px;
-                transition: color 0.3s ease;
-            }
-            
-            .call-modal-close:hover {
-                color: #333;
-            }
-            
-            .call-modal-body {
-                padding: 50px 30px;
-                text-align: center;
-            }
-            
-            .call-modal-icon {
-                width: 80px;
-                height: 80px;
-                margin: 0 auto 20px;
-                background: linear-gradient(135deg, #4A90E2, #357ABD);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .call-modal-icon i {
-                font-size: 2.5rem;
-                color: white;
-            }
-            
-            .call-modal-body h3 {
-                font-size: 2rem;
-                margin: 0 0 15px 0;
-                color: #2C3E50;
-            }
-            
-            .call-modal-description {
-                color: #666;
-                margin: 0 0 25px 0;
-                font-size: 1rem;
-            }
-            
-            .phone-number-link {
-                display: inline-block;
-                font-size: 2rem;
-                font-weight: 600;
-                color: #4A90E2;
-                text-decoration: none;
-                padding: 15px 30px;
-                border-radius: 12px;
-                background: rgba(74, 144, 226, 0.1);
-                transition: all 0.3s ease;
-            }
-            
-            .phone-number-link:hover {
-                background: rgba(74, 144, 226, 0.2);
-                transform: scale(1.05);
-            }
-            
-            .phone-number-link i {
-                margin-right: 10px;
-            }
-            
-            .call-modal-hours {
-                margin: 20px 0 0 0;
-                font-size: 0.9rem;
-                color: #999;
-            }
-            
-            @media (max-width: 768px) {
-                .call-modal-body {
-                    padding: 40px 20px;
-                }
-                
-                .phone-number-link {
-                    font-size: 1.5rem;
-                    padding: 12px 24px;
-                }
-                
-                .call-modal-icon {
-                    width: 60px;
-                    height: 60px;
-                }
-                
-                .call-modal-icon i {
-                    font-size: 2rem;
-                }
-            }
-        </style>
-
-        <script>
-            function openCallModal() {
-                document.getElementById('callModal').classList.add('active');
-            }
-            
-            function closeCallModal() {
-                document.getElementById('callModal').classList.remove('active');
-            }
-            
-            function openLiveChat() {
-                if (window.Beacon) {
-                    window.Beacon('open');
-                }
-            }
-            
-            // Close modal when clicking outside
-            document.addEventListener('click', function(event) {
-                var modal = document.getElementById('callModal');
-                if (event.target === modal) {
-                    closeCallModal();
-                }
-            });
-        </script>
 
         <!-- Demo CTA Section -->
         <section class="demo-cta">

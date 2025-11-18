@@ -14,8 +14,8 @@ function loadFooter() {
                         <div class="footer-contact">
                             <div class="contact-item">
                                 <i class="bi bi-geo-alt"></i>
-                                <a href="https://maps.google.com/?q=417+Main+Street+Suite+U,+Carbondale,+CO+81623" target="_blank" class="contact-link">
-                                    417 Main Street Suite U<br>Carbondale, CO 81623
+                                <a href="https://maps.google.com/?q=1380+Main+St,+Carbondale,+CO+81623" target="_blank" class="contact-link">
+                                    1380 Main St<br>Carbondale, CO 81623
                                 </a>
                             </div>
                             <div class="contact-item">

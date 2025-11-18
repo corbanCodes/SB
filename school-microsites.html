@@ -207,6 +207,63 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
         }
+        
+        /* Card grow effect for feature cards */
+        .card-grow {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-grow:hover {
+            transform: scale(1.05) translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2) !important;
+            z-index: 10;
+        }
+        
+        /* Icon grow effect on hover */
+        .icon-grow {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .icon-grow:hover {
+            transform: scale(1.15);
+        }
+        
+        /* Feature card grow effect */
+        .feature-card-grow {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .feature-card-grow:hover {
+            transform: scale(1.08) translateY(-5px);
+        }
+        
+        /* Modern button styles */
+        .btn-modern {
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-modern:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 1) !important;
+        }
+        
+        .btn-modern i {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-modern:hover i {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -220,132 +277,283 @@
         <!-- Hero Section -->
         <div id="hero-section"></div>
 
-        <!-- Microsites Features Section -->
-        <section class="py-5 bg-light">
+        <!-- Video & Features Section -->
+        <section class="py-5 bg-white">
             <div class="container">
+                <!-- Mobile Title (visible only on mobile) -->
+                <div class="d-lg-none text-center mb-4 fade-in">
+                    <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2">EMPOWERING EDUCATORS</span>
+                    <h2 class="h2 fw-bold text-dark mb-3">Individual Pages for Every Staff Member</h2>
+                </div>
+                
                 <div class="row align-items-center g-5">
+                    <!-- Video Column -->
                     <div class="col-lg-6 mb-4 mb-lg-0">
-                        <div class="pe-lg-5 fade-in">
-                            <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2">TAILORED SOLUTIONS</span>
-                            <h2 class="display-5 fw-bold text-primary mb-4">Focused Microsites for Every Purpose</h2>
-                            <p class="lead mb-5">Create dedicated digital spaces for specific programs, events, or departments with targeted content that serves your unique community needs.</p>
-                            
-                            <div class="row g-4">
-                                <div class="col-sm-6 fade-in fade-in-delay-1">
-                                    <div class="bg-white rounded-4 p-4 shadow-sm h-100 border-0 card-hover">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="bg-primary bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 icon-hover">
-                                                <i class="bi bi-bullseye fs-4"></i>
-                                            </div>
-                                            <h5 class="mb-0 fw-bold">Purpose-Built</h5>
-                                        </div>
-                                        <p class="text-muted mb-0">Designed specifically for athletics, academics, events, or departments with custom functionality</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 fade-in fade-in-delay-2">
-                                    <div class="bg-white rounded-4 p-4 shadow-sm h-100 border-0 card-hover">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="bg-success bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 icon-hover">
-                                                <i class="bi bi-lightning-charge-fill fs-4"></i>
-                                            </div>
-                                            <h5 class="mb-0 fw-bold">Rapid Deployment</h5>
-                                        </div>
-                                        <p class="text-muted mb-0">Launch professional microsites in days with pre-built templates and automated setup</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 fade-in fade-in-delay-3">
-                                    <div class="bg-white rounded-4 p-4 shadow-sm h-100 border-0 card-hover">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="bg-info bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 icon-hover">
-                                                <i class="bi bi-people-fill fs-4"></i>
-                                            </div>
-                                            <h5 class="mb-0 fw-bold">Targeted Engagement</h5>
-                                        </div>
-                                        <p class="text-muted mb-0">Reach specific communities with relevant, personalized content and features</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 fade-in fade-in-delay-4">
-                                    <div class="bg-white rounded-4 p-4 shadow-sm h-100 border-0 card-hover">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="bg-warning bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 icon-hover">
-                                                <i class="bi bi-diagram-3-fill fs-4"></i>
-                                            </div>
-                                            <h5 class="mb-0 fw-bold">Smart Integration</h5>
-                                        </div>
-                                        <p class="text-muted mb-0">Seamlessly connect with your main website, student systems, and communication tools</p>
-                                    </div>
-                                </div>
+                        <div class="fade-in">
+                            <div class="position-relative rounded-4 overflow-hidden shadow-lg bg-dark" style="height: 450px; display: flex; align-items: center; justify-content: center;">
+                                <video 
+                                    id="microsites-video" 
+                                    class="w-100 h-100 rounded-4"
+                                    controls
+                                    poster="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                                    style="object-fit: contain;">
+                                    <source src="https://customer-394md8sxxno51fu2.cloudflarestream.com/a9d8292ab832280cb1eb291aceefc5e5/manifest/video.m3u8" type="application/x-mpegURL">
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Features Column -->
                     <div class="col-lg-6">
-                        <div class="text-center fade-in fade-in-delay-1 position-relative">
-                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-10 rounded-4 transform-rotate-3"></div>
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="School Microsites Dashboard" class="img-fluid rounded-4 shadow-lg position-relative">
+                        <div class="ps-lg-4 fade-in" style="max-height: 450px;">
+                            <!-- Desktop Title (hidden on mobile) -->
+                            <div class="d-none d-lg-block">
+                                <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2">EMPOWERING EDUCATORS</span>
+                                <h2 class="h2 fw-bold text-dark mb-3">Individual Pages for Every Staff Member</h2>
+                            </div>
+                            <p class="text-muted mb-4">Every teacher and department can have their own microsite for homework, assignments, and class updates.</p>
+                            
+                            <div class="row g-3">
+                                <div class="col-12 fade-in fade-in-delay-1">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-primary bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 icon-grow">
+                                            <i class="bi bi-book fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-1">Classroom Hub</h6>
+                                            <p class="text-muted mb-0 small">Share homework, assignments, and updates in one central location.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 fade-in fade-in-delay-2">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-success bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 icon-grow">
+                                            <i class="bi bi-megaphone fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-1">Boost Engagement</h6>
+                                            <p class="text-muted mb-0 small">Keep parents engaged and streamline classroom communication.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 fade-in fade-in-delay-3">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-info bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0 icon-grow">
+                                            <i class="bi bi-shield-lock fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-1">Secure Content</h6>
+                                            <p class="text-muted mb-0 small">Password-protected pages ensure the right information reaches the right people.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Microsites Deep Dive Section -->
+        <section class="py-5 bg-white border-top">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="row mb-5">
+                    <div class="col-lg-10 mx-auto text-center fade-in">
+                        <span class="badge bg-primary text-white px-4 py-2 rounded-pill mb-4 fs-6 fw-semibold">What Are Microsites?</span>
+                        <h2 class="display-6 fw-bold text-dark mb-4">Empowering Your Staff with Dedicated Digital Spaces</h2>
+                        <p class="lead text-muted">Microsites are dedicated pages or sections that can be managed by specific staff members—teachers, coaches, club advisors, and department leaders.</p>
+                    </div>
+                </div>
+
+                <!-- Three Column Feature Cards -->
+                <div class="row g-4 mb-5">
+                    <!-- Card 1: Teacher & Department Sites -->
+                    <div class="col-lg-4 fade-in fade-in-delay-1">
+                        <div class="card h-100 border-0 shadow-sm overflow-hidden card-grow">
+                            <div class="card-body p-4 position-relative">
+                                <div class="position-absolute top-0 start-0 w-100 h-25 bg-gradient" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%); opacity: 0.1;"></div>
+                                <div class="position-relative">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="badge bg-primary text-white px-3 py-2 rounded-3 fw-semibold">
+                                            Teachers & Departments
+                                        </span>
+                                    </div>
+                                    <h4 class="fw-bold mb-3 text-dark">Perfect for Daily Communication</h4>
+                                    <p class="text-muted mb-0">With SchoolBlocks, every teacher and department can have their own microsite—perfect for sharing homework, assignments, and class updates. It's an easy way to boost visibility, keep parents engaged, and streamline classroom communication.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Secure Platform -->
+                    <div class="col-lg-4 fade-in fade-in-delay-2">
+                        <div class="card h-100 border-0 shadow-sm overflow-hidden card-grow">
+                            <div class="card-body p-4 position-relative">
+                                <div class="position-absolute top-0 start-0 w-100 h-25 bg-gradient" style="background: linear-gradient(135deg, #28a745 0%, #20803a 100%); opacity: 0.1;"></div>
+                                <div class="position-relative">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="badge bg-success text-white px-3 py-2 rounded-3 fw-semibold">
+                                            Secure & Targeted
+                                        </span>
+                                    </div>
+                                    <h4 class="fw-bold mb-3 text-dark">Engage Key Audiences</h4>
+                                    <p class="text-muted mb-0">Our MicroSite platform gives teachers, department leaders, focus groups, and more the tools to engage with key audiences securely and effectively. With password-protected pages, you can share targeted content and foster collaboration.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Right Information -->
+                    <div class="col-lg-4 fade-in fade-in-delay-3">
+                        <div class="card h-100 border-0 shadow-sm overflow-hidden card-grow">
+                            <div class="card-body p-4 position-relative">
+                                <div class="position-absolute top-0 start-0 w-100 h-25 bg-gradient" style="background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); opacity: 0.1;"></div>
+                                <div class="position-relative">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="badge bg-info text-white px-3 py-2 rounded-3 fw-semibold">
+                                            Simple & Impactful
+                                        </span>
+                                    </div>
+                                    <h4 class="fw-bold mb-3 text-dark">Right Info, Right People</h4>
+                                    <p class="text-muted mb-0">Ensure the right information reaches the right people—making engagement simple, safe, and impactful. Targeted content delivery means better communication and stronger community connections.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Highlight Bar -->
+                <div class="row fade-in fade-in-delay-4">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <div class="card-body p-4 text-center">
+                                <h5 class="fw-bold mb-2" style="color: #ffffff !important;">Everything You Need for Staff Communication</h5>
+                                <p class="mb-3" style="color: #ffffff !important;">Give your staff the autonomy to manage their own content while maintaining security and brand consistency across your entire school network.</p>
+                                <button class="btn btn-light btn-modern mt-3" onclick="openPDFViewer()">
+                                    <i class="bi bi-file-pdf me-2"></i>View Help Documentation
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Microsites Features Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="pe-lg-3 fade-in">
+                            <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2">TAILORED SOLUTIONS</span>
+                            <h2 class="display-5 fw-bold text-dark mb-4">Focused Microsites for Every Purpose</h2>
+                            <p class="lead mb-0">Create dedicated digital spaces for specific programs, events, or departments with targeted content that serves your unique community needs.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ps-lg-3 fade-in fade-in-delay-1">
+                            <img src="Photos/Images/microsites/microsites-example.png" alt="School Microsites Dashboard" class="img-fluid rounded-4 shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-3 col-md-6 fade-in fade-in-delay-1">
+                        <div class="text-center h-100 p-4 feature-card-grow">
+                            <div class="text-white rounded-3 p-3 mx-auto mb-3 icon-hover" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #4f5bd5 100%);">
+                                <i class="bi bi-bullseye fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Purpose-Built</h5>
+                            <p class="text-muted mb-0">Designed specifically for athletics, academics, events, or departments with custom functionality</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 fade-in fade-in-delay-2">
+                        <div class="text-center h-100 p-4 feature-card-grow">
+                            <div class="text-white rounded-3 p-3 mx-auto mb-3 icon-hover" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #20c997 0%, #17a589 100%);">
+                                <i class="bi bi-lightning-charge-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Rapid Deployment</h5>
+                            <p class="text-muted mb-0">Launch professional microsites in days with pre-built templates and automated setup</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 fade-in fade-in-delay-3">
+                        <div class="text-center h-100 p-4 feature-card-grow">
+                            <div class="text-white rounded-3 p-3 mx-auto mb-3 icon-hover" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);">
+                                <i class="bi bi-people-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Targeted Engagement</h5>
+                            <p class="text-muted mb-0">Reach specific communities with relevant, personalized content and features</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 fade-in fade-in-delay-4">
+                        <div class="text-center h-100 p-4 feature-card-grow">
+                            <div class="text-white rounded-3 p-3 mx-auto mb-3 icon-hover" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">
+                                <i class="bi bi-diagram-3-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Smart Integration</h5>
+                            <p class="text-muted mb-0">Seamlessly connect with your main website, student systems, and communication tools</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-5">
+                        <div class="text-center h-100 p-4 feature-card-grow">
+                            <div class="text-white rounded-3 p-3 mx-auto mb-3 icon-hover" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #28a745 0%, #20803a 100%);">
+                                <i class="bi bi-trophy-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Athletics & Sports</h5>
+                            <p class="text-muted mb-0">Comprehensive sites for teams, live scores, player stats, schedules, and sports news with fan engagement tools</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-6">
+                        <div class="text-center h-100 p-4 feature-card-grow">
+                            <div class="text-white rounded-3 p-3 mx-auto mb-3 icon-hover" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);">
+                                <i class="bi bi-calendar-event fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Special Events</h5>
+                            <p class="text-muted mb-0">Dedicated event hubs for fundraisers, galas, graduations, and community celebrations with RSVP management</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-1">
+                        <div class="text-center h-100 p-4 feature-card-grow">
+                            <div class="text-white rounded-3 p-3 mx-auto mb-3 icon-hover" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);">
+                                <i class="bi bi-mortarboard-fill fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-dark">Academic Programs</h5>
+                            <p class="text-muted mb-0">Showcase specialized programs, course catalogs, faculty profiles, and academic achievements with enrollment tools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Popular Microsite Types Section -->
         <section class="py-5 bg-white">
             <div class="container">
                 <div class="row align-items-center g-5">
                     <div class="col-lg-6 mb-4 mb-lg-0">
-                        <div class="text-center fade-in fade-in-delay-1 position-relative">
-                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-10 rounded-4 transform-rotate-3"></div>
-                            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern School Building" class="img-fluid rounded-4 shadow-lg position-relative">
+                        <div class="fade-in fade-in-delay-1 rounded-4 p-4" style="background: linear-gradient(135deg, #E8F4FD 0%, #D4E9F7 100%);">
+                            <img src="Photos/Images/microsites/microsites-faculty-cross-work.png" alt="Faculty Collaboration" class="img-fluid rounded-4">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="ps-lg-5 fade-in">
                             <span class="badge bg-gradient bg-primary text-white mb-3 px-4 py-2 fs-6 fw-semibold">POPULAR MICROSITES</span>
                             <h2 class="display-5 fw-bold mb-4 text-dark">Perfect for Every Department</h2>
-                            <p class="lead mb-5 text-muted">From athletics to academics, create specialized digital experiences that serve your specific audiences with targeted content and advanced functionality.</p>
-                            
-                            <div class="row g-4">
-                                <div class="col-12 fade-in fade-in-delay-1">
-                                    <div class="bg-light rounded-4 p-4 border-start border-5 border-success card-hover">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="bg-success bg-gradient text-white rounded-3 p-3 me-4 flex-shrink-0 icon-hover">
-                                                <i class="bi bi-trophy-fill fs-4"></i>
-                                            </div>
-                                            <div>
-                                                <h5 class="mb-1 fw-bold text-dark">Athletics & Sports</h5>
-                                                <p class="mb-0 text-muted">Comprehensive sites for teams, live scores, player stats, schedules, and sports news with fan engagement tools</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 fade-in fade-in-delay-2">
-                                    <div class="bg-light rounded-4 p-4 border-start border-5 border-info card-hover">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="bg-info bg-gradient text-white rounded-3 p-3 me-4 flex-shrink-0 icon-hover">
-                                                <i class="bi bi-calendar-event fs-4"></i>
-                                            </div>
-                                            <div>
-                                                <h5 class="mb-1 fw-bold text-dark">Special Events</h5>
-                                                <p class="mb-0 text-muted">Dedicated event hubs for fundraisers, galas, graduations, and community celebrations with RSVP management</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 fade-in fade-in-delay-3">
-                                    <div class="bg-light rounded-4 p-4 border-start border-5 border-warning card-hover">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="bg-warning bg-gradient text-white rounded-3 p-3 me-4 flex-shrink-0 icon-hover">
-                                                <i class="bi bi-mortarboard-fill fs-4"></i>
-                                            </div>
-                                            <div>
-                                                <h5 class="mb-1 fw-bold text-dark">Academic Programs</h5>
-                                                <p class="mb-0 text-muted">Showcase specialized programs, course catalogs, faculty profiles, and academic achievements with enrollment tools</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <p class="lead mb-0 text-muted">From athletics to academics, create specialized digital experiences that serve your specific audiences with targeted content and advanced functionality.</p>
                         </div>
                     </div>
                 </div>
@@ -599,6 +807,25 @@
     <!-- Footer will be loaded here -->
     <div id="footer-container"></div>
 
+    <!-- PDF Viewer Modal -->
+    <div id="pdfModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; overflow: auto;">
+        <div style="position: relative; max-width: 1200px; margin: 2rem auto; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+            <!-- Modal Header -->
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-bottom: 1px solid #dee2e6; background: #f8f9fa; border-radius: 12px 12px 0 0;">
+                <h5 style="margin: 0; font-weight: 600; color: #2C3E50;">
+                    <i class="bi bi-file-pdf text-danger me-2"></i>Microsites Help Documentation
+                </h5>
+                <button onclick="closePDFViewer()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #6c757d; padding: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 4px; transition: all 0.2s;">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <!-- PDF Embed -->
+            <div style="padding: 0;">
+                <iframe id="pdfFrame" src="" style="width: 100%; height: 80vh; border: none; border-radius: 0 0 12px 12px;"></iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- Load Scripts (navbar first, then Bootstrap) -->
     <script src="demo-cta.js"></script>
     <script src="navbarloader.js"></script>
@@ -607,6 +834,9 @@
     
     <!-- Bootstrap JS (loaded after navbar to prevent interference) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- HLS.js for video streaming support -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
     <!-- Initialize Components -->
     <script>
@@ -709,6 +939,56 @@
             const fadeElements = document.querySelectorAll('.fade-in');
             fadeElements.forEach(el => observer.observe(el));
 
+            // Initialize HLS video player
+            const video = document.getElementById('microsites-video');
+            const videoSrc = 'https://customer-394md8sxxno51fu2.cloudflarestream.com/a9d8292ab832280cb1eb291aceefc5e5/manifest/video.m3u8';
+            
+            if (video) {
+                if (Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(videoSrc);
+                    hls.attachMedia(video);
+                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        console.log('HLS video loaded successfully');
+                    });
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    // Native HLS support (Safari)
+                    video.src = videoSrc;
+                    console.log('Using native HLS support');
+                }
+            }
+
+        });
+
+        // PDF Viewer Functions
+        function openPDFViewer() {
+            const modal = document.getElementById('pdfModal');
+            const iframe = document.getElementById('pdfFrame');
+            iframe.src = 'docs/Microsite Help Document.pdf';
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePDFViewer() {
+            const modal = document.getElementById('pdfModal');
+            const iframe = document.getElementById('pdfFrame');
+            modal.style.display = 'none';
+            iframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('pdfModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePDFViewer();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePDFViewer();
+            }
         });
     </script>
 </body>

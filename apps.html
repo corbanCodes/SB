@@ -290,10 +290,21 @@
         }
 
         .brand-power-visual {
-            padding: 40px;
+            padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+        }
+        
+        .brand-power-visual img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .brand-power-visual img:hover {
+            transform: scale(1.05);
         }
 
         .brand-showcase {
@@ -428,6 +439,7 @@
 
         .brand-power-content {
             padding-left: 40px;
+            padding-top: 0;
         }
 
         .section-badge {
@@ -1007,6 +1019,7 @@
             
             .brand-power-content {
                 padding-left: 0;
+                padding-top: 0;
                 text-align: center;
                 margin-bottom: 40px;
             }
@@ -1045,8 +1058,9 @@
             }
             
             .brand-power-visual {
-                padding: 20px;
+                padding: 0;
                 margin-bottom: 40px;
+                text-align: center;
             }
             
             .brand-showcase {
@@ -1252,6 +1266,261 @@
             transform: translateY(0) !important;
             display: block !important; /* Ensure it shows on hover */
         }
+
+        /* Mass Notifications Section Styles */
+        
+        /* Intro Benefit Cards */
+        .intro-benefit-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .intro-benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(74, 144, 226, 0.2);
+        }
+
+        .intro-benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .intro-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.25);
+        }
+
+        /* Engagement Cards */
+        .engagement-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .engagement-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .engagement-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.25);
+        }
+
+        /* Capabilities Grid */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 768px) {
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .capability-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .capability-item:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateX(8px);
+        }
+
+        .capability-item i {
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+        }
+
+        /* Access Steps */
+        .access-steps {
+            padding: 2rem;
+        }
+
+        .access-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+        }
+
+        .access-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-indicator {
+            position: relative;
+            margin-right: 2rem;
+            flex-shrink: 0;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+        }
+
+        .step-line {
+            position: absolute;
+            top: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--primary-blue), transparent);
+        }
+
+        .access-step:last-child .step-line {
+            display: none;
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: 0.5rem;
+        }
+
+        /* Process Visualization */
+        .process-visualization {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .process-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            width: 100%;
+            max-width: 240px;
+            transition: all 0.3s ease;
+        }
+
+        .process-card.active {
+            border-color: var(--primary-blue);
+            background: rgba(74, 144, 226, 0.1);
+        }
+
+        .process-card.processing {
+            border-color: #ffc107;
+            background: rgba(255, 193, 7, 0.1);
+        }
+
+        .process-card.complete {
+            border-color: #28a745;
+            background: rgba(40, 167, 69, 0.1);
+        }
+
+        .process-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 20px;
+        }
+
+        .process-card.active .process-icon {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .process-card.processing .process-icon {
+            background: #ffc107;
+            color: white;
+        }
+
+        .process-card.complete .process-icon {
+            background: #28a745;
+            color: white;
+        }
+
+        .process-arrow {
+            margin: 1rem 0;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -1269,7 +1538,7 @@
         <section class="pwa-technology-section">
             <div class="pwa-diagonal-bg"></div>
             <div class="container-fluid">
-                <div class="row align-items-center min-vh-50">
+                <div class="row align-items-start min-vh-50">
                     <div class="col-lg-6">
                         <div class="pwa-content fade-in">
                             <div class="pwa-badge">
@@ -1278,7 +1547,7 @@
                             </div>
                             <h2 class="pwa-main-title">Progressive Web Apps</h2>
                             <h3 class="pwa-subtitle">The Future is Here</h3>
-                            <p class="pwa-description">Skip the app store entirely. Our Progressive Web App technology delivers native app performance directly through your browser. Instant loading, offline functionality, and push notifications - all without the download.</p>
+                            <p class="pwa-description">Skip the app store entirely. Our Progressive Web App technology delivers native app performance directly through your browser. Instant loading, offline functionality, and push notifications - all without the download. Experience seamless updates that happen automatically in the background. Access your school's information from any device without managing multiple installations.</p>
                             
                             <div class="pwa-stats">
                                 <div class="pwa-stat-item">
@@ -1435,7 +1704,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="mobile-apps-content fade-in fade-in-delay-1">
-                            <div class="mobile-apps-label">MOBILE APPS</div>
+                            <div class="mobile-apps-label">PARTNERSHIPS</div>
                             <h2 class="mobile-apps-title">iOS & Android apps solved.</h2>
                             <p class="mobile-apps-description">If you're looking for simple and effective solutions, consider the SchoolBlocks app. If you're looking for robust two-way communication, consider one of our partners such as Parent Square, BrightArrow or Actionaly.</p>
                             
@@ -1465,44 +1734,10 @@
         <!-- Brand Power Section -->
         <section class="brand-power-section">
             <div class="container">
-                <div class="row align-items-center">
+                <div class="row align-items-start">
                     <div class="col-lg-5">
                         <div class="brand-power-visual fade-in">
-                            <div class="brand-showcase">
-                                <div class="brand-circle main-brand">
-                                    <div class="brand-logo">
-                                        <i class="bi bi-building"></i>
-                                    </div>
-                                    <span class="brand-label">Your School</span>
-                                </div>
-                                
-                                <div class="connection-lines">
-                                    <div class="connection-line line-1"></div>
-                                    <div class="connection-line line-2"></div>
-                                    <div class="connection-line line-3"></div>
-                                </div>
-                                
-                                <div class="brand-circle satellite satellite-1">
-                                    <div class="brand-icon">
-                                        <i class="bi bi-people"></i>
-                                    </div>
-                                    <span class="satellite-label">Parents</span>
-                                </div>
-                                
-                                <div class="brand-circle satellite satellite-2">
-                                    <div class="brand-icon">
-                                        <i class="bi bi-mortarboard"></i>
-                                    </div>
-                                    <span class="satellite-label">Students</span>
-                                </div>
-                                
-                                <div class="brand-circle satellite satellite-3">
-                                    <div class="brand-icon">
-                                        <i class="bi bi-person-workspace"></i>
-                                    </div>
-                                    <span class="satellite-label">Faculty</span>
-                                </div>
-                            </div>
+                            <img src="Photos/Images/HomePage/featurespictures/6.png" alt="Your School Community" class="img-fluid">
                         </div>
                     </div>
                     
@@ -1515,44 +1750,192 @@
                             
                             <h2 class="brand-power-title">Your Brand. Your App. Your Community.</h2>
                             
-                            <p class="brand-power-description">Transform your school's identity into a powerful digital presence. A branded mobile app isn't just technology—it's your school's flag in the digital world, creating lasting connections and building community pride.</p>
-                            
-                            <div class="brand-benefits">
-                                <div class="benefit-row">
-                                    <div class="benefit-item">
-                                        <div class="benefit-icon">
-                                            <i class="bi bi-eye"></i>
-                                        </div>
-                                        <div class="benefit-content">
-                                            <h4>Enhanced Visibility</h4>
-                                            <p>Your school logo on every device, keeping your brand top-of-mind in your community.</p>
-                                        </div>
-                                    </div>
+                            <p class="brand-power-description">Transform your school's identity into a powerful digital presence. A branded mobile app isn't just technology—it's your school's flag in the digital world, creating lasting connections and building community pride. Your school logo on every device keeps your brand top-of-mind in your community. Foster deeper connections as families proudly display your school app on their phones, demonstrating innovation and forward-thinking leadership in your educational community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Powerful Notifications Section -->
+        <section id="mass-notifications" class="py-5 bg-white">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="display-4 fw-bold text-dark mb-4">Powerful Mass Notifications</h2>
+                        <p class="lead text-secondary mb-0">Deliver messages simultaneously to large groups of people with our powerful outreach system that integrates with your SIS and uses tier one phone connections.</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="intro-benefit-card h-100 p-4 fade-in">
+                            <div class="intro-icon mb-3">
+                                <i class="bi bi-megaphone-fill"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-3">Mass Communication</h5>
+                            <p class="text-secondary mb-0">Quickly send calls, emails, and texts to mass deliver messages to all parents, faculty, staff, or any subgroup simultaneously.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="intro-benefit-card h-100 p-4 fade-in fade-in-delay-1">
+                            <div class="intro-icon mb-3">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-3">Crystal Clear Audio</h5>
+                            <p class="text-secondary mb-0">System uses tier one phone connections, delivering crisp and clear audio with user programmable call speed for optimal delivery.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notification Features Section -->
+        <section class="py-5" style="background: linear-gradient(135deg, #F8F9FA 0%, #E8F4FD 100%);">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <h3 class="display-4 fw-bold text-dark mb-4">Advanced Notification Features</h3>
+                    <p class="lead text-secondary mb-0">Comprehensive communication tools with SIS integration and unlimited contact management for every member of your school community.</p>
+                </div>
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="engagement-card text-center p-4 h-100 fade-in">
+                            <div class="engagement-icon mb-3">
+                                <i class="bi bi-speedometer2"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Programmable Speed</h5>
+                            <p class="text-secondary small mb-0">User programmable call speed to optimize delivery timing for your specific needs.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="engagement-card text-center p-4 h-100 fade-in fade-in-delay-1">
+                            <div class="engagement-icon mb-3">
+                                <i class="bi bi-diagram-3-fill"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">SIS Integration</h5>
+                            <p class="text-secondary small mb-0">Seamlessly integrates with your Student Information System for accurate contact data.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="engagement-card text-center p-4 h-100 fade-in fade-in-delay-2">
+                            <div class="engagement-icon mb-3">
+                                <i class="bi bi-infinity"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Unlimited Contacts</h5>
+                            <p class="text-secondary small mb-0">Unrestricted number of phone numbers and email addresses for each student, faculty, and staff member.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="engagement-card text-center p-4 h-100 fade-in fade-in-delay-3">
+                            <div class="engagement-icon mb-3">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Targeted Groups</h5>
+                            <p class="text-secondary small mb-0">Send messages to specific subgroups - parents, faculty, staff, or any custom group you define.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="capabilities-grid fade-in fade-in-delay-1">
+                            <div class="capability-item">
+                                <i class="bi bi-telephone"></i>
+                                <span>Voice Calls</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="bi bi-envelope"></i>
+                                <span>Email Messages</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="bi bi-chat-text"></i>
+                                <span>Text Messages</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="bi bi-lightning-charge"></i>
+                                <span>Instant Delivery</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="bi bi-shield-check"></i>
+                                <span>Tier 1 Connections</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="bi bi-broadcast"></i>
+                                <span>Mass Broadcasting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notification Workflow Section -->
+        <section class="py-5" style="background: linear-gradient(135deg, #F8F9FA 0%, #E8F4FD 100%);">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <h3 class="display-4 fw-bold text-dark mb-4">How Mass Notifications Work</h3>
+                    <p class="lead text-secondary mb-0">Simple, powerful workflow to reach your entire school community instantly with calls, emails, and texts simultaneously.</p>
+                </div>
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="access-steps fade-in">
+                            <div class="access-step">
+                                <div class="step-indicator">
+                                    <span class="step-number">1</span>
+                                    <div class="step-line"></div>
                                 </div>
-                                
-                                <div class="benefit-row">
-                                    <div class="benefit-item">
-                                        <div class="benefit-icon">
-                                            <i class="bi bi-heart"></i>
-                                        </div>
-                                        <div class="benefit-content">
-                                            <h4>Community Pride</h4>
-                                            <p>Foster deeper connections as families proudly display your school app on their phones.</p>
-                                        </div>
-                                    </div>
+                                <div class="step-content">
+                                    <h5 class="fw-bold text-dark mb-2">Create Your Message</h5>
+                                    <p class="text-secondary mb-0">Compose your message once and choose your delivery methods: voice calls, emails, and text messages.</p>
                                 </div>
-                                
-                                <div class="benefit-row">
-                                    <div class="benefit-item">
-                                        <div class="benefit-icon">
-                                            <i class="bi bi-graph-up-arrow"></i>
-                                        </div>
-                                        <div class="benefit-content">
-                                            <h4>Professional Image</h4>
-                                            <p>Demonstrate innovation and forward-thinking leadership in your educational community.</p>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="access-step">
+                                <div class="step-indicator">
+                                    <span class="step-number">2</span>
+                                    <div class="step-line"></div>
                                 </div>
+                                <div class="step-content">
+                                    <h5 class="fw-bold text-dark mb-2">Select Your Audience</h5>
+                                    <p class="text-secondary mb-0">Choose from all parents, faculty, staff, or any custom subgroup. SIS integration ensures accurate contact lists.</p>
+                                </div>
+                            </div>
+                            <div class="access-step">
+                                <div class="step-indicator">
+                                    <span class="step-number">3</span>
+                                </div>
+                                <div class="step-content">
+                                    <h5 class="fw-bold text-dark mb-2">Deliver Simultaneously</h5>
+                                    <p class="text-secondary mb-0">Messages are delivered instantly to large groups with tier one phone connections for crystal clear audio.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="process-visualization fade-in fade-in-delay-1">
+                            <div class="process-card active">
+                                <div class="process-icon">
+                                    <i class="bi bi-pencil-square"></i>
+                                </div>
+                                <h6 class="fw-bold mb-1">Message Created</h6>
+                                <p class="small text-secondary mb-0">Voice, email & text content</p>
+                            </div>
+                            <div class="process-arrow">
+                                <i class="bi bi-arrow-down"></i>
+                            </div>
+                            <div class="process-card processing">
+                                <div class="process-icon">
+                                    <i class="bi bi-people-fill"></i>
+                                </div>
+                                <h6 class="fw-bold mb-1">Audience Selected</h6>
+                                <p class="small text-secondary mb-0">Target groups from SIS data</p>
+                            </div>
+                            <div class="process-arrow">
+                                <i class="bi bi-arrow-down"></i>
+                            </div>
+                            <div class="process-card complete">
+                                <div class="process-icon">
+                                    <i class="bi bi-broadcast"></i>
+                                </div>
+                                <h6 class="fw-bold mb-1">Mass Delivery</h6>
+                                <p class="small text-secondary mb-0">Simultaneous outreach</p>
                             </div>
                         </div>
                     </div>

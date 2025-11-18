@@ -53,6 +53,75 @@
             width: 100%;
         }
         
+        /* Cross-Promotion Banner */
+        .cross-promo-banner {
+            max-width: 900px;
+            margin: 60px auto 40px auto;
+            padding: 24px 40px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 120, 212, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 120, 212, 0.1),
+                0 1px 0 rgba(255, 255, 255, 0.7) inset;
+            transition: all 0.3s ease;
+        }
+        
+        .cross-promo-banner:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 12px 40px rgba(0, 120, 212, 0.15),
+                0 1px 0 rgba(255, 255, 255, 0.8) inset;
+        }
+        
+        .cross-promo-text {
+            margin: 0;
+            font-size: 1.15rem;
+            color: #1d1d1f;
+            text-align: center;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .cross-promo-text i.bi-microsoft {
+            color: #0078D4;
+            font-size: 1.3rem;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .cross-promo-text strong {
+            font-weight: 700;
+            color: #1d1d1f;
+        }
+        
+        .cross-promo-link {
+            color: #0078D4;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: 4px;
+        }
+        
+        .cross-promo-link:hover {
+            color: #005a9e;
+            text-decoration: none;
+            gap: 10px;
+        }
+        
+        .cross-promo-link i.bi-arrow-right {
+            font-size: 1rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .cross-promo-link:hover i.bi-arrow-right {
+            transform: translateX(4px);
+        }
+        
         
         /* Integration Tabs */
         .integration-tabs {
@@ -494,6 +563,19 @@
                 padding: 0 20px;
             }
             
+            .cross-promo-banner {
+                margin: 40px auto 30px auto;
+                padding: 20px 24px;
+            }
+            
+            .cross-promo-text {
+                font-size: 1rem;
+            }
+            
+            .cross-promo-text i.bi-microsoft {
+                font-size: 1.1rem;
+            }
+            
             .integration-tabs {
                 gap: 16px;
                 padding: 16px;
@@ -592,6 +674,15 @@
         }
         
         @media (max-width: 480px) {
+            .cross-promo-banner {
+                margin: 30px auto 20px auto;
+                padding: 16px 20px;
+            }
+            
+            .cross-promo-text {
+                font-size: 0.95rem;
+            }
+            
             .integration-tabs {
                 gap: 12px;
                 padding: 12px;
@@ -797,6 +888,17 @@
     <main class="main-content">
         <!-- Hero Section -->
         <div id="hero-section"></div>
+        
+        <!-- Cross-Promotion Banner -->
+        <div class="container">
+            <div class="cross-promo-banner">
+                <p class="cross-promo-text">
+                    <i class="bi bi-microsoft"></i>
+                    Curious about our <strong>Microsoft Integration</strong>? 
+                    <a href="microsoft-integration.html" class="cross-promo-link">Click here to learn more <i class="bi bi-arrow-right"></i></a>
+                </p>
+            </div>
+        </div>
         
         <div class="container">
             <!-- Integration Tabs -->

@@ -803,22 +803,22 @@
             letter-spacing: 0.5px;
         }
 
-        .serve-badge.schools {
+        .serve-badge.policies {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
         }
 
-        .serve-badge.governments {
+        .serve-badge.handbooks {
             background: linear-gradient(135deg, #f093fb, #f5576c);
             color: white;
         }
 
-        .serve-badge.nonprofits {
+        .serve-badge.compliance {
             background: linear-gradient(135deg, #4facfe, #00f2fe);
             color: white;
         }
 
-        .serve-badge.associations {
+        .serve-badge.staff {
             background: linear-gradient(135deg, #43e97b, #38f9d7);
             color: white;
         }
@@ -1003,6 +1003,24 @@
         
         .benefit-item-hover:hover .bg-gradient {
             transform: scale(1.1);
+        }
+        
+        /* Modern Demo Button */
+        .demo-btn-modern {
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(74, 144, 226, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .demo-btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(74, 144, 226, 0.4);
         }
         
         /* Demo Modal Styles */
@@ -1637,57 +1655,10 @@
                     <div class="col-lg-6">
                         <div class="why-content fade-in">
                             <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2">DOCUMENT ENGAGEMENT</span>
-                            <h2 class="section-heading">Why DocMersion?</h2>
-                            <p class="lead-text">DocMersion transforms complex policies into clear, usable resources—so your organization runs smarter, your people stay engaged, and your community thrives. A good organization is a smart one, where people understand the rules so they can work together effectively. When everyone knows what's expected, collaboration flourishes and your community succeeds.</p>
+                            <h2 class="section-heading">Why DocMersion for SchoolBoards?</h2>
+                            <p class="lead-text">DocMersion transforms complex school board policies and procedures into clear, usable resources—so your district runs smarter, your staff stays engaged, and your school community thrives. When parents, teachers, and administrators can easily find and understand district policies, everyone works together more effectively. Clear communication builds trust and helps your entire school community succeed.</p>
                             
-                            <div class="row g-4 mt-4">
-                                <div class="col-sm-6 fade-in fade-in-delay-1">
-                                    <div class="d-flex align-items-start benefit-item-hover">
-                                        <div class="bg-primary bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
-                                            <i class="bi bi-eye-fill fs-5"></i>
-                                        </div>
-                                        <div>
-                                            <h5 class="mb-2 fw-bold">Increased Visibility</h5>
-                                            <p class="text-muted mb-0">Important information reaches more people through engaging, accessible formats</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 fade-in fade-in-delay-2">
-                                    <div class="d-flex align-items-start benefit-item-hover">
-                                        <div class="bg-success bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
-                                            <i class="bi bi-lightbulb-fill fs-5"></i>
-                                        </div>
-                                        <div>
-                                            <h5 class="mb-2 fw-bold">Better Understanding</h5>
-                                            <p class="text-muted mb-0">Complex policies become clear and actionable for all community members</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 fade-in fade-in-delay-3">
-                                    <div class="d-flex align-items-start benefit-item-hover">
-                                        <div class="bg-info bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
-                                            <i class="bi bi-gear-fill fs-5"></i>
-                                        </div>
-                                        <div>
-                                            <h5 class="mb-2 fw-bold">Streamlined Operations</h5>
-                                            <p class="text-muted mb-0">Reduce repetitive questions and improve workflow efficiency</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 fade-in fade-in-delay-4">
-                                    <div class="d-flex align-items-start benefit-item-hover">
-                                        <div class="bg-warning bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0">
-                                            <i class="bi bi-people-fill fs-5"></i>
-                                        </div>
-                                        <div>
-                                            <h5 class="mb-2 fw-bold">Stronger Community</h5>
-                                            <p class="text-muted mb-0">Build trust through transparent, accessible communication</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-4">
+                            <div class="mt-5">
                                 <a href="https://www.docmersion.com" target="_blank" class="why-docmersion-link">
                                     Discover DocMersion <i class="bi bi-arrow-right"></i>
                                 </a>
@@ -1700,17 +1671,228 @@
                                 <div class="position-absolute" style="inset: -1rem; background: linear-gradient(135deg, #4A90E2 0%, #8B5CF6 100%); border-radius: 1.5rem; opacity: 0.2; filter: blur(40px); transition: opacity 0.3s ease;"></div>
                                 <div class="position-relative bg-white rounded-4 p-5 shadow-lg border border-light">
                                     <div class="text-center">
-                                        <div class="bg-gradient bg-primary text-white rounded-3 p-4 mx-auto mb-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                                        <div class="bg-gradient bg-primary text-white rounded-3 p-4 mx-auto mb-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.3s ease;" onclick="openDemoEmbed()" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                                             <i class="bi bi-play-circle fs-1"></i>
                                         </div>
                                         <h4 class="fw-bold mb-3">Interactive Demo</h4>
                                         <p class="text-muted">See DocMersion in action</p>
                                         <div class="mt-4">
-                                            <button class="btn btn-primary btn-lg" onclick="openDemoEmbed()">
+                                            <button class="btn btn-primary demo-btn-modern" onclick="openDemoEmbed()">
                                                 Try Interactive Demo <i class="bi bi-arrow-right ms-2"></i>
                                             </button>
                                         </div>
+                                        <div class="mt-3">
+                                            <a href="https://docmersion.schoolblocks.com" target="_blank" class="text-primary text-decoration-none fw-semibold" style="font-size: 0.95rem;">
+                                                Visit Demo Site <i class="bi bi-box-arrow-up-right ms-1"></i>
+                                            </a>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Board Minutes Section -->
+        <section class="core-benefits-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <!-- Header -->
+                        <div class="text-center mb-5 fade-in">
+                            <h2 class="section-title">Help Your School Board Shine</h2>
+                            <p class="lead" style="font-size: 1.3rem; max-width: 800px; margin: 0 auto;">Board minutes are more than just meeting notes—they're essential for legal compliance, transparency, and institutional memory. DocMersion makes it easy to publish and manage your board minutes.</p>
+                        </div>
+                        
+                        <!-- Image -->
+                        <div class="text-center mb-5 fade-in fade-in-delay-1">
+                            <img src="Photos/Images/document-engagement/docmersion_demo_site.png" alt="DocMersion Board Minutes Demo" class="img-fluid rounded-4 shadow-lg" style="max-width: 900px;">
+                        </div>
+                        
+                        <!-- Benefits Grid -->
+                        <div class="row g-4">
+                            <div class="col-lg-6 fade-in fade-in-delay-2">
+                                <div class="bg-white rounded-4 p-4 h-100 border-0 card-grow" style="box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); transition: all 0.4s ease;">
+                                    <div class="d-flex align-items-start mb-3">
+                                        <div class="bg-success bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0" style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-check-circle-fill fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="fw-bold mb-2">Legal Requirement</h4>
+                                            <p class="text-muted mb-0">In many jurisdictions, organizations—especially corporations and nonprofits—are legally required to maintain an official record of board decisions. Minutes help demonstrate compliance with laws and regulations.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 fade-in fade-in-delay-2">
+                                <div class="bg-white rounded-4 p-4 h-100 border-0 card-grow" style="box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); transition: all 0.4s ease;">
+                                    <div class="d-flex align-items-start mb-3">
+                                        <div class="bg-primary bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0" style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-file-text-fill fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="fw-bold mb-2">Official Record of Decisions</h4>
+                                            <p class="text-muted mb-0">Minutes document what was discussed, the decisions made, and actions approved. They serve as the authoritative record in case of disputes or confusion later.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 fade-in fade-in-delay-3">
+                                <div class="bg-white rounded-4 p-4 h-100 border-0 card-grow" style="box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); transition: all 0.4s ease;">
+                                    <div class="d-flex align-items-start mb-3">
+                                        <div class="bg-info bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0" style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-eye-fill fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="fw-bold mb-2">Accountability & Transparency</h4>
+                                            <p class="text-muted mb-0">They help track who is responsible for specific tasks and ensure actions are followed through. They also create transparency for stakeholders, auditors, and regulators.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 fade-in fade-in-delay-3">
+                                <div class="bg-white rounded-4 p-4 h-100 border-0 card-grow" style="box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); transition: all 0.4s ease;">
+                                    <div class="d-flex align-items-start mb-3">
+                                        <div class="bg-warning bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0" style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-clock-history fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="fw-bold mb-2">Historical Reference</h4>
+                                            <p class="text-muted mb-0">Minutes provide a history of board actions, useful for future planning, onboarding new members, or reviewing past decisions and discussions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-12 fade-in fade-in-delay-4">
+                                <div class="bg-white rounded-4 p-4 border-0 card-grow" style="box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); transition: all 0.4s ease;">
+                                    <div class="d-flex align-items-start mb-3">
+                                        <div class="bg-danger bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0" style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-shield-check fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="fw-bold mb-2">Evidence of Due Diligence</h4>
+                                            <p class="text-muted mb-0">Well-kept minutes protect board members by showing they acted responsibly, discussed risks, and made informed decisions (important for legal protection and fiduciary duty).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How Schools Use DocMersion Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <h2 class="section-title">How Schools Use DocMersion</h2>
+                    <p class="lead" style="font-size: 1.5rem; font-weight: 500;">Real outcomes that matter to your school community</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6 col-md-6 fade-in fade-in-delay-1">
+                        <div class="d-flex align-items-start benefit-item-hover p-4">
+                            <div class="bg-primary bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-eye-fill fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-2 fw-bold">Increased Visibility</h4>
+                                <p class="text-muted mb-0">Critical school policies and procedures reach more families through engaging, accessible formats</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 fade-in fade-in-delay-2">
+                        <div class="d-flex align-items-start benefit-item-hover p-4">
+                            <div class="bg-success bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-lightbulb-fill fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-2 fw-bold">Better Understanding</h4>
+                                <p class="text-muted mb-0">Complex district policies become clear and actionable for parents, staff, and students</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 fade-in fade-in-delay-3">
+                        <div class="d-flex align-items-start benefit-item-hover p-4">
+                            <div class="bg-info bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-gear-fill fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-2 fw-bold">Streamlined Operations</h4>
+                                <p class="text-muted mb-0">Reduce repetitive questions to district office staff and improve administrative efficiency</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 fade-in fade-in-delay-4">
+                        <div class="d-flex align-items-start benefit-item-hover p-4">
+                            <div class="bg-warning bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-people-fill fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-2 fw-bold">Stronger Community</h4>
+                                <p class="text-muted mb-0">Build trust with families through transparent, accessible school communication</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Board Engagement Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="text-center mb-5 fade-in">
+                            <h2 class="section-title">Empowering Board Governance & Community Engagement</h2>
+                            <p class="lead" style="font-size: 1.3rem;">Make your school board accessible, transparent, and efficient</p>
+                        </div>
+                        
+                        <div class="row g-4">
+                            <!-- Board Overview -->
+                            <div class="col-lg-12 fade-in fade-in-delay-1">
+                                <div class="rounded-4 p-5 border-0 card-grow text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);">
+                                    <h3 class="fw-bold mb-4 text-white">Your Board of Education</h3>
+                                    <p class="lead mb-4 text-white mx-auto" style="opacity: 0.95; max-width: 900px;">The School Board provides strategic oversight to ensure every community member receives the support and educational excellence your district offers. Board members act as representatives of the community, working to guarantee the organization operates efficiently and effectively.</p>
+                                    <p class="mb-0 text-white mx-auto" style="opacity: 0.9; max-width: 900px;">In carrying out these duties, the board focuses on establishing policy, planning educational services, and assessing the quality of programs. Through DocMersion, your board's work becomes transparent and accessible to all stakeholders.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Public Comments -->
+                            <div class="col-lg-6 fade-in fade-in-delay-2">
+                                <div class="bg-white rounded-4 p-5 h-100 border-0 card-grow" style="box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="bg-success bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);">
+                                            <i class="bi bi-chat-dots-fill fs-3"></i>
+                                        </div>
+                                        <h4 class="mb-0 fw-bold text-dark">Public Comments</h4>
+                                    </div>
+                                    <p class="text-muted mb-3" style="font-size: 1.05rem;">Enable stakeholders to address the board during dedicated portions of board meetings. Comments can be submitted via email, online forms, or delivered in person during meetings.</p>
+                                    <div class="alert alert-info border-0 mb-0" style="background-color: #e8f4f8;">
+                                        <p class="mb-0 small"><i class="bi bi-info-circle me-2"></i><strong>Note:</strong> Board members typically do not respond directly to individual comments but consider all input in their decision-making process.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Policies & Minutes -->
+                            <div class="col-lg-6 fade-in fade-in-delay-3">
+                                <div class="bg-white rounded-4 p-5 h-100 border-0 card-grow" style="box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="bg-info bg-gradient text-white rounded-3 p-3 me-3 flex-shrink-0" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);">
+                                            <i class="bi bi-folder-fill fs-3"></i>
+                                        </div>
+                                        <h4 class="mb-0 fw-bold text-dark">Policies & Minutes</h4>
+                                    </div>
+                                    <p class="text-muted mb-4" style="font-size: 1.05rem;">Give your community instant access to board policies, procedures, meeting minutes, and agendas—all searchable and organized in one central location.</p>
+                                    <a href="https://docmersion.schoolblocks.com/en-US/meetings-54bb5713/minutes-e7cada32" target="_blank" class="btn btn-primary px-4 py-3 rounded-pill" style="box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);">
+                                        View Live Example <i class="bi bi-arrow-right ms-2"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1753,15 +1935,15 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="benefits-content fade-in">
-                            <h2 class="benefits-title">Transform Your Document Experience</h2>
-                            <p class="benefits-description">DocMersion empowers organizations to create accessible, searchable, and compliant document experiences that actually work for everyone.</p>
+                            <h2 class="benefits-title">Transform Your District's Document Experience</h2>
+                            <p class="benefits-description">DocMersion empowers school districts to create accessible, searchable, and compliant document experiences that actually work for students, parents, staff, and the entire school community.</p>
                             
                             <div class="benefits-list">
                                 <div class="benefit-item-horizontal">
                                     <div class="benefit-number">01</div>
                                     <div class="benefit-content">
                                         <h4>Empower</h4>
-                                        <p>Ensure answers stay consistent across your organization with immediate search results</p>
+                                        <p>Ensure answers stay consistent across your district with immediate search results for policies and procedures</p>
                                     </div>
                                 </div>
                                 
@@ -1769,7 +1951,7 @@
                                     <div class="benefit-number">02</div>
                                     <div class="benefit-content">
                                         <h4>Control</h4>
-                                        <p>Create public or private pages to ensure proper access</p>
+                                        <p>Create public pages for community access or password-protected pages for staff-only documents</p>
                                     </div>
                                 </div>
                                 
@@ -1777,7 +1959,7 @@
                                     <div class="benefit-number">03</div>
                                     <div class="benefit-content">
                                         <h4>Align</h4>
-                                        <p>Customize your page by adding design elements and custom content that reflects your organization's identity</p>
+                                        <p>Customize pages with your district's colors, logo, and branding to maintain consistent school identity</p>
                                     </div>
                                 </div>
                                 
@@ -1849,8 +2031,8 @@
                                 <i class="bi bi-stars"></i>
                                 <span>Industry Leading</span>
                             </div>
-                            <h2 class="platform-title">The Most Advanced Document Engagement Platform</h2>
-                            <p class="platform-description">DocMersion combines cutting-edge search technology with enterprise-grade accessibility features to transform how organizations share and manage their most important documents.</p>
+                            <h2 class="platform-title">The Most Advanced Document Platform for Schools</h2>
+                            <p class="platform-description">DocMersion combines cutting-edge search technology with enterprise-grade accessibility features to transform how school districts share and manage their most important policies, handbooks, and compliance documents.</p>
                             <a href="https://www.docmersion.com" target="_blank" class="platform-cta-btn">
                                 Explore DocMersion
                                 <i class="bi bi-arrow-right"></i>
@@ -1869,7 +2051,7 @@
                                         </div>
                                         <div class="feature-content">
                                             <h4>Advanced Search & Discovery</h4>
-                                            <p>Advanced search capabilities help users find exactly what they need, when they need it. Our search understands context and intent, not just keywords.</p>
+                                            <p>Help parents and staff find exactly what they need in district policies and handbooks. Our intelligent search understands context and intent, not just keywords.</p>
                                             <a href="https://www.docmersion.com" target="_blank" class="feature-link">
                                                 Learn more <i class="bi bi-arrow-right"></i>
                                             </a>
@@ -1905,7 +2087,7 @@
                                         </div>
                                         <div class="feature-content">
                                             <h4>Real-time Translation & Localization</h4>
-                                            <p>Instantly translate documents into 100+ languages while maintaining formatting and context. Perfect for diverse communities and global organizations.</p>
+                                            <p>Instantly translate school documents into 100+ languages while maintaining formatting and context. Perfect for serving diverse families and multilingual communities.</p>
                                             <a href="https://www.docmersion.com" target="_blank" class="feature-link">
                                                 Learn more <i class="bi bi-arrow-right"></i>
                                             </a>
@@ -1994,7 +2176,7 @@
                             </div>
                             <div class="timeline-text">
                                 <h4>Discovery Call</h4>
-                                <p>We'll review your document portfolio and understand your organization's specific needs and goals.</p>
+                                <p>We'll review your district's document portfolio and understand your school's specific needs and goals.</p>
                             </div>
                         </div>
                     </div>
@@ -2019,7 +2201,7 @@
                             </div>
                             <div class="timeline-text">
                                 <h4>Launch & Support</h4>
-                                <p>We'll be your partner every step of the way with ongoing support that continues beyond day one.</p>
+                                <p>We'll be your district's partner every step of the way with ongoing support that continues beyond day one.</p>
                             </div>
                         </div>
                     </div>
@@ -2031,8 +2213,8 @@
         <section class="testimonial-section">
             <div class="container">
                 <div class="text-center mb-5 fade-in">
-                    <h2 class="section-title">Customer Success Stories</h2>
-                    <p class="lead">See how organizations are transforming their document experience with DocMersion.</p>
+                    <h2 class="section-title">School Success Stories</h2>
+                    <p class="lead">See how school districts are transforming their document experience with DocMersion.</p>
                 </div>
                 
                 <div class="row justify-content-center">
@@ -2136,8 +2318,8 @@
             if (typeof HeroComponent !== 'undefined') {
                 HeroComponent.create({
                     title: "Policies. Procedures. Documents.",
-                    subtitle: "DocMersion™",
-                    description: "Turn your documents into digital experiences people enjoy using."
+                    subtitle: "DocMersion™ for SchoolBoards",
+                    description: "Turn your school district documents into digital experiences that families and staff actually want to use. From board policies and handbooks to event calendars and newsletters, DocMersion makes critical information accessible, engaging, and easy to navigate. Help your community stay informed and connected with documents that work as hard as you do."
                 }, 'hero-section');
             } else {
                 console.log('HeroComponent not found');
