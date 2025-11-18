@@ -1,12 +1,39 @@
 // ADA Compliance Widget - SchoolBlocks
 // Provides accessibility tools and compliance features
 
+// IMMEDIATE: Check for saved language BEFORE widget loads
+(function() {
+    try {
+        const saved = localStorage.getItem('ada-widget-settings');
+        console.log('📋 Checking for saved language...', saved ? 'Found settings' : 'No settings');
+        
+        if (saved) {
+            const settings = JSON.parse(saved);
+            console.log('📋 Parsed settings:', settings);
+            
+            if (settings.language && settings.language !== 'en') {
+                // Set Google's cookies (both versions for compatibility)
+                const cookieValue = `/en/${settings.language}`;
+                document.cookie = `googtrans=${cookieValue}; path=/`;
+                document.cookie = `googtrans=${cookieValue}; path=/; domain=${window.location.hostname}`;
+                
+                console.log(`🚀 PRE-LOAD: Setting cookie for language: ${settings.language}`);
+                console.log(`🍪 Cookie value: ${cookieValue}`);
+            } else {
+                console.log('📋 Language is English or not set');
+            }
+        }
+    } catch (e) {
+        console.error('❌ Could not pre-load language:', e);
+    }
+})();
+
 class ADAWidget {
     constructor() {
         this.isOpen = false;
-        this.isMinimized = false;
         this.fontSize = 100; // percentage
         this.highContrast = false;
+        this.selectedLanguage = 'en';
         this.init();
     }
 
@@ -14,7 +41,9 @@ class ADAWidget {
         this.createWidget();
         this.attachEventListeners();
         this.loadSettings();
-        console.log('🔧 ADA Compliance Widget initialized (Development Version)');
+        this.initGoogleTranslate();
+        this.monitorLanguageChanges();
+        console.log('✅ ADA Compliance Widget initialized');
     }
 
     createWidget() {
@@ -35,12 +64,8 @@ class ADAWidget {
                             <i class="bi bi-shield-check"></i>
                             <span>Accessibility Tools</span>
                         </div>
-                        <div class="ada-dev-badge">
-                            <i class="bi bi-code-slash"></i>
-                            <span>In Development</span>
-                        </div>
-                        <button id="ada-minimize" class="ada-minimize" aria-label="Minimize Panel" title="Minimize">
-                            <i class="bi bi-chevron-left"></i>
+                        <button id="ada-close" class="ada-close" aria-label="Close Panel" title="Close">
+                            <i class="bi bi-x-lg"></i>
                         </button>
                     </div>
                     
@@ -75,6 +100,15 @@ class ADAWidget {
                             </button>
                         </div>
                         
+                        <!-- Language Selector -->
+                        <div class="ada-control-group">
+                            <label class="ada-control-label">
+                                <i class="bi bi-translate"></i>
+                                Language / Idioma
+                            </label>
+                            <div id="google_translate_element"></div>
+                        </div>
+                        
                         <!-- Skip Links -->
                         <div class="ada-control-group">
                             <label class="ada-control-label">
@@ -82,12 +116,16 @@ class ADAWidget {
                                 Quick Navigation
                             </label>
                             <div class="ada-skip-links">
-                                <button class="ada-btn ada-skip-btn" onclick="document.querySelector('.main-content')?.scrollIntoView({behavior: 'smooth'})">
+                                <button id="ada-skip-content-down" class="ada-btn ada-skip-btn">
                                     <i class="bi bi-arrow-down"></i>
-                                    Skip to Content
+                                    Next Section
                                 </button>
-                                <button class="ada-btn ada-skip-btn" onclick="document.querySelector('.navbar')?.scrollIntoView({behavior: 'smooth'})">
+                                <button id="ada-skip-content-up" class="ada-btn ada-skip-btn">
                                     <i class="bi bi-arrow-up"></i>
+                                    Previous Section
+                                </button>
+                                <button id="ada-back-top" class="ada-btn ada-skip-btn">
+                                    <i class="bi bi-arrow-up-circle"></i>
                                     Back to Top
                                 </button>
                             </div>
@@ -174,10 +212,6 @@ class ADAWidget {
                 visibility: visible;
             }
             
-            .ada-widget.minimized .ada-panel {
-                transform: translateX(-280px) translateY(0);
-            }
-            
             .ada-header {
                 background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
                 color: white;
@@ -194,34 +228,33 @@ class ADAWidget {
                 gap: 8px;
                 font-weight: 600;
                 font-size: 16px;
+                flex: 1;
             }
             
-            .ada-dev-badge {
-                display: flex;
-                align-items: center;
-                gap: 4px;
-                background: rgba(255, 255, 255, 0.2);
-                padding: 4px 8px;
-                border-radius: 12px;
-                font-size: 11px;
-                font-weight: 500;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-            }
-            
-            .ada-minimize {
+            .ada-close {
                 background: none;
                 border: none;
                 color: white;
-                font-size: 18px;
+                font-size: 20px;
                 cursor: pointer;
-                padding: 4px;
+                padding: 6px;
                 border-radius: 4px;
                 transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
             }
             
-            .ada-minimize:hover {
+            .ada-close:hover {
                 background: rgba(255, 255, 255, 0.2);
+                transform: scale(1.1);
+            }
+            
+            .ada-close:focus {
+                outline: 2px solid rgba(255, 255, 255, 0.5);
+                outline-offset: 2px;
             }
             
             .ada-controls {
@@ -327,66 +360,269 @@ class ADAWidget {
                 border-color: #bd2130;
             }
             
-            /* High Contrast Mode */
+            /* High Contrast Mode - Better approach without filter that hides widget */
             body.ada-high-contrast {
-                filter: contrast(150%) brightness(1.1);
+                background-color: #000000 !important;
+                color: #FFFFFF !important;
             }
             
-            body.ada-high-contrast * {
+            body.ada-high-contrast *:not(.ada-widget):not(.ada-widget *) {
+                background-color: #000000 !important;
+                color: #FFFFFF !important;
+                border-color: #FFFFFF !important;
                 text-shadow: none !important;
-                box-shadow: none !important;
             }
             
-            /* Protect ADA Widget from high contrast filter */
-            body.ada-high-contrast .ada-widget {
-                filter: none !important;
+            body.ada-high-contrast a:not(.ada-widget a) {
+                color: #FFFF00 !important;
+                text-decoration: underline !important;
             }
             
-            body.ada-high-contrast .ada-widget * {
-                filter: none !important;
+            body.ada-high-contrast button:not(.ada-widget button),
+            body.ada-high-contrast input:not(.ada-widget input),
+            body.ada-high-contrast select:not(.ada-widget select),
+            body.ada-high-contrast textarea:not(.ada-widget textarea) {
+                background-color: #FFFFFF !important;
+                color: #000000 !important;
+                border: 2px solid #FFFFFF !important;
             }
             
-            /* Enhanced visibility in high contrast mode */
+            body.ada-high-contrast img:not(.ada-widget img) {
+                border: 2px solid #FFFFFF !important;
+                opacity: 0.8;
+            }
+            
+            /* Keep ADA Widget visible and styled in high contrast mode */
             body.ada-high-contrast .ada-toggle {
-                background: #000000 !important;
+                background: #4A90E2 !important;
                 color: #FFFFFF !important;
                 border: 3px solid #FFFFFF !important;
-                box-shadow: 0 0 0 2px #000000 !important;
+                box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3) !important;
             }
             
             body.ada-high-contrast .ada-panel {
-                background: #FFFFFF !important;
-                border: 3px solid #000000 !important;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.8) !important;
+                background: rgba(255, 255, 255, 0.98) !important;
+                border: 3px solid #4A90E2 !important;
+                box-shadow: 0 0 30px rgba(74, 144, 226, 0.5) !important;
             }
             
             body.ada-high-contrast .ada-header {
-                background: #000000 !important;
+                background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%) !important;
                 color: #FFFFFF !important;
             }
             
             body.ada-high-contrast .ada-btn {
-                background: #FFFFFF !important;
+                background: #f8f9fa !important;
+                color: #000000 !important;
+                border: 2px solid #4A90E2 !important;
+            }
+            
+            body.ada-high-contrast .ada-btn:hover {
+                background: #4A90E2 !important;
+                color: #FFFFFF !important;
+            }
+            
+            body.ada-high-contrast .ada-btn.active,
+            body.ada-high-contrast .ada-toggle-btn.active {
+                background: #4A90E2 !important;
+                color: #FFFFFF !important;
+                border-color: #357ABD !important;
+            }
+            
+            body.ada-high-contrast .ada-control-label {
+                color: #2C3E50 !important;
+            }
+            
+            body.ada-high-contrast .ada-font-display {
+                color: #4A90E2 !important;
+            }
+            
+            /* Google Translate Styling */
+            #google_translate_element {
+                margin-top: 4px;
+            }
+            
+            /* Style the select button */
+            .goog-te-combo {
+                background: #f8f9fa !important;
+                border: 1px solid #e9ecef !important;
+                border-radius: 8px !important;
+                padding: 10px 32px 10px 12px !important;
+                width: 100% !important;
+                font-size: 14px !important;
+                font-weight: 500 !important;
+                color: #495057 !important;
+                cursor: pointer !important;
+                transition: all 0.2s ease !important;
+                appearance: none !important;
+                -webkit-appearance: none !important;
+                -moz-appearance: none !important;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23495057' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+                background-repeat: no-repeat !important;
+                background-position: right 10px center !important;
+                background-size: 12px !important;
+            }
+            
+            .goog-te-combo:hover {
+                background-color: #e9ecef !important;
+                border-color: #dee2e6 !important;
+            }
+            
+            .goog-te-combo:focus {
+                outline: 2px solid #4A90E2 !important;
+                outline-offset: 2px !important;
+                border-color: #4A90E2 !important;
+                background-color: #ffffff !important;
+            }
+            
+            /* Style the dropdown menu */
+            .goog-te-menu-frame {
+                border-radius: 12px !important;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+                border: 1px solid #e9ecef !important;
+                overflow: hidden !important;
+            }
+            
+            /* Change arrow to X */
+            .goog-te-menu-frame .goog-te-menu2-item .text::after {
+                content: "" !important;
+            }
+            
+            /* Close button styling */
+            .goog-te-menu-frame .indicator {
+                display: none !important;
+            }
+            
+            .goog-te-menu-frame::before {
+                content: "✕" !important;
+                position: absolute !important;
+                top: 12px !important;
+                right: 12px !important;
+                font-size: 20px !important;
+                color: #495057 !important;
+                cursor: pointer !important;
+                z-index: 1000 !important;
+                width: 24px !important;
+                height: 24px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 4px !important;
+                transition: all 0.2s ease !important;
+            }
+            
+            .goog-te-menu-frame::before:hover {
+                background: #f0f0f0 !important;
+                color: #000000 !important;
+            }
+            
+            .goog-te-menu2 {
+                border: none !important;
+                background: #ffffff !important;
+                max-height: 400px !important;
+                overflow-y: auto !important;
+            }
+            
+            .goog-te-menu2-item {
+                padding: 10px 16px !important;
+                font-size: 14px !important;
+                font-weight: 500 !important;
+                color: #495057 !important;
+                border-bottom: 1px solid #f0f0f0 !important;
+                transition: all 0.2s ease !important;
+            }
+            
+            .goog-te-menu2-item:hover {
+                background: #f8f9fa !important;
+                color: #4A90E2 !important;
+            }
+            
+            .goog-te-menu2-item-selected {
+                background: #e7f3ff !important;
+                color: #4A90E2 !important;
+                font-weight: 600 !important;
+            }
+            
+            .goog-te-menu2-item:last-child {
+                border-bottom: none !important;
+            }
+            
+            /* Column layout improvements */
+            .goog-te-menu2-colpad {
+                padding: 8px !important;
+            }
+            
+            /* Scrollbar styling */
+            .goog-te-menu2::-webkit-scrollbar {
+                width: 8px;
+            }
+            
+            .goog-te-menu2::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 4px;
+            }
+            
+            .goog-te-menu2::-webkit-scrollbar-thumb {
+                background: #c1c1c1;
+                border-radius: 4px;
+            }
+            
+            .goog-te-menu2::-webkit-scrollbar-thumb:hover {
+                background: #a8a8a8;
+            }
+            
+            /* Hide Google branding */
+            .goog-te-gadget {
+                font-size: 0 !important;
+                color: transparent !important;
+            }
+            
+            .goog-te-gadget > span {
+                display: none !important;
+            }
+            
+            .goog-te-gadget > div {
+                display: inline-block !important;
+            }
+            
+            /* Style the powered by text */
+            .goog-te-gadget .goog-te-combo {
+                margin: 0 !important;
+            }
+            
+            /* Hide the Google Translate banner at top */
+            .goog-te-banner-frame {
+                display: none !important;
+            }
+            
+            body {
+                top: 0 !important;
+            }
+            
+            /* High contrast mode for translate */
+            body.ada-high-contrast .goog-te-combo {
+                background: #ffffff !important;
                 color: #000000 !important;
                 border: 2px solid #000000 !important;
             }
             
-            body.ada-high-contrast .ada-btn:hover {
-                background: #000000 !important;
-                color: #FFFFFF !important;
+            body.ada-high-contrast .goog-te-combo:hover {
+                background: #f0f0f0 !important;
             }
             
-            body.ada-high-contrast .ada-btn.active {
-                background: #000000 !important;
-                color: #FFFFFF !important;
-            }
+            /* Font Size Scaling - Scale html element for universal effect */
+            html.ada-font-110 { font-size: 110%; }
+            html.ada-font-120 { font-size: 120%; }
+            html.ada-font-130 { font-size: 130%; }
+            html.ada-font-140 { font-size: 140%; }
+            html.ada-font-150 { font-size: 150%; }
             
-            /* Font Size Scaling */
-            body.ada-font-110 { font-size: 110%; }
-            body.ada-font-120 { font-size: 120%; }
-            body.ada-font-130 { font-size: 130%; }
-            body.ada-font-140 { font-size: 140%; }
-            body.ada-font-150 { font-size: 150%; }
+            /* Alternative: Scale body content but not widget */
+            body.ada-font-110 > *:not(.ada-widget) { font-size: 110% !important; }
+            body.ada-font-120 > *:not(.ada-widget) { font-size: 120% !important; }
+            body.ada-font-130 > *:not(.ada-widget) { font-size: 130% !important; }
+            body.ada-font-140 > *:not(.ada-widget) { font-size: 140% !important; }
+            body.ada-font-150 > *:not(.ada-widget) { font-size: 150% !important; }
             
             /* Mobile Responsive */
             @media (max-width: 768px) {
@@ -432,10 +668,6 @@ class ADAWidget {
                 .ada-panel {
                     width: calc(100vw - 20px);
                 }
-                
-                .ada-widget.minimized .ada-panel {
-                    transform: translateX(calc(-100vw + 70px)) translateY(0);
-                }
             }
         `;
         
@@ -444,18 +676,24 @@ class ADAWidget {
 
     attachEventListeners() {
         const toggle = document.getElementById('ada-toggle');
-        const minimize = document.getElementById('ada-minimize');
+        const close = document.getElementById('ada-close');
         const fontIncrease = document.getElementById('ada-font-increase');
         const fontDecrease = document.getElementById('ada-font-decrease');
         const contrastToggle = document.getElementById('ada-contrast-toggle');
         const reset = document.getElementById('ada-reset');
+        const skipContentDown = document.getElementById('ada-skip-content-down');
+        const skipContentUp = document.getElementById('ada-skip-content-up');
+        const backTop = document.getElementById('ada-back-top');
 
         toggle?.addEventListener('click', () => this.toggleWidget());
-        minimize?.addEventListener('click', () => this.minimizeWidget());
+        close?.addEventListener('click', () => this.closeWidget());
         fontIncrease?.addEventListener('click', () => this.changeFontSize(10));
         fontDecrease?.addEventListener('click', () => this.changeFontSize(-10));
         contrastToggle?.addEventListener('click', () => this.toggleHighContrast());
         reset?.addEventListener('click', () => this.resetSettings());
+        skipContentDown?.addEventListener('click', () => this.skipToContentDown());
+        skipContentUp?.addEventListener('click', () => this.skipToContentUp());
+        backTop?.addEventListener('click', () => this.backToTop());
 
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
@@ -480,8 +718,6 @@ class ADAWidget {
         
         if (this.isOpen) {
             widget?.classList.add('open');
-            widget?.classList.remove('minimized');
-            this.isMinimized = false;
             this.announceToScreenReader('Accessibility tools panel opened');
         } else {
             widget?.classList.remove('open');
@@ -496,29 +732,19 @@ class ADAWidget {
         this.isOpen = false;
         widget?.classList.remove('open');
         this.updateToggleButton();
-    }
-
-    minimizeWidget() {
-        const widget = document.getElementById('ada-widget');
-        this.isMinimized = !this.isMinimized;
-        
-        if (this.isMinimized) {
-            widget?.classList.add('minimized');
-            this.announceToScreenReader('Accessibility panel minimized');
-        } else {
-            widget?.classList.remove('minimized');
-            this.announceToScreenReader('Accessibility panel expanded');
-        }
+        this.announceToScreenReader('Accessibility tools panel closed');
     }
 
     changeFontSize(change) {
         this.fontSize = Math.max(80, Math.min(150, this.fontSize + change));
         
-        // Remove existing font size classes
+        // Remove existing font size classes from both html and body
+        document.documentElement.classList.remove('ada-font-110', 'ada-font-120', 'ada-font-130', 'ada-font-140', 'ada-font-150');
         document.body.classList.remove('ada-font-110', 'ada-font-120', 'ada-font-130', 'ada-font-140', 'ada-font-150');
         
-        // Add new font size class
+        // Add new font size class to both html and body
         if (this.fontSize > 100) {
+            document.documentElement.classList.add(`ada-font-${this.fontSize}`);
             document.body.classList.add(`ada-font-${this.fontSize}`);
         }
         
@@ -551,12 +777,76 @@ class ADAWidget {
         this.saveSettings();
     }
 
+    skipToContentDown() {
+        // Find next section below current scroll position
+        const currentScroll = window.scrollY;
+        const sections = document.querySelectorAll('section, article, main, [role="main"], .hero-section, #hero-section, h1, h2');
+        
+        // Find first section that's below current position (with small buffer)
+        for (const section of sections) {
+            const sectionTop = section.getBoundingClientRect().top + currentScroll;
+            if (sectionTop > currentScroll + 100) { // 100px buffer
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Try to focus if possible
+                if (section.tabIndex === -1) section.tabIndex = -1;
+                section.focus({ preventScroll: true });
+                this.announceToScreenReader('Skipped to next section');
+                return;
+            }
+        }
+        
+        // Fallback: scroll down one viewport height
+        window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+        this.announceToScreenReader('Scrolled to next content area');
+    }
+    
+    skipToContentUp() {
+        // Find previous section above current scroll position
+        const currentScroll = window.scrollY;
+        const sections = document.querySelectorAll('section, article, main, [role="main"], .hero-section, #hero-section, h1, h2');
+        
+        // Convert to array and reverse to search from bottom up
+        const sectionsArray = Array.from(sections).reverse();
+        
+        // Find first section that's above current position (with small buffer)
+        for (const section of sectionsArray) {
+            const sectionTop = section.getBoundingClientRect().top + currentScroll;
+            if (sectionTop < currentScroll - 100) { // 100px buffer
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Try to focus if possible
+                if (section.tabIndex === -1) section.tabIndex = -1;
+                section.focus({ preventScroll: true });
+                this.announceToScreenReader('Skipped to previous section');
+                return;
+            }
+        }
+        
+        // Fallback: scroll up one viewport height
+        window.scrollBy({ top: -window.innerHeight * 0.8, behavior: 'smooth' });
+        this.announceToScreenReader('Scrolled to previous content area');
+    }
+    
+    backToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.announceToScreenReader('Scrolled to top of page');
+    }
+
     resetSettings() {
         this.fontSize = 100;
         this.highContrast = false;
+        this.selectedLanguage = 'en';
         
-        // Remove all classes
+        // Remove all classes from both html and body
+        document.documentElement.classList.remove('ada-font-110', 'ada-font-120', 'ada-font-130', 'ada-font-140', 'ada-font-150');
         document.body.classList.remove('ada-font-110', 'ada-font-120', 'ada-font-130', 'ada-font-140', 'ada-font-150', 'ada-high-contrast');
+        
+        // Reset language to English and clear cookie
+        document.cookie = 'googtrans=; path=/; max-age=0';
+        const select = document.querySelector('.goog-te-combo');
+        if (select) {
+            select.value = 'en';
+            select.dispatchEvent(new Event('change'));
+        }
         
         // Update UI
         const fontDisplay = document.getElementById('ada-font-size');
@@ -565,8 +855,10 @@ class ADAWidget {
         if (fontDisplay) fontDisplay.textContent = '100%';
         if (contrastButton) {
             contrastButton.classList.remove('active');
-            contrastButton.querySelector('.ada-toggle-text').textContent = 'Off';
-            contrastButton.querySelector('i').className = 'bi bi-toggle-off';
+            const toggleText = contrastButton.querySelector('.ada-toggle-text');
+            const toggleIcon = contrastButton.querySelector('i');
+            if (toggleText) toggleText.textContent = 'Off';
+            if (toggleIcon) toggleIcon.className = 'bi bi-toggle-off';
         }
         
         this.saveSettings();
@@ -602,7 +894,8 @@ class ADAWidget {
     saveSettings() {
         const settings = {
             fontSize: this.fontSize,
-            highContrast: this.highContrast
+            highContrast: this.highContrast,
+            language: this.selectedLanguage
         };
         localStorage.setItem('ada-widget-settings', JSON.stringify(settings));
     }
@@ -615,15 +908,107 @@ class ADAWidget {
                 
                 if (settings.fontSize && settings.fontSize !== 100) {
                     this.fontSize = settings.fontSize;
-                    this.changeFontSize(0); // Apply without changing
+                    this.changeFontSize(0);
                 }
                 
                 if (settings.highContrast) {
                     this.toggleHighContrast();
                 }
+                
+                if (settings.language && settings.language !== 'en') {
+                    this.selectedLanguage = settings.language;
+                    this.applyLanguageWhenReady();
+                }
             }
         } catch (e) {
             console.warn('Could not load ADA widget settings:', e);
+        }
+    }
+    
+    applyLanguageWhenReady() {
+        // Aggressively wait for dropdown and force translation
+        let attempts = 0;
+        const checkInterval = setInterval(() => {
+            const select = document.querySelector('.goog-te-combo');
+            if (select || attempts > 100) { // Try for 10 seconds
+                clearInterval(checkInterval);
+                if (select && select.value !== this.selectedLanguage) {
+                    // Force the value change multiple ways
+                    select.value = this.selectedLanguage;
+                    
+                    // Trigger multiple events to ensure Google picks it up
+                    const changeEvent = new Event('change', { bubbles: true, cancelable: true });
+                    select.dispatchEvent(changeEvent);
+                    
+                    const inputEvent = new Event('input', { bubbles: true, cancelable: true });
+                    select.dispatchEvent(inputEvent);
+                    
+                    // Click event as backup
+                    setTimeout(() => {
+                        if (select.value === this.selectedLanguage) {
+                            select.dispatchEvent(new Event('change', { bubbles: true }));
+                        }
+                    }, 200);
+                    
+                    console.log(`🌐 Language forced to: ${this.selectedLanguage}`);
+                }
+            }
+            attempts++;
+        }, 100);
+    }
+    
+    monitorLanguageChanges() {
+        // Simple: just watch for the dropdown and save changes
+        const observer = new MutationObserver(() => {
+            const select = document.querySelector('.goog-te-combo');
+            if (select && !select.dataset.monitored) {
+                select.dataset.monitored = 'true';
+                select.addEventListener('change', (e) => {
+                    this.selectedLanguage = e.target.value;
+                    this.saveSettings();
+                    // Set Google's cookie for next page
+                    const cookieValue = e.target.value === 'en' ? '' : `/en/${e.target.value}`;
+                    document.cookie = `googtrans=${cookieValue}; path=/`;
+                    document.cookie = `googtrans=${cookieValue}; path=/; domain=${window.location.hostname}`;
+                    console.log(`🌐 Language saved to localStorage and cookie: ${this.selectedLanguage}`);
+                    console.log(`Cookie set: googtrans=${cookieValue}`);
+                });
+            }
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+
+    initGoogleTranslate() {
+        // Define global callback FIRST before loading script
+        window.googleTranslateElementInit = () => {
+            if (window.google && window.google.translate) {
+                new window.google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'en,es,fr,de,zh-CN,ja,ko,ar,pt,ru,vi,it,pl,nl,tr,th,hi,id,uk,cs,ro,sv,hu,el,da,fi,no,he,bn,ta,te,mr,gu,kn,ml,ur',
+                    layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false,
+                    multilanguagePage: true
+                }, 'google_translate_element');
+                
+                console.log('🌐 Google Translate initialized with English + 30 languages');
+            }
+        };
+        
+        // Load Google Translate script if not already loaded
+        if (!document.querySelector('script[src*="translate.google.com"]')) {
+            const script = document.createElement('script');
+            script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            script.async = true;
+            script.onerror = () => console.error('Failed to load Google Translate');
+            document.head.appendChild(script);
+            console.log('Loading Google Translate script...');
+        } else if (window.google && window.google.translate) {
+            // Script already loaded, just initialize
+            window.googleTranslateElementInit();
         }
     }
 }
