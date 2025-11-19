@@ -279,13 +279,13 @@ function loadNavbar() {
                         <span class="fsStyleSROnly">Toggle Search</span>
                     </button>
                     
-                    <a href="//help.schoolblocks.com" target="_blank" class="client-portal-link">
+                    <!-- <a href="//help.schoolblocks.com" target="_blank" class="client-portal-link">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
                         </svg>
                         <span class="fsStyleSROnly">Client Portal (opens in new window/tab)</span>
-                    </a>
+                    </a> -->
                     
                     <a href="get-started.html" class="get-started-btn">
                         <span>GET STARTED</span>
@@ -529,8 +529,7 @@ function loadNavbar() {
                 gap: 20px;
             }
             
-            .toggle-search,
-            .client-portal-link {
+            .toggle-search {
                 background: none;
                 border: none;
                 color: #333;
@@ -544,10 +543,27 @@ function loadNavbar() {
                 justify-content: center;
             }
             
-            .toggle-search:hover,
-            .client-portal-link:hover {
+            /* .client-portal-link {
+                background: none;
+                border: none;
+                color: #333;
+                cursor: pointer;
+                padding: 8px;
+                border-radius: 4px;
+                transition: color 0.3s ease;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            } */
+            
+            .toggle-search:hover {
                 color: #4A90E2;
             }
+            
+            /* .client-portal-link:hover {
+                color: #4A90E2;
+            } */
             
             .fsStyleSROnly {
                 position: absolute;
@@ -666,7 +682,7 @@ function loadNavbar() {
                 }
                 
                 .toggle-search,
-                .client-portal-link,
+                /* .client-portal-link, */
                 .get-started-btn {
                     display: none;
                 }
