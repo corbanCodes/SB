@@ -8,7 +8,7 @@ class HeroComponent {
             subtitle: config.subtitle || "Real Success Stories",
             description: config.description || "Discover how schools across the country have transformed their digital presence with SchoolBlocks. From increased engagement to streamlined communications, see the measurable impact our platform has made for educational communities nationwide.",
             ctaText: config.ctaText || "VIEW SUCCESS STORIES",
-            ctaUrl: config.ctaUrl || "get-started.html",
+            ctaUrl: config.ctaUrl || "#testimonials-section",
             heroImage: config.heroImage || "Photos/Images/client stories/client-stories-hero.png",
             showPartners: config.showPartners || false,
             backgroundColor: config.backgroundColor || "#E8F4FD", // Light blue background

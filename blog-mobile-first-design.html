@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimizing School Websites with Mobile-First Design - SchoolBlocks Blog</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: white;
+        }
+
+        /* Main content styles */
+        .main-content {
+            padding-top: 0; /* Will be set by navbar loader */
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .blog-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .blog-category {
+            background: var(--primary-blue);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .blog-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .blog-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .blog-content h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 40px 0 20px 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 30px 0 15px 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 20px;
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .blog-content li {
+            margin-bottom: 10px;
+        }
+
+        .blog-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .blog-content .highlight-box {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(74, 144, 226, 0.05));
+            border: 1px solid rgba(74, 144, 226, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .blog-content .highlight-box h4 {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-blog:hover {
+            color: var(--secondary-blue);
+            transform: translateX(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-container {
+                padding: 40px 15px;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .blog-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .blog-content {
+                font-size: 1rem;
+            }
+
+            .blog-image {
+                height: auto;
+                max-height: 300px;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Navbar compatibility */
+        .dropdown-menu {
+            position: fixed !important;
+            z-index: 1000 !important;
+            display: block !important;
+        }
+        
+        .dropdown-menu-item:hover .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <main class="main-content">
+        <div class="blog-container">
+            <a href="blog.html" class="back-to-blog">
+                <i class="bi bi-arrow-left"></i>
+                Back to Blog
+            </a>
+
+            <article>
+                <header class="blog-header">
+                    <div class="blog-meta">
+                        <span class="blog-category">Design</span>
+                        <span class="blog-date">November 1, 2025</span>
+                    </div>
+                    <h1 class="blog-title">Optimizing School Websites with Mobile-First Design</h1>
+                    <p class="blog-subtitle">In today's digital landscape, school websites must meet users where they are—most often on smartphones. A responsive website ensures content looks great and functions well on desktops, tablets, and mobile devices, providing a seamless experience for all community members.</p>
+                </header>
+
+                <img src="Photos/Images/blog/blog-pictures/optimizing-web-design-photo.png" alt="Optimizing School Websites with Mobile-First Design" class="blog-image">
+
+                <div class="blog-content">
+                    <h2>What Is a Responsive School Website?</h2>
+                    <p>A responsive website adapts to any device or screen size. Whether someone is viewing your site on a desktop, tablet, iPhone, or Android, content is displayed clearly and is easy to navigate.</p>
+
+                    <h2>Why Responsiveness Matters</h2>
+                    <ul>
+                        <li><strong>Mobile Usage is Rising:</strong> Over 50% of web traffic now comes from mobile devices.</li>
+                        <li><strong>Diverse Devices:</strong> From iPads to Android phones, screens vary in size and resolution. Responsive design ensures consistent user experience across all devices.</li>
+                        <li><strong>User Expectations:</strong> Parents, students, and community members expect easy access to information. Non-responsive websites frustrate users and can drive them away.</li>
+                    </ul>
+
+                    <h2>Who Uses School Websites?</h2>
+                    <ul>
+                        <li><strong>Faculty:</strong> Often on desktops for content updates</li>
+                        <li><strong>Parents & Students:</strong> Typically access via smartphones or tablets</li>
+                        <li><strong>Community Members:</strong> May arrive through social media or direct links</li>
+                    </ul>
+
+                    <h2>Benefits of Responsive Design</h2>
+                    <ul>
+                        <li><strong>Better User Experience:</strong> Easy navigation and readable content for everyone</li>
+                        <li><strong>Improved Accessibility:</strong> Content adapts to all screen sizes and resolutions</li>
+                        <li><strong>Higher Engagement:</strong> Users can find information quickly, from schedules to forms, enhancing overall satisfaction</li>
+                    </ul>
+
+                    <h2>Responsive Websites vs. Apps</h2>
+                    <p>A responsive website serves all visitors, including those exploring your school for the first time. A mobile app complements this by engaging parents, students, and staff who are actively involved, providing instant access to calendars, lunch menus, notifications, and other essential content.</p>
+
+                    <h2>How SchoolBlocks Ensures Responsiveness</h2>
+                    <ul>
+                        <li><strong>Adaptive Content:</strong> Pre-existing content is optimized for all devices</li>
+                        <li><strong>Cross-Device Testing:</strong> Websites are tested on multiple screen sizes and resolutions</li>
+                        <li><strong>Ongoing Updates:</strong> Websites evolve with web standards, new browsers, and device trends</li>
+                        <li><strong>Proactive Support:</strong> We maintain responsiveness post-launch, keeping websites functional and user-friendly</li>
+                    </ul>
+
+                    <p>At SchoolBlocks, building a responsive website is more than a one-time task—it's a long-term partnership focused on your community's needs.</p>
+
+                    <!-- Demo CTA Section will be loaded here -->
+                    <div id="demo-cta-blog"></div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Load Scripts -->
+    <script src="navbarloader.js"></script>
+    <script src="footerloader.js"></script>
+    <script src="demo-cta.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Initialize Demo CTA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof DemoCTAComponent !== 'undefined') {
+                DemoCTAComponent.create({
+                    title: "Ready to make your school's website fully responsive?",
+                    subtitle: "Schedule a demo today and see how SchoolBlocks can transform your online presence.",
+                    buttonText: "Schedule a Demo",
+                    buttonUrl: "get-started.html"
+                }, 'demo-cta-blog');
+            }
+        });
+    </script>
+</body>
+</html>

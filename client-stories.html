@@ -11,6 +11,9 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     
+    <!-- HLS.js for video streaming -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    
     <!-- Custom Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,14 +130,14 @@
         }
 
         .school-logo-container {
-            background: white;
-            border-radius: 50%;
-            width: 140px;
-            height: 140px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            width: 220px;
+            height: 160px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 25px;
+            padding: 30px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 0, 0, 0.05);
@@ -147,8 +150,8 @@
         }
 
         .school-logo {
-            max-width: 90px;
-            max-height: 60px;
+            max-width: 160px;
+            max-height: 100px;
             width: auto;
             height: auto;
             object-fit: contain;
@@ -409,15 +412,15 @@
             }
 
             .school-logo-container {
-                width: 120px;
-                height: 120px;
-                padding: 20px;
+                width: 200px;
+                height: 140px;
+                padding: 25px;
                 margin-bottom: 30px;
             }
 
             .school-logo {
-                max-width: 80px;
-                max-height: 55px;
+                max-width: 140px;
+                max-height: 85px;
             }
 
             .quote-icon {
@@ -467,14 +470,14 @@
             }
 
             .school-logo-container {
-                width: 100px;
-                height: 100px;
-                padding: 15px;
+                width: 180px;
+                height: 120px;
+                padding: 20px;
             }
 
             .school-logo {
-                max-width: 70px;
-                max-height: 50px;
+                max-width: 130px;
+                max-height: 75px;
             }
 
             .quote-icon {
@@ -539,31 +542,63 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section class="testimonials-section">
+        <section class="testimonials-section" id="testimonials-section">
             <div class="container">
-                <!-- Ramona Unified School District -->
+                <!-- Aspen High School -->
                 <div class="testimonial-story fade-in">
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
                             <div class="school-logo-container">
-                                <img src="Photos/testimonial logos/romona.png" alt="Ramona Unified School District" class="school-logo">
+                                <img src="Photos/Images/client stories/logos/aspen-client-stories.png" alt="Aspen High School" class="school-logo">
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-8">
                             <div class="testimonial-content">
                                 <div class="quote-icon">"</div>
-                                <blockquote class="testimonial-quote">SchoolBlocks is awesome. I personally love it.</blockquote>
+                                <blockquote class="testimonial-quote">Working with Mark Sculco and the SchoolBlocks team has been an exceptional experience from start to finish. They helped us recreate a beautiful, streamlined, and intuitive website for our high school that our students, families, and staff truly appreciate. The design is clean, the navigation is user-friendly, and the overall functionality has elevated how we communicate as a school community.
+
+SchoolBlocks' customer service is equally outstanding—approachable, swift, and incredibly knowledgeable. Any time we've needed support or had a question, their team has responded with clarity, efficiency, and genuine care.
+
+We are deeply satisfied with our partnership and grateful for the level of expertise and service that Mark and SchoolBlocks consistently provide. Our website is better because of them.</blockquote>
                                 <div class="testimonial-author">
-                                    <div class="author-name">Keith Wright</div>
-                                    <div class="author-title">Director of Technology</div>
-                                    <div class="school-name">Ramona Unified School District</div>
+                                    <div class="author-name">Jill Stephens</div>
+                                    <div class="author-title">Administrative Assistant</div>
+                                    <div class="school-name">Aspen High School</div>
                                 </div>
                                 <div class="testimonial-actions">
-                                    <a href="https://www.ramonausd.net/en-US" target="_blank" class="visit-website-btn">
+                                    <a href="https://www.aspenk12.net/ahs" target="_blank" class="visit-website-btn">
                                         <i class="bi bi-globe"></i>
                                         Visit Website
                                     </a>
-                                    <button class="play-video-btn" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/6360fcf808fd7c88d96fd2e8a6fb8fce/manifest/video.m3u8', 'https://www.ramonausd.net/en-US')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Larkspur-Corte Madera School District -->
+                <div class="testimonial-story fade-in fade-in-delay-1">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
+                            <div class="school-logo-container">
+                                <img src="Photos/Images/client stories/logos/larkspur.png" alt="Larkspur-Corte Madera School District" class="school-logo">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">"</div>
+                                <blockquote class="testimonial-quote">A large part of the reason we went with you all [SchoolBlocks] is because of this relationship and the openness, and the willingness to hear and be honest about what's on a road map and what's not, what's doable and what's not, and brainstorm ways to get our needs met in a new modality that pushes our thing. So we really appreciate all of it.</blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Daniel Norbutas</div>
+                                    <div class="author-title">Senior Directory of Educational Services & Technology</div>
+                                    <div class="school-name">Larkspur-Corte Madera School District</div>
+                                </div>
+                                <div class="testimonial-actions">
+                                    <a href="https://www.lcmschools.org/en-US" target="_blank" class="visit-website-btn">
+                                        <i class="bi bi-globe"></i>
+                                        Visit Website
+                                    </a>
+                                    <button class="play-video-btn" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/2e6273b72ddb600ec09da80ae97c9e2f/manifest/video.m3u8', 'https://www.lcmschools.org/en-US')">
                                         <i class="bi bi-play-circle"></i>
                                         Watch Video
                                     </button>
@@ -573,25 +608,53 @@
                     </div>
                 </div>
 
-                <!-- Lewiston Public Schools -->
-                <div class="testimonial-story fade-in fade-in-delay-1">
+                <!-- Val Verde Unified School District -->
+                <div class="testimonial-story fade-in fade-in-delay-2">
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
                             <div class="school-logo-container">
-                                <img src="Photos/testimonial logos/lewiston.png" alt="Lewiston Public Schools" class="school-logo">
+                                <img src="Photos/Images/client stories/logos/valverde.png" alt="Val Verde Unified School District" class="school-logo">
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-8">
                             <div class="testimonial-content">
                                 <div class="quote-icon">"</div>
-                                <blockquote class="testimonial-quote">The Google integration and the file sharing is one of the greatest assets of SchoolBlocks.</blockquote>
+                                <blockquote class="testimonial-quote">You have an incredible support system and team in place to support users. I got to experience it twice in the last month and came away impressed. Keep up the great work as a company.</blockquote>
                                 <div class="testimonial-author">
-                                    <div class="author-name">Dave Theriault</div>
-                                    <div class="author-title">Technology Director</div>
-                                    <div class="school-name">Lewiston Public Schools</div>
+                                    <div class="author-name">Phil Harding</div>
+                                    <div class="author-title">Technology Integration Specialist, CCTO</div>
+                                    <div class="school-name">Val Verde Unified School District</div>
                                 </div>
                                 <div class="testimonial-actions">
-                                    <a href="https://www.lewistonpublicschools.org/en-US" target="_blank" class="visit-website-btn">
+                                    <a href="https://www.valverde.edu" target="_blank" class="visit-website-btn">
+                                        <i class="bi bi-globe"></i>
+                                        Visit Website
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Etowah County Board of Education -->
+                <div class="testimonial-story fade-in fade-in-delay-3">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
+                            <div class="school-logo-container">
+                                <img src="Photos/Images/client stories/logos/etowah.png" alt="Etowah County Board of Education" class="school-logo">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">"</div>
+                                <blockquote class="testimonial-quote">Etowah County Schools recently completed the transition of the district and all 22 schools from the Grid with Blocks homepage to the new Terraced homepage. SchoolBlocks expertise ensured that the migration for our district and all 22 schools was completed seamlessly with no downtime. The team was responsive, professional, and managed the entire process with exceptional efficiency making the switch feel effortless on our end. The improved design and functionality of the new homepage have already enhanced our online presence. The streamlined design effectively embodies our school system's identity and provides a more intuitive, user-friendly experience, enabling visitors to navigate the homepage with ease. We are grateful for our partnership with SchoolBlocks and look forward to continued collaboration.</blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Kim Reed</div>
+                                    <div class="author-title">Professional Development Coordinator for Technology</div>
+                                    <div class="school-name">Etowah County Board of Education</div>
+                                </div>
+                                <div class="testimonial-actions">
+                                    <a href="https://www.ecboe.org" target="_blank" class="visit-website-btn">
                                         <i class="bi bi-globe"></i>
                                         Visit Website
                                     </a>
@@ -602,11 +665,11 @@
                 </div>
 
                 <!-- Hearne ISD -->
-                <div class="testimonial-story fade-in fade-in-delay-2">
+                <div class="testimonial-story fade-in fade-in-delay-4">
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
                             <div class="school-logo-container">
-                                <img src="Photos/testimonial logos/hearneisd.png" alt="Hearne ISD" class="school-logo">
+                                <img src="Photos/Images/client stories/logos/hearne.png" alt="Hearne ISD" class="school-logo">
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-8">
@@ -619,10 +682,104 @@
                                     <div class="school-name">Hearne ISD</div>
                                 </div>
                                 <div class="testimonial-actions">
-                                    <a href="https://www.hearneisd.com/en-US" target="_blank" class="visit-website-btn">
+                                    <a href="https://www.hearneisd.com" target="_blank" class="visit-website-btn">
                                         <i class="bi bi-globe"></i>
                                         Visit Website
                                     </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lewiston Public Schools -->
+                <div class="testimonial-story fade-in">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
+                            <div class="school-logo-container">
+                                <img src="Photos/Images/client stories/logos/lewiston.png" alt="Lewiston Public Schools" class="school-logo">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">"</div>
+                                <blockquote class="testimonial-quote">The Google integration and the file sharing is one of the greatest assets of SchoolBlocks.</blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Dave Theriault</div>
+                                    <div class="author-title">Technology Director</div>
+                                    <div class="school-name">Lewiston Public Schools</div>
+                                </div>
+                                <div class="testimonial-actions">
+                                    <a href="https://www.lewistonpublicschools.org" target="_blank" class="visit-website-btn">
+                                        <i class="bi bi-globe"></i>
+                                        Visit Website
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ramona Unified School District -->
+                <div class="testimonial-story fade-in fade-in-delay-1">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
+                            <div class="school-logo-container">
+                                <img src="Photos/Images/client stories/logos/ramona.png" alt="Ramona Unified School District" class="school-logo">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">"</div>
+                                <blockquote class="testimonial-quote">We love the website. It's so easy to find information within a matter of a few clicks. And I think that's the most important because we're here to cater to parents, our students and our staff.</blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Kristina Wright</div>
+                                    <div class="author-title">Assistant Superintendent</div>
+                                    <div class="school-name">Ramona Unified School District</div>
+                                </div>
+                                <div class="testimonial-actions">
+                                    <a href="https://www.ramonausd.net" target="_blank" class="visit-website-btn">
+                                        <i class="bi bi-globe"></i>
+                                        Visit Website
+                                    </a>
+                                    <button class="play-video-btn" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/9a83d0dc63b14bb0b640af163db8fb13/manifest/video.m3u8', 'https://www.ramonausd.net')">
+                                        <i class="bi bi-play-circle"></i>
+                                        Watch Video
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ramona Unified School District - Keith Wright -->
+                <div class="testimonial-story fade-in fade-in-delay-2">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
+                            <div class="school-logo-container">
+                                <img src="Photos/Images/client stories/logos/ramona.png" alt="Ramona Unified School District" class="school-logo">
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">"</div>
+                                <blockquote class="testimonial-quote">What we are now as a website is just miles and leaps ahead from where we were before. The look and feel is way more modern, and I think it presents us as a district in a lot better of a light. It makes us look better. And it works on all devices—mobile devices, computers, tablets—and that makes it more easily accessible for our families and users.
+
+What we've been able to do because of the ease of use of the website and the backend—it lets us be more timely. We're able to present information and change information very easily, and it all looks good. The style and the format you've come up with with SchoolBlocks makes it so easy. It's made it look good, functional, easily used and easily accessed.</blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Keith Wright</div>
+                                    <div class="author-title">Director of Technology</div>
+                                    <div class="school-name">Ramona Unified School District</div>
+                                </div>
+                                <div class="testimonial-actions">
+                                    <a href="https://www.ramonausd.net" target="_blank" class="visit-website-btn">
+                                        <i class="bi bi-globe"></i>
+                                        Visit Website
+                                    </a>
+                                    <button class="play-video-btn" onclick="showVideoModal('https://customer-394md8sxxno51fu2.cloudflarestream.com/9a83d0dc63b14bb0b640af163db8fb13/manifest/video.m3u8', 'https://www.ramonausd.net')">
+                                        <i class="bi bi-play-circle"></i>
+                                        Watch Video
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -712,6 +869,23 @@
                 console.log('HeroComponent not found');
             }
 
+            // Add smooth scroll functionality for CTA button
+            setTimeout(() => {
+                const ctaButton = document.querySelector('.hero-cta-btn');
+                if (ctaButton && ctaButton.getAttribute('href') === '#testimonials-section') {
+                    ctaButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const testimonialsSection = document.getElementById('testimonials-section');
+                        if (testimonialsSection) {
+                            testimonialsSection.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                        }
+                    });
+                }
+            }, 100);
+
             // Initialize demo CTA component
             if (typeof DemoCTAComponent !== 'undefined') {
                 DemoCTAComponent.create({
@@ -747,23 +921,25 @@
             // Create modal HTML
             const modalHTML = `
                 <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content" style="background: #000; border: none; border-radius: 16px; overflow: hidden;">
-                            <div class="modal-header" style="background: rgba(0,0,0,0.8); border: none; padding: 20px;">
-                                <h5 class="modal-title text-white" id="videoModalLabel">Client Success Story</h5>
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); border: none; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);">
+                            <div class="modal-header" style="background: transparent; border: none; padding: 24px 32px; position: relative;">
+                                <h5 class="modal-title text-white" id="videoModalLabel" style="font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em;">
+                                    <i class="bi bi-play-circle-fill" style="color: #4A90E2; margin-right: 12px;"></i>Client Success Story
+                                </h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="opacity: 1; position: relative; z-index: 10;"></button>
                             </div>
-                            <div class="modal-body p-0">
-                                <video controls autoplay style="width: 100%; height: auto; max-height: 400px;">
-                                    <source src="${videoUrl}" type="application/x-mpegURL">
-                                    Your browser does not support the video tag.
-                                </video>
+                            <div class="modal-body p-0" style="padding: 0 32px 32px 32px !important;">
+                                <div style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);">
+                                    <video id="videoPlayer" controls autoplay style="width: 100%; height: auto; display: block; background: #000; border-radius: 16px;">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
                             </div>
-                            <div class="modal-footer" style="background: rgba(0,0,0,0.8); border: none; padding: 20px;">
-                                <a href="${websiteUrl}" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, #4A90E2, #357ABD); border: none; border-radius: 8px;">
+                            <div class="modal-footer" style="background: transparent; border: none; padding: 0 32px 32px 32px; justify-content: center; gap: 16px;">
+                                <a href="${websiteUrl}" target="_blank" class="btn" style="background: linear-gradient(135deg, #4A90E2, #357ABD); color: white; border: none; border-radius: 12px; padding: 14px 32px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(74, 144, 226, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(74, 144, 226, 0.3)';">
                                     <i class="bi bi-globe me-2"></i>Visit School Website
                                 </a>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 8px;">Close</button>
                             </div>
                         </div>
                     </div>
@@ -778,6 +954,34 @@
 
             // Add modal to body
             document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+            // Get video element
+            const video = document.getElementById('videoPlayer');
+            
+            // Initialize HLS.js for HLS streaming
+            if (Hls.isSupported()) {
+                const hls = new Hls({
+                    debug: false,
+                    enableWorker: true,
+                    lowLatencyMode: true,
+                });
+                hls.loadSource(videoUrl);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    video.play();
+                });
+                
+                // Clean up HLS instance when modal is closed
+                document.getElementById('videoModal').addEventListener('hidden.bs.modal', function() {
+                    hls.destroy();
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                // For Safari native HLS support
+                video.src = videoUrl;
+                video.addEventListener('loadedmetadata', function() {
+                    video.play();
+                });
+            }
 
             // Show modal
             const modal = new bootstrap.Modal(document.getElementById('videoModal'));

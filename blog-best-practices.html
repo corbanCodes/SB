@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practices for School Leaders - SchoolBlocks Blog</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: white;
+        }
+
+        /* Main content styles */
+        .main-content {
+            padding-top: 0; /* Will be set by navbar loader */
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .blog-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .blog-category {
+            background: var(--primary-blue);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .blog-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .blog-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .blog-content h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 40px 0 20px 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 30px 0 15px 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 20px;
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .blog-content li {
+            margin-bottom: 10px;
+        }
+
+        .blog-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .blog-content .highlight-box {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(74, 144, 226, 0.05));
+            border: 1px solid rgba(74, 144, 226, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .blog-content .highlight-box h4 {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-blog:hover {
+            color: var(--secondary-blue);
+            transform: translateX(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-container {
+                padding: 40px 15px;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .blog-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .blog-content {
+                font-size: 1rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Navbar compatibility */
+        .dropdown-menu {
+            position: fixed !important;
+            z-index: 1000 !important;
+            display: block !important;
+        }
+        
+        .dropdown-menu-item:hover .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <main class="main-content">
+        <div class="blog-container">
+            <a href="blog.html" class="back-to-blog">
+                <i class="bi bi-arrow-left"></i>
+                Back to Blog
+            </a>
+
+            <article>
+                <header class="blog-header">
+                    <div class="blog-meta">
+                        <span class="blog-category">Leadership</span>
+                        <span class="blog-date">October 22, 2025</span>
+                    </div>
+                    <h1 class="blog-title">Best Practices for School Leaders</h1>
+                </header>
+
+                <div class="blog-content">
+                    <h2>Purpose</h2>
+                    <p>Often, districts purchase and launch SchoolBlocks without directly involving principals or school leaders—meaning many never fully discover the platform's potential.</p>
+                    
+                    <p>This guide (and accompanying video) is designed to showcase how SchoolBlocks can become your school's central communication hub, empowering leaders, teachers, and staff to engage families and streamline communication.</p>
+
+                    <p><strong>Watch a brief overview:</strong></p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/ZNdH-YUPvD4" allowfullscreen title="SchoolBlocks Overview for School Leaders"></iframe>
+                    </div>
+
+                    <h2>1. Maximize Your Website as the Central Communication Hub</h2>
+                    <p>Your school website is your most powerful communication tool. While you may use newsletters or social media, all channels should ultimately direct families back to your SchoolBlocks website—the single source of truth for accurate, timely information.</p>
+
+                    <h3>Best Practices:</h3>
+                    <p><strong>Use the website as the official hub.</strong> Post calendars, announcements, and key documents directly to your SchoolBlocks site to ensure everyone has the same information.</p>
+
+                    <p><strong>Integrate news and social media.</strong> Publish news articles on your SchoolBlocks site first, then use the automatic sharing feature to post them to your school's social media (ie Facebook). This keeps your website the authoritative source while social media amplifies your message.</p>
+
+                    <p><strong>Encourage Faculty Microsites.</strong> Give teachers and departments their own microsites for class updates, homework, and resources. These elevate teacher visibility and foster parent involvement by creating an organized, easily accessible space for classroom communication.</p>
+
+                    <h2>2. Streamline Administrative Tasks with Integrated Tools</h2>
+                    <p>SchoolBlocks brings together powerful tools that simplify administration and communication, helping you focus on instructional leadership instead of managing multiple systems.</p>
+
+                    <h3>Key Features:</h3>
+                    <p><strong>Mass Notifications.</strong> Instantly communicate with your community via email, SMS, or push notification. Send emergency alerts or group messages from one place—every message leaves a clear audit trail.</p>
+
+                    <p><strong>AI Answer Bot.</strong> Provide 24/7 answers to parents and visitors with an AI bot trained on your school's own website content. Reduce repetitive questions and ensure families get instant, accurate information.</p>
+
+                    <p><strong>DocMersion (Policy & Handbook Feature).</strong> Transform PDFs and Word documents into ADA-compliant, searchable web pages. This ensures key resources like handbooks and policies are accessible to all.</p>
+
+                    <p><strong>Google & Microsoft Integration.</strong> Connect your Google Drive or OneDrive folders directly to your site. When files are updated, changes automatically sync—saving time and keeping content current.</p>
+
+                    <h2>3. Highlight Your Team</h2>
+                    <p>Celebrate your staff with a dedicated Staff Directory page. Include professional photos, meaningful bios, and contact details to help families connect with the people who make your school great.</p>
+
+                    <h2>4. Foster an Empowered and Collaborative Staff</h2>
+                    <p>Encourage teachers and staff to take ownership of their pages within SchoolBlocks. When everyone contributes, information stays current, and your school's communication becomes more dynamic and authentic.</p>
+
+                    <h3>Best Practices:</h3>
+                    <p><strong>Distribute Content Management.</strong> Assign page ownership to department heads, coaches, and staff. With SchoolBlocks' intuitive tools, anyone can manage their section with ease.</p>
+
+                    <p><strong>Provide Quick Training.</strong> A brief hands-on session helps staff feel confident using content blocks and terraces, managing microsites, and leveraging integrations.</p>
+
+                    <p><strong>Promote Quality & Accessibility.</strong></p>
+                    <ul>
+                        <li>Keep content simple and easy to navigate.</li>
+                        <li>Use high-quality visuals to enhance engagement.</li>
+                        <li>Add alt text and accessible language to ensure inclusivity.</li>
+                    </ul>
+
+                    <h2>5. Engage Your Community Proactively</h2>
+                    <p>Use SchoolBlocks' built-in communication tools to keep parents and students informed and engaged.</p>
+
+                    <p><strong>App & Activity Feed:</strong> Families can follow updates, receive push notifications, and access all key information in one place.</p>
+
+                    <p><strong>Athletics:</strong> Showcase your athletic programs and teams. Coaches can manage schedules, scores, and team communication from the same platform—keeping everything centralized and visible to your community.</p>
+
+                    <p><strong>Spirit Gear Store:</strong> Offer school-branded merchandise and earn 10% back in store credit. It's a simple way to boost engagement and school spirit.</p>
+
+                    <h2>6. Get Support When You Need It</h2>
+                    <p>Our team is here to help—anytime. Whether you're setting up new features, training staff, or just need quick guidance, the SchoolBlocks Support Team is available at a moment's notice.</p>
+
+                    <!-- Demo CTA Section will be loaded here -->
+                    <div id="demo-cta-blog"></div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Load Scripts -->
+    <script src="navbarloader.js"></script>
+    <script src="footerloader.js"></script>
+    <script src="demo-cta.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Initialize Demo CTA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof DemoCTAComponent !== 'undefined') {
+                DemoCTAComponent.create({
+                    title: "Ready to maximize your school's communication potential?",
+                    subtitle: "Connect with our team to learn how SchoolBlocks can empower your school leaders and staff to engage families more effectively.",
+                    buttonText: "Schedule a Demo",
+                    buttonUrl: "get-started.html"
+                }, 'demo-cta-blog');
+            }
+        });
+    </script>
+</body>
+</html>

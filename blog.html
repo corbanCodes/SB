@@ -293,17 +293,12 @@
         .blog-card {
             display: flex;
             flex-direction: column;
-            height: 100%;
+            height: auto;
             cursor: pointer;
         }
 
         .blog-card .feature-description {
-            flex-grow: 1;
-            margin-bottom: 20px;
-        }
-
-        .blog-card .author-info {
-            margin-top: auto;
+            margin-bottom: 0;
         }
 
         /* Modern Pagination Styles */
@@ -484,125 +479,75 @@
         <div id="hero-section"></div>
 
         <!-- Blog Header Section -->
-        <section class="content-section">
+        <section class="content-section" style="padding-bottom: 40px;">
             <div class="container">
                 <div class="text-center mb-5">
                     <h1 class="section-title fade-in">SchoolBlocks Blog</h1>
-                    <p class="section-subtitle fade-in fade-in-delay-1">FAKE FOR NOW EXAMPLE SIGHT IN PROGRESS - Insights, tips, and success stories from the world of school communications</p>
+                    <p class="section-subtitle fade-in fade-in-delay-1">Insights, tips, and success stories from the world of school communications</p>
                 </div>
             </div>
         </section>
 
         <!-- Blog Posts Section -->
-        <section class="features-section">
+        <section class="features-section" style="padding-top: 0;">
             <div class="container">
                 <div class="row">
                     <!-- Blog Post 1 -->
                     <div class="col-lg-6 mb-5">
-                        <a href="blog-design-principles.html" class="text-decoration-none">
+                        <a href="blog-mobile-first-design.html" class="text-decoration-none">
                             <article class="feature-card blog-card fade-in" style="text-align: left;">
-                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="School website design" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
+                                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile-first design" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
                                 <div class="d-flex align-items-center mb-3">
-                                    <span class="badge bg-primary me-2">Communication</span>
+                                    <span class="badge bg-info me-2">Design</span>
                                     <small class="text-muted">November 1, 2025</small>
                                 </div>
-                                <h3 class="feature-title mb-3">What Every School-to-Home Communication Platform Should Deliver</h3>
-                                <p class="feature-description">Districts need more than a static website. Explore the seven must-have capabilities for a modern school-to-home communication platform—from ADA compliance and PWAs to document engagement, safe social, integrations, and AI-powered answers.</p>
-                                <div class="d-flex align-items-center author-info">
-                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Author" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
-                                    <div>
-                                        <small class="fw-bold d-block">Sarah Chen</small>
-                                        <small class="text-muted">UX Designer</small>
-                                    </div>
-                                </div>
+                                <h3 class="feature-title mb-3">Optimizing School Websites with Mobile-First Design</h3>
+                                <p class="feature-description">With over 70% of parents accessing school information on mobile devices, mobile-first design isn't optional—it's essential. Learn how to optimize your school's digital presence for mobile users.</p>
                             </article>
                         </a>
                     </div>
 
                     <!-- Blog Post 2 -->
                     <div class="col-lg-6 mb-5">
-                        <a href="blog-parent-engagement.html" class="text-decoration-none">
+                        <a href="blog-google-microsoft-integration.html" class="text-decoration-none">
                             <article class="feature-card blog-card fade-in fade-in-delay-1" style="text-align: left;">
-                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Parent engagement" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Integration" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
                                 <div class="d-flex align-items-center mb-3">
-                                    <span class="badge bg-success me-2">Success Story</span>
+                                    <span class="badge bg-success me-2">Integration</span>
                                     <small class="text-muted">October 28, 2025</small>
                                 </div>
-                                <h3 class="feature-title mb-3">How Lincoln Elementary Increased Parent Engagement by 300%</h3>
-                                <p class="feature-description">Discover how Lincoln Elementary School transformed their parent communication strategy using SchoolBlocks, resulting in unprecedented levels of community involvement and student success.</p>
-                                <div class="d-flex align-items-center author-info">
-                                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Author" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
-                                    <div>
-                                        <small class="fw-bold d-block">Maria Rodriguez</small>
-                                        <small class="text-muted">Education Specialist</small>
-                                    </div>
-                                </div>
+                                <h3 class="feature-title mb-3">Enhancing School Efficiency: Leveraging Google & Microsoft Integration with SchoolBlocks</h3>
+                                <p class="feature-description">Discover how seamless integration with Google and Microsoft tools can streamline your school's workflow and enhance collaboration across your district.</p>
                             </article>
                         </a>
                     </div>
 
                     <!-- Blog Post 3 -->
                     <div class="col-lg-6 mb-5">
-                        <a href="blog-ada-compliance.html" class="text-decoration-none">
+                        <a href="blog-digital-identity.html" class="text-decoration-none">
                             <article class="feature-card blog-card fade-in fade-in-delay-2" style="text-align: left;">
-                                <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ADA compliance" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
+                                <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="School building" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
                                 <div class="d-flex align-items-center mb-3">
-                                    <span class="badge bg-warning me-2">Compliance</span>
+                                    <span class="badge bg-primary me-2">Branding</span>
                                     <small class="text-muted">October 25, 2025</small>
                                 </div>
-                                <h3 class="feature-title mb-3">ADA Compliance: What Every School District Needs to Know</h3>
-                                <p class="feature-description">Understanding ADA compliance requirements for school websites is crucial for protecting your district. Learn about the latest guidelines, common pitfalls, and how to ensure your website meets all accessibility standards.</p>
-                                <div class="d-flex align-items-center author-info">
-                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Author" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
-                                    <div>
-                                        <small class="fw-bold d-block">David Thompson</small>
-                                        <small class="text-muted">Legal Compliance Expert</small>
-                                    </div>
-                                </div>
+                                <h3 class="feature-title mb-3">Crafting a Distinct Digital Identity with SchoolBlocks</h3>
+                                <p class="feature-description">Learn how to create a unique and memorable digital presence for your school district that reflects your values and engages your community.</p>
                             </article>
                         </a>
                     </div>
 
                     <!-- Blog Post 4 -->
                     <div class="col-lg-6 mb-5">
-                        <a href="blog-mobile-first.html" class="text-decoration-none">
+                        <a href="blog-best-practices.html" class="text-decoration-none">
                             <article class="feature-card blog-card fade-in fade-in-delay-3" style="text-align: left;">
-                                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile optimization" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
+                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="School leadership" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
                                 <div class="d-flex align-items-center mb-3">
-                                    <span class="badge bg-info me-2">Technology</span>
+                                    <span class="badge bg-warning me-2">Leadership</span>
                                     <small class="text-muted">October 22, 2025</small>
                                 </div>
-                                <h3 class="feature-title mb-3">Mobile-First Design: Why It Matters for Schools</h3>
-                                <p class="feature-description">With over 70% of parents accessing school information on mobile devices, mobile-first design isn't optional—it's essential. Learn how to optimize your school's digital presence for mobile users.</p>
-                                <div class="d-flex align-items-center author-info">
-                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Author" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
-                                    <div>
-                                        <small class="fw-bold d-block">Jennifer Park</small>
-                                        <small class="text-muted">Mobile Strategy Lead</small>
-                                    </div>
-                                </div>
-                            </article>
-                        </a>
-                    </div>
-
-                    <!-- Blog Post 5 -->
-                    <div class="col-lg-6 mb-5">
-                        <a href="blog-crisis-communication.html" class="text-decoration-none">
-                            <article class="feature-card blog-card fade-in fade-in-delay-4" style="text-align: left;">
-                                <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crisis communication" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 200px; object-fit: cover;">
-                                <div class="d-flex align-items-center mb-3">
-                                    <span class="badge bg-danger me-2">Crisis Management</span>
-                                    <small class="text-muted">October 20, 2025</small>
-                                </div>
-                                <h3 class="feature-title mb-3">Crisis Communication: Keeping Your Community Informed</h3>
-                                <p class="feature-description">When emergencies strike, clear communication can make all the difference. Explore best practices for crisis communication and how SchoolBlocks helps districts respond quickly and effectively.</p>
-                                <div class="d-flex align-items-center author-info">
-                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Author" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
-                                    <div>
-                                        <small class="fw-bold d-block">Michael Johnson</small>
-                                        <small class="text-muted">Communications Director</small>
-                                    </div>
-                                </div>
+                                <h3 class="feature-title mb-3">Best Practices for School Leaders</h3>
+                                <p class="feature-description">Explore proven strategies and best practices for school leaders to enhance communication, build community trust, and drive positive outcomes for students and families.</p>
                             </article>
                         </a>
                     </div>
