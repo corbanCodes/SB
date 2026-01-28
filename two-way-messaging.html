@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Way Messaging - SchoolBlocks</title>
+    <meta name="description" content="Secure two-way messaging for schools. A modern Remind alternative with SMS delivery, multi-language translation, and full district control. Built into your SchoolBlocks platform.">
+
+    <!-- SEO Meta Tags -->
+    <link rel="canonical" href="https://www.schoolblocks.com/two-way-messaging.html">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.schoolblocks.com/two-way-messaging.html">
+    <meta property="og:title" content="Two-Way Messaging - SchoolBlocks">
+    <meta property="og:description" content="Secure two-way messaging for schools. A modern Remind alternative with SMS delivery, multi-language translation, and full district control.">
+    <meta property="og:image" content="https://www.schoolblocks.com/images/og-image.jpg">
+    <meta property="og:site_name" content="SchoolBlocks">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.schoolblocks.com/two-way-messaging.html">
+    <meta name="twitter:title" content="Two-Way Messaging - SchoolBlocks">
+    <meta name="twitter:description" content="Secure two-way messaging for schools. A modern Remind alternative with SMS delivery, multi-language translation, and full district control.">
+    <meta name="twitter:image" content="https://www.schoolblocks.com/images/og-image.jpg">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Two-Way Messaging - SchoolBlocks",
+        "description": "Secure two-way messaging for schools. A modern Remind alternative with SMS delivery, multi-language translation, and full district control.",
+        "url": "https://www.schoolblocks.com/two-way-messaging.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "SchoolBlocks",
+            "url": "https://www.schoolblocks.com"
+        }
+    }
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --light-blue: #E8F4FD;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 50%, #E8F4FD 100%);
+            min-height: 100vh;
+        }
+
+        /* Fade-in Animation Styles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 { transition-delay: 0.1s; }
+        .fade-in-delay-2 { transition-delay: 0.2s; }
+        .fade-in-delay-3 { transition-delay: 0.3s; }
+        .fade-in-delay-4 { transition-delay: 0.4s; }
+        .fade-in-delay-5 { transition-delay: 0.5s; }
+        .fade-in-delay-6 { transition-delay: 0.6s; }
+
+        /* Modern Bootstrap Enhancements */
+        .container {
+            max-width: 1400px !important;
+            padding-left: 2rem !important;
+            padding-right: 2rem !important;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+
+        /* Custom color overrides for Bootstrap */
+        :root {
+            --bs-primary: #4A90E2;
+            --bs-primary-rgb: 74, 144, 226;
+        }
+
+        .bg-primary {
+            background-color: var(--primary-blue) !important;
+        }
+
+        .text-primary {
+            color: var(--primary-blue) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-blue);
+            border-color: var(--secondary-blue);
+        }
+
+        /* Enhanced shadows and animations */
+        .shadow-lg {
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+        }
+
+        .img-fluid {
+            transition: transform 0.3s ease;
+        }
+
+        .img-fluid:hover {
+            transform: scale(1.02);
+        }
+
+        /* Clean modern styles */
+        .display-5 {
+            font-weight: 700;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive enhancements */
+        @media (max-width: 768px) {
+            .display-5 {
+                font-size: 2rem !important;
+            }
+
+            .lead {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Navbar compatibility */
+        .main-content {
+            padding-top: 0;
+        }
+
+        /* Ensure navbar dropdowns work */
+        .dropdown-menu {
+            position: fixed !important;
+            z-index: 1000 !important;
+            display: block !important;
+        }
+
+        .dropdown-menu-item:hover .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: block !important;
+        }
+
+        /* Feature Comparison Table Styles */
+        .comparison-table {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .comparison-table th:not(:first-child) {
+            text-align: center;
+        }
+
+        .comparison-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #e9ecef;
+            vertical-align: middle;
+        }
+
+        .comparison-table td:not(:first-child) {
+            text-align: center;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .check-icon {
+            color: #28a745;
+            font-size: 1.25rem;
+        }
+
+        .x-icon {
+            color: #dc3545;
+            font-size: 1.25rem;
+        }
+
+        .limited-text {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .dash-icon {
+            color: #6c757d;
+            font-size: 1.25rem;
+        }
+
+        /* Press Badge */
+        .press-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 1px solid #dee2e6;
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .press-badge:hover {
+            background: linear-gradient(135deg, #e9ecef, #dee2e6);
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Benefits Cards */
+        .benefit-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            height: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74, 144, 226, 0.1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Quote Section */
+        .quote-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .quote-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Demo CTA will be loaded here -->
+    <div id="demo-cta-container"></div>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <div id="hero-section"></div>
+
+        <!-- Feature Comparison Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="text-center mb-5 fade-in">
+                            <a href="https://www.edtechreview.com/2026/01/schoolblocks-offers-interesting.html" target="_blank" rel="noopener" class="press-badge mb-4">
+                                <i class="bi bi-newspaper"></i>
+                                <span>As featured in <strong>EdTech Review</strong></span>
+                                <i class="bi bi-box-arrow-up-right"></i>
+                            </a>
+                            <h2 class="display-5 fw-bold mb-4">Feature Comparison at a Glance</h2>
+                            <p class="lead text-muted">See how SchoolBlocks stacks up against standalone messaging tools</p>
+                        </div>
+
+                        <div class="comparison-table fade-in fade-in-delay-1">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Capability</th>
+                                        <th>Remind</th>
+                                        <th>SchoolBlocks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Two-way messaging</td>
+                                        <td><i class="bi bi-check-lg check-icon"></i></td>
+                                        <td><i class="bi bi-check-lg check-icon"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SMS delivery</td>
+                                        <td><i class="bi bi-check-lg check-icon"></i></td>
+                                        <td><i class="bi bi-check-lg check-icon"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Multi-language translation</td>
+                                        <td><i class="bi bi-check-lg check-icon"></i></td>
+                                        <td><i class="bi bi-check-lg check-icon"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>District-branded environment</td>
+                                        <td><span class="limited-text">Limited</span></td>
+                                        <td><i class="bi bi-check-lg check-icon"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Integrated with district website</td>
+                                        <td><i class="bi bi-x-lg x-icon"></i></td>
+                                        <td><i class="bi bi-check-lg check-icon"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Progressive Web App (no app store required)</td>
+                                        <td><i class="bi bi-x-lg x-icon"></i></td>
+                                        <td><i class="bi bi-check-lg check-icon"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Consolidated platform (website + messaging)</td>
+                                        <td><i class="bi bi-x-lg x-icon"></i></td>
+                                        <td><i class="bi bi-check-lg check-icon"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lower total cost of ownership</td>
+                                        <td><span class="dash-icon">—</span></td>
+                                        <td><i class="bi bi-check-lg check-icon"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Benefits Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <h2 class="display-5 fw-bold text-primary mb-4">Why Districts Are Switching</h2>
+                    <p class="lead">A unified approach to school communication</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-1">
+                        <div class="benefit-card">
+                            <div class="benefit-icon bg-success text-white">
+                                <i class="bi bi-piggy-bank"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Lower Cost Through Consolidation</h5>
+                            <p class="text-muted mb-0">Because SchoolBlocks bundles messaging with existing district communication tools, districts can often eliminate the need for a standalone messaging contract—reducing licensing fees, procurement overhead, and long-term vendor sprawl.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-2">
+                        <div class="benefit-card">
+                            <div class="benefit-icon bg-info text-white">
+                                <i class="bi bi-rocket-takeoff"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Simpler Implementation</h5>
+                            <p class="text-muted mb-0">Progressive Web App technology allows families to access messaging via browser, SMS, or an app-like experience without downloading from an app store. Faster rollout, fewer onboarding issues, and reduced IT burden.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-3">
+                        <div class="benefit-card">
+                            <div class="benefit-icon bg-warning text-white">
+                                <i class="bi bi-universal-access"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Accessibility & Equity</h5>
+                            <p class="text-muted mb-0">Multi-language translation, SMS delivery, and browser-based access ensure communication reaches families regardless of device type, language, or technical comfort level.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-4">
+                        <div class="benefit-card">
+                            <div class="benefit-icon bg-primary text-white">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">District-Controlled</h5>
+                            <p class="text-muted mb-0">All communication remains within your district's branded environment and aligns with district privacy and data governance standards. Reduce compliance risk and eliminate external platform dependencies.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-5">
+                        <div class="benefit-card">
+                            <div class="benefit-icon bg-danger text-white">
+                                <i class="bi bi-graph-up-arrow"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Higher Engagement</h5>
+                            <p class="text-muted mb-0">Administrators report higher engagement when communication is not gated behind app installs or account complexity. Broader participation from hard-to-reach families becomes possible.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-6">
+                        <div class="benefit-card">
+                            <div class="benefit-icon bg-secondary text-white">
+                                <i class="bi bi-boxes"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Unified Platform</h5>
+                            <p class="text-muted mb-0">Messaging is built directly into the SchoolBlocks platform districts already use for websites, calendars, and notifications. One login, one system, complete oversight.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <span class="badge bg-primary-subtle text-primary mb-3">HOW IT WORKS</span>
+                    <h2 class="display-5 fw-bold mb-4">Messaging Built Into Your District Platform</h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 700px;">SchoolBlocks delivers a Remind-style two-way messaging experience, but with a key architectural difference: messaging is built directly into the platform districts already use.</p>
+                </div>
+
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-1">
+                        <div class="benefit-card text-center h-100">
+                            <div class="benefit-icon bg-primary text-white mx-auto">
+                                <i class="bi bi-chat-dots-fill"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Direct Two-Way Communication</h5>
+                            <p class="text-muted mb-0">Teachers and staff can message families directly, and families can respond—all within a secure, district-controlled environment.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-2">
+                        <div class="benefit-card text-center h-100">
+                            <div class="benefit-icon bg-success text-white mx-auto">
+                                <i class="bi bi-phone-fill"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">SMS + App + Web</h5>
+                            <p class="text-muted mb-0">Messages reach families via SMS, push notifications, or web—whichever they prefer. No app download required.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 fade-in fade-in-delay-3">
+                        <div class="benefit-card text-center h-100">
+                            <div class="benefit-icon bg-info text-white mx-auto">
+                                <i class="bi bi-translate"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Multi-Language Translation</h5>
+                            <p class="text-muted mb-0">Messages can be translated into families' preferred languages, ensuring equitable access for all community members.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="py-5 bg-primary text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center fade-in">
+                        <h2 class="display-5 fw-bold mb-4">The Bottom Line</h2>
+                        <p class="lead mb-0 opacity-90">For districts currently using Remind, SchoolBlocks offers a modern alternative that delivers similar messaging capabilities with lower total cost, simpler implementation, and full integration into district-controlled infrastructure.</p>
+                        <p class="mt-4 opacity-75">As districts prioritize clarity, equity, and operational efficiency, platforms that reduce complexity—rather than add to it—are increasingly shaping purchasing decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo CTA Section will be loaded here -->
+        <div id="demo-cta-bottom"></div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Load Scripts -->
+    <script src="demo-cta.js"></script>
+    <script src="navbarloader.js"></script>
+    <script src="school-websites-hero.js"></script>
+    <script src="footerloader.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Initialize Components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize hero component with two-way messaging configuration
+            if (typeof HeroComponent !== 'undefined') {
+                HeroComponent.create({
+                    title: "Two-Way Messaging",
+                    subtitle: "A Modern Remind Alternative",
+                    description: "Secure, district-controlled two-way messaging that's built directly into your SchoolBlocks platform. Reach every family via SMS, app, or web—with multi-language translation and no additional contracts required.",
+                    ctaText: "GET STARTED",
+                    ctaUrl: "get-started.html",
+                    heroImage: "two-way-messaging-images/hero.png",
+                    showPartners: false
+                }, 'hero-section');
+            }
+
+            // Initialize demo CTA component
+            if (typeof DemoCTAComponent !== 'undefined') {
+                DemoCTAComponent.create({
+                    title: "Ready to simplify your school communication?",
+                    subtitle: "See how two-way messaging works in SchoolBlocks",
+                    buttonText: "Request a Demo",
+                    buttonUrl: "get-started.html"
+                }, 'demo-cta-bottom');
+            }
+
+            // Initialize fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

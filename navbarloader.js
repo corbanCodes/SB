@@ -119,6 +119,15 @@ function loadNavbar() {
                                                     </div>
                                                 </a>
                                             </li>
+                                            <li>
+                                                <a href="two-way-messaging.html">
+                                                    <i class="bi bi-chat-left-text"></i>
+                                                    <div class="link-content">
+                                                        <span class="link-title">Two-Way Messaging <span class="new-badge">NEW</span></span>
+                                                        <span class="link-desc">Secure messaging for families and staff</span>
+                                                    </div>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -139,6 +148,7 @@ function loadNavbar() {
                                     <li><a href="welcome-chat.html"><i class="bi bi-chat-dots"></i><span class="new-badge">NEW</span> AI-powered Answers (WelcomeChat)</a></li>
                                     <li><a href="spirit-store.html"><i class="bi bi-shop"></i><span class="new-badge">NEW</span> Spirit Gear Store</a></li>
                                     <li><a href="schoolfeed-social.html"><i class="bi bi-people"></i><span class="new-badge">NEW</span> SchoolFeed Social Platform</a></li>
+                                    <li><a href="two-way-messaging.html"><i class="bi bi-chat-left-text"></i><span class="new-badge">NEW</span> Two-Way Messaging</a></li>
                                 </ul>
                             </div>
                         </li>

@@ -1,0 +1,23 @@
+# robots.txt for SchoolBlocks
+# https://www.schoolblocks.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.schoolblocks.com/sitemap.xml
+
+# Disallow backup and example files
+Disallow: /index-old.html
+Disallow: /index_copy.html
+Disallow: /privacy-policy-backup.html
+Disallow: /blog-template.html
+Disallow: /hero-usage-example.html
+Disallow: /demo-cta-usage-example.html
+Disallow: /apps copy 7.html
+Disallow: /alternative-features.html
+Disallow: /alternative-video.html
+Disallow: /alternative-features-bar.html
+
+# Crawl-delay for politeness (optional, respected by some bots)
+Crawl-delay: 1
