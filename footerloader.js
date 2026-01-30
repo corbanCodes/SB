@@ -9,7 +9,7 @@ function loadFooter() {
                     <div class="footer-brand">
                         <img src="Photos/Logo/SchoolBlocks Logo-2024_long-logo.png" alt="SchoolBlocks" class="footer-logo">
                         <p class="footer-tagline">Empowering Educators. Amplifying Impact.</p>
-                        <p class="footer-description">Comprehensive digital solutions designed specifically for K-12 education, trusted by over 3,000 schools nationwide.</p>
+                        <p class="footer-description">Comprehensive digital solutions designed specifically for K-12 education, trusted by over 1,500 school districts nationwide.</p>
                         
                         <div class="footer-contact">
                             <div class="contact-item">
@@ -120,7 +120,7 @@ function loadFooter() {
                     
                     <div class="footer-copyright">
                         <p>&copy; <span id="current-year"></span> SchoolBlocks. All rights reserved.</p>
-                        <p class="footer-subtitle">Trusted by over 3,000 schools nationwide • 25 Years of K-12 Innovation</p>
+                        <p class="footer-subtitle">Trusted by over 1,500 school districts nationwide • 25 Years of K-12 Innovation</p>
                     </div>
                 </div>
             </div>
